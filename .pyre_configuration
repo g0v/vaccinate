@@ -2,5 +2,6 @@
   "source_directories": [
     "backend"
   ],
+  "strict": true,
   "taint_models_path": "/home/lorikeet/.local/share/virtualenvs/vaccine2-VXhu5KXl/lib"
 }

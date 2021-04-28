@@ -5,6 +5,11 @@ from typing import TypedDict, Tuple, Dict
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
+from hospital_types import Hospital, HospitalID, AppointmentAvailability
+
+# Parsers
+from Parsers.ntu_taipei import *
+from Parsers.ntu_hsinchu import *
 
 
 app = Flask(
@@ -15,49 +20,11 @@ app = Flask(
 )
 
 
-HospitalID = int
-
-
-class AppointmentAvailability(Enum):
-    AVAILABLE = "Available"
-    UNAVAILABLE = "Unavailable"
-    NO_DATA = "No data"
-
-
-class Hospital(TypedDict):
-    address: str
-    availability: AppointmentAvailability
-    department: str
-    hospital_id: HospitalID
-    location: str
-    name: str
-    phone: str
-    website: str
-
-
-def parseNTUH() -> Tuple[HospitalID, AppointmentAvailability]:
-    r = requests.get(
-        "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=",
-        verify="../data/ntuh-gov-tw-chain.pem",
-    )
-    soup = BeautifulSoup(r.text, "html.parser")
-    table = soup.find("table")
-    links = table.find_all("a", string="掛號")
-    app.logger.warn(links)
-    # PEP8 Style: if list is not empty, then there are appointments
-    return (
-        3,
-        AppointmentAvailability.AVAILABLE
-        if bool(links)
-        else AppointmentAvailability.UNAVAILABLE,
-    )
-
-
-PARSERS = [parseNTUH]
+PARSERS = [parseNTUH, parseNTUHHsinchu]
 
 
 @app.route("/")
-def index():
+def index() -> str:
     availability: Dict[HospitalID, AppointmentAvailability] = dict(
         [f() for f in PARSERS]
     )
@@ -71,13 +38,13 @@ def index():
             hospital_availability = (
                 availability[hospital_id].value
                 if hospital_id in availability
-                else AppointmentAvailability.NO_DATA
+                else AppointmentAvailability.NO_DATA.value
             )
             hospital: Hospital = {
                 "address": row["地址"],
                 "availability": hospital_availability,
                 "department": row["科別"],
-                "hospital_id": row["編號"],
+                "hospital_id": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
                 "phone": row["電話"],
