@@ -10,6 +10,7 @@ from backend.hospital_types import Hospital, HospitalID, AppointmentAvailability
 # Parsers
 from backend.Parsers.ntu_taipei import *
 from backend.Parsers.ntu_hsinchu import *
+from backend.Parsers.ntu_yunlin import *
 
 
 app = Flask(
@@ -20,7 +21,7 @@ app = Flask(
 )
 
 
-PARSERS = [parseNTUH, parseNTUHHsinchu]
+PARSERS = [parseNTUH, parseNTUHHsinchu, parseNTUHYunlin]
 
 
 @app.route("/")
@@ -53,4 +54,4 @@ def index() -> str:
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host="0.0.0.0")
