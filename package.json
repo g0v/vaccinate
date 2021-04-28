@@ -9,7 +9,7 @@
   "scripts": {
     "backend": "parcel build ./frontend/index.html; python wsgi.py",
     "build": "parcel build ./frontend/index.html",
-    "lint": "black",
+    "lint": "black backend/*.py",
     "frontend": "parcel serve ./frontend/index.html",
     "tc": "pyre"
   },
