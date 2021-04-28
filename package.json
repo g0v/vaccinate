@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
+    "flow-bin": "^0.149.0",
     "parcel": "^2.0.0-beta.2"
   },
   "scripts": {
@@ -13,7 +14,6 @@
     "tc": "pyre"
   },
   "dependencies": {
-    "papaparse": "^5.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }

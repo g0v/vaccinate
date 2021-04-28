@@ -1,3 +1,4 @@
+// @flow
 import React, { useState, useEffect } from 'react';
 import * as Papa from 'papaparse';
 import Map from './Map';
