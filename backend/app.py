@@ -3,12 +3,13 @@ import csv
 import sys
 from typing import TypedDict
 import requests
+from bs4 import BeautifulSoup
 
 app = Flask(
     __name__,
-    static_url_path='',
-    static_folder='../dist',
-    template_folder='../dist',
+    static_url_path="",
+    static_folder="../dist",
+    template_folder="../dist",
 )
 
 
@@ -22,32 +23,37 @@ class Hospital(TypedDict):
     website: str
 
 
-@app.route('/')
+def parseNTUH():
+    r = requests.get(
+        "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=",
+        verify="../data/ntuh-gov-tw-chain.pem",
+    )
+    soup = BeautifulSoup(r.text, "html.parser")
+    table = soup.find("table")
+    app.logger.warn(table)
+
+
+@app.route("/")
 def index():
-    r = requests.get('https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=', verify='../data/ntuh-gov-tw-chain.pem')
-    app.logger.warn(r)
-    sys.stdout.flush()
-    print('This is error output', file=sys.stderr)
-    sys.stdout.flush()
-    app.logger.error("Hi")
-    with open('../data/hospitals.csv') as csvfile:
+    parseNTUH()
+    with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:
             website = None
-            id = row['編號']
+            id = row["編號"]
             hospital: Hospital = {
-                'id': row['編號'],
-                'location': row['縣市'],
-                'name': row['醫院名稱'],
-                'department': row['科別'],
-                'phone': row['電話'],
-                'address': row['地址'],
-                'website': row['Website'],
+                "id": row["編號"],
+                "location": row["縣市"],
+                "name": row["醫院名稱"],
+                "department": row["科別"],
+                "phone": row["電話"],
+                "address": row["地址"],
+                "website": row["Website"],
             }
             rows.append(hospital)
-            app.logger.warning(hospital)
-        return render_template('./index.html', rows=rows)
+        return render_template("./index.html", rows=rows)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)
