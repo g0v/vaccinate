@@ -1,9 +1,10 @@
 from flask import Flask, render_template
 import csv
 import sys
-from typing import TypedDict
+from typing import TypedDict, Tuple
 import requests
 from bs4 import BeautifulSoup
+
 
 app = Flask(
     __name__,
@@ -13,8 +14,11 @@ app = Flask(
 )
 
 
+HospitalID = int
+
+
 class Hospital(TypedDict):
-    id: int
+    id: HospitalID
     location: str
     name: str
     department: str
@@ -23,19 +27,26 @@ class Hospital(TypedDict):
     website: str
 
 
-def parseNTUH():
+def parseNTUH() -> Tuple[HospitalID, bool]: 
     r = requests.get(
         "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=",
         verify="../data/ntuh-gov-tw-chain.pem",
     )
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table")
-    app.logger.warn(table)
+    links = table.find_all('a', string='掛號')
+    app.logger.warn(links)
+    # PEP8 Style: if list is not empty, then there are appointments
+    return (3, bool(links))
+
+
+PARSERS = [parseNTUH]
 
 
 @app.route("/")
 def index():
-    parseNTUH()
+    availability = dict([f() for f in PARSERS])
+    app.logger.warn(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
