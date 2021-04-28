@@ -5,11 +5,11 @@ from typing import TypedDict, Tuple, Dict
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-from hospital_types import Hospital, HospitalID, AppointmentAvailability
+from backend.hospital_types import Hospital, HospitalID, AppointmentAvailability
 
 # Parsers
-from Parsers.ntu_taipei import *
-from Parsers.ntu_hsinchu import *
+from backend.Parsers.ntu_taipei import *
+from backend.Parsers.ntu_hsinchu import *
 
 
 app = Flask(
