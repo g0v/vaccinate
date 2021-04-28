@@ -1,14 +1,14 @@
 {
   "name": "vaccine2",
   "version": "1.0.0",
-  "main": "index.html",
   "license": "MIT",
   "devDependencies": {
     "parcel": "^2.0.0-beta.2"
   },
   "scripts": {
-    "start": "parcel build ./src/index.html; cd backend; flask run",
-    "build": "parcel build ./src/index.html",
+    "backend": "parcel build ./frontend/index.html; cd backend; flask run",
+    "build": "parcel build ./frontend/index.html",
+    "frontend": "parcel serve ./frontend/index.html",
     "tc": "pyre"
   },
   "dependencies": {
