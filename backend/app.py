@@ -11,6 +11,7 @@ from backend.hospital_types import Hospital, HospitalID, AppointmentAvailability
 from backend.Parsers.ntu_taipei import *
 from backend.Parsers.ntu_hsinchu import *
 from backend.Parsers.ntu_yunlin import *
+from backend.Parsers.tzuchi_taipei import *
 
 
 app = Flask(
@@ -21,7 +22,7 @@ app = Flask(
 )
 
 
-PARSERS = [parseNTUH, parseNTUHHsinchu, parseNTUHYunlin]
+PARSERS = [parseNTUH, parseNTUHHsinchu, parseNTUHYunlin, parseTzuchiTaipei]
 
 
 @app.route("/")
