@@ -6,7 +6,6 @@ from enum import Enum
 import requests
 from bs4 import BeautifulSoup
 from hospital_types import Hospital, HospitalID, AppointmentAvailability
-import os
 
 # Parsers
 from Parsers.ntu_taipei import *
