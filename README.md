@@ -28,4 +28,4 @@ To develop for the Python backend, run `yarn backend`. To develop for the JavaSc
 6. Make a PR and merge. 
 
 # Known Issues
-* After adding a new Python dependency, pipenv gets pretty unhappy. 
+* After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix.
