@@ -1,4 +1,4 @@
-編號,縣市,醫院名稱,科別,電話,地址,Website
+編號,縣市,醫院名稱,科別,電話,地址,Website,Owner
 1,基隆市,衛生福利部基隆醫院,家庭醫學科,"(02)2429-2525
 轉5610、5619","20148
 基隆市信義區信二路268號",https://netreg.kln.mohw.gov.tw/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?Date=&DivDr=0196&HID=F&Noon=&Way=Dept
@@ -7,7 +7,7 @@
 臺北市中山區中山北路二段92號",https://www.mmh.org.tw/register_single_doctor.php?depid=75&drcode=O75D
 3,臺北市,臺大醫院,"家庭醫學科第10診 (02)2312-3456
 (旅遊醫學特別門診) 轉67614",,"10048
-臺北市中正區常德街1號",https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=
+臺北市中正區常德街1號",https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=,kjcl
 4,臺北市,三軍總醫院內湖院區,旅遊醫學門診,(02)8792-3311,11490臺北市內湖區成功路二段325號,https://www2.ndmctsgh.edu.tw/newwebreg/Register/Doctors?pos=B&DeptCode=131&DeptGroup=4#
 5,臺北市,臺北市立萬芳醫院,家庭醫學科,(02)2930-7930,11696臺北市文山區興隆路三段111號,https://www.wanfang.gov.tw/p3_register_e3.aspx?deptcode=B055&depttype=A&deptdesc=%E8%87%AA%E8%B2%BBCOVID-19%E7%96%AB%E8%8B%97%E9%96%80%E8%A8%BA&depttype2=A
 6,臺北市,臺北醫學大學附設醫院,家庭醫學科,(02)2737-2181,11031臺北市信義區吳興街252號,https://www.tmuh.org.tw/service/regist/016
@@ -20,7 +20,7 @@
 桃園市桃園區中山路1492號",https://tyghnetreg.tygh.mohw.gov.tw/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?HID=F&Way=Dept&DivDr=0126&Date=&Noon=
 11,新竹市,臺大分院新竹醫院,家庭醫學科,"(03)532-6151
 轉3753","30059
-新竹市北區經國路一段442巷25號",https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode=
+新竹市北區經國路一段442巷25號",https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode=,kjcl
 12,新竹縣,東元綜合醫院,"家庭醫學科、感染
 科",(03)552-7000,"30268
 新竹縣竹北市縣政二路69號",https://w3.tyh.com.tw/WebRegList_Dept.aspx?d=55

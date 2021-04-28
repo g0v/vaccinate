@@ -1,5 +1,5 @@
-# Compiled JavaScript
-dist/*.js*
+# Compiled anything
+dist/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
