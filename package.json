@@ -8,6 +8,7 @@
   "scripts": {
     "backend": "parcel build ./frontend/index.html; cd backend; flask run",
     "build": "parcel build ./frontend/index.html",
+    "lint": "black",
     "frontend": "parcel serve ./frontend/index.html",
     "tc": "pyre"
   },
