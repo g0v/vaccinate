@@ -9,6 +9,9 @@
 * Black for Python formatting
 * Python typehints
 
+# Contribute Data
+* Help us add vaccination appointments to the CSV
+
 # To write a parser for a hospital
 1. Open up data/hospitals.csv. Add your GitHub name as the owner next to that hospital. 
 2. Note the ID for that hospital (e.g. 台大醫院 is 3.)
