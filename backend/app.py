@@ -6,6 +6,7 @@ from enum import Enum
 import requests
 from bs4 import BeautifulSoup
 from hospital_types import Hospital, HospitalID, AppointmentAvailability
+import os
 
 # Parsers
 from Parsers.ntu_taipei import *
@@ -28,13 +29,11 @@ def index() -> str:
     availability: Dict[HospitalID, AppointmentAvailability] = dict(
         [f() for f in PARSERS]
     )
-    app.logger.warn(availability)
-    with open("../data/hospitals.csv") as csvfile:
+    with open("data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:
             hospital_id = int(row["編號"])
-            app.logger.warn(hospital_id)
             hospital_availability = (
                 availability[hospital_id].value
                 if hospital_id in availability
