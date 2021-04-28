@@ -7,7 +7,7 @@
     "parcel": "^2.0.0-beta.2"
   },
   "scripts": {
-    "backend": "parcel build ./frontend/index.html; cd backend; flask run",
+    "backend": "parcel build ./frontend/index.html; python backend/app.py",
     "build": "parcel build ./frontend/index.html",
     "lint": "black",
     "frontend": "parcel serve ./frontend/index.html",
