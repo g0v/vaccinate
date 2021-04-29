@@ -48,7 +48,7 @@ def hospitalData() -> List[Hospital]:
     ]
     availability: List[Tuple[int, AppointmentAvailability]] = filter(None, availability)
     availability: Dict[int, AppointmentAvailability] = dict(availability)
-    with open("data/hospitals.csv") as csvfile:
+    with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:

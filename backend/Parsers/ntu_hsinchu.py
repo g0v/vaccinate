@@ -7,7 +7,7 @@ from hospital_types import HospitalID, AppointmentAvailability
 def parseNTUHHsinchu() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode=",
-        verify="data/ntuh-gov-tw-chain.pem",
+        verify="../data/ntuh-gov-tw-chain.pem",
     )
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table")
