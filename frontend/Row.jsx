@@ -33,8 +33,8 @@ export default function Row(props: {
       <td>{department}</td>
       <td>{phone}</td>
       <td>{address}</td>
-      <td><a href={website}>Register here</a></td>
       <td>{availability}</td>
+      <td><a href={website}>Register here</a></td>
     </tr>
   );
 }

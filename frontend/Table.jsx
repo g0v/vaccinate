@@ -17,8 +17,8 @@ export default function Table(props: { rows: Array<Hospital> }): React.Node {
             <th>Department</th>
             <th>Phone</th>
             <th>Address</th>
-            <th>Website</th>
             <th>Availability</th>
+            <th>Website</th>
           </tr>
         </thead>
         <tbody>
