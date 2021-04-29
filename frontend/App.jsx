@@ -5,7 +5,7 @@ import Table from './Table';
 
 export default function App(): React.Node {
   const [rows, setRows] = React.useState([]);
-  const url = 'http://localhost:5000/hospitals';
+  const url = './hospitals';
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
   return (
     <div>

@@ -43,7 +43,7 @@ def hospitalData() -> List[Hospital]:
                 "address": row["地址"],
                 "availability": hospital_availability,
                 "department": row["科別"],
-                "hospital_id": int(row["編號"]),
+                "hospitalId": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
                 "phone": row["電話"],

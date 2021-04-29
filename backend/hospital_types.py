@@ -15,7 +15,7 @@ class Hospital(TypedDict):
     address: str
     availability: AppointmentAvailability
     department: str
-    hospital_id: HospitalID
+    hospitalId: HospitalID
     location: str
     name: str
     phone: str
