@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, json
 import csv
 import sys
 from typing import TypedDict, Tuple, Dict
@@ -25,8 +25,7 @@ app = Flask(
 PARSERS = [parseNTUH, parseNTUHHsinchu, parseNTUHYunlin, parseTzuchiTaipei]
 
 
-@app.route("/")
-def index() -> str:
+def hospitalData() -> List[Hospital]:
     availability: Dict[HospitalID, AppointmentAvailability] = dict(
         [f() for f in PARSERS]
     )
@@ -44,14 +43,30 @@ def index() -> str:
                 "address": row["地址"],
                 "availability": hospital_availability,
                 "department": row["科別"],
-                "hospital_id": int(row["編號"]),
+                "hospitalId": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
                 "phone": row["電話"],
                 "website": row["Website"],
             }
             rows.append(hospital)
-        return render_template("./index.html", rows=rows)
+        return rows
+
+
+@app.route("/hospitals")
+def hospitals():
+    data = hospitalData()
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json',
+    )
+    return response
+
+
+@app.route("/")
+def index() -> str:
+        return render_template("./index.html")
 
 
 if __name__ == "__main__":
