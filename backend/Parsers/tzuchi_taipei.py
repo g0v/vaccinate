@@ -8,6 +8,7 @@ def parseTzuchiTaipei() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg-prod.tzuchi-healthcare.org.tw/tchw/HIS5OpdReg/OpdTimeShow?Pass=XD;0022",
         verify="../data/tzuchi-healthcare-org-tw-chain.pem",
+        timeout=5,
     )
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table", {"id": "MainContent_gvOpdList"})

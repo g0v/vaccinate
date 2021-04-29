@@ -8,6 +8,7 @@ def parseNTUH() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=",
         verify="../data/ntuh-gov-tw-chain.pem",
+        timeout=5,
     )
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table")
