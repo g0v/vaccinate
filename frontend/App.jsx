@@ -23,7 +23,7 @@ export default function App(): React.Node {
       <h2 style={{ textAlign: 'center' }}>Vaccination Availability</h2>
       {rows.length === 0 ? <Spinner />
         : <Table rows={rows} />}
-      <p><i>Created with love by a member of g0v, Taiwan's civic tech community.</i></p>
+      <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
     </div>
   );
 }

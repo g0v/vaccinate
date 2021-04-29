@@ -34,7 +34,7 @@ check the [Taiwan CDC's website](https://cdc.gov.tw).
 const zhTW = `
 ## 誰能夠打COVID-19疫苗？
 公費疫苗已經開放給
-`
+`;
 
 export default function Content(): React.Node {
   return <ReactMarkdown>{enUS}</ReactMarkdown>;
