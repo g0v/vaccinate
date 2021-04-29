@@ -1,7 +1,7 @@
 from flask import Flask, render_template, json
 import csv
 import sys
-from typing import TypedDict, Tuple, Dict, Callable, List, Any
+from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
@@ -23,20 +23,18 @@ app = Flask(
 
 
 def errorBoundary(
-    f: Callable[[], Tuple[HospitalID, AppointmentAvailability]]
-) -> Callable[[], Tuple[HospitalID, AppointmentAvailability]]:
-    def boundariedFunction() -> Callable[
-        [], Tuple[HospitalID, AppointmentAvailability]
-    ]:
+    f: Callable[[], Tuple[int, AppointmentAvailability]]
+) -> Callable[[], Optional[Tuple[int, AppointmentAvailability]]]:
+    def boundariedFunction() -> Optional[Tuple[int, AppointmentAvailability]]:
         try:
             return f()
         except:
-            return lambda x: (0, AppointmentAvailability.NO_DATA)
+            return None
 
     return boundariedFunction
 
 
-PARSERS: List[Callable[[], Tuple[HospitalID, AppointmentAvailability]]] = [
+PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
     errorBoundary(parseNTUH),
     errorBoundary(parseNTUHHsinchu),
     errorBoundary(parseNTUHYunlin),
@@ -45,9 +43,11 @@ PARSERS: List[Callable[[], Tuple[HospitalID, AppointmentAvailability]]] = [
 
 
 def hospitalData() -> List[Hospital]:
-    availability: Dict[HospitalID, AppointmentAvailability] = dict(
-        [f() for f in PARSERS]
-    )
+    availability: List[Optional[Tuple[int, AppointmentAvailability]]] = [
+        f() for f in PARSERS
+    ]
+    availability: List[Tuple[int, AppointmentAvailability]] = filter(None, availability)
+    availability: Dict[int, AppointmentAvailability] = dict(availability)
     with open("data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
@@ -80,7 +80,6 @@ def hospitals() -> Any:
         status=200,
         mimetype="application/json",
     )
-    app.logger.warn(response)
     return response
 
 
