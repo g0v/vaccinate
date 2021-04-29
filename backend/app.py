@@ -1,17 +1,17 @@
 from flask import Flask, render_template, json
 import csv
 import sys
-from typing import TypedDict, Tuple, Dict
+from typing import TypedDict, Tuple, Dict, Callable, List, Any
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-from backend.hospital_types import Hospital, HospitalID, AppointmentAvailability
+from hospital_types import Hospital, HospitalID, AppointmentAvailability
 
 # Parsers
-from backend.Parsers.ntu_taipei import *
-from backend.Parsers.ntu_hsinchu import *
-from backend.Parsers.ntu_yunlin import *
-from backend.Parsers.tzuchi_taipei import *
+from Parsers.ntu_taipei import *
+from Parsers.ntu_hsinchu import *
+from Parsers.ntu_yunlin import *
+from Parsers.tzuchi_taipei import *
 
 
 app = Flask(
@@ -22,7 +22,26 @@ app = Flask(
 )
 
 
-PARSERS = [parseNTUH, parseNTUHHsinchu, parseNTUHYunlin, parseTzuchiTaipei]
+def errorBoundary(
+    f: Callable[[], Tuple[HospitalID, AppointmentAvailability]]
+) -> Callable[[], Tuple[HospitalID, AppointmentAvailability]]:
+    def boundariedFunction() -> Callable[
+        [], Tuple[HospitalID, AppointmentAvailability]
+    ]:
+        try:
+            return f()
+        except:
+            return lambda x: (0, AppointmentAvailability.NO_DATA)
+
+    return boundariedFunction
+
+
+PARSERS: List[Callable[[], Tuple[HospitalID, AppointmentAvailability]]] = [
+    errorBoundary(parseNTUH),
+    errorBoundary(parseNTUHHsinchu),
+    errorBoundary(parseNTUHYunlin),
+    errorBoundary(parseTzuchiTaipei),
+]
 
 
 def hospitalData() -> List[Hospital]:
@@ -54,19 +73,20 @@ def hospitalData() -> List[Hospital]:
 
 
 @app.route("/hospitals")
-def hospitals():
+def hospitals() -> Any:
     data = hospitalData()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
-        mimetype='application/json',
+        mimetype="application/json",
     )
+    app.logger.warn(response)
     return response
 
 
 @app.route("/")
 def index() -> str:
-        return render_template("./index.html")
+    return render_template("./index.html")
 
 
 if __name__ == "__main__":

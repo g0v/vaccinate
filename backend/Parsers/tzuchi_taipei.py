@@ -1,13 +1,13 @@
-from typing import Tuple, List
+from typing import Tuple, List, Any
 import requests
 from bs4 import BeautifulSoup
-from backend.hospital_types import HospitalID, AppointmentAvailability
+from hospital_types import HospitalID, AppointmentAvailability
 
 
 def parseTzuchiTaipei() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg-prod.tzuchi-healthcare.org.tw/tchw/HIS5OpdReg/OpdTimeShow?Pass=XD;0022",
-        verify="data/tzuchi-healthcare-org-tw-chain.pem"
+        verify="data/tzuchi-healthcare-org-tw-chain.pem",
     )
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table", {"id": "MainContent_gvOpdList"})
@@ -22,7 +22,7 @@ def parseTzuchiTaipei() -> Tuple[HospitalID, AppointmentAvailability]:
     )
 
 
-def rowContainsAppointment(row: List[any]) -> bool:
+def rowContainsAppointment(row: List[Any]) -> bool:
     columns = row.find_all("td")
     column_two_has_appointment = bool(columns[1].find_all("a"))
     column_three_has_appointment = bool(columns[2].find_all("a"))
