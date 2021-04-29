@@ -66,8 +66,7 @@ def hospitals():
 
 @app.route("/")
 def index() -> str:
-        rows = hospitalData()
-        return render_template("./index.html", rows=rows)
+        return render_template("./index.html")
 
 
 if __name__ == "__main__":
