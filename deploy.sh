@@ -1,1 +1,1 @@
-yarn build; sudo systemctl restart vaccinate
+pipenv shell; pipenv install; yarn; yarn build; sudo systemctl restart vaccinate
