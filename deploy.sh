@@ -1,0 +1,1 @@
+yarn build; sudo systemctl restart vaccinate
