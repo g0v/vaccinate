@@ -8,6 +8,8 @@ flask = "*"
 beautifulsoup4 = "*"
 certifi = "*"
 requests = "*"
+redis = "*"
+python-dotenv = "*"
 
 [dev-packages]
 black = "*"
