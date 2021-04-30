@@ -11,7 +11,7 @@ export default function App(): React.Node {
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
   return (
     <div>
-      <h1 style={{ textAlign: 'center', marginTop: 30 }}>全民新冠肺炎疫苗諮詢 COVID-19 Vaccination Information</h1>
+      <h1 style={{ textAlign: 'center', marginTop: 30 }}>全民新冠肺炎疫苗資訊 COVID-19 Vaccination Information</h1>
       <div className="row" style={{ marginTop: 50 }}>
         <div className="col">
           <Content />
