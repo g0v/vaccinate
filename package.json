@@ -20,7 +20,8 @@
     "build": "parcel build ./frontend/index.html",
     "lint": "black backend/*.py",
     "frontend": "parcel serve ./frontend/index.html",
-    "tc": "pyre"
+    "tc": "pyre",
+    "fixpipenv": "pipenv lock --pre --clear"
   },
   "dependencies": {
     "react": "^17.0.2",
