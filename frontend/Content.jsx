@@ -99,7 +99,7 @@ export default function Content(): React.Node {
           aria-label="Basic outlined example"
         >
           <button type="button" onClick={() => setLanguage('enUS')} className="btn btn-outline-primary">English</button>
-          <button type="button" onClick={() => setLanguage('zhTW')} className="btn btn-outline-primary">台灣華語</button>
+          <button type="button" onClick={() => setLanguage('zhTW')} className="btn btn-outline-primary">華語</button>
           <button type="button" onClick={() => setLanguage('id')} className="btn btn-outline-primary">Bahasa</button>
           <button type="button" onClick={() => setLanguage('ja')} className="btn btn-outline-primary">日本語</button>
         </div>
