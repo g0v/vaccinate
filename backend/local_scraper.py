@@ -10,6 +10,7 @@ from Parsers.ntu_taipei import *
 from Parsers.ntu_hsinchu import *
 from Parsers.ntu_yunlin import *
 from Parsers.tzuchi_taipei import *
+from Parsers.hualien_tzuchi import *
 
 load_dotenv()
 
@@ -36,6 +37,7 @@ PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
     errorBoundary(parseNTUHHsinchu),
     errorBoundary(parseNTUHYunlin),
     errorBoundary(parseTzuchiTaipei),
+    errorBoundary(parseTzuchiHualien)
 ]
 
 
