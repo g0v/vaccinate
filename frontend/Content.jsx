@@ -29,6 +29,11 @@ This website was built by volunteers with the [g0v](https://g0v.tw) civic hacker
 network. It is not associated with the Taiwanese government and
 is not an official resource. For official information, please
 check the [Taiwan CDC's website](https://cdc.gov.tw).
+
+### How can I help?
+This website relies on crawling hospital websites to get real-time
+information. We need your help to build the rest! Please join the
+g0v slack and fork our code on [GitHub](https://github.com/g0v/vaccinate)
 `;
 
 const zhTW = `
@@ -48,6 +53,11 @@ COVID-19公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
 ### 本網站是由誰開發的？
 本網站由[g0v](https://g0v.tw)公民科技社群內的Civic Hacker開發的。非官方頁面。如需要
 官方諮詢，請查看[衛生福利部疾病管理署官網](https://cdc.gov.tw).
+
+### 你能夠怎麼協助本網？
+本網透過扒醫院官網的方式提供現時的名額諮詢總共有31個網站。小編無法一個人寫那麼多！
+如果您有興趣幫忙的話，請加入g0v的Slack並且Fork我們在
+[GitHub](https://github.com/g0v/vaccinate)上的Code!
 
 Please help me translate this text. Contribute by adding to
 [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
