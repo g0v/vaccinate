@@ -34,8 +34,47 @@ check the [Taiwan CDC's website](https://cdc.gov.tw).
 const zhTW = `
 ## 誰能夠打COVID-19疫苗？
 公費疫苗已經開放給
+
+Please help me translate this text. Contribute by adding to
+[this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
 `;
 
+const bahasa = `
+Bahasa translation is a work in progress. Please contribute by 
+adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+`;
+
+function getContent(language: string): string {
+  switch (language) {
+    case 'enUS':
+      return enUS;
+    case 'zhTW':
+      return zhTW;
+    case 'id':
+      return bahasa;
+    default:
+      return zhTW;
+  }
+}
+
 export default function Content(): React.Node {
-  return <ReactMarkdown>{enUS}</ReactMarkdown>;
+  const [language, setLanguage] = React.useState('zhTW');
+  return (
+    <>
+      <div style={{ textAlign: 'center' }}>
+        <div
+          className="btn-group"
+          role="group"
+          aria-label="Basic outlined example"
+        >
+          <button type="button" onClick={() => setLanguage('enUS')} className="btn btn-outline-primary">English</button>
+          <button type="button" onClick={() => setLanguage('zhTW')} className="btn btn-outline-primary">台灣華語</button>
+          <button type="button" onClick={() => setLanguage('id')} className="btn btn-outline-primary">Bahasa</button>
+        </div>
+      </div>
+      <div style={{ marginTop: 10 }}>
+        <ReactMarkdown>{getContent(language)}</ReactMarkdown>
+      </div>
+    </>
+  );
 }
