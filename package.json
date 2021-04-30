@@ -18,9 +18,9 @@
   "scripts": {
     "backend": "parcel build ./frontend/index.html; flask backend/app.py",
     "build": "parcel build ./frontend/index.html",
-    "lint": "black backend/*.py",
+    "lint": "black backend/*; yarn eslint frontend/*.jsx",
     "frontend": "parcel serve ./frontend/index.html",
-    "tc": "pyre",
+    "tc": "pipenv run pyre; yarn flow",
     "fixpipenv": "pipenv lock --pre --clear"
   },
   "dependencies": {
