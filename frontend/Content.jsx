@@ -32,8 +32,22 @@ check the [Taiwan CDC's website](https://cdc.gov.tw).
 `;
 
 const zhTW = `
-## 誰能夠打COVID-19疫苗？
-公費疫苗已經開放給
+### 誰能夠接種COVID-19疫苗？
+COVID-19公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
+[衛生福利部疾病管理署官網](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)。
+此外，COVID-19自費疫苗也開放給任何有出國需求在台的人。接種對象不限國籍。
+
+### 現在能夠打哪一種疫苗？
+疾病管理署正在供應AstraZeneca的疫苗。
+
+### 該怎麼使用本網站？
+如果在您附近的醫院旁邊看到「Available」的話，表示醫院有自費COVID-19疫苗名額。
+請直接往醫院官網報名。如果顯示「No Data」，表示本網不提供醫院顯示名額狀況的訊息。
+請跟隨連接，跟醫院直接查詢名額。
+
+### 本網站是由誰開發的？
+本網站由[g0v](https://g0v.tw)公民科技社群內的Civic Hacker開發的。非官方頁面。如需要
+官方諮詢，請查看[衛生福利部疾病管理署官網](https://cdc.gov.tw).
 
 Please help me translate this text. Contribute by adding to
 [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
@@ -41,6 +55,11 @@ Please help me translate this text. Contribute by adding to
 
 const bahasa = `
 Bahasa translation is a work in progress. Please contribute by 
+adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+`;
+
+const ja = `
+Japanese translation is a work in progress. Please contribute by 
 adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
 `;
 
@@ -52,6 +71,8 @@ function getContent(language: string): string {
       return zhTW;
     case 'id':
       return bahasa;
+    case 'ja':
+      return ja;
     default:
       return zhTW;
   }
@@ -70,6 +91,7 @@ export default function Content(): React.Node {
           <button type="button" onClick={() => setLanguage('enUS')} className="btn btn-outline-primary">English</button>
           <button type="button" onClick={() => setLanguage('zhTW')} className="btn btn-outline-primary">台灣華語</button>
           <button type="button" onClick={() => setLanguage('id')} className="btn btn-outline-primary">Bahasa</button>
+          <button type="button" onClick={() => setLanguage('ja')} className="btn btn-outline-primary">日本語</button>
         </div>
       </div>
       <div style={{ marginTop: 10 }}>
