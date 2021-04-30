@@ -12,6 +12,17 @@ export type Hospital = {|
     availability: string,
 |};
 
+function getBadgeClassname(availability: string): string {
+  switch (availability) {
+    case 'Available':
+      return 'badge bg-success';
+    case 'Unavailable':
+      return 'badge bg-danger';
+    default:
+      return 'badge bg-light text-dark';
+  }
+}
+
 export default function Row(props: {
     hospitalId: Number,
     name: string,
@@ -33,7 +44,7 @@ export default function Row(props: {
       <td>{department}</td>
       <td>{phone}</td>
       <td>{address}</td>
-      <td>{availability}</td>
+      <td><span className={getBadgeClassname(availability)}>{availability}</span></td>
       <td><a href={website}>Register here</a></td>
     </tr>
   );
