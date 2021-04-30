@@ -1,6 +1,5 @@
 from flask import Flask, render_template, json
-import csv
-import sys
+import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
@@ -12,6 +11,12 @@ from Parsers.ntu_taipei import *
 from Parsers.ntu_hsinchu import *
 from Parsers.ntu_yunlin import *
 from Parsers.tzuchi_taipei import *
+
+
+redis_host = os.environ.get("REDIS_HOST")
+redis_port = os.environ.get("REDIS_PORT")
+redis_username = os.environ.get("REDIS_USERNAME")
+redis_password = os.environ.get("REDIS_PASSWORD")
 
 
 app = Flask(
@@ -43,12 +48,33 @@ PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
 
 
 def hospitalData() -> List[Hospital]:
-    availability: List[Optional[Tuple[int, AppointmentAvailability]]] = [
-        f() for f in PARSERS
-    ]
-    availability: List[Tuple[int, AppointmentAvailability]] = filter(None, availability)
-    availability: Dict[int, AppointmentAvailability] = dict(availability)
-    app.logger.warn(availability)
+    # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
+    # using the default encoding utf-8.  This is client specific.
+    r = redis.StrictRedis(
+        host=redis_host,
+        port=redis_port,
+        password=redis_password,
+        decode_responses=True,
+        username=redis_username,
+        ssl=True,
+    )
+    hospital_ids = list(range(1, 32))
+
+    def get_availability(
+        hospital_id: int,
+    ) -> Optional[Tuple[int, AppointmentAvailability]]:
+        availability = r.get("hospital:" + str(hospital_id))
+        if availability == "AppointmentAvailability.AVAILABLE":
+            availability = AppointmentAvailability.AVAILABLE
+        elif availability == "AppointmentAvailability.UNAVAILABLE":
+            availability = AppointmentAvailability.UNAVAILABLE
+        else:
+            return None
+        return (hospital_id, availability)
+
+    availability = [get_availability(hospital_id) for hospital_id in hospital_ids]
+    availability = dict(list(filter(None, availability)))
+    app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []

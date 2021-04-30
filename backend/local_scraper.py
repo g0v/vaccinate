@@ -10,12 +10,13 @@ from Parsers.ntu_taipei import *
 from Parsers.ntu_hsinchu import *
 from Parsers.ntu_yunlin import *
 from Parsers.tzuchi_taipei import *
+
 load_dotenv()
 
 redis_host = os.environ.get("REDIS_HOST")
 redis_port = os.environ.get("REDIS_PORT")
 redis_username = os.environ.get("REDIS_USERNAME")
-redis_password = os.environ.get("REDIS_PASSWORD") 
+redis_password = os.environ.get("REDIS_PASSWORD")
 
 
 def errorBoundary(
@@ -64,10 +65,10 @@ def hello_redis():
         )
 
         def setAvailability(hospital_id: int, availability: AppointmentAvailability):
-            r.set("test_hospital:" + str(hospital_id), availability.__str__())
+            r.set("hospital:" + str(hospital_id), availability.__str__())
 
         def getAvailability(hospital_id: int):
-            return r.get("test_hospital:" + str(hospital_id))
+            return r.get("hospital:" + str(hospital_id))
 
         availability = hospitalAvailability()
 
