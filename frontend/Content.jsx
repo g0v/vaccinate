@@ -58,7 +58,7 @@ function getContent(language: string): string {
 }
 
 export default function Content(): React.Node {
-  const [language, setLanguage] = React.useState('zhTW');
+  const [language, setLanguage] = React.useState('enUS');
   return (
     <>
       <div style={{ textAlign: 'center' }}>
