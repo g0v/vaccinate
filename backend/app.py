@@ -11,6 +11,7 @@ from Parsers.ntu_taipei import *
 from Parsers.ntu_hsinchu import *
 from Parsers.ntu_yunlin import *
 from Parsers.tzuchi_taipei import *
+from Parsers.mohw import *
 
 
 redis_host = os.environ.get("REDIS_HOST")
@@ -44,6 +45,12 @@ PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
     errorBoundary(parseNTUHHsinchu),
     errorBoundary(parseNTUHYunlin),
     errorBoundary(parseTzuchiTaipei),
+    errorBoundary(parseMOHWKeelung),
+    errorBoundary(parseMOHWTaoyuan),
+    errorBoundary(parseMOHWMiaoli),
+    errorBoundary(parseMOHWTaichung),
+    errorBoundary(parseMOHWTaitung),
+    errorBoundary(parseMOHWKinmen),
 ]
 
 
