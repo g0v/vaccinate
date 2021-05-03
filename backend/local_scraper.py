@@ -13,6 +13,7 @@ from Parsers.tzuchi_taipei import *
 from Parsers.changgung_chiayi import *
 from Parsers.tzuchi_hualien import *
 from Parsers.pch_nantou import *
+from Parsers.mohw import *
 
 
 load_dotenv()
@@ -43,6 +44,12 @@ PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
     errorBoundary(parseTzuchiHualien),
     errorBoundary(parseChanggungChiayi),
     errorBoundary(parsePchNantou),
+    errorBoundary(parseMOHWKeelung),
+    errorBoundary(parseMOHWTaoyuan),
+    errorBoundary(parseMOHWMiaoli),
+    errorBoundary(parseMOHWTaichung),
+    errorBoundary(parseMOHWTaitung),
+    errorBoundary(parseMOHWKinmen),
 ]
 
 
