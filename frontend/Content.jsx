@@ -87,8 +87,8 @@ Ada bisa melihat [FAQ Bahasa Inggris oleh CDC Taiwan](https://www.cdc.gov.tw/Fil
 Situs web ini dibuat oleh sukarelawan dengan jaringan peretas sipil
 [g0v](https://g0v.tw). Kami tidak terkait dengan pemerintah Taiwan
 dan bukan merupakan sumber resmi. Untuk informasi resmi, silakan cek
-[situs web CDC Taiwan] (https://cdc.gov.tw). `
-`;
+[situs web CDC Taiwan] (https://cdc.gov.tw). `;
+
 
 const ja = `
 Japanese translation is a work in progress. Please contribute by 
