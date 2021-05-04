@@ -80,14 +80,14 @@ rumah sakit tersebut tidak ada janji terbuka. Jika tertulis 'Tidak Ada Data',
 artinya kami belum menemukan cara untuk menambahkan data ke situs web ini.
 Tolong cek rumah sakit langsung dengan mengklik 'Daftar di sini'.
 
-### Bagaimana saya dapat mempelajari lebih lanjut? *
-Ada bisa melihat [FAQ Bahasa Inggris oleh CDC Taiwan](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
+### Bagaimana saya dapat mempelajari lebih lanjut? 
+* Ada bisa melihat [FAQ Bahasa Inggris oleh CDC Taiwan](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
 
 ### Siapa yang membangun situs web ini?
 Situs web ini dibuat oleh sukarelawan dengan jaringan peretas sipil
 [g0v](https://g0v.tw). Kami tidak terkait dengan pemerintah Taiwan
 dan bukan merupakan sumber resmi. Untuk informasi resmi, silakan cek
-[situs web CDC Taiwan] (https://cdc.gov.tw). `;
+[situs web CDC Taiwan](https://cdc.gov.tw). `;
 
 
 const ja = `
