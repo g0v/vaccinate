@@ -24,7 +24,7 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "eslint --fix",
+      "yarn run eslint --fix frontend/*.jsx",
       "git add"
     ]
   },
