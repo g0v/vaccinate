@@ -17,28 +17,21 @@
     "lint-staged": "^10.5.4",
     "parcel": "^2.0.0-beta.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "yarn run eslint --fix frontend/*.jsx",
-      "git add"
-    ]
-  },
   "scripts": {
     "backend": "parcel build ./frontend/index.html; flask backend/app.py",
     "build": "parcel build ./frontend/index.html",
     "lint": "black backend/*; yarn eslint frontend/*.jsx",
     "frontend": "parcel serve ./frontend/index.html",
     "tc": "pipenv run pyre; yarn flow",
-    "fixpipenv": "pipenv lock --pre --clear"
+    "fixpipenv": "pipenv lock --pre --clear",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^6.0.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
