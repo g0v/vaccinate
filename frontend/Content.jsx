@@ -89,9 +89,13 @@ Situs web ini dibuat oleh sukarelawan dengan jaringan peretas sipil
 dan bukan merupakan sumber resmi. Untuk informasi resmi, silakan cek
 [situs web CDC Taiwan](https://cdc.gov.tw). `;
 
-
 const ja = `
 Japanese translation is a work in progress. Please contribute by 
+adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+`;
+
+const ph = `
+Tagalog translation is a work in progress. Please contribute by
 adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
 `;
 
@@ -105,6 +109,8 @@ function getContent(language: string): string {
       return bahasa;
     case 'ja':
       return ja;
+    case 'ph':
+      return ph;
     default:
       return zhTW;
   }
@@ -124,6 +130,7 @@ export default function Content(): React.Node {
           <button type="button" onClick={() => setLanguage('zhTW')} className="btn btn-outline-primary">華語</button>
           <button type="button" onClick={() => setLanguage('id')} className="btn btn-outline-primary">Bahasa</button>
           <button type="button" onClick={() => setLanguage('ja')} className="btn btn-outline-primary">日本語</button>
+          <button type="button" onClick={() => setLanguage('ph')} className="btn btn-outline-primary">Tagalog</button>
         </div>
       </div>
       <div style={{ marginTop: 10 }}>
