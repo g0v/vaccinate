@@ -10,7 +10,7 @@ def parseChanggungChiayi() -> Tuple[HospitalID, AppointmentAvailability]:
         timeout=1,
     )
     soup = BeautifulSoup(r.text, "html.parser")
-    table = soup.find("table", {'class': 'department-table'})
+    table = soup.find("table", {"class": "department-table"})
     links = table.find_all("a")
     # PEP8 Style: if list is not empty, then there are appointments
     return (

@@ -10,7 +10,7 @@ def parseTzuchiHualien() -> Tuple[HospitalID, AppointmentAvailability]:
         timeout=1,
     )
     soup = BeautifulSoup(r.text, "html.parser")
-    table = soup.find("table", {'id': 'example'})
+    table = soup.find("table", {"id": "example"})
     links = table.find_all("a")
     # PEP8 Style: if list is not empty, then there are appointments
     return (
