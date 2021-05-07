@@ -23,4 +23,4 @@ jobs:
         # uses: jpetrucciani/black-check@6ccaad6b470e4f5999d70021474781a53769ed71
         uses: jpetrucciani/black-check@20.8b1
         with:
-          path: backend
+          path: './backend'
