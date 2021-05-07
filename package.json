@@ -13,7 +13,20 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "flow-bin": "^0.149.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "parcel": "^2.0.0-beta.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "scripts": {
     "backend": "parcel build ./frontend/index.html; flask backend/app.py",
