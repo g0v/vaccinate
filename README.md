@@ -29,3 +29,12 @@ To develop for the Python backend, run `yarn backend`. To develop for the JavaSc
 
 # Known Issues
 * After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix.
+
+# Contributors
+## Content:
+* Kevin Liao
+## Code:
+* Kevin Liao and Yao Wei
+## Translations:
+* Bahasa: Dakota Pekerti and Andre Maure
+* Mandarin: Kevin Liao
