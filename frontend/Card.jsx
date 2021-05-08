@@ -1,6 +1,17 @@
 // @flow
 import * as React from 'react';
 
+function getBadgeClassname(availability: string): string {
+  switch (availability) {
+    case 'Available':
+      return 'badge bg-success';
+    case 'Unavailable':
+      return 'badge bg-danger';
+    default:
+      return 'badge bg-light text-dark';
+  }
+}
+
 export default function Card(props: {
   name: string,
   location: string,
@@ -16,11 +27,21 @@ export default function Card(props: {
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">{name}</h5>
-        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card&apos;s content.</p>
-        <a href="/" className="btn btn-primary">Go somewhere</a>
         <p className="card-text">
-          <small className="text-muted">Last updated 3 mins ago</small>
+          <span className={getBadgeClassname(availability)}>
+            {availability}
+          </span>
+          <span className="badge bg-light text-dark">
+            {location}
+          </span>
+        </p>
+        <h4 className="card-title">{name}</h4>
+        <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
+        <p className="card-text">{department}</p>
+        <p className="card-text">{phone}</p>
+        <a href={website} className="btn btn-primary">Get Appointment</a>
+        <p className="card-text">
+          <small className="text-muted">Last updated 1 mins ago</small>
         </p>
       </div>
     </div>
