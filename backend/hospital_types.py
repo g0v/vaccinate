@@ -1,4 +1,4 @@
-from typing import TypedDict, Tuple, Dict
+from typing import TypedDict, Tuple, Dict, NewType
 from enum import Enum
 
 
@@ -20,3 +20,6 @@ class Hospital(TypedDict):
     name: str
     phone: str
     website: str
+
+
+ScrapedData = Tuple[int, AppointmentAvailability]

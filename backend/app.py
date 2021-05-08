@@ -4,7 +4,7 @@ from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-from hospital_types import Hospital, HospitalID, AppointmentAvailability
+from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
 
 # Parsers
 from Parsers.ntu_taipei import *
@@ -14,10 +14,10 @@ from Parsers.tzuchi_taipei import *
 from Parsers.mohw import *
 
 
-redis_host = os.environ.get("REDIS_HOST")
-redis_port = os.environ.get("REDIS_PORT")
-redis_username = os.environ.get("REDIS_USERNAME")
-redis_password = os.environ.get("REDIS_PASSWORD")
+redis_host: Optional[str] = os.environ.get("REDIS_HOST")
+redis_port: Optional[str] = os.environ.get("REDIS_PORT")
+redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
+redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 
 
 app = Flask(
@@ -40,24 +40,10 @@ def errorBoundary(
     return boundariedFunction
 
 
-PARSERS: List[Callable[[], Tuple[int, AppointmentAvailability]]] = [
-    errorBoundary(parseNTUH),
-    errorBoundary(parseNTUHHsinchu),
-    errorBoundary(parseNTUHYunlin),
-    errorBoundary(parseTzuchiTaipei),
-    errorBoundary(parseMOHWKeelung),
-    errorBoundary(parseMOHWTaoyuan),
-    errorBoundary(parseMOHWMiaoli),
-    errorBoundary(parseMOHWTaichung),
-    errorBoundary(parseMOHWTaitung),
-    errorBoundary(parseMOHWKinmen),
-]
-
-
 def hospitalData() -> List[Hospital]:
     # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
     # using the default encoding utf-8.  This is client specific.
-    r = redis.StrictRedis(
+    r: redis.StrictRedis = redis.StrictRedis(
         host=redis_host,
         port=redis_port,
         password=redis_password,
@@ -69,7 +55,7 @@ def hospitalData() -> List[Hospital]:
 
     def get_availability(
         hospital_id: int,
-    ) -> Optional[Tuple[int, AppointmentAvailability]]:
+    ) -> Optional[ScrapedData]:
         availability = r.get("hospital:" + str(hospital_id))
         if availability == "AppointmentAvailability.AVAILABLE":
             availability = AppointmentAvailability.AVAILABLE
