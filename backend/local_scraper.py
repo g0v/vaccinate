@@ -14,6 +14,8 @@ from Parsers.changgung_chiayi import *
 from Parsers.tzuchi_hualien import *
 from Parsers.pch_nantou import *
 from Parsers.mohw import *
+from Parsers.tonyen_hsinchu import *
+from Parsers.siaogang_kaohsiung import *
 
 
 load_dotenv()
@@ -48,6 +50,8 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     errorBoundary(parseMOHWTaichung),
     errorBoundary(parseMOHWTaitung),
     errorBoundary(parseMOHWKinmen),
+    errorBoundary(parseTonyenHsinchu),
+    errorBoundary(parseSiaogangKaohsiung),
 ]
 
 
