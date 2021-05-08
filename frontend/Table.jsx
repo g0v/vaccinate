@@ -1,6 +1,9 @@
 // @flow
 import * as React from 'react';
 import Card from './Card';
+import strings from './Table.json';
+
+import type { Locale } from './Locale';
 
 export type Hospital = {|
   hospitalId: Number,
@@ -13,8 +16,8 @@ export type Hospital = {|
   availability: string,
 |};
 
-export default function Table(props: { rows: Array<Hospital> }): React.Node {
-  const { rows } = props;
+export default function Table(props: { rows: Array<Hospital>, locale: Locale }): React.Node {
+  const { rows, locale } = props;
 
   const availableHospitals = rows.filter((row) => row.availability === 'Available');
   const unavailableHospitals = rows.filter((row) => row.availability === 'Unavailable');
@@ -41,7 +44,7 @@ export default function Table(props: { rows: Array<Hospital> }): React.Node {
   );
   return (
     <div>
-      <h3>Hospitals with appointments</h3>
+      <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
       <i>We have confirmed that these hospitals have appointments available.</i>
       {makeCardGrid(availableHospitals)}
       <h3>Hospitals with No Data</h3>
