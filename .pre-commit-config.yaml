@@ -4,7 +4,3 @@ repos:
     hooks:
       - id: black
         language_version: python3 # Should be a command that runs python3.6+
-  - repo: https://github.com/kevinjcliao/pre-commit-pyre-check
-    rev: 528c740d1358fe6cee79c873527fe0a2eaf79aa6  # Use the sha / tag you want to point at
-    hooks:
-      - id: pyre-check
