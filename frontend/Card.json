@@ -1,0 +1,102 @@
+{
+  "availability": {
+    "available": {
+      "en": "Available",
+      "zh": "有名額"
+    },
+    "unavailable": {
+      "en": "Unavailable",
+      "zh": "無名額"
+    },
+    "noData": {
+      "en": "No Data",
+      "zh": "無資訊"
+    }
+  },
+  "locations": {
+    "keelung": {
+      "en": "Keelung City",
+      "zh": "基隆市"
+    },
+    "taipei": {
+      "en": "Taipei City",
+      "zh": "臺北市"
+    },
+    "newTaipeiCity": {
+      "en": "New Taipei City",
+      "zh": "新北市"
+    },
+    "taoyuan": {
+      "en": "Taoyuan City",
+      "zh": "桃園市"
+    },
+    "hsinchuCounty": {
+      "en": "Hsinchu County",
+      "zh": "新竹縣"
+    },
+    "hsinchuCity": {
+      "en": "Hsinchu City",
+      "zh": "新竹市"
+    },
+    "miaoli": {
+      "en": "Miaoli County",
+      "zh": "苗栗縣"
+    },
+    "yilan": {
+      "en": "Yilan County",
+      "zh": "宜蘭縣"
+    },
+    "taichung": {
+      "en": "Taichung City",
+      "zh": "台中市"
+    },
+    "yunlin": {
+      "en": "Yunlin County",
+      "zh": "雲林縣"
+    },
+    "changhua": {
+      "en": "Changhua County",
+      "zh": "彰化縣"
+    },
+    "nantou": {
+      "en": "Nantou County",
+      "zh": "南投縣"
+    },
+    "chiayi": {
+      "en": "Chiayi County",
+      "zh": "嘉義縣"
+    },
+    "tainan": {
+      "en": "Tainan City",
+      "zh": "台南市"
+    },
+    "kaohsiung": {
+      "en": "Kaohsiung City",
+      "zh": "高雄市"
+    },
+    "pingtung": {
+      "en": "Pingtung County",
+      "zh": "屏東縣"
+    },
+    "hualien": {
+      "en": "Hualien County",
+      "zh": "花蓮縣"
+    },
+    "lienjiang": {
+      "en": "Lienjiang County",
+      "zh": "連江縣"
+    },
+    "penghu": {
+      "en": "Penghu County",
+      "zh": "澎湖縣"
+    },
+    "taitung": {
+      "en": "Taitung County",
+      "zh": "薹東縣"
+    },
+    "kinmen": {
+      "en": "Kinmen County",
+      "zh": "金門縣"
+    }
+  }
+}
