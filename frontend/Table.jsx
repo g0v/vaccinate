@@ -6,8 +6,26 @@ import type { Hospital } from './Row';
 
 export default function Table(props: { rows: Array<Hospital> }): React.Node {
   const { rows } = props;
+  const availableHospitals = rows.filter(row => row.availability === "Available");
+  const unavailableHospitals = rows.filter(row => row.availability === "Unavailable");
+  const noDataHospitals = rows.filter(row => row.availability === "No Data");
   return (
     <div>
+      <div className="row row-cols-4">
+        <div className="col">
+          <div className="card">
+            <img src="..." className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h5 className="card-title">Hospital Name</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" className="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div className="col">Column</div>
+        <div className="col">Column</div>
+        <div className="col">Column</div>
+      </div>
       <table className="table">
         <thead>
           <tr>
