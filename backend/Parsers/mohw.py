@@ -67,7 +67,13 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
     states = dict((x["name"], x["value"]) for x in inputs)
 
     weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
-    weeks.pop(0)  # popping off the first page
+
+    try:
+        weeks.pop(0)  # popping off the first page
+    except IndexError:
+        # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
+        # reservation calendar is not paged
+        return False
 
     for week in weeks:
         states["RdBtnLstWeek"] = week
