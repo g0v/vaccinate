@@ -22,7 +22,7 @@ export default function App(): React.Node {
           <div className="col">
             <Content setLocale={setLocale} />
           </div>
-          <div className="col">
+          <div className="col d-none d-md-block">
             <Map />
           </div>
         </div>
