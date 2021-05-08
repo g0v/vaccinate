@@ -24,3 +24,17 @@ jobs:
         run: yarn
       - name: Run Flow Type Checker
         run: yarn run flow
+  pyre:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install pipenv
+          python -m pipenv install --dev
+      - name: Run Pyre
+        run: |
+          pyre check    
