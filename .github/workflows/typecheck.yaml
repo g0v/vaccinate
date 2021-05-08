@@ -37,4 +37,4 @@ jobs:
           python -m pipenv install --dev
       - name: Run Pyre
         run: |
-          pyre check    
+          pipenv run pyre check    
