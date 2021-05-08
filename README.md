@@ -2,7 +2,7 @@
 整理台灣所有自費接種疫苗的資料
 
 ## Code Quality
-[![Lint](https://github.com/g0v/vaccinate/actions/workflows/main.yml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/main.yml)
+[![Lint](https://github.com/g0v/vaccinate/actions/workflows/main.yml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/main.yml) [![TypeCheck](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml)
 
 # Architecture
 * This is a Flask app serving a JavaScript web app. The frontend contains React, but we are not using it for anything at the moment. 
