@@ -66,7 +66,7 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
     inputs = soup.find_all("input")
     states = dict((x["name"], x["value"]) for x in inputs)
 
-    weeks = [x["value"] for x in soup.findAll("input", {"name": "RdBtnLstWeek"})]
+    weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
     weeks.pop(0)  # popping off the first page
 
     for week in weeks:
