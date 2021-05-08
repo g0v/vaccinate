@@ -24,9 +24,7 @@ redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 
 
-def errorBoundary(
-    f: Callable[[], ScrapedData]
-) -> Callable[[], Optional[ScrapedData]]:
+def errorBoundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
     def boundariedFunction() -> Optional[ScrapedData]:
         try:
             return f()
@@ -54,9 +52,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
 
 
 def hospitalAvailability() -> List[ScrapedData]:
-    availability: List[Optional[ScrapedData]] = [
-        f() for f in PARSERS
-    ]
+    availability: List[Optional[ScrapedData]] = [f() for f in PARSERS]
     print(availability)
     return list(filter(None, availability))
 
@@ -78,7 +74,9 @@ def hello_redis() -> None:
             ssl=True,
         )
 
-        def setAvailability(hospital_id: int, availability: AppointmentAvailability) -> None:
+        def setAvailability(
+            hospital_id: int, availability: AppointmentAvailability
+        ) -> None:
             r.set("hospital:" + str(hospital_id), availability.__str__())
 
         availability = hospitalAvailability()

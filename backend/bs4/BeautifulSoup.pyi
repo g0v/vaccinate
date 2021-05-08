@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
 
-class BeautifulSoup():
+class BeautifulSoup:
     def find_all(self) -> BeautifulSoup: ...
     def find(self) -> BeautifulSoup: ...
