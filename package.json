@@ -20,7 +20,7 @@
   "scripts": {
     "backend": "parcel build ./frontend/index.html; flask backend/app.py",
     "build": "parcel build ./frontend/index.html",
-    "lint": "black backend/*; yarn eslint frontend/*.jsx",
+    "lint": "pipenv run black backend/*; yarn eslint frontend/*.jsx",
     "frontend": "parcel serve ./frontend/index.html",
     "tc": "pipenv run pyre; yarn flow",
     "fixpipenv": "pipenv lock --pre --clear",
@@ -32,6 +32,6 @@
     "react-markdown": "^6.0.1"
   },
   "lint-staged": {
-    "*.jsx": "eslint --cache --fix frontend/*.jsx"
+    "*.jsx": "yarn run eslint --cache --fix frontend/*.jsx; yarn run flow"
   }
 }
