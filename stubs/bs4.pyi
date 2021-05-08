@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from __future__ import annotations
 
 class BeautifulSoup:
     def find_all(self) -> BeautifulSoup: ...
