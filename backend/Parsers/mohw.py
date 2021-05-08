@@ -13,7 +13,20 @@ def parseMOHWTaoyuan() -> Tuple[HospitalID, AppointmentAvailability]:
 
 
 def parseMOHWMiaoli() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(13, "reg2.mil.mohw.gov.tw", "CO23")
+    index = 13
+    available = (
+        parseMOHWPage("reg2.mil.mohw.gov.tw", "CO23")
+        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO11")
+        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO41")
+    )
+
+    # FIXME(medicalwei): maybe refactor AppointmentAvailability into a function?
+    return (
+        index,
+        AppointmentAvailability.AVAILABLE
+        if bool(available)
+        else AppointmentAvailability.UNAVAILABLE,
+    )
 
 
 def parseMOHWTaichung() -> Tuple[HospitalID, AppointmentAvailability]:
