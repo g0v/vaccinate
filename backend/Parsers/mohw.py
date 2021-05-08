@@ -33,6 +33,10 @@ def parseMOHWTaichung() -> Tuple[HospitalID, AppointmentAvailability]:
     return parseMOHW(14, "www03.taic.mohw.gov.tw", "01CD")
 
 
+def parseMOHWNantou() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parseMOHW(18, "netreg01.nant.mohw.gov.tw", "0220")
+
+
 def parseMOHWTaitung() -> Tuple[HospitalID, AppointmentAvailability]:
     return parseMOHW(28, "netreg01.tait.mohw.gov.tw", "0119")
 
