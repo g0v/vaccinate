@@ -25,7 +25,7 @@ export default function Table(props: { rows: Array<Hospital>, locale: Locale }):
   const noDataHospitals = rows.filter((row) => row.availability === 'No data');
 
   const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => (
-    <div className="row row-cols-4 row-cols-md-4 g-3">
+    <div className="row row-cols-1 row-cols-md-4 g-3">
       {hospitals.map((hospital) => (
         <div className="col" key={hospital.hospitalId.toString()}>
           <Card
