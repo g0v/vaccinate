@@ -50,6 +50,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     errorBoundary(parseMOHWTaichung),
     errorBoundary(parseMOHWTaitung),
     errorBoundary(parseMOHWKinmen),
+    errorBoundary(parseMOHWNantou),
     errorBoundary(parseTonyenHsinchu),
     errorBoundary(parseSiaogangKaohsiung),
 ]
