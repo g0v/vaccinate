@@ -13,11 +13,28 @@ def parseMOHWTaoyuan() -> Tuple[HospitalID, AppointmentAvailability]:
 
 
 def parseMOHWMiaoli() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(13, "reg2.mil.mohw.gov.tw", "CO23")
+    index = 13
+    available = (
+        parseMOHWPage("reg2.mil.mohw.gov.tw", "CO23")
+        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO11")
+        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO41")
+    )
+
+    # FIXME(medicalwei): maybe refactor AppointmentAvailability into a function?
+    return (
+        index,
+        AppointmentAvailability.AVAILABLE
+        if bool(available)
+        else AppointmentAvailability.UNAVAILABLE,
+    )
 
 
 def parseMOHWTaichung() -> Tuple[HospitalID, AppointmentAvailability]:
     return parseMOHW(14, "www03.taic.mohw.gov.tw", "01CD")
+
+
+def parseMOHWNantou() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parseMOHW(18, "netreg01.nant.mohw.gov.tw", "0220")
 
 
 def parseMOHWTaitung() -> Tuple[HospitalID, AppointmentAvailability]:
@@ -66,8 +83,14 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
     inputs = soup.find_all("input")
     states = dict((x["name"], x["value"]) for x in inputs)
 
-    weeks = [x["value"] for x in soup.findAll("input", {"name": "RdBtnLstWeek"})]
-    weeks.pop(0)  # popping off the first page
+    weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
+
+    try:
+        weeks.pop(0)  # popping off the first page
+    except IndexError:
+        # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
+        # reservation calendar is not paged
+        return False
 
     for week in weeks:
         states["RdBtnLstWeek"] = week
@@ -81,16 +104,5 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
 def parseMOHWWeekPage(body: str) -> bool:
     soup = BeautifulSoup(body, "html.parser")
 
-    # get a list of possible days
-    lst = [
-        y.find_all(text=True)
-        for x in soup.find_all("tr")[1:4]
-        for y in x.find_all("td")[1:7]
-    ]
-
-    # the output of above list comprehension is follows:
-    # [[], ["name of doctor", " (reservation count)"], ["name of doctor", "額滿"], ...]
-    # the second one shows availability
-    lst = [x[1] for x in lst if len(x) != 0 and x[1] != "額滿"]
-
-    return len(lst) != 0
+    # return if there's any link found in the page
+    return bool(soup.find_all("a"))
