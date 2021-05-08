@@ -4,6 +4,7 @@ import Card from './Card';
 import strings from './Table.json';
 
 import type { Locale } from './Locale';
+import type { Availability } from './Availability';
 
 export type Hospital = {|
   hospitalId: Number,
@@ -13,7 +14,7 @@ export type Hospital = {|
   phone: string,
   address: string,
   website: string,
-  availability: string,
+  availability: Availability,
 |};
 
 export default function Table(props: { rows: Array<Hospital>, locale: Locale }): React.Node {
@@ -23,20 +24,21 @@ export default function Table(props: { rows: Array<Hospital>, locale: Locale }):
   const unavailableHospitals = rows.filter((row) => row.availability === 'Unavailable');
   const noDataHospitals = rows.filter((row) => row.availability === 'No data');
 
-  const makeCardGrid = (hospitals) => (
+  const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => (
     <div className="row row-cols-4 row-cols-md-4 g-3">
       {hospitals.map((hospital) => (
-        <div className="col">
+        <div className="col" key={hospital.hospitalId.toString()}>
           <Card
-            key={hospital.hospitalId.toString()}
-            hospitalId={hospital.hospitalId}
-            name={hospital.name}
-            location={hospital.location}
-            department={hospital.department}
-            phone={hospital.phone}
             address={hospital.address}
-            website={hospital.website}
             availability={hospital.availability}
+            buttonText={buttonText}
+            department={hospital.department}
+            hospitalId={hospital.hospitalId}
+            locale={locale}
+            location={hospital.location}
+            name={hospital.name}
+            phone={hospital.phone}
+            website={hospital.website}
           />
         </div>
       ))}
@@ -45,14 +47,14 @@ export default function Table(props: { rows: Array<Hospital>, locale: Locale }):
   return (
     <div>
       <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
-      <i>We have confirmed that these hospitals have appointments available.</i>
-      {makeCardGrid(availableHospitals)}
-      <h3>Hospitals with No Data</h3>
-      <i>We don&apos;t know if this hospital has appointments. Please check their website.</i>
-      {makeCardGrid(noDataHospitals)}
-      <h3>Hospitals with No Appointments</h3>
-      <i>These hospitals have no appointments.</i>
-      {makeCardGrid(unavailableHospitals)}
+      <i>{strings.hospitalsWithAppointmentsSubtitle[locale]}</i>
+      {makeCardGrid(availableHospitals, strings.buttons.getAppointment[locale])}
+      <h3>{strings.hospitalsWithNoDataTitle[locale]}</h3>
+      <i>{strings.hospitalsWithNoDataSubtitle[locale]}</i>
+      {makeCardGrid(noDataHospitals, strings.buttons.visitWebsite[locale])}
+      <h3>{strings.hospitalsWithNoAppointmentsTitle[locale]}</h3>
+      <i>{strings.hospitalsWithNoAppointmentsSubtitle[locale]}</i>
+      {makeCardGrid(unavailableHospitals, strings.buttons.visitWebsite[locale])}
     </div>
   );
 }
