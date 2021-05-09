@@ -26,39 +26,38 @@ redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 
 
-def errorBoundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
-    def boundariedFunction() -> Optional[ScrapedData]:
+def error_boundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
+    def boundaried_function() -> Optional[ScrapedData]:
         try:
             return f()
         except:
             return None
 
-    return boundariedFunction
+    return boundaried_function
 
 
 PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
-    errorBoundary(parseNTUH),
-    errorBoundary(parseNTUHHsinchu),
-    errorBoundary(parseNTUHYunlin),
-    errorBoundary(parseTzuchiTaipei),
-    errorBoundary(parseTzuchiHualien),
-    errorBoundary(parseChanggungChiayi),
-    errorBoundary(parsePchNantou),
-    errorBoundary(parseMOHWKeelung),
-    errorBoundary(parseMOHWTaoyuan),
-    errorBoundary(parseMOHWMiaoli),
-    errorBoundary(parseMOHWTaichung),
-    errorBoundary(parseMOHWTaitung),
-    errorBoundary(parseMOHWKinmen),
-    errorBoundary(parseMOHWNantou),
-    errorBoundary(parseTonyenHsinchu),
-    errorBoundary(parseSiaogangKaohsiung),
+    error_boundary(parse_ntu_taipei),
+    error_boundary(parse_ntu_hsinchu),
+    error_boundary(parse_ntu_yunlin),
+    error_boundary(parse_tzuchi_taipei),
+    error_boundary(parse_tzuchi_hualien),
+    error_boundary(parse_changgung_chiayi),
+    error_boundary(parse_pch_nantou),
+    error_boundary(parse_mohw_taoyuan),
+    error_boundary(parse_mohw_keelung),
+    error_boundary(parse_mohw_miaoli),
+    error_boundary(parse_mohw_taichung),
+    error_boundary(parse_mohw_taitung),
+    error_boundary(parse_mohw_kinmen),
+    error_boundary(parse_mohw_nantou),
+    error_boundary(parse_tonyen_hsinchu),
+    error_boundary(parse_siaogang_kaohsiung),
 ]
 
 
-def hospitalAvailability() -> List[ScrapedData]:
+def get_hospital_availability() -> List[ScrapedData]:
     availability: List[Optional[ScrapedData]] = [f() for f in PARSERS]
-    print(availability)
     return list(filter(None, availability))
 
 
@@ -80,15 +79,15 @@ def hello_redis() -> None:
             ssl=True,
         )
 
-        def setAvailability(
+        def set_availability(
             hospital_id: int, availability: AppointmentAvailability
         ) -> None:
             r.set("hospital:" + str(hospital_id), availability.__str__())
 
-        availability = hospitalAvailability()
+        availability = get_hospital_availability()
 
         [
-            setAvailability(hospital_availability[0], hospital_availability[1])
+            set_availability(hospital_availability[0], hospital_availability[1])
             for hospital_availability in availability
         ]
 

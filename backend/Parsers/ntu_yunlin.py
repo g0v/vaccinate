@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import HospitalID, AppointmentAvailability
 
 
-def parseNTUHYunlin() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_ntu_yunlin() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg.ntuh.gov.tw/WebAdministration/DoctorServiceQueryByDrName.aspx?HospCode=Y0&QueryName=%E4%B8%BB%E6%B2%BB%E9%86%AB%E5%B8%AB",
         verify="../data/ntuh-gov-tw-chain.pem",

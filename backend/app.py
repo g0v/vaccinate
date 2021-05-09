@@ -1,17 +1,10 @@
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, wrappers
 import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-
-# Parsers
-from Parsers.ntu_taipei import *
-from Parsers.ntu_hsinchu import *
-from Parsers.ntu_yunlin import *
-from Parsers.tzuchi_taipei import *
-from Parsers.mohw import *
 
 # Project imports
 import local_scraper
@@ -63,21 +56,10 @@ def get_availability_from_server() -> List[ScrapedData]:
     return list(filter(None, availability))
 
 
-def errorBoundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
-    def boundariedFunction() -> Optional[ScrapedData]:
-        try:
-            return f()
-        except:
-            return None
-
-    return boundariedFunction
-
-
 def hospitalData() -> List[Hospital]:
     should_scrape = app.config["scrape"]
-    app.logger.warning(str(should_scrape))
     availability = (
-        dict(local_scraper.hospitalAvailability())
+        dict(local_scraper.get_hospital_availability())
         if should_scrape
         else dict(get_availability_from_server())
     )
@@ -108,7 +90,7 @@ def hospitalData() -> List[Hospital]:
 
 
 @app.route("/hospitals")
-def hospitals() -> Any:
+def hospitals() -> wrappers.Response:
     data = hospitalData()
     response = app.response_class(
         response=json.dumps(data),

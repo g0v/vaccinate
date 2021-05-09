@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import AppointmentAvailability
 
 
-def parsePchNantou() -> Tuple[int, AppointmentAvailability]:
+def parse_pch_nantou() -> Tuple[int, AppointmentAvailability]:
     r = requests.get(
         "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1",
         timeout=1,

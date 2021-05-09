@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import HospitalID, AppointmentAvailability
 
 
-def parseChanggungChiayi() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_changgung_chiayi() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://register.cgmh.org.tw/Department/6/60990E",
         timeout=1,

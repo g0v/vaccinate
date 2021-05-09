@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import AppointmentAvailability, ScrapedData
 
 
-def parseTonyenHsinchu() -> Tuple[int, AppointmentAvailability]:
+def parse_tonyen_hsinchu() -> Tuple[int, AppointmentAvailability]:
     r = requests.get(
         "https://w3.tyh.com.tw/WebRegList_Dept.aspx?d=55",
         timeout=2,
