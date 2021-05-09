@@ -1,9 +1,9 @@
 // @flow
 import * as React from 'react';
 // $FlowIgnore[cannot-resolve-module] This is how ParcelJS imports assets
-import favicon from 'url:../assets/g0v.png'; // eslint-disable-line
+import favicon from 'url:../../assets/g0v.png'; // eslint-disable-line
 
-import type { Locale } from './Locale';
+import type { Locale } from '../Types/Locale';
 
 const g0vbar = {
   background: '#343A40',

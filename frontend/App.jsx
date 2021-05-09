@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
-import Content from './Content';
+import Content from './Components/Content';
 import Map from './Map';
-import Table from './Table';
-import Spinner from './Spinner';
-import G0vbar from './G0vbar';
+import VaccineDataGrid from './Components/VaccineDataGrid';
+import Spinner from './Components/Spinner';
+import G0vbar from './Components/G0vbar';
 
-import type { Locale } from './Locale';
+import type { Locale } from './Types/Locale';
 
 export default function App(): React.Node {
   const [rows, setRows] = React.useState([]);
@@ -28,7 +28,7 @@ export default function App(): React.Node {
         </div>
         <h2 style={{ textAlign: 'center' }}>Vaccination Availability</h2>
         {rows.length === 0 ? <Spinner />
-          : <Table rows={rows} locale={locale} />}
+          : <VaccineDataGrid rows={rows} locale={locale} />}
         <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
       </div>
     </div>
