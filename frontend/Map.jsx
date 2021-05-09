@@ -7,7 +7,7 @@ export default function Map(): React.Node {
       <iframe
         src="https://www.google.com/maps/d/embed?mid=1LUqWZfmEBZFCAl8ThcE1cakLsb9k-Pkr"
         title="Map"
-        style={{width: '100%', height: 500}}
+        style={{ width: '100%', height: 500 }}
       />
     </div>
   );
