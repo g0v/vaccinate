@@ -24,10 +24,10 @@ This project uses:
 * [Pyre](https://pyrecheck.org) for Python type-checking with PEP484 Typehints.
 
 ## Architecture
-This is an app in three parts: 
+This is an app in three parts:
 1. A web app written in React. The code for this lives in `frontend/`.
 2. A Local Scraper running on a machine in my living room. This is a python script that lives in `backend/local_scraper.py`. It is executed by-the-minute by a cronjob. It takes the results and uploads them to a Redis server. 
-3. A Flask server written in Python. This code runs on a DigitalOcean Droplet in Singapore. This droplet serves down the React app by reading the latest information from a Redis server and sending the data down. 
+3. A Flask server written in Python. This server code lives in `backend/app.py`. This code runs on a DigitalOcean Droplet in Singapore. This droplet serves down the React app by reading the latest information from a Redis server and sending the data down. 
 
 **Note:** Why separate the scraper from the droplet? Originally, I wanted to run everything on the droplet, but websites were blocking non-Taiwan IP addresses, so I was forced to find a scrape from Taiwan, which means a machine running on my family's network. 
 
