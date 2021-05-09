@@ -52,9 +52,9 @@ When you are developing locally, instead of reading from the Redis server, it ma
 3. Write a scraper that makes a request to the webpage returns the ID and the `AppointmentAvailability` as a tuple (see examples)
 4. Import your module in app.py and add your parser in the list of PARSERS. 
 5. Run `yarn backend` and confirm that your code is correct
-6. Make a PR and merge. 
+6. Make a Pull Request and tag @kevinjcliao to take a look. 
 
-See [here](https://github.com/g0v/vaccinate/pull/1) for an example of a PR. 
+See [here](https://github.com/g0v/vaccinate/pull/1) for an example of a Pull Request. 
 
 ## Known Issues
 * After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix. I've aliased this to `yarn fixpipenv`.
