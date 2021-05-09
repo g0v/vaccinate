@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
-import Content from './Content';
+import Content from './Components/Content';
 import Map from './Map';
-import Table from './Table';
-import Spinner from './Spinner';
-import G0vbar from './G0vbar';
+import Table from './Components/Table';
+import Spinner from './Components/Spinner';
+import G0vbar from './Components/G0vbar';
 
-import type { Locale } from './Locale';
+import type { Locale } from './Types/Locale';
 
 export default function App(): React.Node {
   const [rows, setRows] = React.useState([]);

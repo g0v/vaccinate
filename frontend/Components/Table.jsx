@@ -1,15 +1,16 @@
 // @flow
 import * as React from 'react';
 import Card from './Card';
-import strings from './Table.json';
+import strings from '../Strings/Table.json';
 
-import type { Locale } from './Locale';
-import type { Availability } from './Availability';
+import type { Locale } from '../Types/Locale';
+import type { Availability } from '../Types/Availability';
+import type { Location } from '../Types/Location';
 
 export type Hospital = {|
   hospitalId: Number,
   name: string,
-  location: string,
+  location: Location,
   department: string,
   phone: string,
   address: string,
