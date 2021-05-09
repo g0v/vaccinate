@@ -10,6 +10,19 @@ Make sure you have [pipenv](https://pypi.org/project/pipenv/) installed.
 4. In one terminal, run `yarn backend`. This starts the Python Flask server. 
 5. In another terminal, run `yarn frontend`. This starts Parcel, our JS bundler. 
 
+## Translations
+To make sure we're serving all of Taiwan it's imperative we translate to all the languages spoken here. I haven't settled on an i18n approach I'm happy with yet, but for now, to localize into a new language:
+1. Translate the blurb in [Content.jsx](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx). This is the main content that shows on the site when arriving.
+2. Translate the strings that live in the [Strings folder](https://github.com/g0v/vaccinate/tree/master/frontend/Strings).
+3. Translate the content for the top [G0v banner](https://github.com/g0v/vaccinate/blob/master/frontend/Components/G0vbar.jsx).
+
+To add support for a locale once all strings have been localized, override the `setLocale('en')` method call in [Content.jsx](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx) and set it to whatever language code you used to localize. 
+
+Current priority languages:
+* Tagalog
+* Japanese
+* Korean
+
 ## Code Quality
 [![Lint](https://github.com/g0v/vaccinate/actions/workflows/main.yml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/main.yml) [![TypeCheck](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml)
 
