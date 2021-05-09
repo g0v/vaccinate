@@ -4,10 +4,7 @@ import Card from './Card';
 import strings from '../Strings/Table.json';
 
 import type { Locale } from '../Types/Locale';
-import type { Availability } from '../Types/Availability';
-import type { Location } from '../Types/Location';
 import type { Hospital } from '../Types/Hospital';
-
 
 export default function Table(props: { rows: Array<Hospital>, locale: Locale }): React.Node {
   const { rows, locale } = props;
