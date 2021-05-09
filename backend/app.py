@@ -5,8 +5,6 @@ from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-from local_scraper import hospitalAvailability
-from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
 
 # Parsers
 from Parsers.ntu_taipei import *
@@ -14,6 +12,11 @@ from Parsers.ntu_hsinchu import *
 from Parsers.ntu_yunlin import *
 from Parsers.tzuchi_taipei import *
 from Parsers.mohw import *
+
+# Project imports
+import local_scraper
+from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
+
 
 
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
@@ -61,9 +64,7 @@ def get_availability_from_server() -> List[ScrapedData]:
     return list(filter(None, availability))
 
 
-def errorBoundary(
-    f: Callable[[], ScrapedData]
-) -> Callable[[], Optional[ScrapedData]]:
+def errorBoundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
     def boundariedFunction() -> Optional[ScrapedData]:
         try:
             return f()
@@ -74,7 +75,13 @@ def errorBoundary(
 
 
 def hospitalData() -> List[Hospital]:
-    availability = dict(get_availability_from_server())
+    should_scrape = app.config["scrape"]
+    app.logger.warning(str(should_scrape))
+    availability = (
+        dict(local_scraper.hospitalAvailability())
+        if should_scrape
+        else dict(get_availability_from_server())
+    )
 
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
@@ -128,5 +135,6 @@ if __name__ == "__main__":
         This flag will scrape the data locally on machine. It's useful for testing.
         """,
     )
-    flag_values = parser.parse_args()
+    flag_values: argparse.Namespace = parser.parse_args()
+    app.config["scrape"] = flag_values.scrape
     app.run(debug=True, host="0.0.0.0")
