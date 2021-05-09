@@ -18,7 +18,6 @@ import local_scraper
 from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
 
 
-
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
