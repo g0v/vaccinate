@@ -28,7 +28,7 @@ Current priority languages:
 
 Some principles this project operates under:
 * Dependencies should only be introduced where only necessary. The only project non-dev dependency in JS so far is React. This keeps the project easy-to-maintain.
-* Configuration is minimal. We're using all the defaults for ParcelJS, a zero-configuration JavaScript bundler. 
+* Configuration is minimal. We're using all the defaults for [ParcelJS](https://parceljs.org/), a zero-configuration JavaScript bundler. 
 
 This project uses:
 * [AirBnB JavaScript](https://github.com/airbnb/javascript)
