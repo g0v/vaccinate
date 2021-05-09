@@ -61,7 +61,7 @@ def get_hospital_availability() -> List[ScrapedData]:
     return list(filter(None, availability))
 
 
-def hello_redis() -> None:
+def scrape() -> None:
     """Example Hello Redis Program"""
 
     # step 3: create the Redis Connection object
@@ -96,4 +96,4 @@ def hello_redis() -> None:
 
 
 if __name__ == "__main__":
-    hello_redis()
+    scrape()
