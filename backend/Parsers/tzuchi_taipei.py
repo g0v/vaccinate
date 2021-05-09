@@ -13,7 +13,7 @@ def parseTzuchiTaipei() -> Tuple[int, AppointmentAvailability]:
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table", {"id": "MainContent_gvOpdList"})
     rows = table.find_all("tr", {"class": "OpdListD"})
-    rows = filter(rowContainsAppointment, rows)
+    rows = list(filter(rowContainsAppointment, rows))
     # PEP8 Style: if list is not empty, then there are appointments
     return (
         8,

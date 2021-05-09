@@ -15,7 +15,7 @@ def parseSiaogangKaohsiung() -> Tuple[HospitalID, AppointmentAvailability]:
     soup = BeautifulSoup(r.text, "html.parser")
     select = soup.find("select", {"id": "InputBookDate"})
     options = select.find_all("option")
-    options = filter(has_no_appointments, options)
+    options = list(filter(has_no_appointments, options))
 
     # PEP8 Style: if list is not empty, then there are appointments
     return (
