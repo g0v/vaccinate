@@ -1,9 +1,11 @@
 from flask import Flask, render_template, json
+import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
+from local_scraper import hospitalAvailability
 from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
 
 # Parsers
@@ -28,19 +30,7 @@ app = Flask(
 )
 
 
-def errorBoundary(
-    f: Callable[[], Tuple[int, AppointmentAvailability]]
-) -> Callable[[], Optional[Tuple[int, AppointmentAvailability]]]:
-    def boundariedFunction() -> Optional[Tuple[int, AppointmentAvailability]]:
-        try:
-            return f()
-        except:
-            return None
-
-    return boundariedFunction
-
-
-def hospitalData() -> List[Hospital]:
+def get_availability_from_server() -> List[ScrapedData]:
     # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
     # using the default encoding utf-8.  This is client specific.
     r: redis.StrictRedis = redis.StrictRedis(
@@ -51,6 +41,7 @@ def hospitalData() -> List[Hospital]:
         username=redis_username,
         ssl=True,
     )
+
     hospital_ids = list(range(1, 32))
 
     def get_availability(
@@ -66,7 +57,25 @@ def hospitalData() -> List[Hospital]:
         return (hospital_id, availability)
 
     availability = [get_availability(hospital_id) for hospital_id in hospital_ids]
-    availability = dict(list(filter(None, availability)))
+    print(availability)
+    return list(filter(None, availability))
+
+
+def errorBoundary(
+    f: Callable[[], ScrapedData]
+) -> Callable[[], Optional[ScrapedData]]:
+    def boundariedFunction() -> Optional[ScrapedData]:
+        try:
+            return f()
+        except:
+            return None
+
+    return boundariedFunction
+
+
+def hospitalData() -> List[Hospital]:
+    availability = dict(get_availability_from_server())
+
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
@@ -109,4 +118,15 @@ def index() -> str:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Server to serve scraped vaccine availability data."
+    )
+    parser.add_argument(
+        "--scrape",
+        action="store_true",
+        help="""Usually the Flask app will read from a Redis database. 
+        This flag will scrape the data locally on machine. It's useful for testing.
+        """,
+    )
+    flag_values = parser.parse_args()
     app.run(debug=True, host="0.0.0.0")
