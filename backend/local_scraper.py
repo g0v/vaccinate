@@ -76,6 +76,7 @@ def hello_redis() -> None:
             password=redis_password,
             decode_responses=True,
             username=redis_username,
+            socket_timeout=10,
             ssl=True,
         )
 
