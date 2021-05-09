@@ -63,7 +63,7 @@ See [here](https://github.com/g0v/vaccinate/pull/1) for an example of a Pull Req
 We're chatting in the #vaccine channel of the [g0v Slack](https://join.g0v.tw/). Come say hi! :)
 
 ## About g0v
-g0v is Taiwan's polycentric civic tech community. We're a network of volunteers who build websites that serve the public good. 
+g0v is Taiwan's polycentric civic tech community. We're a network of volunteers who build websites that serve the public good. Join us for our next Hackathon! You can find dates on the [Jothon Team](https://jothon.g0v.tw/) website. 
 
 ## Thanks
 If you were able to book a vaccine using this website, I'd love it if you'd consider throwing a couple bucks towards mutual aid or solidarity organizations in your area. Some ideas: 
