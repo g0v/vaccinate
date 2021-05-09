@@ -18,12 +18,13 @@
     "sharp": "^0.28.1"
   },
   "scripts": {
-    "backend": "parcel build ./frontend/index.html; flask backend/app.py",
+    "backend": "parcel build ./frontend/index.html; cd backend; pipenv run python app.py --scrape",
     "build": "parcel build ./frontend/index.html",
-    "lint": "pipenv run black backend/*; yarn eslint frontend/*.jsx",
+    "fixpipenv": "pipenv lock --pre --clear",
     "frontend": "parcel serve ./frontend/index.html",
-    "tc": "pipenv run pyre; yarn flow",
-    "fixpipenv": "pipenv lock --pre --clear"
+    "lint": "pipenv run black backend/*; yarn eslint frontend/*.jsx",
+    "scrape": "cd backend; pipenv run python local_scraper.py",
+    "tc": "pipenv run pyre; yarn flow"
   },
   "dependencies": {
     "react": "^17.0.2",
