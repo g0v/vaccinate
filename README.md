@@ -46,16 +46,24 @@ This is an app in three parts:
 
 When you are developing locally, instead of reading from the Redis server, it makes sense to scrape the data directly. Tthe `app.py` Flask server takes a `--scrape` flag, which when set will scrape locally instead of reading from the Redis server. 
 
-## To write a parser for a hospital
+## To write a scraper for a hospital
 1. Open up data/hospitals.csv. Add your GitHub name as the owner next to that hospital. 
 2. Note the ID for that hospital (e.g. 台大醫院 is 3.)
-3. Write a parser that makes a request to the webpage returns the ID and the `AppointmentAvailability` as a tuple (see examples)
+3. Write a scraper that makes a request to the webpage returns the ID and the `AppointmentAvailability` as a tuple (see examples)
 4. Import your module in app.py and add your parser in the list of PARSERS. 
 5. Run `yarn backend` and confirm that your code is correct
 6. Make a PR and merge. 
 
+See [here](https://github.com/g0v/vaccinate/pull/1) for an example of a PR. 
+
 ## Known Issues
-* After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix.
+* After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix. I've aliased this to `yarn fixpipenv`.
+
+## Discuss
+We're chatting in the #vaccine channel of the [g0v Slack](https://join.g0v.tw/). Come say hi! :)
+
+## About g0v
+g0v is Taiwan's polycentric civic tech community. We're a network of volunteers who build websites that serve the public good. 
 
 ## Thanks
 If you were able to book a vaccine using this website, I'd love it if you'd consider throwing a couple bucks towards mutual aid or solidarity organizations in your area. Some ideas: 
