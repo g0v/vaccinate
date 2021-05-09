@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import HospitalID, AppointmentAvailability
 
 
-def parseSiaogangKaohsiung() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_siaogang_kaohsiung() -> Tuple[HospitalID, AppointmentAvailability]:
     def has_no_appointments(option: BeautifulSoup) -> bool:
         option = option.text
         return int(option[option.find("數") + 2 :].split("-")[0]) == 0

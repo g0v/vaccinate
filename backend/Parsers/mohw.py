@@ -4,20 +4,20 @@ from bs4 import BeautifulSoup
 from hospital_types import HospitalID, AppointmentAvailability
 
 
-def parseMOHWKeelung() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(1, "netreg.kln.mohw.gov.tw", "0196")
+def parse_mohw_keelung() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196")
 
 
-def parseMOHWTaoyuan() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(10, "tyghnetreg.tygh.mohw.gov.tw", "0126")
+def parse_mohw_taoyuan() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126")
 
 
-def parseMOHWMiaoli() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_miaoli() -> Tuple[HospitalID, AppointmentAvailability]:
     index = 13
     available = (
-        parseMOHWPage("reg2.mil.mohw.gov.tw", "CO23")
-        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO11")
-        or parseMOHWPage("reg2.mil.mohw.gov.tw", "CO41")
+        parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
+        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
+        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
     )
 
     # FIXME(medicalwei): maybe refactor AppointmentAvailability into a function?
@@ -29,26 +29,26 @@ def parseMOHWMiaoli() -> Tuple[HospitalID, AppointmentAvailability]:
     )
 
 
-def parseMOHWTaichung() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(14, "www03.taic.mohw.gov.tw", "01CD")
+def parse_mohw_taichung() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD")
 
 
-def parseMOHWNantou() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(18, "netreg01.nant.mohw.gov.tw", "0220")
+def parse_mohw_nantou() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220")
 
 
-def parseMOHWTaitung() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(28, "netreg01.tait.mohw.gov.tw", "0119")
+def parse_mohw_taitung() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119")
 
 
-def parseMOHWKinmen() -> Tuple[HospitalID, AppointmentAvailability]:
-    return parseMOHW(29, "netreg.kmhp.mohw.gov.tw", "104A")
+def parse_mohw_kinmen() -> Tuple[HospitalID, AppointmentAvailability]:
+    return parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A")
 
 
-def parseMOHW(
+def parse_mohw(
     index: int, hostname: str, div_dr: str
 ) -> Tuple[HospitalID, AppointmentAvailability]:
-    available = parseMOHWPage(hostname, div_dr)
+    available = parse_mohw_page(hostname, div_dr)
     return (
         index,
         AppointmentAvailability.AVAILABLE
@@ -57,7 +57,7 @@ def parseMOHW(
     )
 
 
-def parseMOHWPage(hostname: str, div_dr: str) -> bool:
+def parse_mohw_page(hostname: str, div_dr: str) -> bool:
     entrypoint_url = (
         "https://{}/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?DivDr={}&Way=Dept".format(
             hostname, div_dr
@@ -74,7 +74,7 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
     r = s.get(regtable_url)
 
     # if first page shows available reservations, exit early
-    if parseMOHWWeekPage(r.text):
+    if parse_mohw_week_page(r.text):
         return True
 
     soup = BeautifulSoup(r.text, "html.parser")
@@ -95,13 +95,13 @@ def parseMOHWPage(hostname: str, div_dr: str) -> bool:
     for week in weeks:
         states["RdBtnLstWeek"] = week
         r = s.post(regtable_url, data=states)
-        if parseMOHWWeekPage(r.text):
+        if parse_mohw_week_page(r.text):
             return True
 
     return False
 
 
-def parseMOHWWeekPage(body: str) -> bool:
+def parse_mohw_week_page(body: str) -> bool:
     soup = BeautifulSoup(body, "html.parser")
 
     # return if there's any link found in the page

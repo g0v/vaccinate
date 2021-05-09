@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import AppointmentAvailability, ScrapedData
 
 
-def parseTzuchiTaipei() -> Tuple[int, AppointmentAvailability]:
+def parse_tzuchi_taipei() -> Tuple[int, AppointmentAvailability]:
     r = requests.get(
         "https://reg-prod.tzuchi-healthcare.org.tw/tchw/HIS5OpdReg/OpdTimeShow?Pass=XD;0022",
         verify="../data/tzuchi-healthcare-org-tw-chain.pem",
@@ -13,7 +13,7 @@ def parseTzuchiTaipei() -> Tuple[int, AppointmentAvailability]:
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table", {"id": "MainContent_gvOpdList"})
     rows = table.find_all("tr", {"class": "OpdListD"})
-    rows = list(filter(rowContainsAppointment, rows))
+    rows = list(filter(row_contains_appointment, rows))
     # PEP8 Style: if list is not empty, then there are appointments
     return (
         8,
@@ -23,7 +23,7 @@ def parseTzuchiTaipei() -> Tuple[int, AppointmentAvailability]:
     )
 
 
-def rowContainsAppointment(row: BeautifulSoup) -> bool:
+def row_contains_appointment(row: BeautifulSoup) -> bool:
     columns = row.find_all("td")
     column_two_has_appointment = bool(columns[1].find_all("a"))
     column_three_has_appointment = bool(columns[2].find_all("a"))

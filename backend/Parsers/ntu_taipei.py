@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from hospital_types import HospitalID, AppointmentAvailability
 
 
-def parseNTUH() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_ntu_taipei() -> Tuple[HospitalID, AppointmentAvailability]:
     r = requests.get(
         "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T0&Reg=",
         verify="../data/ntuh-gov-tw-chain.pem",
