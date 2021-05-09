@@ -6,7 +6,9 @@ import strings from '../Strings/Table.json';
 import type { Locale } from '../Types/Locale';
 import type { Hospital } from '../Types/Hospital';
 
-export default function Table(props: { rows: Array<Hospital>, locale: Locale }): React.Node {
+export default function VaccineDataGrid(
+  props: { rows: Array<Hospital>, locale: Locale },
+): React.Node {
   const { rows, locale } = props;
 
   const availableHospitals = rows.filter((row) => row.availability === 'Available');
