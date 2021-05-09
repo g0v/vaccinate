@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import Content from './Components/Content';
-import Map from './Map';
+import Map from './Components/Map';
 import VaccineDataGrid from './Components/VaccineDataGrid';
 import Spinner from './Components/Spinner';
 import G0vbar from './Components/G0vbar';
