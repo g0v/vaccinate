@@ -6,7 +6,8 @@ from hospital_types import HospitalID, AppointmentAvailability
 
 def parseSiaogangKaohsiung() -> Tuple[HospitalID, AppointmentAvailability]:
     def has_no_appointments(option: str) -> bool:
-        return int(option[18:].split("-")[0]) == 0
+        option = option.text
+        return int(option[option.find("數") + 2 :].split("-")[0]) == 0
 
     r = requests.get(
         "https://www.kmsh.org.tw/web/BookVaccineSysInter",
