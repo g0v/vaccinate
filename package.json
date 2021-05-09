@@ -22,7 +22,7 @@
     "build": "parcel build ./frontend/index.html",
     "fixpipenv": "pipenv lock --pre --clear",
     "frontend": "parcel serve ./frontend/index.html",
-    "lint": "pipenv run black backend/*; yarn eslint frontend/*.jsx",
+    "lint": "pipenv run black backend/*; yarn eslint frontend --ext .js,.jsx --fix",
     "scrape": "cd backend; pipenv run python local_scraper.py",
     "tc": "pipenv run pyre; yarn flow"
   },
