@@ -57,7 +57,7 @@ def get_availability_from_server() -> List[ScrapedData]:
 
 
 def hospitalData() -> List[Hospital]:
-    should_scrape = app.config["scrape"] if app.config.has_key("scrape") else False
+    should_scrape = app.config["scrape"]
     availability = (
         dict(local_scraper.get_hospital_availability())
         if should_scrape
