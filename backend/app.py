@@ -57,7 +57,7 @@ def get_availability_from_server() -> List[ScrapedData]:
 
 
 def hospitalData() -> List[Hospital]:
-    should_scrape = app.config["scrape"]
+    should_scrape = app.config["scrape"] if app.config.has_key("scrape") else False
     availability = (
         dict(local_scraper.get_hospital_availability())
         if should_scrape
@@ -112,7 +112,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "--scrape",
         action="store_true",
-        help="""Usually the Flask app will read from a Redis database. 
+        default=False,
+        help="""Usually the Flask app will read from a Redis database.
         This flag will scrape the data locally on machine. It's useful for testing.
         """,
     )
