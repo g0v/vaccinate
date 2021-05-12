@@ -52,8 +52,13 @@ export default function App(): React.Node {
           </div>
         </div>
         {rows.length === 0 ? <Spinner />
-          : <VaccineDataGrid
-            vaccineType={vaccineType} rows={rows} locale={locale} />}
+          : (
+            <VaccineDataGrid
+              vaccineType={vaccineType}
+              rows={rows}
+              locale={locale}
+            />
+          )}
         <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
       </div>
     </div>

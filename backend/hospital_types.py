@@ -22,4 +22,9 @@ class Hospital(TypedDict):
     website: str
 
 
-ScrapedData = Tuple[int, AppointmentAvailability]
+class HospitalAvailabilitySchema(TypedDict):
+    self_paid: AppointmentAvailability
+    government_paid: AppointmentAvailability
+
+
+ScrapedData = Tuple[int, HospitalAvailabilitySchema]

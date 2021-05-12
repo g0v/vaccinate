@@ -1,7 +1,11 @@
 import redis, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType
 from enum import Enum
-from hospital_types import AppointmentAvailability, ScrapedData
+from hospital_types import (
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 from dotenv import load_dotenv
 
 

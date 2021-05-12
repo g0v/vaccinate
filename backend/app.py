@@ -8,7 +8,13 @@ from bs4 import BeautifulSoup
 
 # Project imports
 import local_scraper
-from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
+from hospital_types import (
+    Hospital,
+    HospitalID,
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 
 
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
@@ -42,7 +48,7 @@ def get_availability_from_server() -> List[ScrapedData]:
     def get_availability(
         hospital_id: int,
     ) -> Optional[ScrapedData]:
-        availability = r.get("hospital:" + str(hospital_id))
+        availability: str = r.get("hospital:" + str(hospital_id))
         if availability == "AppointmentAvailability.AVAILABLE":
             availability = AppointmentAvailability.AVAILABLE
         elif availability == "AppointmentAvailability.UNAVAILABLE":
@@ -71,7 +77,7 @@ def hospitalData() -> List[Hospital]:
         for row in reader:
             hospital_id = int(row["編號"])
             hospital_availability = (
-                availability[hospital_id].value
+                availability[hospital_id]["self_paid"].value
                 if hospital_id in availability
                 else AppointmentAvailability.NO_DATA.value
             )
