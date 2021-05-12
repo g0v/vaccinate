@@ -61,18 +61,10 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
 
 
 def get_hospital_availability() -> List[ScrapedData]:
-    availability: List[Optional[ScrapedData]] = [f() for f in PARSERS]
-    replace_nones: Callable[[Optional[ScrapedData]], ScrapedData] = (
-        lambda d: d
-        if d != None
-        else {
-            "self_paid": AppointmentAvailability.NO_DATA,
-            "government_paid": AppointmentAvailability.NO_DATA,
-        }
+    availability: List[ScrapedData] = list(
+        filter(None, [f() for f in PARSERS])
     )
-    as_dict: Dict[int, HospitalAvailabilitySchema] = dict(
-        map(replace_nones, availability)
-    )
+    as_dict: Dict[int, HospitalAvailabilitySchema] = dict(availability)
     for i in range(1, 32):
         if i in as_dict:
             continue
@@ -110,7 +102,6 @@ def scrape() -> None:
             f: Callable[[AppointmentAvailability], str] = lambda x: x.__str__()
             # pyre-fixme[6]: Pyre cannot detect that the objects here are AppointmentAvailability
             primitive_availability = {k: f(v) for k, v in availability.items()}
-            print(primitive_availability)
             r.hset(
                 "hospital_schema_2:" + str(hospital_id),
                 key=None,
