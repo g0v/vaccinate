@@ -5,20 +5,21 @@ from enum import Enum
 HospitalID = int
 
 
-class AppointmentAvailability(Enum):
-    AVAILABLE = "Available"
-    UNAVAILABLE = "Unavailable"
-    NO_DATA = "No data"
+class AppointmentAvailability(str, Enum):
+    AVAILABLE: str = "Available"
+    UNAVAILABLE: str = "Unavailable"
+    NO_DATA: str = "No data"
 
 
 class Hospital(TypedDict):
     address: str
-    availability: AppointmentAvailability
     department: str
+    governmentPaidAvailability: AppointmentAvailability
     hospitalId: HospitalID
     location: str
     name: str
     phone: str
+    selfPaidAvailability: AppointmentAvailability
     website: str
 
 

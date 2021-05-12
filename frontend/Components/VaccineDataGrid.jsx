@@ -11,9 +11,9 @@ export default function VaccineDataGrid(
 ): React.Node {
   const { rows, locale } = props;
 
-  const availableHospitals = rows.filter((row) => row.availability === 'Available');
-  const unavailableHospitals = rows.filter((row) => row.availability === 'Unavailable');
-  const noDataHospitals = rows.filter((row) => row.availability === 'No data');
+  const availableHospitals = rows.filter((row) => row.selfPaidAvailability === 'Available');
+  const unavailableHospitals = rows.filter((row) => row.selfPaidAvailability === 'Unavailable');
+  const noDataHospitals = rows.filter((row) => row.selfPaidAvailability === 'No data');
 
   const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => (
     <div className="row row-cols-1 row-cols-md-4 g-3">
@@ -21,7 +21,7 @@ export default function VaccineDataGrid(
         <div className="col" key={hospital.hospitalId.toString()}>
           <Card
             address={hospital.address}
-            availability={hospital.availability}
+            availability={hospital.selfPaidAvailability}
             buttonText={buttonText}
             department={hospital.department}
             hospitalId={hospital.hospitalId}

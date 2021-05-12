@@ -47,11 +47,17 @@ def get_availability_from_server() -> List[ScrapedData]:
 
     def get_availability(
         hospital_id: int,
-    ) -> Optional[ScrapedData]:
+    ) -> ScrapedData:
         raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
 
         if raw_availability == {}:
-            return None
+            return (
+                hospital_id,
+                {
+                    "self_paid": AppointmentAvailability.NO_DATA,
+                    "government_paid": AppointmentAvailability.NO_DATA,
+                },
+            )
 
         def read_availability(raw: str) -> AppointmentAvailability:
             if raw == "AppointmentAvailability.AVAILABLE":
@@ -67,9 +73,11 @@ def get_availability_from_server() -> List[ScrapedData]:
         }
         return (hospital_id, availability)
 
-    availability = [get_availability(hospital_id) for hospital_id in hospital_ids]
+    availability: List[ScrapedData] = [
+        get_availability(hospital_id) for hospital_id in hospital_ids
+    ]
     print(availability)
-    return list(filter(None, availability))
+    return availability
 
 
 def hospitalData() -> List[Hospital]:
@@ -86,15 +94,13 @@ def hospitalData() -> List[Hospital]:
         rows = []
         for row in reader:
             hospital_id = int(row["編號"])
-            hospital_availability = (
-                availability[hospital_id]["self_paid"].value
-                if hospital_id in availability
-                else AppointmentAvailability.NO_DATA.value
-            )
             hospital: Hospital = {
                 "address": row["地址"],
-                "availability": hospital_availability,
+                "selfPaidAvailability": availability[hospital_id]["self_paid"],
                 "department": row["科別"],
+                "governmentPaidAvailability": availability[hospital_id][
+                    "government_paid"
+                ],
                 "hospitalId": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],

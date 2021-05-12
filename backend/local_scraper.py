@@ -62,7 +62,27 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
 
 def get_hospital_availability() -> List[ScrapedData]:
     availability: List[Optional[ScrapedData]] = [f() for f in PARSERS]
-    return list(filter(None, availability))
+    replace_nones: Callable[[Optional[ScrapedData]], ScrapedData] = (
+        lambda d: d
+        if d != None
+        else {
+            "self_paid": AppointmentAvailability.NO_DATA,
+            "government_paid": AppointmentAvailability.NO_DATA,
+        }
+    )
+    as_dict: Dict[int, HospitalAvailabilitySchema] = dict(
+        map(replace_nones, availability)
+    )
+    for i in range(1, 32):
+        if i in as_dict:
+            continue
+        else:
+            as_dict[i] = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
+    print(list(as_dict.items()))
+    return list(as_dict.items())
 
 
 def scrape() -> None:
@@ -95,6 +115,7 @@ def scrape() -> None:
                 "hospital_schema_2:" + str(hospital_id),
                 key=None,
                 value=None,
+                # pyre-fixme[6]: Pyre cannot make Dict[str, str] compatible with their HSet type.
                 mapping=primitive_availability,
             )
 
