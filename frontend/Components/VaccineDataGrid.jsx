@@ -42,15 +42,21 @@ export default function VaccineDataGrid(
   );
   return (
     <div>
-      <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
-      <i>{strings.hospitalsWithAppointmentsSubtitle[locale]}</i>
-      {makeCardGrid(availableHospitals, strings.buttons.getAppointment[locale])}
-      <h3>{strings.hospitalsWithNoDataTitle[locale]}</h3>
-      <i>{strings.hospitalsWithNoDataSubtitle[locale]}</i>
-      {makeCardGrid(noDataHospitals, strings.buttons.visitWebsite[locale])}
-      <h3>{strings.hospitalsWithNoAppointmentsTitle[locale]}</h3>
-      <i>{strings.hospitalsWithNoAppointmentsSubtitle[locale]}</i>
-      {makeCardGrid(unavailableHospitals, strings.buttons.visitWebsite[locale])}
+      <div style={{marginTop: 20}}>
+        <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
+        <p><i>{strings.hospitalsWithAppointmentsSubtitle[locale]}</i></p>
+        {makeCardGrid(availableHospitals, strings.buttons.getAppointment[locale])}
+      </div>
+      <div style={{marginTop: 20}}>
+        <h3>{strings.hospitalsWithNoDataTitle[locale]}</h3>
+        <p><i>{strings.hospitalsWithNoDataSubtitle[locale]}</i></p>
+        {makeCardGrid(noDataHospitals, strings.buttons.visitWebsite[locale])}
+      </div>
+      <div style={{marginTop: 20}}>
+        <h3>{strings.hospitalsWithNoAppointmentsTitle[locale]}</h3>
+        <p><i>{strings.hospitalsWithNoAppointmentsSubtitle[locale]}</i></p>
+        {makeCardGrid(unavailableHospitals, strings.buttons.visitWebsite[locale])}
+      </div>
     </div>
   );
 }
