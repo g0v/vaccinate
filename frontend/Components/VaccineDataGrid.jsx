@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import Card from './Card';
-import strings from '../Strings/Table.json';
+import strings from '../Strings/VaccineDataGrid.json';
 
 import type { Locale } from '../Types/Locale';
 import type { Hospital } from '../Types/Hospital';
@@ -42,7 +42,7 @@ export default function VaccineDataGrid(
       </div>
     ) : (
       <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>No hospitals.</i></p>
+        <p className="lead"><i>{strings.noHospitals[locale]}</i></p>
       </div>
     ));
   return (

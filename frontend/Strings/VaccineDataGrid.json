@@ -23,6 +23,10 @@
     "en": "These hospitals have no appointments. Please check again later.",
     "zh": "這些醫院沒有自費疫苗接種名額。請稍後在查詢本網站"
   },
+  "noHospitals": {
+    "en": "No hospitals in this category.",
+    "zh": "該種類無醫院"
+  },
   "buttons": {
     "getAppointment": {
       "en": "Get Appointment",
