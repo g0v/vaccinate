@@ -61,9 +61,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
 
 
 def get_hospital_availability() -> List[ScrapedData]:
-    availability: List[ScrapedData] = list(
-        filter(None, [f() for f in PARSERS])
-    )
+    availability: List[ScrapedData] = list(filter(None, [f() for f in PARSERS]))
     as_dict: Dict[int, HospitalAvailabilitySchema] = dict(availability)
     for i in range(1, 32):
         if i in as_dict:
