@@ -33,7 +33,7 @@ export default function App(): React.Node {
           <form
             className="btn-group"
             role="group"
-            aria-label="Basic outlined example"
+            aria-label="Select type of vaccination."
           >
             {/* eslint-disable jsx-a11y/label-has-associated-control */}
             <input
