@@ -30,26 +30,43 @@ export default function App(): React.Node {
         </div>
         <h2 style={{ textAlign: 'center' }}>Vaccination Availability</h2>
         <div style={{ textAlign: 'center' }}>
-          <div
+          <form
             className="btn-group"
             role="group"
             aria-label="Basic outlined example"
           >
-            <button
-              type="button"
+            {/* eslint-disable jsx-a11y/label-has-associated-control */}
+            <input
+              type="radio"
+              className="btn-check"
+              name="btnradio"
+              id="btnradio1"
+              autoComplete="off"
               onClick={() => setVaccineType('SelfPaid')}
+              checked={vaccineType === 'SelfPaid'}
+            />
+            <label
               className="btn btn-outline-primary"
+              htmlFor="btnradio1"
             >
-              Self-Paid Vaccine
-            </button>
-            <button
-              type="button"
+              Self-Paid Vaccine Appointments
+            </label>
+            <input
+              type="radio"
+              className="btn-check"
+              name="btnradio"
+              id="btnradio2"
+              autoComplete="off"
               onClick={() => setVaccineType('GovernmentPaid')}
+              checked={vaccineType === 'GovernmentPaid'}
+            />
+            <label
               className="btn btn-outline-primary"
+              htmlFor="btnradio2"
             >
-              Government-Paid Vaccine
-            </button>
-          </div>
+              Government-Paid Vaccine Appointments
+            </label>
+          </form>
         </div>
         {rows.length === 0 ? <Spinner />
           : (
