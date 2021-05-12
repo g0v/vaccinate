@@ -8,7 +8,13 @@ from bs4 import BeautifulSoup
 
 # Project imports
 import local_scraper
-from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
+from hospital_types import (
+    Hospital,
+    HospitalID,
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 
 
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
@@ -41,19 +47,37 @@ def get_availability_from_server() -> List[ScrapedData]:
 
     def get_availability(
         hospital_id: int,
-    ) -> Optional[ScrapedData]:
-        availability = r.get("hospital:" + str(hospital_id))
-        if availability == "AppointmentAvailability.AVAILABLE":
-            availability = AppointmentAvailability.AVAILABLE
-        elif availability == "AppointmentAvailability.UNAVAILABLE":
-            availability = AppointmentAvailability.UNAVAILABLE
-        else:
-            return None
+    ) -> ScrapedData:
+        raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
+
+        if raw_availability == {}:
+            return (
+                hospital_id,
+                {
+                    "self_paid": AppointmentAvailability.NO_DATA,
+                    "government_paid": AppointmentAvailability.NO_DATA,
+                },
+            )
+
+        def read_availability(raw: str) -> AppointmentAvailability:
+            if raw == "AppointmentAvailability.AVAILABLE":
+                return AppointmentAvailability.AVAILABLE
+            elif raw == "AppointmentAvailability.UNAVAILABLE":
+                return AppointmentAvailability.UNAVAILABLE
+            else:
+                return AppointmentAvailability.NO_DATA
+
+        availability: HospitalAvailabilitySchema = {
+            "self_paid": read_availability(raw_availability["self_paid"]),
+            "government_paid": read_availability(raw_availability["government_paid"]),
+        }
         return (hospital_id, availability)
 
-    availability = [get_availability(hospital_id) for hospital_id in hospital_ids]
+    availability: List[ScrapedData] = [
+        get_availability(hospital_id) for hospital_id in hospital_ids
+    ]
     print(availability)
-    return list(filter(None, availability))
+    return availability
 
 
 def hospitalData() -> List[Hospital]:
@@ -70,15 +94,13 @@ def hospitalData() -> List[Hospital]:
         rows = []
         for row in reader:
             hospital_id = int(row["編號"])
-            hospital_availability = (
-                availability[hospital_id].value
-                if hospital_id in availability
-                else AppointmentAvailability.NO_DATA.value
-            )
             hospital: Hospital = {
                 "address": row["地址"],
-                "availability": hospital_availability,
+                "selfPaidAvailability": availability[hospital_id]["self_paid"],
                 "department": row["科別"],
+                "governmentPaidAvailability": availability[hospital_id][
+                    "government_paid"
+                ],
                 "hospitalId": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],

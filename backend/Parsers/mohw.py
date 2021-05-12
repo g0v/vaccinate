@@ -1,18 +1,23 @@
 from typing import Tuple
 import requests
 from bs4 import BeautifulSoup
-from hospital_types import HospitalID, AppointmentAvailability
+from hospital_types import (
+    HospitalID,
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 
 
-def parse_mohw_keelung() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_keelung() -> ScrapedData:
     return parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196")
 
 
-def parse_mohw_taoyuan() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_taoyuan() -> ScrapedData:
     return parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126")
 
 
-def parse_mohw_miaoli() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_miaoli() -> ScrapedData:
     index = 13
     available = (
         parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
@@ -20,40 +25,47 @@ def parse_mohw_miaoli() -> Tuple[HospitalID, AppointmentAvailability]:
         or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
     )
 
+    availability: HospitalAvailabilitySchema = {
+        "self_paid": AppointmentAvailability.AVAILABLE
+        if bool(available)
+        else AppointmentAvailability.UNAVAILABLE,
+        "government_paid": AppointmentAvailability.NO_DATA,
+    }
+
     # FIXME(medicalwei): maybe refactor AppointmentAvailability into a function?
     return (
         index,
-        AppointmentAvailability.AVAILABLE
-        if bool(available)
-        else AppointmentAvailability.UNAVAILABLE,
+        availability,
     )
 
 
-def parse_mohw_taichung() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_taichung() -> ScrapedData:
     return parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD")
 
 
-def parse_mohw_nantou() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_nantou() -> ScrapedData:
     return parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220")
 
 
-def parse_mohw_taitung() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_taitung() -> ScrapedData:
     return parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119")
 
 
-def parse_mohw_kinmen() -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw_kinmen() -> ScrapedData:
     return parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A")
 
 
-def parse_mohw(
-    index: int, hostname: str, div_dr: str
-) -> Tuple[HospitalID, AppointmentAvailability]:
+def parse_mohw(index: int, hostname: str, div_dr: str) -> ScrapedData:
     available = parse_mohw_page(hostname, div_dr)
-    return (
-        index,
-        AppointmentAvailability.AVAILABLE
+    availability: HospitalAvailabilitySchema = {
+        "self_paid": AppointmentAvailability.AVAILABLE
         if bool(available)
         else AppointmentAvailability.UNAVAILABLE,
+        "government_paid": AppointmentAvailability.NO_DATA,
+    }
+    return (
+        index,
+        availability,
     )
 
 

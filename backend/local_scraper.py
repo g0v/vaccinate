@@ -1,7 +1,11 @@
 import redis, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType
 from enum import Enum
-from hospital_types import AppointmentAvailability, ScrapedData
+from hospital_types import (
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 from dotenv import load_dotenv
 
 
@@ -58,10 +62,30 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
 
 def get_hospital_availability() -> List[ScrapedData]:
     availability: List[Optional[ScrapedData]] = [f() for f in PARSERS]
-    return list(filter(None, availability))
+    replace_nones: Callable[[Optional[ScrapedData]], ScrapedData] = (
+        lambda d: d
+        if d != None
+        else {
+            "self_paid": AppointmentAvailability.NO_DATA,
+            "government_paid": AppointmentAvailability.NO_DATA,
+        }
+    )
+    as_dict: Dict[int, HospitalAvailabilitySchema] = dict(
+        map(replace_nones, availability)
+    )
+    for i in range(1, 32):
+        if i in as_dict:
+            continue
+        else:
+            as_dict[i] = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
+    print(list(as_dict.items()))
+    return list(as_dict.items())
 
 
-def hello_redis() -> None:
+def scrape() -> None:
     """Example Hello Redis Program"""
 
     # step 3: create the Redis Connection object
@@ -80,9 +104,20 @@ def hello_redis() -> None:
         )
 
         def set_availability(
-            hospital_id: int, availability: AppointmentAvailability
+            hospital_id: int,
+            availability: HospitalAvailabilitySchema,
         ) -> None:
-            r.set("hospital:" + str(hospital_id), availability.__str__())
+            f: Callable[[AppointmentAvailability], str] = lambda x: x.__str__()
+            # pyre-fixme[6]: Pyre cannot detect that the objects here are AppointmentAvailability
+            primitive_availability = {k: f(v) for k, v in availability.items()}
+            print(primitive_availability)
+            r.hset(
+                "hospital_schema_2:" + str(hospital_id),
+                key=None,
+                value=None,
+                # pyre-fixme[6]: Pyre cannot make Dict[str, str] compatible with their HSet type.
+                mapping=primitive_availability,
+            )
 
         availability = get_hospital_availability()
 
@@ -96,4 +131,4 @@ def hello_redis() -> None:
 
 
 if __name__ == "__main__":
-    hello_redis()
+    scrape()
