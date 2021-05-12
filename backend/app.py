@@ -48,13 +48,23 @@ def get_availability_from_server() -> List[ScrapedData]:
     def get_availability(
         hospital_id: int,
     ) -> Optional[ScrapedData]:
-        availability: str = r.get("hospital:" + str(hospital_id))
-        if availability == "AppointmentAvailability.AVAILABLE":
-            availability = AppointmentAvailability.AVAILABLE
-        elif availability == "AppointmentAvailability.UNAVAILABLE":
-            availability = AppointmentAvailability.UNAVAILABLE
-        else:
+        raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
+
+        if raw_availability == {}:
             return None
+
+        def read_availability(raw: str) -> AppointmentAvailability:
+            if raw == "AppointmentAvailability.AVAILABLE":
+                return AppointmentAvailability.AVAILABLE
+            elif raw == "AppointmentAvailability.UNAVAILABLE":
+                return AppointmentAvailability.UNAVAILABLE
+            else:
+                return AppointmentAvailability.NO_DATA
+
+        availability: HospitalAvailabilitySchema = {
+            "self_paid": read_availability(raw_availability["self_paid"]),
+            "government_paid": read_availability(raw_availability["government_paid"]),
+        }
         return (hospital_id, availability)
 
     availability = [get_availability(hospital_id) for hospital_id in hospital_ids]

@@ -84,9 +84,19 @@ def scrape() -> None:
         )
 
         def set_availability(
-            hospital_id: int, availability: AppointmentAvailability
+            hospital_id: int,
+            availability: HospitalAvailabilitySchema,
         ) -> None:
-            r.set("hospital:" + str(hospital_id), availability.__str__())
+            f: Callable[[AppointmentAvailability], str] = lambda x: x.__str__()
+            # pyre-fixme[6]: Pyre cannot detect that the objects here are AppointmentAvailability
+            primitive_availability = {k: f(v) for k, v in availability.items()}
+            print(primitive_availability)
+            r.hset(
+                "hospital_schema_2:" + str(hospital_id),
+                key=None,
+                value=None,
+                mapping=primitive_availability,
+            )
 
         availability = get_hospital_availability()
 
