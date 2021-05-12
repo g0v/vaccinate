@@ -5,6 +5,7 @@ import Map from './Components/Map';
 import VaccineDataGrid from './Components/VaccineDataGrid';
 import Spinner from './Components/Spinner';
 import G0vbar from './Components/G0vbar';
+import strings from './Strings/App.json';
 
 import type { Locale } from './Types/Locale';
 import type { VaccineType } from './Types/VaccineType';
@@ -28,7 +29,7 @@ export default function App(): React.Node {
             <Map />
           </div>
         </div>
-        <h2 style={{ textAlign: 'center' }}>Vaccination Availability</h2>
+        <h2 style={{ textAlign: 'center' }}>{strings.vaccineAvailability[locale]}</h2>
         <div style={{ textAlign: 'center' }}>
           <form
             className="btn-group"
@@ -49,7 +50,7 @@ export default function App(): React.Node {
               className="btn btn-outline-primary"
               htmlFor="btnradio1"
             >
-              Self-Paid Vaccine Appointments
+              {strings.vaccineTypes.selfPaid[locale]}
             </label>
             <input
               type="radio"
@@ -64,7 +65,7 @@ export default function App(): React.Node {
               className="btn btn-outline-primary"
               htmlFor="btnradio2"
             >
-              Government-Paid Vaccine Appointments
+              {strings.vaccineTypes.governmentPaid[locale]}
             </label>
           </form>
         </div>
