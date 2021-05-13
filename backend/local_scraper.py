@@ -20,7 +20,7 @@ from Parsers.pch_nantou import *
 from Parsers.mohw import *
 from Parsers.tonyen_hsinchu import *
 from Parsers.siaogang_kaohsiung import *
-
+from Parsers.ncku_tainan import *
 
 load_dotenv()
 
@@ -57,6 +57,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     error_boundary(parse_mohw_nantou),
     error_boundary(parse_tonyen_hsinchu),
     error_boundary(parse_siaogang_kaohsiung),
+    error_boundary(parse_ncku_tainan),
 ]
 
 
