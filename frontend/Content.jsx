@@ -92,8 +92,32 @@ dan bukan merupakan sumber resmi. Untuk informasi resmi, silakan cek
 [situs web CDC Taiwan](https://cdc.gov.tw). `;
 
 const ja = `
-Japanese translation is a work in progress. Please contribute by 
-adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+### 誰が新型コロナウイルスワクチンを接種できますか？
+新型コロナウイルスワクチンは、台湾政府が定めている対象グループに属している方は無料で接種できます。
+台湾外への旅行を検討中の方は、ワクチンの費用は自己負担となります。
+
+### どのようなワクチンがありますか？
+現在、台湾政府が実施しているワクチンは、アストラゼネカ社製のものとなります。
+
+### このサイトはどのように使えばいいですか？
+お住まいの地域の病院を探します。
+右側の「Available」欄に「Availability」と表示されていれば、自己負担の新型コロナウイルスワクチンがあります。
+「Unavailable」であれば、その病院には空いている予約枠はありません。
+「No Data」であれば、このサイトにデータを追加する方法がまだ見つかっていないことを示します。
+「Register here」をクリックして、直接病院にお問い合わせください。
+
+### もっと詳しく知りたい時は？
+* [台湾CDCによる英語のFAQ](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
+
+### 誰がこのサイトを作ったのですか？
+このサイトはシビックハッカーネットワークである [g0v](https://g0v.tw) のボランティアによって作られました。
+台湾政府とは無関係で、公式な情報源ではありません。
+公式情報は [台湾CDCのウェブサイト](https://cdc.gov.tw) をご覧ください。
+
+### お手伝いしたいのだけど？
+このサイトは病院のウェブサイトをクローリングしてリアルタイムに情報を反映しています。
+残っている部分を構築するには、みなさんのご協力が必要です！
+ぜひ g0v の slack に参加して、[GitHub](https://github.com/g0v/vaccinate) からコードをフォークしてください。
 `;
 
 const ph = `
