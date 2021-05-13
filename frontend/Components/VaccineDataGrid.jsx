@@ -49,17 +49,35 @@ export default function VaccineDataGrid(
     <div>
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
-        <p><i>{strings.hospitalsWithAppointmentsSubtitle[locale]}</i></p>
+        <p>
+          <i>
+            {vaccineType === 'SelfPaid'
+              ? strings.hospitalsWithAppointmentsSubtitle.selfPaid[locale]
+              : strings.hospitalsWithAppointmentsSubtitle.governmentPaid[locale]}
+          </i>
+        </p>
         {makeCardGrid(availableHospitals, strings.buttons.getAppointment[locale])}
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithNoDataTitle[locale]}</h3>
-        <p><i>{strings.hospitalsWithNoDataSubtitle[locale]}</i></p>
+        <p>
+          <i>
+            {vaccineType === 'SelfPaid'
+              ? strings.hospitalsWithNoDataSubtitle.selfPaid[locale]
+              : strings.hospitalsWithNoDataSubtitle.governmentPaid[locale]}
+          </i>
+        </p>
         {makeCardGrid(noDataHospitals, strings.buttons.visitWebsite[locale])}
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithNoAppointmentsTitle[locale]}</h3>
-        <p><i>{strings.hospitalsWithNoAppointmentsSubtitle[locale]}</i></p>
+        <p>
+          <i>
+            {vaccineType === 'SelfPaid'
+              ? strings.hospitalsWithNoAppointmentsSubtitle.selfPaid[locale]
+              : strings.hospitalsWithNoAppointmentsSubtitle.governmentPaid[locale]}
+          </i>
+        </p>
         {makeCardGrid(unavailableHospitals, strings.buttons.visitWebsite[locale])}
       </div>
     </div>
