@@ -103,6 +103,5 @@ def check_available_ncku_tainan(url: str) -> bool:
 
 def filter_appointments_ncku_tainan(element: bs4.element.Tag) -> bool:
     sub_strs = ["預約", "轉掛", "停診"]
-    return (
-        all(sub_str not in element.text for sub_str in sub_strs) and element.text != ""
-    )
+    return all(sub_str not in element.text for sub_str in sub_strs) and element.text != ""
+    
