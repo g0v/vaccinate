@@ -10,29 +10,35 @@ from hospital_types import (
 
 
 def parse_mohw_keelung() -> ScrapedData:
-    return parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196")
+    return parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196", "0499")
 
 
 def parse_mohw_taoyuan() -> ScrapedData:
-    return parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126")
+    return parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
 
 
 def parse_mohw_miaoli() -> ScrapedData:
     index = 13
-    available = (
+    self_paid_available = (
         parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
         or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
         or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
     )
+    gov_paid_available = (
+        parse_mohw_page("reg2.mil.mohw.gov.tw", "CO02")
+        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO04")
+        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO01")
+    )
 
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(available)
+        if bool(self_paid_available)
         else AppointmentAvailability.UNAVAILABLE,
-        "government_paid": AppointmentAvailability.NO_DATA,
+        "government_paid": AppointmentAvailability.AVAILABLE
+        if bool(gov_paid_available)
+        else AppointmentAvailability.UNAVAILABLE,
     }
 
-    # FIXME(medicalwei): maybe refactor AppointmentAvailability into a function?
     return (
         index,
         availability,
@@ -40,28 +46,33 @@ def parse_mohw_miaoli() -> ScrapedData:
 
 
 def parse_mohw_taichung() -> ScrapedData:
-    return parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD")
+    return parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD", "01CC")
 
 
 def parse_mohw_nantou() -> ScrapedData:
-    return parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220")
+    return parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220", "0219")
 
 
 def parse_mohw_taitung() -> ScrapedData:
-    return parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119")
+    return parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119", "0519")
 
 
 def parse_mohw_kinmen() -> ScrapedData:
-    return parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A")
+    return parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A", "1047")
 
 
-def parse_mohw(index: int, hostname: str, div_dr: str) -> ScrapedData:
-    available = parse_mohw_page(hostname, div_dr)
+def parse_mohw(
+    index: int, hostname: str, self_paid_id: str, gov_paid_id: str
+) -> ScrapedData:
+    self_paid_available = parse_mohw_page(hostname, self_paid_id)
+    gov_paid_available = parse_mohw_page(hostname, gov_paid_id)
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(available)
+        if bool(self_paid_available)
         else AppointmentAvailability.UNAVAILABLE,
-        "government_paid": AppointmentAvailability.NO_DATA,
+        "government_paid": AppointmentAvailability.AVAILABLE
+        if bool(gov_paid_available)
+        else AppointmentAvailability.UNAVAILABLE,
     }
     return (
         index,
