@@ -57,7 +57,7 @@ def check_available_ncku_tainan(url: str) -> bool:
     }
 
     # First request is GET.
-    r = requests.get(url, verify=CERT, timeout=2)
+    r = requests.get(url, verify=CERT, timeout=5)
     soup = bs4.BeautifulSoup(r.text, "html.parser")
 
     # Get first day of each weekly appointments list.
@@ -95,7 +95,7 @@ def check_available_ncku_tainan(url: str) -> bool:
             post_data["ctl00$MainContent$ddlWeeks_02"] = date
 
             # Launch POST request
-            r = requests.post(url, verify=CERT, data=post_data, timeout=2)
+            r = requests.post(url, verify=CERT, data=post_data, timeout=5)
             soup = bs4.BeautifulSoup(r.text, "html.parser")
 
     return False
