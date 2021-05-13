@@ -14,9 +14,11 @@ class TestChanggungChiayi(unittest.TestCase):
             }
             availability = parse_changgung_chiayi(html_file.read())
             self.assertEqual(availability, (21, expected_availability))
-    
+
     def test_available(self):
-        with open("backend/tests/saved_pages/changgung_chiayi_available.html") as html_file:
+        with open(
+            "backend/tests/saved_pages/changgung_chiayi_available.html"
+        ) as html_file:
             expected_availability: HospitalAvailabilitySchema = {
                 "self_paid": AppointmentAvailability.AVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
