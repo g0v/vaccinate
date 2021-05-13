@@ -117,4 +117,5 @@ def parse_mohw_week_page(body: str) -> bool:
     soup = BeautifulSoup(body, "html.parser")
 
     # return if there's any link found in the page
-    return bool(soup.find_all("a"))
+    result = [x for x in soup.find_all("a") if x.text != ""]
+    return bool(result)
