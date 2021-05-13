@@ -44,7 +44,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     error_boundary(parse_ntu_yunlin),
     error_boundary(parse_tzuchi_taipei),
     error_boundary(parse_tzuchi_hualien),
-    error_boundary(parse_changgung_chiayi),
+    error_boundary(scrape_changgung_chiayi),
     error_boundary(parse_pch_nantou),
     error_boundary(parse_mohw_taoyuan),
     error_boundary(parse_mohw_keelung),
