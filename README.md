@@ -24,7 +24,7 @@ Current priority languages:
 * Korean
 
 ## Code Quality
-[![Lint](https://github.com/g0v/vaccinate/actions/workflows/main.yml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/main.yml) [![TypeCheck](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml)
+[![Lint](https://github.com/g0v/vaccinate/actions/workflows/main.yml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/main.yml) [![TypeCheck](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/typecheck.yaml) [![Tests](https://github.com/g0v/vaccinate/actions/workflows/test.yaml/badge.svg)](https://github.com/g0v/vaccinate/actions/workflows/test.yaml)
 
 Some principles this project operates under:
 * Dependencies should only be introduced where only necessary. The only project non-dev dependency in JS so far is React. This keeps the project easy-to-maintain.
