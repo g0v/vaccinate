@@ -16,9 +16,10 @@ def parse_changgung_chiayi() -> ScrapedData:
     soup = BeautifulSoup(r.text, "html.parser")
     table = soup.find("table", {"class": "department-table"})
     links = table.find_all("a")
+    full_links = table.find_all("a", {"class": "state-full"})
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(links)
+        if len(links) > len(full_links)
         else AppointmentAvailability.UNAVAILABLE,
         "government_paid": AppointmentAvailability.NO_DATA,
     }
