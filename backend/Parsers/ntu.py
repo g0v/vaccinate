@@ -58,7 +58,7 @@ def parse_ntu_gov_paid(url: str) -> AppointmentAvailability:
     )
 
 
-SELF_PAID_YUNLIN: str = "https://reg.ntuh.gov.tw/WebAdministration/DoctorServiceQueryByDrName.aspx?HospCode=Y0&QueryName=%E4%B8%BB%E6%B2%BB%E9%86%AB%E5%B8%AB"
+SELF_PAID_YUNLIN: str = "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=Y0&Reg="
 GOV_PAID_YUNLIN: str = (
     "https://reg.ntuh.gov.tw/WebAdministration/VaccineClinicReg.aspx?Hosp=Y0&Reg="
 )
