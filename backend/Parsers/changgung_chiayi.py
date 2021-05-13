@@ -8,12 +8,16 @@ from hospital_types import (
 )
 
 
-def parse_changgung_chiayi() -> ScrapedData:
-    r = requests.get(
+def scrape_changgung_chiayi() -> ScrapedData:
+    r: requests.Response = requests.get(
         "https://register.cgmh.org.tw/Department/6/60990E",
         timeout=1,
     )
-    soup = BeautifulSoup(r.text, "html.parser")
+    return parse_changgung_chiayi(r.text)
+
+
+def parse_changgung_chiayi(html: str) -> ScrapedData:
+    soup = BeautifulSoup(html, "html.parser")
     table = soup.find("table", {"class": "department-table"})
     links = table.find_all("a")
     full_links = table.find_all("a", {"class": "state-full"})
