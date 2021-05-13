@@ -10,9 +10,7 @@ from dotenv import load_dotenv
 
 
 # Parsers
-from Parsers.ntu_taipei import *
-from Parsers.ntu_hsinchu import *
-from Parsers.ntu_yunlin import *
+from Parsers.ntu import *
 from Parsers.tzuchi_taipei import *
 from Parsers.changgung_chiayi import *
 from Parsers.tzuchi_hualien import *
