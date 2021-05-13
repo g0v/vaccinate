@@ -57,7 +57,7 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     error_boundary(parse_mohw_nantou),
     error_boundary(parse_tonyen_hsinchu),
     error_boundary(parse_siaogang_kaohsiung),
-    error_boundary(parse_ncuk_tainan),
+    error_boundary(parse_ncku_tainan),
 ]
 
 
