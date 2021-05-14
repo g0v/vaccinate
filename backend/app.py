@@ -76,17 +76,15 @@ def get_availability_from_server() -> List[ScrapedData]:
     availability: List[ScrapedData] = [
         get_availability(hospital_id) for hospital_id in hospital_ids
     ]
-    print(availability)
     return availability
 
 
-def hospitalData() -> List[Hospital]:
+async def hospitalData() -> List[Hospital]:
     should_scrape = app.config["scrape"]
-    availability = (
-        dict(local_scraper.get_hospital_availability())
-        if should_scrape
-        else dict(get_availability_from_server())
-    )
+    if should_scrape:
+        availability = dict(await local_scraper.get_hospital_availability())
+    else:
+        availability = dict(get_availability_from_server())
 
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
@@ -111,9 +109,10 @@ def hospitalData() -> List[Hospital]:
         return rows
 
 
+# pyre-fixme[56]: Decorator async types are not type-checked.
 @app.route("/hospitals")
-def hospitals() -> wrappers.Response:
-    data = hospitalData()
+async def hospitals() -> wrappers.Response:
+    data = await hospitalData()
     response = app.response_class(
         response=json.dumps(data),
         status=200,

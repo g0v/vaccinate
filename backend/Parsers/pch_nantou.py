@@ -6,14 +6,17 @@ from hospital_types import (
     ScrapedData,
     HospitalAvailabilitySchema,
 )
+import aiohttp
 
 
-def scrape_pch_nantou() -> ScrapedData:
-    r: requests.Response = requests.get(
-        "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1",
-        timeout=1,
-    )
-    return parse_pch_nantou(r.text)
+URL: str = "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1"
+
+
+async def scrape_pch_nantou() -> ScrapedData:
+    timeout = aiohttp.ClientTimeout(total=5)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(URL) as r:
+            return parse_pch_nantou(await r.text())
 
 
 def parse_pch_nantou(raw_html: str) -> ScrapedData:

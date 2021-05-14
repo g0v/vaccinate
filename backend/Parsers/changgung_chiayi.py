@@ -6,14 +6,17 @@ from hospital_types import (
     AppointmentAvailability,
     HospitalAvailabilitySchema,
 )
+import aiohttp, asyncio
 
 
-def scrape_changgung_chiayi() -> ScrapedData:
-    r: requests.Response = requests.get(
-        "https://register.cgmh.org.tw/Department/6/60990E",
-        timeout=1,
-    )
-    return parse_changgung_chiayi(r.text)
+URL: str = "https://register.cgmh.org.tw/Department/6/60990E"
+
+
+async def scrape_changgung_chiayi() -> ScrapedData:
+    timeout = aiohttp.ClientTimeout(total=5)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(URL) as r:
+            return parse_changgung_chiayi(await r.text())
 
 
 def parse_changgung_chiayi(html: str) -> ScrapedData:

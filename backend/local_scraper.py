@@ -7,6 +7,13 @@ from hospital_types import (
     HospitalAvailabilitySchema,
 )
 from dotenv import load_dotenv
+import asyncio
+import aiohttp
+import time
+import sys
+
+
+START_TIME: float = time.time()
 
 
 # Parsers
@@ -28,17 +35,23 @@ redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 
 
-def error_boundary(f: Callable[[], ScrapedData]) -> Callable[[], Optional[ScrapedData]]:
-    def boundaried_function() -> Optional[ScrapedData]:
+def error_boundary(
+    f: Callable[[], Coroutine[Any, Any, ScrapedData]]
+) -> Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]:
+    async def boundaried_function() -> Optional[ScrapedData]:
         try:
-            return f()
+            f_start: float = time.time()
+            value = await f()
+            print("----%s: %s-----" % (f.__name__, str(time.time() - f_start)))
+            return value
         except:
+            print("----%s: Unexpected error:" % f.__name__, sys.exc_info()[0])
             return None
 
     return boundaried_function
 
 
-PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
+PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
     error_boundary(parse_ntu_taipei),
     error_boundary(parse_ntu_hsinchu),
     error_boundary(parse_ntu_yunlin),
@@ -53,14 +66,16 @@ PARSERS: List[Callable[[], Optional[ScrapedData]]] = [
     error_boundary(parse_mohw_taitung),
     error_boundary(parse_mohw_kinmen),
     error_boundary(parse_mohw_nantou),
-    error_boundary(parse_tonyen_hsinchu),
-    error_boundary(parse_siaogang_kaohsiung),
+    error_boundary(scrape_tonyen_hsinchu),
+    error_boundary(scrape_siaogang_kaohsiung),
     error_boundary(parse_ncku_tainan),
 ]
 
 
-def get_hospital_availability() -> List[ScrapedData]:
-    availability: List[ScrapedData] = list(filter(None, [f() for f in PARSERS]))
+async def get_hospital_availability() -> List[ScrapedData]:
+    availability: List[ScrapedData] = list(
+        filter(None, list(await asyncio.gather(*[f() for f in PARSERS])))
+    )
     as_dict: Dict[int, HospitalAvailabilitySchema] = dict(availability)
     for i in range(1, 32):
         if i in as_dict:
@@ -74,7 +89,7 @@ def get_hospital_availability() -> List[ScrapedData]:
     return list(as_dict.items())
 
 
-def scrape() -> None:
+async def scrape() -> None:
     """Example Hello Redis Program"""
 
     # step 3: create the Redis Connection object
@@ -107,7 +122,7 @@ def scrape() -> None:
                 mapping=primitive_availability,
             )
 
-        availability = get_hospital_availability()
+        availability = await get_hospital_availability()
 
         [
             set_availability(hospital_availability[0], hospital_availability[1])
@@ -119,4 +134,5 @@ def scrape() -> None:
 
 
 if __name__ == "__main__":
-    scrape()
+    asyncio.run(scrape())
+    print("--- %s seconds ---" % (time.time() - START_TIME))

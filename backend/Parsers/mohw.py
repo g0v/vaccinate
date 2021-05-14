@@ -7,27 +7,28 @@ from hospital_types import (
     ScrapedData,
     HospitalAvailabilitySchema,
 )
+import aiohttp
 
 
-def parse_mohw_keelung() -> ScrapedData:
-    return parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196", "0499")
+async def parse_mohw_keelung() -> ScrapedData:
+    return await parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196", "0499")
 
 
-def parse_mohw_taoyuan() -> ScrapedData:
-    return parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
+async def parse_mohw_taoyuan() -> ScrapedData:
+    return await parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
 
 
-def parse_mohw_miaoli() -> ScrapedData:
+async def parse_mohw_miaoli() -> ScrapedData:
     index = 13
     self_paid_available = (
-        parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
-        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
-        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
+        await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
+        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
+        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
     )
     gov_paid_available = (
-        parse_mohw_page("reg2.mil.mohw.gov.tw", "CO02")
-        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO04")
-        or parse_mohw_page("reg2.mil.mohw.gov.tw", "CO01")
+        await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO02")
+        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO04")
+        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO01")
     )
 
     availability: HospitalAvailabilitySchema = {
@@ -45,27 +46,27 @@ def parse_mohw_miaoli() -> ScrapedData:
     )
 
 
-def parse_mohw_taichung() -> ScrapedData:
-    return parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD", "01CC")
+async def parse_mohw_taichung() -> ScrapedData:
+    return await parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD", "01CC")
 
 
-def parse_mohw_nantou() -> ScrapedData:
-    return parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220", "0219")
+async def parse_mohw_nantou() -> ScrapedData:
+    return await parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220", "0219")
 
 
-def parse_mohw_taitung() -> ScrapedData:
-    return parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119", "0519")
+async def parse_mohw_taitung() -> ScrapedData:
+    return await parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119", "0519")
 
 
-def parse_mohw_kinmen() -> ScrapedData:
-    return parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A", "1047")
+async def parse_mohw_kinmen() -> ScrapedData:
+    return await parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A", "1047")
 
 
-def parse_mohw(
+async def parse_mohw(
     index: int, hostname: str, self_paid_id: str, gov_paid_id: str
 ) -> ScrapedData:
-    self_paid_available = parse_mohw_page(hostname, self_paid_id)
-    gov_paid_available = parse_mohw_page(hostname, gov_paid_id)
+    self_paid_available = await parse_mohw_page(hostname, self_paid_id)
+    gov_paid_available = await parse_mohw_page(hostname, gov_paid_id)
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
         if bool(self_paid_available)
@@ -80,7 +81,7 @@ def parse_mohw(
     )
 
 
-def parse_mohw_page(hostname: str, div_dr: str) -> bool:
+async def parse_mohw_page(hostname: str, div_dr: str) -> bool:
     entrypoint_url = (
         "https://{}/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?DivDr={}&Way=Dept".format(
             hostname, div_dr
@@ -88,40 +89,42 @@ def parse_mohw_page(hostname: str, div_dr: str) -> bool:
     )
     regtable_url = "https://{}/OINetReg/OINetReg.Reg/Sub_RegTable.aspx".format(hostname)
 
-    s = requests.session()
+    timeout = aiohttp.ClientTimeout(total=10)
+    async with aiohttp.ClientSession(timeout=timeout) as s:
+        # get session from this page
+        await s.get(entrypoint_url)
 
-    # get session from this page
-    s.get(entrypoint_url)
+        # request first week of reservations
+        r = await s.get(regtable_url)
+        raw_html = await r.text()
 
-    # request first week of reservations
-    r = s.get(regtable_url)
-
-    # if first page shows available reservations, exit early
-    if parse_mohw_week_page(r.text):
-        return True
-
-    soup = BeautifulSoup(r.text, "html.parser")
-
-    # get all weeks and states
-    inputs = soup.find_all("input")
-    states = dict((x["name"], x["value"]) for x in inputs)
-
-    weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
-
-    try:
-        weeks.pop(0)  # popping off the first page
-    except IndexError:
-        # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
-        # reservation calendar is not paged
-        return False
-
-    for week in weeks:
-        states["RdBtnLstWeek"] = week
-        r = s.post(regtable_url, data=states)
-        if parse_mohw_week_page(r.text):
+        # if first page shows available reservations, exit early
+        if parse_mohw_week_page(raw_html):
             return True
 
-    return False
+        soup = BeautifulSoup(raw_html, "html.parser")
+
+        # get all weeks and states
+        inputs = soup.find_all("input")
+        states = dict((x["name"], x["value"]) for x in inputs)
+
+        weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
+
+        try:
+            weeks.pop(0)  # popping off the first page
+        except IndexError:
+            # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
+            # reservation calendar is not paged
+            return False
+
+        for week in weeks:
+            states["RdBtnLstWeek"] = week
+            r = await s.post(regtable_url, data=states)
+            raw_html = await r.text()
+            if parse_mohw_week_page(raw_html):
+                return True
+
+        return False
 
 
 def parse_mohw_week_page(body: str) -> bool:
