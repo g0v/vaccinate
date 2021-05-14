@@ -31,9 +31,8 @@ def parse_siaogang_kaohsiung(raw_html: str) -> ScrapedData:
     options = list(filter(has_no_appointments, options))
 
     availability: HospitalAvailabilitySchema = {
-        "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(options)
-        else AppointmentAvailability.UNAVAILABLE,
+        # TODO: Fix this parser.
+        "self_paid": AppointmentAvailability.NO_DATA,
         "government_paid": AppointmentAvailability.NO_DATA,
     }
 
