@@ -8,7 +8,7 @@ from hospital_types import (
 )
 
 
-def scrape_changgung_chiayi() -> ScrapedData:
+async def scrape_changgung_chiayi() -> ScrapedData:
     r: requests.Response = requests.get(
         "https://register.cgmh.org.tw/Department/6/60990E",
         timeout=1,

@@ -8,7 +8,7 @@ from hospital_types import (
 )
 
 
-def parse_tonyen_hsinchu() -> ScrapedData:
+async def parse_tonyen_hsinchu() -> ScrapedData:
     r = requests.get(
         "https://w3.tyh.com.tw/WebRegList_Dept.aspx?d=55",
         timeout=2,

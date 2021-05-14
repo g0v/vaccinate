@@ -11,12 +11,12 @@ from hospital_types import (
 CERT: str = "../data/ntuh-gov-tw-chain.pem"
 
 
-def parse_ntu(
+async def parse_ntu(
     hospital_id: HospitalID, self_paid_url: str, gov_paid_url: str
 ) -> ScrapedData:
     availability: HospitalAvailabilitySchema = {
-        "self_paid": parse_ntu_self_paid(self_paid_url),
-        "government_paid": parse_ntu_gov_paid(gov_paid_url),
+        "self_paid": await parse_ntu_self_paid(self_paid_url),
+        "government_paid": await parse_ntu_gov_paid(gov_paid_url),
     }
     # PEP8 Style: if list is not empty, then there are appointments
     return (
@@ -25,7 +25,7 @@ def parse_ntu(
     )
 
 
-def parse_ntu_self_paid(url: str) -> AppointmentAvailability:
+async def parse_ntu_self_paid(url: str) -> AppointmentAvailability:
     r = requests.get(
         url,
         verify=CERT,
@@ -41,7 +41,7 @@ def parse_ntu_self_paid(url: str) -> AppointmentAvailability:
     )
 
 
-def parse_ntu_gov_paid(url: str) -> AppointmentAvailability:
+async def parse_ntu_gov_paid(url: str) -> AppointmentAvailability:
     r = requests.get(
         url,
         verify=CERT,
@@ -66,8 +66,8 @@ GOV_PAID_YUNLIN: str = (
 )
 
 
-def parse_ntu_yunlin() -> ScrapedData:
-    return parse_ntu(19, SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
+async def parse_ntu_yunlin() -> ScrapedData:
+    return await parse_ntu(19, SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
 
 
 SELF_PAID_HSINCHU: str = "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode="
@@ -76,8 +76,8 @@ GOV_PAID_HSINCHU: str = (
 )
 
 
-def parse_ntu_hsinchu() -> ScrapedData:
-    return parse_ntu(11, SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
+async def parse_ntu_hsinchu() -> ScrapedData:
+    return await parse_ntu(11, SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
 
 
 SELF_PAID_TAIPEI: str = (
@@ -88,5 +88,5 @@ GOV_PAID_TAIPEI: str = (
 )
 
 
-def parse_ntu_taipei() -> ScrapedData:
-    return parse_ntu(3, SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)
+async def parse_ntu_taipei() -> ScrapedData:
+    return await parse_ntu(3, SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)

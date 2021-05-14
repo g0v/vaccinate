@@ -1,4 +1,4 @@
-from typing import Tuple, List, Any
+from typing import Tuple, List, Any, Coroutine
 import requests
 from bs4 import BeautifulSoup
 from hospital_types import (
@@ -8,7 +8,7 @@ from hospital_types import (
 )
 
 
-def parse_tzuchi_taipei() -> ScrapedData:
+async def parse_tzuchi_taipei() -> ScrapedData:
     r = requests.get(
         "https://reg-prod.tzuchi-healthcare.org.tw/tchw/HIS5OpdReg/OpdTimeShow?Pass=XD;0022",
         verify="../data/tzuchi-healthcare-org-tw-chain.pem",

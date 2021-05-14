@@ -8,7 +8,7 @@ from hospital_types import (
 )
 
 
-def parse_tzuchi_hualien() -> ScrapedData:
+async def parse_tzuchi_hualien() -> ScrapedData:
     r = requests.get(
         "https://app.tzuchi.com.tw/tchw/opdreg/OpdTimeShow.aspx?Depart=%E8%87%AA%E8%B2%BBCOVID19%E7%96%AB%E8%8B%97%E9%A0%90%E7%B4%84&HospLoc=3",
         timeout=1,

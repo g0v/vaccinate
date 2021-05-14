@@ -8,8 +8,8 @@ from hospital_types import (
 )
 
 
-def scrape_pch_nantou() -> ScrapedData:
-    r: requests.Response = requests.get(
+async def parse_pch_nantou() -> ScrapedData:
+    r = requests.get(
         "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1",
         timeout=1,
     )

@@ -13,10 +13,10 @@ URL_SELF_PAID = "https://service.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=E
 URL_GOV_PAID = "https://service.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=EzNec8%2bb3ObBGuEQakq0QawPuiWkTewUO9FjEuW3Njo%3d"
 
 
-def parse_ncku_tainan() -> ScrapedData:
+async def parse_ncku_tainan() -> ScrapedData:
     availability: HospitalAvailabilitySchema = {
-        "self_paid": parse_ncku_tainan_self_paid(),
-        "government_paid": parse_ncku_tainan_gov_paid(),
+        "self_paid": await parse_ncku_tainan_self_paid(),
+        "government_paid": await parse_ncku_tainan_gov_paid(),
     }
     return (
         22,
@@ -24,23 +24,23 @@ def parse_ncku_tainan() -> ScrapedData:
     )
 
 
-def parse_ncku_tainan_self_paid() -> AppointmentAvailability:
+async def parse_ncku_tainan_self_paid() -> AppointmentAvailability:
     return (
         AppointmentAvailability.AVAILABLE
-        if check_available_ncku_tainan(URL_SELF_PAID)
+        if await check_available_ncku_tainan(URL_SELF_PAID)
         else AppointmentAvailability.UNAVAILABLE
     )
 
 
-def parse_ncku_tainan_gov_paid() -> AppointmentAvailability:
+async def parse_ncku_tainan_gov_paid() -> AppointmentAvailability:
     return (
         AppointmentAvailability.AVAILABLE
-        if check_available_ncku_tainan(URL_GOV_PAID)
+        if await check_available_ncku_tainan(URL_GOV_PAID)
         else AppointmentAvailability.UNAVAILABLE
     )
 
 
-def check_available_ncku_tainan(url: str) -> bool:
+async def check_available_ncku_tainan(url: str) -> bool:
     # Initial data_dict for POST method later.
     post_data = {
         "__EVENTTARGET": "ctl00$MainContent$ddlWeeks",

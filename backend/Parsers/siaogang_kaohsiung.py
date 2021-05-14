@@ -9,7 +9,7 @@ from hospital_types import (
 )
 
 
-def parse_siaogang_kaohsiung() -> ScrapedData:
+async def parse_siaogang_kaohsiung() -> ScrapedData:
     def has_no_appointments(option: BeautifulSoup) -> bool:
         option = option.text
         return int(option[option.find("數") + 2 :].split("-")[0]) == 0
