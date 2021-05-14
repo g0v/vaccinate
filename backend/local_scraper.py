@@ -39,7 +39,10 @@ def error_boundary(
 ) -> Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]:
     async def boundaried_function() -> Optional[ScrapedData]:
         try:
-            return await f()
+            f_start: float = time.time()
+            value = await f()
+            print("----%s: %s-----" % (f.__name__, str(time.time() - f_start)))
+            return value
         except:
             return None
 

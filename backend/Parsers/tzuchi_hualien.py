@@ -9,6 +9,8 @@ from hospital_types import (
 import aiohttp
 
 URL = "https://app.tzuchi.com.tw/tchw/opdreg/OpdTimeShow.aspx?Depart=%E8%87%AA%E8%B2%BBCOVID19%E7%96%AB%E8%8B%97%E9%A0%90%E7%B4%84&HospLoc=3"
+
+
 async def parse_tzuchi_hualien() -> ScrapedData:
     timeout = aiohttp.ClientTimeout(total=2)
     async with aiohttp.ClientSession(timeout=timeout) as session:
