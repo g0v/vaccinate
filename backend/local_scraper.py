@@ -45,7 +45,7 @@ def error_boundary(
             print("----%s: %s-----" % (f.__name__, str(time.time() - f_start)))
             return value
         except:
-            print("-----%s: Unexpected error:" % f.__name__, sys.exc_info()[0])
+            print("----%s: Unexpected error:" % f.__name__, sys.exc_info()[0])
             return None
 
     return boundaried_function
@@ -124,10 +124,10 @@ async def scrape() -> None:
 
         availability = await get_hospital_availability()
 
-        # [
-        #     set_availability(hospital_availability[0], hospital_availability[1])
-        #     for hospital_availability in availability
-        # ]
+        [
+            set_availability(hospital_availability[0], hospital_availability[1])
+            for hospital_availability in availability
+        ]
 
     except Exception as e:
         print(e)
