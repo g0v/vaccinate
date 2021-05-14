@@ -26,6 +26,7 @@ from Parsers.mohw import *
 from Parsers.tonyen_hsinchu import *
 from Parsers.siaogang_kaohsiung import *
 from Parsers.ncku_tainan import *
+from Parsers.kmuh_kaohsiung import *
 
 load_dotenv()
 
@@ -69,6 +70,7 @@ PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
     error_boundary(scrape_tonyen_hsinchu),
     error_boundary(scrape_siaogang_kaohsiung),
     error_boundary(parse_ncku_tainan),
+    error_boundary(parse_kmuh_kaohsiung),
 ]
 
 
