@@ -25,9 +25,7 @@ def parse_tonyen_hsinchu(r: str) -> ScrapedData:
     days = table.find_all("td", {"class": "table-day"})
     appointments = list(filter(lambda day: bool(day.find_all("a")), days))
     availability: HospitalAvailabilitySchema = {
-        "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(appointments)
-        else AppointmentAvailability.UNAVAILABLE,
+        "self_paid": AppointmentAvailability.NO_DATA,
         "government_paid": AppointmentAvailability.NO_DATA,
     }
     # PEP8 Style: if list is not empty, then there are appointments
