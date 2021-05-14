@@ -17,10 +17,9 @@ async def parse_tzuchi_taipei() -> ScrapedData:
     sslcontext = ssl.create_default_context(
         cafile="../data/tzuchi-healthcare-org-tw-chain.pem"
     )
-    timeout = aiohttp.ClientTimeout(total=2)
+    timeout = aiohttp.ClientTimeout(total=5)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(URL, ssl=sslcontext) as r:
-            print(await r.text())
             soup = BeautifulSoup(await r.text(), "html.parser")
             table = soup.find("table", {"id": "MainContent_gvOpdList"})
             rows = table.find_all("tr", {"class": "OpdListD"})
