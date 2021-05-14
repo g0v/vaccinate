@@ -7,6 +7,7 @@ from hospital_types import (
     HospitalAvailabilitySchema,
     ScrapedData,
 )
+import aiohttp, ssl
 
 CERT: str = "../data/ntuh-gov-tw-chain.pem"
 
@@ -26,19 +27,20 @@ async def parse_ntu(
 
 
 async def parse_ntu_self_paid(url: str) -> AppointmentAvailability:
-    r = requests.get(
-        url,
-        verify=CERT,
-        timeout=2,
+    sslcontext = ssl.create_default_context(
+        cafile=CERT
     )
-    soup = BeautifulSoup(r.text, "html.parser")
-    table = soup.find("table")
-    links = table.find_all("a", string="掛號")
-    return (
-        AppointmentAvailability.AVAILABLE
-        if bool(links)
-        else AppointmentAvailability.UNAVAILABLE
-    )
+    timeout = aiohttp.ClientTimeout(total=2)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(url, ssl=sslcontext) as r:
+            soup = BeautifulSoup(await r.text(), "html.parser")
+            table = soup.find("table")
+            links = table.find_all("a", string="掛號")
+            return (
+                AppointmentAvailability.AVAILABLE
+                if bool(links)
+                else AppointmentAvailability.UNAVAILABLE
+            )
 
 
 async def parse_ntu_gov_paid(url: str) -> AppointmentAvailability:
