@@ -1,5 +1,4 @@
 from typing import Tuple, List, Any, Coroutine
-import requests
 from bs4 import BeautifulSoup
 from hospital_types import (
     AppointmentAvailability,
