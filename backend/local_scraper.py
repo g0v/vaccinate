@@ -9,6 +9,10 @@ from hospital_types import (
 from dotenv import load_dotenv
 import asyncio
 import aiohttp
+import time
+
+
+START_TIME: float = time.time()
 
 
 # Parsers
@@ -126,3 +130,4 @@ async def scrape() -> None:
 
 if __name__ == "__main__":
     asyncio.run(scrape())
+    print("--- %s seconds ---" % (time.time() - START_TIME))
