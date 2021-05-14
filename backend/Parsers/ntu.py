@@ -28,7 +28,7 @@ async def parse_ntu(
 
 async def parse_ntu_self_paid(url: str) -> AppointmentAvailability:
     sslcontext = ssl.create_default_context(cafile=CERT)
-    timeout = aiohttp.ClientTimeout(total=2)
+    timeout = aiohttp.ClientTimeout(total=5)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(url, ssl=sslcontext) as r:
             soup = BeautifulSoup(await r.text(), "html.parser")
