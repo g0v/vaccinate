@@ -8,14 +8,19 @@ from hospital_types import (
 )
 
 
-def parse_pch_nantou() -> ScrapedData:
-    r = requests.get(
+def scrape_pch_nantou() -> ScrapedData:
+    r: requests.Response = requests.get(
         "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1",
         timeout=1,
     )
-    soup = BeautifulSoup(r.text, "html.parser")
+    return parse_pch_nantou(r.text)
+
+
+def parse_pch_nantou(raw_html: str) -> ScrapedData:
+    soup = BeautifulSoup(raw_html, "html.parser")
     selector = soup.find("select", {"id": "ddlSchd"})
     options = selector.find_all("option")
+    options = list(filter(lambda o: o.text[-3:-1] != "額滿", options))
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
         if bool(options)
