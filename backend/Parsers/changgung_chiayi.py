@@ -13,7 +13,7 @@ URL: str = "https://register.cgmh.org.tw/Department/6/60990E"
 
 
 async def scrape_changgung_chiayi() -> ScrapedData:
-    timeout = aiohttp.ClientTimeout(total=2)
+    timeout = aiohttp.ClientTimeout(total=5)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(URL) as r:
             return parse_changgung_chiayi(await r.text())

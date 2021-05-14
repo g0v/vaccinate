@@ -76,7 +76,6 @@ def get_availability_from_server() -> List[ScrapedData]:
     availability: List[ScrapedData] = [
         get_availability(hospital_id) for hospital_id in hospital_ids
     ]
-    print(availability)
     return availability
 
 

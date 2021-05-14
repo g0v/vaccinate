@@ -13,14 +13,13 @@ URL = "https://w3.tyh.com.tw/WebRegList_Dept.aspx?d=55"
 
 
 async def scrape_tonyen_hsinchu() -> ScrapedData:
-    timeout = aiohttp.ClientTimeout(total=5)
+    timeout = aiohttp.ClientTimeout(total=10)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(URL) as r:
             return parse_tonyen_hsinchu(await r.text())
 
 
 def parse_tonyen_hsinchu(r: str) -> ScrapedData:
-    print(r)
     soup = BeautifulSoup(r, "html.parser")
     table = soup.find("table", {"class": "today-table"})
     days = table.find_all("td", {"class": "table-day"})

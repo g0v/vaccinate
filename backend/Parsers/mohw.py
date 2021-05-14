@@ -7,6 +7,7 @@ from hospital_types import (
     ScrapedData,
     HospitalAvailabilitySchema,
 )
+import aiohttp
 
 
 async def parse_mohw_keelung() -> ScrapedData:
@@ -88,40 +89,42 @@ async def parse_mohw_page(hostname: str, div_dr: str) -> bool:
     )
     regtable_url = "https://{}/OINetReg/OINetReg.Reg/Sub_RegTable.aspx".format(hostname)
 
-    s = requests.session()
+    timeout = aiohttp.ClientTimeout(total=10)
+    async with aiohttp.ClientSession(timeout=timeout) as s:
+        # get session from this page
+        await s.get(entrypoint_url)
 
-    # get session from this page
-    s.get(entrypoint_url)
+        # request first week of reservations
+        r = await s.get(regtable_url)
+        raw_html = await r.text()
 
-    # request first week of reservations
-    r = s.get(regtable_url)
-
-    # if first page shows available reservations, exit early
-    if parse_mohw_week_page(r.text):
-        return True
-
-    soup = BeautifulSoup(r.text, "html.parser")
-
-    # get all weeks and states
-    inputs = soup.find_all("input")
-    states = dict((x["name"], x["value"]) for x in inputs)
-
-    weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
-
-    try:
-        weeks.pop(0)  # popping off the first page
-    except IndexError:
-        # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
-        # reservation calendar is not paged
-        return False
-
-    for week in weeks:
-        states["RdBtnLstWeek"] = week
-        r = s.post(regtable_url, data=states)
-        if parse_mohw_week_page(r.text):
+        # if first page shows available reservations, exit early
+        if parse_mohw_week_page(raw_html):
             return True
 
-    return False
+        soup = BeautifulSoup(raw_html, "html.parser")
+
+        # get all weeks and states
+        inputs = soup.find_all("input")
+        states = dict((x["name"], x["value"]) for x in inputs)
+
+        weeks = [x["value"] for x in soup.find_all("input", {"name": "RdBtnLstWeek"})]
+
+        try:
+            weeks.pop(0)  # popping off the first page
+        except IndexError:
+            # the size of weeks might be zero, e.g. in Miaoli MOHW hospital the
+            # reservation calendar is not paged
+            return False
+
+        for week in weeks:
+            states["RdBtnLstWeek"] = week
+            r = await s.post(regtable_url, data=states)
+            raw_html = await r.text()
+            if parse_mohw_week_page(raw_html):
+                return True
+
+        return False
 
 
 def parse_mohw_week_page(body: str) -> bool:

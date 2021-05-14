@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 import asyncio
 import aiohttp
 import time
+import sys
 
 
 START_TIME: float = time.time()
@@ -44,6 +45,7 @@ def error_boundary(
             print("----%s: %s-----" % (f.__name__, str(time.time() - f_start)))
             return value
         except:
+            print("-----%s: Unexpected error:" % f.__name__, sys.exc_info()[0])
             return None
 
     return boundaried_function
@@ -64,8 +66,8 @@ PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
     error_boundary(parse_mohw_taitung),
     error_boundary(parse_mohw_kinmen),
     error_boundary(parse_mohw_nantou),
-    error_boundary(parse_tonyen_hsinchu),
-    error_boundary(parse_siaogang_kaohsiung),
+    error_boundary(scrape_tonyen_hsinchu),
+    error_boundary(scrape_siaogang_kaohsiung),
     error_boundary(parse_ncku_tainan),
 ]
 
@@ -122,10 +124,10 @@ async def scrape() -> None:
 
         availability = await get_hospital_availability()
 
-        [
-            set_availability(hospital_availability[0], hospital_availability[1])
-            for hospital_availability in availability
-        ]
+        # [
+        #     set_availability(hospital_availability[0], hospital_availability[1])
+        #     for hospital_availability in availability
+        # ]
 
     except Exception as e:
         print(e)
