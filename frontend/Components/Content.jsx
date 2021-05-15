@@ -116,7 +116,7 @@ Maari kang makatanggap ng libreng bakuna laban sa COVID-19 kung ikaw ay nabibila
 Sa ngayon, ang gobyerno ng Taiwan ay gumagamit ng bakunang AstraZeneca.
 
 ### Paano gamitin ang website na ito?
-Hanapin ang mga ospital sa inyong lugar. Kung may nakalahad na "Available" sa itaas ng pangalan ng ospital, maari kayong magpaiskedyul ng appointment para sa bakuna na sarili mong babayaran. Kung "Unavailable", sa ngayon, wala pa pong makukuhang bakuna sa ospital na iyon. Kung "No Data" ang nakalahad, wala pa kaming mahahanap na impormasyon para sa ospital na iyon. Sa ganitong kaso, i-click ang "Visit Hospital Website" upang maicheck at makipagiskedyul ng appointment sa ospital na iyon.
+Hanapin ang mga ospital sa inyong lugar. Kung may nakalahad na "Available" sa itaas ng pangalan ng ospital, maari kayong magpaiskedyul ng appointment para sa bakuna na sarili mong babayaran. Kung "Unavailable", sa ngayon, wala pa pong makukuhang bakuna sa ospital na iyon. Kung "No Data" ang nakalahad, wala pa kaming mahahanap na impormasyon para sa ospital na iyon. Sa ganitong kaso, i-click ang "Puntahan ang website ng Ospital" upang maicheck at makipagiskedyul ng appointment sa ospital na iyon.
 
 ### Saan ako pwedeng makakuha ng karagdagang impormasyon tungkol sa bakuna laban sa COVID-19? 
 * [FAQs sa Ingles galing sa Taiwan CDC](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
