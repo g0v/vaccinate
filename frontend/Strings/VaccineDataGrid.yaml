@@ -2,47 +2,61 @@
 hospitalsWithAppointmentsTitle:
   en: Hospitals with Appointments
   zh: 有名額的醫院
+  ph: Mga Ospital na Maaaring Magpaiskedyul ng Appointment
 hospitalsWithAppointmentsSubtitle:
   governmentPaid:
     en: We have confirmed that these hospitals have appointments available.
     zh: 我們已確認該醫院有公費疫苗接種名額
+    ph: Maaaring magpaiskedyul ng appointment sa mga sumusunod na ospital.
   selfPaid:
     en: We have confirmed that these hospitals have appointments available.
     zh: 我們已確認該醫院有自費疫苗接種名額
+    ph: Maaaring magpaiskedyul ng appointment sa mga sumusunod na ospital.
 hospitalsWithNoDataTitle:
   en: Hospitals with No Data
   zh: 無資訊的醫院
+  ph: Mga Ospital na Walang Datos
 hospitalsWithNoDataSubtitle:
   governmentPaid:
     en: We don't know if these hospitals have appointments. Please check their website.
     zh: 我們無法確認該醫院的公費疫苗接種名額。請查看醫院的官網。
+    ph: Hindi pa po namin makukumpirma kung maaaring magpaiskedyul ng appointment sa mga sumusunod na ospital. Magtungo sa website ng ospital upang makakuha ng karagdagang impormasyon.
   selfPaid:
     en: We don't know if these hospitals have appointments. Please check their website.
     zh: 我們無法確認該醫院的自費疫苗接種名額。請查看醫院的官網。
+    ph: Hindi pa po namin makukumpirma kung maaaring magpaiskedyul ng appointment sa mga sumusunod na ospital. Magtungo sa website ng ospital upang makakuha ng karagdagang impormasyon.
 hospitalsWithNoAppointmentsTitle:
   zh: 無名額的醫院
   en: Hospitals with No Appointments
+  ph: Mga Ospital na Walang Appointments
 hospitalsWithNoAppointmentsSubtitle:
   governmentPaid:
     en: These hospitals have no appointments. Please check again later.
     zh: 這些醫院沒有公費疫苗接種名額。請稍後再查詢本網站
+    ph: Sa ngayon, hindi pa po tumatanggap ng appointment ang mga ospital na ito. Maaaring bisitahin muli ang aming website sa ibang oras o araw para sa bagong impormasyon.
   selfPaid:
     en: These hospitals have no appointments. Please check again later.
     zh: 這些醫院沒有自費疫苗接種名額。請稍後再查詢本網站
+    ph: Sa ngayon, hindi pa po tumatanggap ng appointment ang mga ospital na ito. Maaaring bisitahin muli ang aming website sa ibang oras o araw para sa bagong impormasyon.
 noHospitals:
   en: No hospitals in this category.
   zh: 該種類無醫院
+  ph: Wala pa pong ospital na nakalista para sa kategoryong ito.
 buttons:
   getAppointment:
     en: Get Appointment
     zh: 前往醫院官網掛號
+    ph: Iskedyul ang Appointment
   visitWebsite:
     en: Visit Hospital Website
     zh: 前往醫院官網查詢
+    ph: Bisitahin ang Website
 selfPaidVaccineClosure:
   notice: 
     en: As of Saturday, May 15, under new CECC directives, the self-paid vaccination program is now closed.
     zh: 根據指揮中心2021年5月15日的記者會，現在無法註冊自費疫苗名額。
+    ph: Simula sa ika-15 ng Mayo, ayon sa bagong patnubay galing sa CECC, ipinahihinto ang mga bakunang self-paid.
   selfPaid2ndShot: 
     en: Those who received a first dose are eligible for second appointments and should contact hospitals to schedule their second dose directly. Stay home and save lives. 天佑台灣！
     zh: 如果您已經接種第一劑疫苗的話可直接聯絡醫院預約接種第二劑疫苗。
+    ph: Para sa mga indibidwal na nakatanggap na ng unang dose ng bakuna at ay eligible para sa pangalawang dose, maaari silang makipag-ugnay sa ospital para maiskyedul ang pangalawang dose.

@@ -43,6 +43,12 @@ function G0vbar(props: { locale: Locale }): React.Node {
         開發的網站。
       </>
     ),
+    ph: (
+      <>
+        Ang website na ito ay gawa ng&nbsp;
+        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+      </>
+    ),
   };
 
   return (
