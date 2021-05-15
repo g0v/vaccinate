@@ -14,7 +14,7 @@ import type { VaccineType } from './Types/VaccineType';
 export default function App(): React.Node {
   const [rows, setRows] = React.useState([]);
   const [locale: Locale, setLocale] = React.useState('zh');
-  const [vaccineType: VaccineType, setVaccineType] = React.useState('SelfPaid');
+  const [vaccineType: VaccineType, setVaccineType] = React.useState('GovernmentPaid');
   const url = './hospitals';
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
   return (
