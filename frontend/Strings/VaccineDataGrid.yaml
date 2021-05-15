@@ -39,3 +39,10 @@ buttons:
   visitWebsite:
     en: Visit Hospital Website
     zh: 前往醫院官網查詢
+selfPaidVaccineClosure:
+  notice: 
+    en: As of Saturday, May 15, under new CECC directives, the self-paid vaccination program is now closed.
+    zh: 根據指揮中心2021年5月15日的記者會，現在無法註冊自費疫苗名額。
+  selfPaid2ndShot: 
+    en: Those who received a first dose are eligible for second appointments and should contact hospitals to schedule their second dose directly. Stay home and save lives. 天佑台灣！
+    zh: 如果您已經接種第一劑疫苗的話可直接聯絡醫院預約接種第二劑疫苗。
