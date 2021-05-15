@@ -5,7 +5,8 @@ import Map from './Components/Map';
 import VaccineDataGrid from './Components/VaccineDataGrid';
 import Spinner from './Components/Spinner';
 import G0vbar from './Components/G0vbar';
-import strings from './Strings/App.json';
+// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
+import strings from './Strings/App.yaml';
 
 import type { Locale } from './Types/Locale';
 import type { VaccineType } from './Types/VaccineType';

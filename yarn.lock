@@ -1513,6 +1513,14 @@
     react-refresh "^0.9.0"
     semver "^5.4.1"
 
+"@parcel/transformer-yaml@2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-yaml/-/transformer-yaml-2.0.0-beta.2.tgz#7509828d24c18a86bdf228a794beabdc0252cb07"
+  integrity sha512-muL8dEKIbLIPSpYD0uP70h00rVSin3fy2eso3P/oQZx9taHcx8rAoVGom5MvduUsG1mNVzq7DMNSVUL/yPaJTw==
+  dependencies:
+    "@parcel/plugin" "2.0.0-beta.2"
+    js-yaml "^3.10.0"
+
 "@parcel/types@2.0.0-beta.2":
   version "2.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/@parcel/types/-/types-2.0.0-beta.2.tgz"
@@ -4381,7 +4389,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
 
-js-yaml@^3.13.1:
+js-yaml@^3.10.0, js-yaml@^3.13.1:
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.14.1.tgz"
   integrity sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==

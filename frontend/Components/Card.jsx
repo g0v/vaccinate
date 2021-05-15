@@ -3,7 +3,8 @@ import * as React from 'react';
 import type { Availability } from '../Types/Availability';
 import type { Locale } from '../Types/Locale';
 import type { Location } from '../Types/Location';
-import strings from '../Strings/Card.json';
+// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
+import strings from '../Strings/Card.yaml';
 
 function getBadgeClassname(availability: Availability): string {
   switch (availability) {
