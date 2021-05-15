@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9" />
+	
+    <meta name="description" content="依科別查詢開診資訊。" />
+
+    <script type="text/javascript" nonce="dd83ccb4723244e38093f14f36f" src="//local.adguard.org?ts=1621075348593&amp;type=content-script&amp;dmn=service.hosp.ncku.edu.tw&amp;app=org.mozilla.firefoxdeveloperedition&amp;css=1&amp;js=1&amp;gcss=1&amp;rel=1&amp;rji=1&amp;sbe=0"></script>
+<script type="text/javascript" nonce="dd83ccb4723244e38093f14f36f" src="//local.adguard.org?ts=1621075348593&amp;name=AdGuard%20Extra&amp;type=user-script"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:300, 400, 700" rel="stylesheet" />
+    <link href="App_Themes/RWD/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="App_Themes/RWD/animate.css" rel="stylesheet" type="text/css" />
+    <link href="App_Themes/RWD/fontawesome_all.css" rel="stylesheet" type="text/css" />
+    <!-- Theme Style -->
+    <link href="App_Themes/RWD/style.css" rel="stylesheet" type="text/css" />
+    <script src="Js/RWD/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="Js/RWD/jquery-migrate-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Js/RWD/bootstrap.min.js" type="text/javascript"></script>
+    <style>
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%
+        }
+        /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky + .main-section {
+            padding-top: 60px;
+        }
+        
+        @media (max-width: 770px) 
+        {
+            .top_link, .log_info
+            {
+                font-size: 14px;
+            }
+            #divFooterOthers
+            {
+                font-size: 14px;
+            }
+        }
+        
+        /*.top_link, .log_info
+        {
+            font-size: 2vw;
+        }*/
+        
+        .main-section
+        {
+            min-height: 500px;
+        }
+    </style>
+    
+    <script src="Js/jquery.freezeheader.js" type="text/javascript"></script>
+    
+    <style type="text/css">
+        select
+        {
+            font-size: 16px;
+            color: #0000FF;
+        }
+        input
+        {
+            font-size: 16px;
+        }
+        /*
+        .fontDefault { font-size: 10pt; }
+        ol.message
+        {
+            color: Purple;
+            margin: 0px 0px 0px 0px;
+            padding-left: 30px;
+        }
+        ol.message a:link { color: Blue; text-decoration: underline; }
+        ol.message a:visited { color: Blue; }
+        ol.message a:hover { color: Blue; }
+        */
+        #divOut a:link { color: Blue; }
+        #divOut a:visited { color: Blue; }
+        #divOut a:hover { color: Blue; }
+        
+        .table-xs th, .table-xs td
+        {
+            padding: 2px 2px 2px 2px;
+        }
+        
+        @media (min-width: 600px) 
+        {
+            #divSelDays
+            {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="MainUI.aspx?Lang=&amp;skv=EzNec8%2bb3OYprHkqM83gBiNJ2d6GNAz2gvscJU0dxqw%3d" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Tandem/WebResource.axd?d=NCMWkOg8A9hz9JmD-zC8jLhe3egDZXy7jUBA5nyFqWB50oveMWswTibqV2tNfV1Qpsgi_JEXZEjSRzct5JFQ-eJWz_01&amp;t=636271960545017912" type="text/javascript"></script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="9675D1A7" />
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="dxfZNEtnrHMdeFXPLZtvQ3IjZ5pWK7M6xj9x5CoANqlBJs/pEIm9OcpO0rWkwDTGQJkp0f9CjG3bhRGoBHBrpVg2je8w2yT5qAx+4LnBfQqYIiYpji7BzXXQ24wj8c6ej/XypckEz2pOd+Q117SsuKAAUUyOtCPd3gp9Ldux3Kk5x/Qkexr8eDZQhW+MDz24PJt8AtDYoZiScjW/02AvZfFPCqj1vvVEwpughrCFoVlFAw8/2NRLWyMUdYc=" />
+</div>
+    
+    <header class="fine_print">
+        <div class="container-fluid" style="border-top: 6px solid #147DAF; background: white !important;">
+            <div class="row">
+                <div class="col-md-6 col-12 px-md-3 px-1">
+                    <a href="http://www.hosp.ncku.edu.tw/" target="_blank"><img class="img-fluid" alt="成大醫院" border="0" src="App_Themes/RWD/images/index_01_rwd.png" /></a>
+                </div>
+                <div class="col-md-6 col-12">
+                    <p class="mt-2 text-right top_link">
+                        <a href="Default.aspx" class="text-nowrap">回首頁</a> │ <a href="https://www.hosp.ncku.edu.tw/External/RegChronic/" class="text-nowrap" target="_blank">預約領藥</a> │ <a href="https://med.nhi.gov.tw/ihke0000/IHKE0100S01.aspx" class="text-nowrap" target="_blank">健康存摺</a> │ <a href="http://www.hosp.ncku.edu.tw/nckm/HomeStyle.aspx?Type=8&ContentPage=0" class="text-nowrap" target="_blank">服務信箱</a>
+                    </p>
+                
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="mainMenu">
+            <span class="navbar-brand d-block d-sm-none">功能選單</span>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-wrap">
+                    <li class="nav-item">
+                        <a class="nav-link" href="DeptUI.aspx?Lang=">掛號 [依科別]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DeptUI.aspx?type=3&Lang=">掛號 [依醫師]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DeptUI.aspx?type=4&Lang=">整合門診</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RegQueryUI.aspx?Lang=">取消預約掛號</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="RegQueryUI.aspx?Lang=">預約掛號查詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="DeptUI.aspx?type=2&Lang=">看診進度</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="QueryFullReplace.aspx?Lang=">預約額滿、代(停)診查詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://service.hosp.ncku.edu.tw/medicalaffair/public/other/門診就醫須知.pdf" target="_blank">就醫須知</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- END header -->
+
+    <section class="main-section">
+        
+    <div class="row mx-2">
+        <div class="col col-12 p-2 d-flex flex-wrap align-items-center">
+            <div class="d-inline-block titleBar mr-4 text-truncate" style="min-width: 72px;">
+                <img src="App_Themes/Default/images/titleBar_00.gif" />
+                自費 COVID-19 疫苗門診
+            </div>
+            <div class="d-none d-md-inline-block">
+                <div class="input-group" style="width: 720px">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">選擇日期範圍：</span>
+                    </div>
+                    <select name="ctl00$MainContent$ddlWeeks" onchange="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$ddlWeeks\',\'\')', 0)" id="ctl00_MainContent_ddlWeeks" class="form-control" style="width:230px;">
+	<option selected="selected" value="2021/05/15">第 1 星期(110/05/15 - 110/05/21)</option>
+
+</select>
+                <select name="ctl00$MainContent$ddlNoons" onchange="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$ddlNoons\',\'\')', 0)" id="ctl00_MainContent_ddlNoons" class="form-control">
+	<option selected="selected" value="">全部</option>
+	<option value="1">上午</option>
+	<option value="2">下午</option>
+
+</select>
+                    <div class="input-group-append">
+                        <input type="button" class="btn btn-outline-secondary" value="縮小字體" id="butSmall" onclick="RegTableResize(-2)" />
+                        <input type="button" class="btn btn-outline-secondary" value="放大字體" id="butLarge" onclick="RegTableResize(2)" />
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mx-2">
+        <div class="col col-12 mb-2 p-2 alert alert-warning">
+            <ol class="message mb-0 text-danger font-weight-bolder" style="font-size: 20px;">
+                
+        <li>對象範圍：商務人士、出國工作、留學、就醫(須年滿18歲)。</li>
+    
+        <li>報到地點：門診大樓 2 樓家醫科疫苗接種報到處</li>
+    
+        <li>報到時間： 
+<br />（1）上午 
+<br />1～10號  8:50-9:00    
+<br />11-20號  9:20-9:30
+<br />21-30號  9:50-10:00   
+<br />31-40號  10:20-10:30
+<br />41-50號  10:50-11:00  
+<br />51～以後  11:20-11:30
+<br />（2）下午 
+<br />1～11號  13:20-13:30  
+<br />12～22號 13:50-14:00
+<br />23～33號 14:20-14:30  
+<br />34～44號 14:50-15:00
+<br />45～55號 15:20-15:30  
+<br />56～66號 15:50-16:00
+<br />67～以後  16:20-16:30
+<br />◆預約掛號成功之預約號，非就診順序，當日請依現場報到順序接種疫苗</li>
+    
+        <li>攜帶文件：身分證、健保卡、居留證、護照等證件。</li>
+    
+        <li>費用：600元，若須診斷證明，請另掛家醫科門診。</li>
+    
+        <li>其他：
+<br />(1)本院有權調整民眾注射時間措施（調整日期或時段），將另行電話通知，敬請配合。
+<br />(2)接種後請於「觀察區」休息，並觀察30分鐘才可離開。
+<br />(3)疫苗統一由指揮中心調配，不提供挑選疫苗廠牌。</li>
+    
+            </ol>
+        </div>
+    </div>
+    
+    <div id="divSelDays" class="row mx-2">
+	    <div class="col col-12 p-0">
+	        <div class="input-group">
+	            <div class="input-group-prepend">
+                    <span class="input-group-text px-2">週次</span>
+                </div>
+                <select name="ctl00$MainContent$ddlWeeks_02" onchange="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$ddlWeeks_02\',\'\')', 0)" id="ctl00_MainContent_ddlWeeks_02" class="form-control px-1">
+	<option selected="selected" value="2021/05/15">110/05/15 ～ 110/05/21</option>
+	<option value="2021/05/22">110/05/22 ～ 110/05/28</option>
+	<option value="2021/05/29">110/05/29 ～ 110/06/04</option>
+	<option value="2021/06/05">110/06/05 ～ 110/06/11</option>
+	<option value="2021/06/12">110/06/12 ～ 110/06/18</option>
+	<option value="2021/06/19">110/06/19 ～ 110/06/25</option>
+
+</select>
+	        </div>
+	    </div>
+        <table class="table table-xs mb-2 table-bordered" cellpadding="2" width="100%" style="height: 100%; line-height: 1.2;">
+            <tr>
+                <td class="text-center align-middle" colspan="6">05月</td>
+            </tr>
+            <tr>
+                <td id="btnDay01" class="text-center align-middle btn-light">15<br />(六)</td>
+                <td id="btnDay02" class="text-center align-middle btn-light">17<br />(一)</td>
+                <td id="btnDay03" class="text-center align-middle btn-light">18<br />(二)</td>
+                <td id="btnDay04" class="text-center align-middle btn-light">19<br />(三)</td>
+                <td id="btnDay05" class="text-center align-middle btn-light">20<br />(四)</td>
+                <td id="btnDay06" class="text-center align-middle btn-light">21<br />(五)</td>
+            </tr>
+
+        </table>
+        
+	</div>
+    <div class="row mx-2 mb-3" id="divOut">
+        <table id="tRegSchedule" class="table table-sm table-bordered" name="regTable" style="font-size: 12px; text-align: center;" width="100%">
+    <thead id="thMainHead">
+    <tr class="row-Head">
+        <th rowspan="2" style="width: 9%">細分科別</th>
+        <th>日期</th>
+        <th colspan="2" class="dataDay01">星期六 (05/15)</th>
+        <th colspan="2" class="dataDay02">星期一 (05/17)</th>
+        <th colspan="2" class="dataDay03">星期二 (05/18)</th>
+        <th colspan="2" class="dataDay04">星期三 (05/19)</th>
+        <th colspan="2" class="dataDay05">星期四 (05/20)</th>
+        <th colspan="2" class="dataDay06">星期五 (05/21)</th>
+    </tr>
+    <tr class="row-Head">
+        <th style="width: 7%">科診</th>
+        <th style="width: 7%" class="dataDay01">上午</th>
+        <th style="width: 7%" class="dataDay01">下午</th>
+        <th style="width: 7%" class="dataDay02">上午</th>
+        <th style="width: 7%" class="dataDay02">下午</th>
+        <th style="width: 7%" class="dataDay03">上午</th>
+        <th style="width: 7%" class="dataDay03">下午</th>
+        <th style="width: 7%" class="dataDay04">上午</th>
+        <th style="width: 7%" class="dataDay04">下午</th>
+        <th style="width: 7%" class="dataDay05">上午</th>
+        <th style="width: 7%" class="dataDay05">下午</th>
+        <th style="width: 7%" class="dataDay06">上午</th>
+        <th style="width: 7%" class="dataDay06">下午</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="cell-Head" rowspan="1">自費COVID-19疫苗門診</td>
+        <td style="color: Red;">42AZ</td>
+        <td class="dataDay01"></td>
+        <td class="dataDay01"></td>
+		<td class="p-0 dataDay02"><a href="regFormUI.aspx?Lang=&amp;skv=LwJON4dQPKrf4fG5GJi83La0idqZraPowta2aKl2707NU%2bsR%2bIKTo%2fUPymhUE1l6">官大紳</a></td>
+        <td class="p-0 dataDay02">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay03">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay03">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay04">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay04">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay05">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay05">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay06">醫師(當天不受理現場掛號)</td>
+        <td class="p-0 dataDay06">醫師(當天不受理現場掛號)</td>
+    </tr>
+    </tbody>
+</table>
+
+    </div>
+    <div class="row mx-2 mb-3">
+        <div class="col col-12 p-2">
+            
+        </div>
+    </div>
+
+    </section>
+    <!-- END Main Content -->
+
+    <footer class="site-footer mt-3 fine_print">
+        <div class="container">
+            <div class="row">
+                <div id="divFooterOthers" class="col-12 text-center">
+                    <div class="d-inline-block mr-md-5">禁止網路服務業者轉錄本院網路資訊內容</div>
+<div class="d-inline-block">本院為身心障礙者就醫機構</div>
+<h3 />
+                </div>
+            </div>
+            <div class="row element-animate">
+                <div class="col col-md-4 col-12 px-md-3 px-0 mb-3">
+                    <ul class="list-unstyled">
+                    
+                        <li>人工預約：(06)235-3333</li>
+                        <li>意見反映：(06)276-6668</li>
+                    </ul>
+                </div>
+                <div class="col col-md-4 col-12 px-md-3 px-0 mb-3">
+                    <ul class="list-unstyled">
+                        <li><a id="ctl00_hlWebSite" href="http://www.hosp.ncku.edu.tw/" target="_blank">醫院網站</a></li>
+                        <li><a id="ctl00_hlEmail" href="mailto:hospital@mail.hosp.ncku.edu.tw">院長信箱</a></li>
+                    </ul>
+                </div>
+                <div class="col col-md-4 col-12 px-md-3 px-0 mb-3">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp; 704 臺南市勝利路138號</li>
+                        <li><i class="fas fa-phone"></i>&nbsp;&nbsp; (06)235-3535</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+    <!-- END footer -->
+    
+    
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+    
+    <!--Java Script 必須至於網頁最後，動作效果才會呈現-->
+    <script src="Js/RWD/popper.min.js" type="text/javascript"></script>
+    <script src="Js/RWD/jquery.waypoints.min.js" type="text/javascript"></script>
+    <script src="Js/RWD/main.js" type="text/javascript"></script>
+    
+    <script>        
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {
+            fnStickyTop();
+        };
+        // Get the header
+        var header = document.getElementById("mainMenu");
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function fnStickyTop() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }        
+        function FinePrint() {
+            $(".fine_print").hide();
+            window.print();
+            $(".fine_print").show();
+        }
+    </script>
+
+    
+    <script type="text/javascript">
+        /*function ResultValue(ret, context) {
+        document.getElementById("divOut").innerHTML = ret;
+        }*/
+        
+        function RegTableResize(sizeIncrease) {
+            var size = parseInt($("#tRegSchedule").css("font-size"));
+            if (isNaN(size))
+                size = 10;
+            if ((sizeIncrease <= 0 && size >= 12) || (sizeIncrease > 0 && size <= 20)) {
+                $("#tRegSchedule").css("font-size", (size + sizeIncrease));
+            }
+        }
+
+        var sNumber = "-1";
+        function CheckWindowSize() {
+            var windowsize = $(window).width();
+            if (windowsize < 600 && $("#divSelDays").is(":visible")) {
+                if (sNumber == "-1") {
+                    $("td[id^='btnDay']").filter(":first").trigger("click");
+                }
+            }
+            else {
+                $("#tRegSchedule td[class*='dataDay'], #tRegSchedule th[class*='dataDay']").show();
+                sNumber = "-1";
+            }
+        }
+
+        jQuery(function($) {
+            if ($.browser.mozilla || $.browser.safari || $.browser.chrome || ($.browser.msie && eval(parseInt($.browser.version)) >= 8)) {
+                if ($("#tRegSchedule").is(":visible")) {
+                    var sMenuHeight = $("#mainMenu").outerHeight();
+                    $("#tRegSchedule").freezeHeader({ "PaddingOfTop": sMenuHeight + "px" });
+                }
+            }
+            
+            $("td[id^='btnDay']").click(function() {
+                sNumber = $(this).attr("id").substr(6);
+                $("#tRegSchedule td[class*='dataDay'], #tRegSchedule th[class*='dataDay']").hide();
+                $("#tRegSchedule td.dataDay" + sNumber + ", #tRegSchedule th.dataDay" + sNumber).show();
+
+                $("td[id^='btnDay']").filter(".btn-info") //success warning 
+	                .removeClass("btn-info") //success warning 
+	                .addClass("btn-light");
+                $(this).removeClass("btn-light")
+	                .addClass("btn-info"); //success warning
+            });
+            //必須在 click 設定之後才能做觸發
+            CheckWindowSize();
+            $(window).resize(CheckWindowSize);
+        });
+    </script>
+
+</body>
+</html>
+
