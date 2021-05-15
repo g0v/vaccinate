@@ -21,7 +21,7 @@ export default function App(): React.Node {
     <div>
       <G0vbar locale={locale} />
       <div className="container">
-        <h1 style={{ textAlign: 'center', marginTop: 30 }}>全民新冠肺炎疫苗資訊 COVID-19 Vaccination Information</h1>
+        <h1 style={{ textAlign: 'center', marginTop: 30 }}>{strings.websiteTitle[locale]}</h1>
         <div className="row" style={{ marginTop: 50 }}>
           <div className="col">
             <Content setLocale={setLocale} />
