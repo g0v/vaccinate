@@ -7,9 +7,13 @@ import type { Locale } from '../Types/Locale';
 const enUS = `
 ### Who can get the COVID-19 vaccine?
 You can get the COVID-19 vaccine for free if you are part of
-the eligible groups set by the Taiwanese government. If you
-intend to travel outside of Taiwan, you may pay out-of-pocket
-for a vaccine.
+the eligible groups set by the Taiwanese government. 
+
+## Are there self-paid vaccines available? 
+Self-paid vaccines were available for those who intended to travel
+abroad. This program was ended by the CECC on May 15, 2021. 
+If you previously got your first dose through this program, you
+can schedule your second shot directly with your hospital. 
 
 ### What vaccines are available? 
 Currently, the Taiwanese government is administering the
@@ -43,6 +47,10 @@ const zhTW = `
 COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
 [衛生福利部疾病管理署官網](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)。
 此外，COVID-19 自費疫苗也開放給任何有出國需求在台的人。接種對象不限國籍。
+
+### 有 COVID-19 自費疫苗嗎？
+根據指揮中心5月15號的記者會，現在無法註冊自費疫苗名額。如果您已經接種第一劑疫苗的話
+可直接聯絡醫院預約接種第二劑疫苗。
 
 ### 現在能夠打哪一種疫苗？
 疾病管理署正在供應 AstraZeneca 的疫苗。

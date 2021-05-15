@@ -48,6 +48,22 @@ export default function VaccineDataGrid(
     ));
   return (
     <div>
+      {
+        vaccineType === 'SelfPaid' ? (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ textAlign: 'center', maxWidth: 800 }}>
+              <p>
+                <b>
+                  {strings.selfPaidVaccineClosure.notice[locale]}
+                </b>
+              </p>
+              <p>
+                {strings.selfPaidVaccineClosure.selfPaid2ndShot[locale]}
+              </p>
+            </div>
+          </div>
+        ) : null
+      }
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
         <p>

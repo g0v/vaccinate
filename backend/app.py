@@ -94,7 +94,7 @@ async def hospitalData() -> List[Hospital]:
             hospital_id = int(row["編號"])
             hospital: Hospital = {
                 "address": row["地址"],
-                "selfPaidAvailability": availability[hospital_id]["self_paid"],
+                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
                 "department": row["科別"],
                 "governmentPaidAvailability": availability[hospital_id][
                     "government_paid"
