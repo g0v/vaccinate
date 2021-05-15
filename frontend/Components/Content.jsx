@@ -70,7 +70,7 @@ COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參�
 [GitHub](https://github.com/g0v/vaccinate)上的 Code!
 
 Please help me translate this text. Contribute by adding to
-[this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+[this file](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx)
 `;
 
 const bahasa = `
@@ -101,12 +101,12 @@ dan bukan merupakan sumber resmi. Untuk informasi resmi, silakan cek
 
 const ja = `
 Japanese translation is a work in progress. Please contribute by 
-adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx)
 `;
 
 const ph = `
 Tagalog translation is a work in progress. Please contribute by
-adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx)
 `;
 
 function getContent(language: string): string {
