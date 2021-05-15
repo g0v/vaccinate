@@ -1,0 +1,41 @@
+---
+hospitalsWithAppointmentsTitle:
+  en: Hospitals with Appointments
+  zh: 有名額的醫院
+hospitalsWithAppointmentsSubtitle:
+  governmentPaid:
+    en: We have confirmed that these hospitals have appointments available.
+    zh: 我們已確認該醫院有公費疫苗接種名額
+  selfPaid:
+    en: We have confirmed that these hospitals have appointments available.
+    zh: 我們已確認該醫院有自費疫苗接種名額
+hospitalsWithNoDataTitle:
+  en: Hospitals with No Data
+  zh: 無資訊的醫院
+hospitalsWithNoDataSubtitle:
+  governmentPaid:
+    en: We don't know if these hospitals have appointments. Please check their website.
+    zh: 我們無法確認該醫院的公費疫苗接種名額。請查看醫院的官網。
+  selfPaid:
+    en: We don't know if these hospitals have appointments. Please check their website.
+    zh: 我們無法確認該醫院的自費疫苗接種名額。請查看醫院的官網。
+hospitalsWithNoAppointmentsTitle:
+  zh: 無名額的醫院
+  en: Hospitals with No Appointments
+hospitalsWithNoAppointmentsSubtitle:
+  governmentPaid:
+    en: These hospitals have no appointments. Please check again later.
+    zh: 這些醫院沒有公費疫苗接種名額。請稍後再查詢本網站
+  selfPaid:
+    en: These hospitals have no appointments. Please check again later.
+    zh: 這些醫院沒有自費疫苗接種名額。請稍後再查詢本網站
+noHospitals:
+  en: No hospitals in this category.
+  zh: 該種類無醫院
+buttons:
+  getAppointment:
+    en: Get Appointment
+    zh: 前往醫院官網掛號
+  visitWebsite:
+    en: Visit Hospital Website
+    zh: 前往醫院官網查詢

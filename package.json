@@ -5,6 +5,7 @@
   "devDependencies": {
     "@babel/code-frame": "^7.12.13",
     "@parcel/transformer-image": "2.0.0-beta.2",
+    "@parcel/transformer-yaml": "2.0.0-beta.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",

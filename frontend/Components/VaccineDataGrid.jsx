@@ -1,7 +1,8 @@
 // @flow
 import * as React from 'react';
 import Card from './Card';
-import strings from '../Strings/VaccineDataGrid.json';
+// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
+import strings from '../Strings/VaccineDataGrid.yaml';
 
 import type { Locale } from '../Types/Locale';
 import type { Hospital } from '../Types/Hospital';
