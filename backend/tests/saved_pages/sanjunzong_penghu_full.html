@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" type="image/png" href="img/HICON1.png">
+    <title>Calendar - 網路掛號</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-select/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/print.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+            
+<header>
+    <a href="#" class="menu-toggle pl-0 "><span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i></a>
+    <a href="/" class="logo pl-0">
+        <img src="/img/HLOGO1.png" alt="logo">
+        <h1>&#x4E09;&#x8ECD;&#x7E3D;&#x91AB;&#x9662;&#x6F8E;&#x6E56;&#x5206;&#x9662; &#x7DB2;&#x8DEF;&#x639B;&#x865F;</h1>
+    </a>
+    <ul class="menu">
+        <li class="active"><a href="/"><i class="fa fa-id-badge" aria-hidden="true"></i> &#x9810;&#x7D04;&#x639B;&#x865F;</a></li>
+        <li><a href="/webreg/book_query"><i class="fa fa-list-alt" aria-hidden="true"></i> &#x67E5;&#x8A62;&#x639B;&#x865F;</a></li>
+            <li><a href="https://www.tsghph811.org.tw" target="_blank" rel="noreferrer noopener"><i class="fa fa-clock-o" aria-hidden="true"></i> &#x770B;&#x8A3A;&#x9032;&#x5EA6;</a></li>
+        <li><a href="/webreg/book_noreg"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> &#x505C;/&#x4EE3;&#x8A3A;&#x8CC7;&#x8A0A;</a></li>
+        <li><a href="/webreg/book_desc"><i class="fa fa-question-circle-o" aria-hidden="true"></i> &#x639B;&#x865F;&#x8AAA;&#x660E;</a></li>
+        <li>
+            <label for="Langsel"><i class="fa fa-globe" aria-hidden="true"></i></label>
+            <select id="Langsel" name="Langsel" aria-label="Language Select">
+                <option value="TC" selected>中文</option><option value="EN">English</option>
+            </select>
+        </li>
+    </ul>
+</header>
+<main>
+    <div class="mainview">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h2>
+                        您好，<br>需要找哪位醫師呢？    
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h3>您選擇的科別  &#x4E0D;&#x5206;&#x79D1; &gt; &#x516C;&#x81EA;&#x8CBB;&#x65B0;&#x51A0;&#x75AB;&#x82D7;&#x9580;&#x8A3A;</h3>
+                <div class="calendar calendar-type">
+                    <ul class="tab weekSel">
+                        <li class="active"><a href="#w0">&#x672C;&#x9031;</a></li>
+                        <li><a href="#w1">&#x4E0B;&#x4E00;&#x9031;</a></li>
+                        <li><a href="#w2">&#x4E0B;&#x4E8C;&#x9031;</a></li>
+                        <li><a href="#w3">&#x4E0B;&#x4E09;&#x9031;</a></li>
+                        <li><a href="#w4">&#x4E0B;&#x56DB;&#x9031;</a></li>
+                    </ul>
+                    <div class="table-responsive">
+                        <table id="timeTable" class="table table-bordered table-striped table-hover text-center">
+                            <thead>
+                                <tr><th>日期</th><th>上午</th><th>下午</th><th>夜診</th></tr>
+                            </thead>
+                            <tbody id="w0"><tr><td>05/14(五)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/15(六)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/16(日)</td><td>-</td><td>-</td><td>-</td></tr></tbody><tbody id="w1" class="d-none"> <tr><td>05/17(一)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/18(二)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/19(三)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/20(四)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/21(五)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/22(六)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/23(日)</td><td>-</td><td>-</td><td>-</td></tr></tbody><tbody id="w2" class="d-none"> <tr><td>05/24(一)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/25(二)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/26(三)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/27(四)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/28(五)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/29(六)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>05/30(日)</td><td>-</td><td>-</td><td>-</td></tr></tbody><tbody id="w3" class="d-none"> <tr><td>05/31(一)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/01(二)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/02(三)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/03(四)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/04(五)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/05(六)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/06(日)</td><td>-</td><td>-</td><td>-</td></tr></tbody><tbody id="w4" class="d-none"> <tr><td>06/07(一)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/08(二)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/09(三)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/10(四)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/11(五)</td><td>-</td><td>-</td><td>-</td></tr><tr><td>06/12(六)</td><td>-</td><td>-</td><td>-</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="/js/jquery.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="/vendor/bootstrap-select/js/i18n/defaults-zh_TW.js"></script>
+<script src="/js/main.js"></script>
+<script>
+    $(".weekSel li a").click(function () {
+        $(this).closest('.tab').children('.active').removeClass('active');
+        $(this).parent().addClass('active');
+        $('#timeTable tbody').addClass('d-none');
+        $(this.hash).removeClass('d-none');
+        return false;
+    });
+
+    $(function () {
+        $('#Langsel').on('change', function () {
+            //alert(this.value);
+            window.location.href = "/WebReg/lang/" + $(this).val();
+        });
+    });
+</script>
+    <footer>
+        <ul>
+            <li><a href="/">&#x9810;&#x7D04;&#x639B;&#x865F;</a></li>
+            <li><a href="/webreg/book_query">&#x67E5;&#x8A62;&#x639B;&#x865F;</a></li>
+                <li><a href="https://www.tsghph811.org.tw" target="_blank" rel="noreferrer noopener">&#x770B;&#x8A3A;&#x9032;&#x5EA6;</a></li>
+            <li><a href="/webreg/book_noreg">&#x505C;/&#x4EE3;&#x8A3A;&#x8CC7;&#x8A0A;</a></li>
+            <li><a href="/webreg/book_desc">&#x639B;&#x865F;&#x8AAA;&#x660E;</a></li>
+        </ul>
+        <div class="copyright">
+            © 2020 &#x4E09;&#x8ECD;&#x7E3D;&#x91AB;&#x9662;&#x6F8E;&#x6E56;&#x5206;&#x9662; &#x7981;&#x6B62;&#x4EFB;&#x4F55;&#x7DB2;&#x969B;&#x7DB2;&#x8DEF;&#x670D;&#x52D9;&#x696D;&#x8005;&#x8F49;&#x9304;&#x5176;&#x7DB2;&#x8DEF;&#x8CC7;&#x8A0A;&#x4E4B;&#x5167;&#x5BB9;&#x4F9B;&#x4EBA;&#x9EDE;&#x95B1;
+        </div>
+    </footer>
+
+    <a href="#" class="totop"><img src="/img/ic_angle_up.svg" alt="PageTop"></a>
+
+</body>
+</html>
