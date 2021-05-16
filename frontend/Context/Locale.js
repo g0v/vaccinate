@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react'
+import { createContext, useContext } from 'react';
 
 // TODO: i18n structure
 export const locales = {
@@ -8,7 +8,7 @@ export const locales = {
   },
   zh: {
     locale: 'zh',
-    text: '華文'
+    text: '華文',
   },
   id: {
     locale: 'en',
@@ -21,16 +21,16 @@ export const locales = {
   tl: {
     locale: 'ph',
     text: 'Tagalog',
-  }
-}
+  },
+};
 
 export const LocaleContext = createContext({
   locale: locales.zh.locale,
-  changeLocale: function (locale) {
-    this.locale = locale
-  }
-})
+  changeLocale(locale) {
+    this.locale = locale;
+  },
+});
 
-export const useLocaleContext = () => useContext(LocaleContext)
+export const useLocaleContext = () => useContext(LocaleContext);
 
-export default LocaleContext
+export default LocaleContext;

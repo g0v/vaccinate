@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { useLocaleContext } from '../Context/Locale'
+import { useLocaleContext } from '../Context/Locale';
 import type { Locale } from '../Types/Locale';
 
 const zh = `
@@ -174,9 +174,9 @@ and are willing to pay out-of-pocket. Examples of eligible groups include:
 `;
 
 export default function Criteria(): React.Node {
-  const { locale } = useLocaleContext()
+  const { locale } = useLocaleContext();
   const getContent: (Locale) => string = (localeCode) => {
-    switch (lang) {
+    switch (localeCode) {
       case 'en':
         return en;
       case 'zh':

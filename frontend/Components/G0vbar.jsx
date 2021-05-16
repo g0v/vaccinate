@@ -3,7 +3,7 @@ import React from 'react';
 // $FlowIgnore[cannot-resolve-module] This is how ParcelJS imports assets
 import favicon from 'url:../../assets/g0v.png'; // eslint-disable-line
 
-import { useLocaleContext } from '../Context/Locale'
+import { useLocaleContext } from '../Context/Locale';
 import type { Locale } from '../Types/Locale';
 
 const g0vbar = {
