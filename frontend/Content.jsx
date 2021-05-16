@@ -106,7 +106,7 @@ const ja = `
 「Register here」をクリックして、直接病院のサイトをご確認ください。
 
 ### もっと詳しく知りたい場合は？
-* [台湾CDCによる英語のFAQはご覧いただけます](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
+* [台湾CDC（衛生福利部疾病管制署）による英語のFAQはご参照いただけます](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
 
 ### 誰がこのサイトを作ったのですか？
 このサイトはシビックハッカーネットワークである [g0v](https://g0v.tw) のボランティアによって作られました。
