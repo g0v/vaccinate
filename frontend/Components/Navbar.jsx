@@ -1,11 +1,24 @@
 // @flow
 import * as React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from 'react-router-dom';
+// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
+import strings from '../Strings/Navbar.yaml';
 
-export default function Navbar(): React.Node {
+import type { Locale } from '../Types/Locale';
+
+
+export default function Navbar(props: { locale: Locale }): React.Node {
+  const { locale } = props;
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Vaxx.tw</a>
+        <Link className="navbar-brand" to="/">Vaxx.tw</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,10 +32,22 @@ export default function Navbar(): React.Node {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
-            <a className="nav-link" href="#">Features</a>
-            <a className="nav-link" href="#">Pricing</a>
-            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Disabled</a>
+            <NavLink
+              exact
+              activeClassname="active"
+              className="nav-link"
+              to="/"
+            >
+              {strings.appointments[locale]}
+            </NavLink>
+            <NavLink
+              exact
+              to="/criteria"
+              className="nav-link"
+              aria-current="page"
+            >
+              {strings.vaccineCriteria[locale]}
+            </NavLink>
           </div>
         </div>
       </div>

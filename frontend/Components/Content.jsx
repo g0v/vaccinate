@@ -2,14 +2,14 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import type { Locale, Language } from '../Types/Locale';
+import type { Language } from '../Types/Locale';
 
 const enUS = `
 ### Who can get the COVID-19 vaccine?
 You can get the COVID-19 vaccine for free if you are part of
 the eligible groups set by the Taiwanese government. 
 
-## Are there self-paid vaccines available? 
+### Are there self-paid vaccines available? 
 Self-paid vaccines were available for those who intended to travel
 abroad. This program was ended by the CECC on May 15, 2021. 
 If you previously got your first dose through this program, you
@@ -142,25 +142,11 @@ function getContent(language: string): string {
 }
 
 export default function Content(props: {
-  setLocale: ((Locale => Locale) | Locale) => void,
+  language: Language
 }): React.Node {
-  const [language, setLanguage] = React.useState('zhTW');
-  const { setLocale } = props;
+  const { language } = props;
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
-        <div
-          className="btn-group"
-          role="group"
-          aria-label="Basic outlined example"
-        >
-          <button type="button" onClick={() => { setLanguage('enUS'); setLocale('en'); }} className="btn btn-outline-primary">English</button>
-          <button type="button" onClick={() => { setLanguage('zhTW'); setLocale('zh'); }} className="btn btn-outline-primary">華語</button>
-          <button type="button" onClick={() => { setLanguage('id'); setLocale('en'); }} className="btn btn-outline-primary">Bahasa Indonesia</button>
-          <button type="button" onClick={() => { setLanguage('ja'); setLocale('en'); }} className="btn btn-outline-primary">日本語</button>
-          <button type="button" onClick={() => { setLanguage('ph'); setLocale('ph'); }} className="btn btn-outline-primary">Tagalog</button>
-        </div>
-      </div>
       <div style={{ marginTop: 10 }}>
         <ReactMarkdown>{getContent(language)}</ReactMarkdown>
       </div>

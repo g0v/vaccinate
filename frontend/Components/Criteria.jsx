@@ -3,17 +3,17 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 const en = `
-# Who can get the COVID-19 Vaccine? 
+## Who can get the COVID-19 Vaccine? 
 
 You can get the COVID-19 Vaccine if you meet any of the following criteria:
 
-## You're Medical Personnel
+### You're Medical Personnel
 1. All licensed medical staff in medical facilities 
 
 2. All non-medical staff in medical facilities (including non-medical staff in
 quarantine facilities) 
 
-## You are a Front-Line Civil Servant
+### You are a Front-Line Civil Servant
 
 **Pandemic-prevention personnel in central and local governments are eligible
 for the vaccine.**
@@ -41,7 +41,7 @@ and EMTs involved in front-line first aid work)
 
 ---
 
-## You're an Essential Worker with high risk of contact 
+### You're an Essential Worker with high risk of contact 
 
 1. ROC-national flight crew, international shipping industry workers (including
 nationals and expedient nationals)
@@ -63,7 +63,7 @@ nationals and expedient nationals)
 5. Those determined to be in need of vaccination in accordance with CDC
    guidelines 
 
-## You're Traveling Abroad for a Special Purpose
+### You're Traveling Abroad for a Special Purpose
 
 *Different authorities will make an assessment, apply with the Central
 Epidemic Command Center, and the CECC will make an eligibility recommendation
@@ -76,12 +76,12 @@ abroad.
 2. Athletes and competitors representing Taiwan abroad are eligible. 
 ---
 
-## You're Involved in Public Safety
+### You're Involved in Public Safety
 
 1. Police
 2. Military Police
 
-## You're a Caretaker in the Social Welfare System
+### You're a Caretaker in the Social Welfare System
 
 1. You work in a nursing home, special care, daytime care, or other form of
 long-term care facility. 
@@ -89,25 +89,25 @@ long-term care facility.
 
 ---
 
-## You work in National Security
+### You work in National Security
 
 1. Military Personnel
 2. Other Military Agency and Defence Personnel
 
-## Your age places you at high-risk from COVID-19
+### Your age places you at high-risk from COVID-19
 
 You can get the vaccine if you're aged 65 and older
 
-## You have a condition that makes you high-risk if you get COVID-19
+### You have a condition that makes you high-risk if you get COVID-19
 
 1. You're in a high-risk category and you are aged between 19 and 64. 
 2. You have a rare disease or a major injury. 
 
 
-## You're between the ages of 50-64
+### You're between the ages of 50-64
 Adults between 50 to 64 years old are now eligible for the COVID-19 vaccine. 
 
-## You're planning on traveling abroad
+### You're planning on traveling abroad
 Depending on vaccine availability, the Central Epidemic Command Center will
 release a limited number of vaccines for people who fit certain criteria
 and are willing to pay out-of-pocket. Examples of eligible groups include:
@@ -117,7 +117,7 @@ and are willing to pay out-of-pocket. Examples of eligible groups include:
 
 export default function Criteria(): React.Node {
   return (
-    <div style={{ marginTop: 10 }}>
+    <div style={{ marginTop: 10, maxWidth: 800 }}>
       <ReactMarkdown>{en}</ReactMarkdown>
     </div>
   );
