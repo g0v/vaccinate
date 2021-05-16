@@ -51,7 +51,7 @@ export default function VaccineDataGrid(
       {
         vaccineType === 'SelfPaid' ? (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-            <div style={{ textAlign: 'center', maxWidth: 800 }}>
+            <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
               <p>
                 <b>
                   {strings.selfPaidVaccineClosure.notice[locale]}
@@ -62,7 +62,13 @@ export default function VaccineDataGrid(
               </p>
             </div>
           </div>
-        ) : null
+        ) : <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
+            <p>
+              {strings.govPaidVaccineDataIncomplete[locale]}
+            </p>
+          </div>
+        </div>
       }
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
