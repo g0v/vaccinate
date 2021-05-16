@@ -33,7 +33,7 @@ export default function App(): React.Node {
         <h1 style={{ textAlign: 'center', marginTop: 30 }}>{strings.websiteTitle[locale]}</h1>
         <Switch>
           <Route path="/criteria">
-            <Criteria />
+            <Criteria language={language} />
           </Route>
           <Route path="/">
             <Home language={language} locale={locale} vaccineType={vaccineType} />

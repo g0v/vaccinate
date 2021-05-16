@@ -12,12 +12,11 @@ import strings from '../Strings/Navbar.yaml';
 
 import type { Locale } from '../Types/Locale';
 
-
 export default function Navbar(props: { locale: Locale }): React.Node {
   const { locale } = props;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-      <div className="container-fluid">
+      <div className="container">
         <Link className="navbar-brand" to="/">Vaxx.tw</Link>
         <button
           className="navbar-toggler"
