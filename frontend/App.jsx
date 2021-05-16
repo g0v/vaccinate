@@ -1,85 +1,42 @@
 // @flow
 import * as React from 'react';
-import Content from './Components/Content';
-import Map from './Components/Map';
-import VaccineDataGrid from './Components/VaccineDataGrid';
-import Spinner from './Components/Spinner';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+
 import G0vbar from './Components/G0vbar';
+import Criteria from './Components/Criteria';
+import Navbar from './Components/Navbar';
+import LanguageSelector from './Components/LanguageSelector';
+import Home from './Pages/Home';
 // $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
 import strings from './Strings/App.yaml';
 
-import type { Locale } from './Types/Locale';
-import type { VaccineType } from './Types/VaccineType';
+import type { Locale, Language } from './Types/Locale';
 
 export default function App(): React.Node {
-  const [rows, setRows] = React.useState([]);
   const [locale: Locale, setLocale] = React.useState('zh');
-  const [vaccineType: VaccineType, setVaccineType] = React.useState('GovernmentPaid');
-  const url = './hospitals';
-  fetch(url).then((data) => data.json()).then((res) => setRows(res));
+  const [language: Language, setLanguage] = React.useState('zhTW');
+
   return (
-    <div>
+    <Router>
       <G0vbar locale={locale} />
+      <Navbar locale={locale} />
       <div className="container">
+        <LanguageSelector setLocale={setLocale} setLanguage={setLanguage} />
         <h1 style={{ textAlign: 'center', marginTop: 30 }}>{strings.websiteTitle[locale]}</h1>
-        <div className="row" style={{ marginTop: 50 }}>
-          <div className="col">
-            <Content setLocale={setLocale} />
-          </div>
-          <div className="col d-none d-md-block">
-            <Map />
-          </div>
-        </div>
-        <h2 style={{ textAlign: 'center' }}>{strings.vaccineAvailability[locale]}</h2>
-        <div style={{ textAlign: 'center' }}>
-          <form
-            className="btn-group"
-            role="group"
-            aria-label="Select type of vaccination."
-          >
-            {/* eslint-disable jsx-a11y/label-has-associated-control */}
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="btnradio1"
-              autoComplete="off"
-              onClick={() => setVaccineType('SelfPaid')}
-              checked={vaccineType === 'SelfPaid'}
-            />
-            <label
-              className="btn btn-outline-primary"
-              htmlFor="btnradio1"
-            >
-              {strings.vaccineTypes.selfPaid[locale]}
-            </label>
-            <input
-              type="radio"
-              className="btn-check"
-              name="btnradio"
-              id="btnradio2"
-              autoComplete="off"
-              onClick={() => setVaccineType('GovernmentPaid')}
-              checked={vaccineType === 'GovernmentPaid'}
-            />
-            <label
-              className="btn btn-outline-primary"
-              htmlFor="btnradio2"
-            >
-              {strings.vaccineTypes.governmentPaid[locale]}
-            </label>
-          </form>
-        </div>
-        {rows.length === 0 ? <Spinner />
-          : (
-            <VaccineDataGrid
-              vaccineType={vaccineType}
-              rows={rows}
-              locale={locale}
-            />
-          )}
+        <Switch>
+          <Route path="/criteria">
+            <Criteria language={language} />
+          </Route>
+          <Route path="/">
+            <Home language={language} locale={locale} />
+          </Route>
+        </Switch>
         <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
       </div>
-    </div>
+    </Router>
   );
 }

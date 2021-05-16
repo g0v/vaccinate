@@ -1,15 +1,3 @@
-vaccineAvailability:
-  en: Vaccine Availability
-  zh: 疫苗資訊
-vaccineTypes:
-  governmentPaid:
-    en: Government-Paid Vaccinations
-    zh: 公費疫苗
-    ph: Bakuna Government-Paid
-  selfPaid:
-    en: Self-Paid Vaccinations
-    zh: 自費疫苗
-    ph: Bakuna Self-Paid
 websiteTitle:
   en: COVID-19 Vaccination Information
   zh: 全民新冠肺炎 (COVID-19) 疫苗資訊
