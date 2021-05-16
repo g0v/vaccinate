@@ -104,7 +104,7 @@ const ja = `
 各病院名の欄に「Availability」と表示されていれば、自己負担の新型コロナウイルスワクチンがあります。
 「Unavailable」であれば、その病院には空いている予約枠はありません。
 「No Data」であれば、このサイトにデータを追加する方法がまだ見つかっていないことを示します。
-「Register here」をクリックして、直接病院にお問い合わせください。
+「Register here」をクリックして、直接病院のサイトをご確認ください。
 
 ### もっと詳しく知りたい時は？
 * [台湾CDCによる英語のFAQ](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
