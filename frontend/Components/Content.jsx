@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import type { Language } from '../Types/Locale';
+import { useLocaleContext } from '../Context/Locale'
 
 const enUS = `
 ### Who can get the COVID-19 vaccine?
@@ -124,11 +124,11 @@ Itong website ay gawa ng mga boluntaryo ng [g0v](https://g0v.tw) civic hacker ne
 Ang impormasyon na nakikita mo sa website na ito ay galing sa mga web crawlers na naghahanap ng real-time na impormasyon galing sa mga website ng mga ospital sa Taiwan. Kailangan namin ang tulong ninyo para mapalago ang impormasyon na ito. Kung interesado kayo, pwede kayong sumali sa aming slack channel o i-fork ang aming code sa [GitHub](https://github.com/g0v/vaccinate).
 `;
 
-function getContent(language: string): string {
-  switch (language) {
-    case 'enUS':
+function getContent(locale: string): string {
+  switch (locale) {
+    case 'en':
       return enUS;
-    case 'zhTW':
+    case 'zh':
       return zhTW;
     case 'id':
       return bahasa;
@@ -137,18 +137,16 @@ function getContent(language: string): string {
     case 'ph':
       return ph;
     default:
-      return zhTW;
+      return enUS;
   }
 }
 
-export default function Content(props: {
-  language: Language
-}): React.Node {
-  const { language } = props;
+export default function Content(): React.Node {
+  const { locale } = useLocaleContext();
   return (
     <>
       <div style={{ marginTop: 10 }}>
-        <ReactMarkdown>{getContent(language)}</ReactMarkdown>
+        <ReactMarkdown>{getContent(locale)}</ReactMarkdown>
       </div>
     </>
   );

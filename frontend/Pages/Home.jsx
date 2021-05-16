@@ -1,19 +1,18 @@
 // @flow
 import * as React from 'react';
+import { useLocaleContext } from '../Context/Locale'
 import Content from '../Components/Content';
 import Map from '../Components/Map';
 import VaccineDataGrid from '../Components/VaccineDataGrid';
 import Spinner from '../Components/Spinner';
 
-import type { Language, Locale } from '../Types/Locale';
-
 // $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
 import strings from '../Strings/Home.yaml';
 
-export default function Home(props: { language: Language, locale: Locale }): React.Node {
-  const { language, locale } = props;
+export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
   const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
+  const { locale } = useLocaleContext()
   const url = './hospitals';
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
 
@@ -21,7 +20,7 @@ export default function Home(props: { language: Language, locale: Locale }): Rea
     <>
       <div className="row" style={{ marginTop: 50 }}>
         <div className="col">
-          <Content language={language} />
+          <Content />
         </div>
         <div className="col d-none d-md-block">
           <Map />
