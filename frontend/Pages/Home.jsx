@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { useLocaleContext } from '../Context/Locale'
+import { useLocaleContext } from '../Context/Locale';
 import Content from '../Components/Content';
 import Map from '../Components/Map';
 import VaccineDataGrid from '../Components/VaccineDataGrid';
@@ -12,7 +12,7 @@ import strings from '../Strings/Home.yaml';
 export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
   const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
-  const { locale } = useLocaleContext()
+  const { locale } = useLocaleContext();
   const url = './hospitals';
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
 

@@ -1,12 +1,12 @@
 // @flow
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
 
-import LocaleContext from './Context/Locale'
+import LocaleContext from './Context/Locale';
 
 import G0vbar from './Components/G0vbar';
 import Criteria from './Components/Criteria';

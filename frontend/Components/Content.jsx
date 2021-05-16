@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import { useLocaleContext } from '../Context/Locale'
+import { useLocaleContext } from '../Context/Locale';
 
 const enUS = `
 ### Who can get the COVID-19 vaccine?

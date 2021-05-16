@@ -1,10 +1,10 @@
 // @flow
 
 import React from 'react';
-import { useLocaleContext, locales } from '../Context/Locale'
+import { useLocaleContext, locales } from '../Context/Locale';
 
 export default function LanguageSelector(): React.Node {
-  const { locale: localeCode, changeLocale } = useLocaleContext()
+  const { locale: localeCode, changeLocale } = useLocaleContext();
 
   return (
     <div style={{ textAlign: 'center', marginTop: 20 }}>
@@ -16,19 +16,20 @@ export default function LanguageSelector(): React.Node {
         <button
           className="btn btn-primary dropdown-toggle"
           type="button"
-          data-bs-toggle="dropdown" aria-expanded="false"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
         >
           { locales[localeCode].text }
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           {
-            Object.values(locales).map((config, index) => (
+            Object.keys(locales).map((key) => (
               <li
-                key={`lang_${index}`}
+                key={`lang_${key}`}
                 className="dropdown-item"
-                onClick={changeLocale.bind(this, config.locale)}
+                onClick={changeLocale.bind(this, locales[key].locale)}
               >
-                { config.text }
+                { locales[key].text }
               </li>
             ))
           }
