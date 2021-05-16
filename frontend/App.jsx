@@ -4,8 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
 } from 'react-router-dom';
 
 import G0vbar from './Components/G0vbar';
@@ -17,12 +15,10 @@ import Home from './Pages/Home';
 import strings from './Strings/App.yaml';
 
 import type { Locale, Language } from './Types/Locale';
-import type { VaccineType } from './Types/VaccineType';
 
 export default function App(): React.Node {
   const [locale: Locale, setLocale] = React.useState('zh');
   const [language: Language, setLanguage] = React.useState('zhTW');
-  const [vaccineType: VaccineType, setVaccineType] = React.useState('GovernmentPaid');
 
   return (
     <Router>
@@ -36,7 +32,7 @@ export default function App(): React.Node {
             <Criteria language={language} />
           </Route>
           <Route path="/">
-            <Home language={language} locale={locale} vaccineType={vaccineType} />
+            <Home language={language} locale={locale} />
           </Route>
         </Switch>
         <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>

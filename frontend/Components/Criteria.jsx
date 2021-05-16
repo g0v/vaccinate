@@ -174,8 +174,8 @@ and are willing to pay out-of-pocket. Examples of eligible groups include:
 
 export default function Criteria(props: { language: Language }): React.Node {
   const { language } = props;
-  const getContent: (Language) => string = (language) => {
-    switch(language) {
+  const getContent: (Language) => string = (lang) => {
+    switch (lang) {
       case 'enUS':
         return en;
       case 'zhTW':
@@ -183,7 +183,7 @@ export default function Criteria(props: { language: Language }): React.Node {
       default:
         return en;
     }
-  }
+  };
   return (
     <div style={{ marginTop: 10, maxWidth: 800 }}>
       {language !== 'enUS' && language !== 'zhTW' ? (

@@ -50,7 +50,7 @@ export default function VaccineDataGrid(
     <div>
       {
         vaccineType === 'SelfPaid' ? (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
             <div style={{ textAlign: 'center', maxWidth: 800 }}>
               <p>
                 <b>

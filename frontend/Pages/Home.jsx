@@ -6,14 +6,14 @@ import VaccineDataGrid from '../Components/VaccineDataGrid';
 import Spinner from '../Components/Spinner';
 
 import type { Language, Locale } from '../Types/Locale';
-import type { VaccineType } from '../Types/VaccineType';
 
 // $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
 import strings from '../Strings/Home.yaml';
 
-export default function Home(props: { language: Language, locale: Locale, vaccineType: VaccineType }): React.Node {
-  const { language, locale, vaccineType } = props;
+export default function Home(props: { language: Language, locale: Locale }): React.Node {
+  const { language, locale } = props;
   const [rows, setRows] = React.useState([]);
+  const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
   const url = './hospitals';
   fetch(url).then((data) => data.json()).then((res) => setRows(res));
 
@@ -30,11 +30,52 @@ export default function Home(props: { language: Language, locale: Locale, vaccin
       <h2 style={{ textAlign: 'center' }}>{strings.vaccineAvailability[locale]}</h2>
       {rows.length === 0 ? <Spinner />
         : (
-          <VaccineDataGrid
-            vaccineType={vaccineType}
-            rows={rows}
-            locale={locale}
-          />
+          <>
+            <div style={{ textAlign: 'center' }}>
+              <form
+                className="btn-group"
+                role="group"
+                aria-label="Select type of vaccination."
+              >
+                {/* eslint-disable jsx-a11y/label-has-associated-control */}
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="btnradio"
+                  id="btnradio1"
+                  autoComplete="off"
+                  onClick={() => setVaccineType('SelfPaid')}
+                  checked={vaccineType === 'SelfPaid'}
+                />
+                <label
+                  className="btn btn-outline-primary"
+                  htmlFor="btnradio1"
+                >
+                  {strings.vaccineTypes.selfPaid[locale]}
+                </label>
+                <input
+                  type="radio"
+                  className="btn-check"
+                  name="btnradio"
+                  id="btnradio2"
+                  autoComplete="off"
+                  onClick={() => setVaccineType('GovernmentPaid')}
+                  checked={vaccineType === 'GovernmentPaid'}
+                />
+                <label
+                  className="btn btn-outline-primary"
+                  htmlFor="btnradio2"
+                >
+                  {strings.vaccineTypes.governmentPaid[locale]}
+                </label>
+              </form>
+            </div>
+            <VaccineDataGrid
+              vaccineType={vaccineType}
+              rows={rows}
+              locale={locale}
+            />
+          </>
         )}
     </>
   );

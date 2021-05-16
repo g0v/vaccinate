@@ -120,11 +120,13 @@ async def hospitals() -> wrappers.Response:
     )
     return response
 
-@app.route('/criteria')
-def criteria() -> str:
-    return render_template('./index.html')
 
-@app.route('/')
+@app.route("/criteria")
+def criteria() -> str:
+    return render_template("./index.html")
+
+
+@app.route("/")
 def index() -> str:
     return render_template("./index.html")
 
