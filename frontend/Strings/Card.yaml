@@ -1,0 +1,99 @@
+---
+availability:
+  available:
+    en: Available
+    zh: 有名額
+    ph: Available
+  unavailable:
+    en: Unavailable
+    zh: 無名額
+    ph: Unavailable
+  noData:
+    en: No Data
+    zh: 無資訊
+    ph: No Data
+locations:
+  keelung:
+    en: Keelung City
+    zh: 基隆市
+    ph: Lungsod ng Keelung
+  taipei:
+    en: Taipei City
+    zh: 臺北市
+    ph: Lungsod ng Taipei
+  newTaipeiCity:
+    en: New Taipei City
+    zh: 新北市
+    ph: Lungsod ng New Taipei
+  taoyuan:
+    en: Taoyuan City
+    zh: 桃園市
+    ph: Lungsod ng Taoyuan
+  hsinchuCounty:
+    en: Hsinchu County
+    zh: 新竹縣
+    ph: Lalawigan ng Hsinchu
+  hsinchuCity:
+    en: Hsinchu City
+    zh: 新竹市
+    ph: Lungsod ng Hsinchu
+  miaoli:
+    en: Miaoli County
+    zh: 苗栗縣
+    ph: Lalawigan ng Miaoli
+  yilan:
+    en: Yilan County
+    zh: 宜蘭縣
+    ph: Lalawigan ng Yilan
+  taichung:
+    en: Taichung City
+    zh: 臺中市
+    ph: Lungsod ng Taichung
+  yunlin:
+    en: Yunlin County
+    zh: 雲林縣
+    ph: Lalawigan ng Yunlin
+  changhua:
+    en: Changhua County
+    zh: 彰化縣
+    ph: Lalawigan ng Changhua
+  nantou:
+    en: Nantou County
+    zh: 南投縣
+    ph: Lalawigan ng Nantou
+  chiayi:
+    en: Chiayi County
+    zh: 嘉義縣
+    ph: Lalawigan ng Chiayi
+  tainan:
+    en: Tainan City
+    zh: 臺南市
+    ph: Lungsod ng Tainan
+  kaohsiung:
+    en: Kaohsiung City
+    zh: 高雄市
+    ph: Lungsod ng Kaohsiung
+  pingtung:
+    en: Pingtung County
+    zh: 屏東縣
+    ph: Lalawigan ng Pingtung
+  hualien:
+    en: Hualien County
+    zh: 花蓮縣
+    ph: Lalawigan ng Hualien
+  lienjiang:
+    en: Lienjiang County
+    zh: 連江縣
+    ph: Lalawigan ng Lienjiang
+  penghu:
+    en: Penghu County
+    zh: 澎湖縣
+    ph: Lalawigan ng Penghu
+  taitung:
+    en: Taitung County
+    zh: 臺東縣
+    ph: Lalawigan ng Taitung
+  kinmen:
+    en: Kinmen County
+    zh: 金門縣
+    ph: Lalawigan ng Kinmen

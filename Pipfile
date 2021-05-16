@@ -4,13 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
 beautifulsoup4 = "*"
 certifi = "*"
 requests = "*"
 redis = "*"
 python-dotenv = "*"
 types-redis = "*"
+aiohttp = "*"
+flask = {extras = ["async"], version = "*"}
 
 [dev-packages]
 black = "*"

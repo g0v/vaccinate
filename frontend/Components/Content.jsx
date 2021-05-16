@@ -2,14 +2,18 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import type { Locale } from './Locale';
+import type { Language } from '../Types/Locale';
 
 const enUS = `
 ### Who can get the COVID-19 vaccine?
 You can get the COVID-19 vaccine for free if you are part of
-the eligible groups set by the Taiwanese government. If you
-intend to travel outside of Taiwan, you may pay out-of-pocket
-for a vaccine.
+the eligible groups set by the Taiwanese government. 
+
+### Are there self-paid vaccines available? 
+Self-paid vaccines were available for those who intended to travel
+abroad. This program was ended by the CECC on May 15, 2021. 
+If you previously got your first dose through this program, you
+can schedule your second shot directly with your hospital. 
 
 ### What vaccines are available? 
 Currently, the Taiwanese government is administering the
@@ -39,30 +43,34 @@ g0v slack and fork our code on [GitHub](https://github.com/g0v/vaccinate)
 `;
 
 const zhTW = `
-### 誰能夠接種COVID-19疫苗？
-COVID-19公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
+### 誰能夠接種 COVID-19 疫苗？
+COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
 [衛生福利部疾病管理署官網](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)。
-此外，COVID-19自費疫苗也開放給任何有出國需求在台的人。接種對象不限國籍。
+此外，COVID-19 自費疫苗也開放給任何有出國需求在台的人。接種對象不限國籍。
+
+### 有 COVID-19 自費疫苗嗎？
+根據指揮中心5月15號的記者會，現在無法註冊自費疫苗名額。如果您已經接種第一劑疫苗的話
+可直接聯絡醫院預約接種第二劑疫苗。
 
 ### 現在能夠打哪一種疫苗？
-疾病管理署正在供應AstraZeneca的疫苗。
+疾病管理署正在供應 AstraZeneca 的疫苗。
 
 ### 該怎麼使用本網站？
-如果在您附近的醫院旁邊看到「Available」的話，表示醫院有自費COVID-19疫苗名額。
+如果在您附近的醫院旁邊看到「Available」的話，表示醫院有自費 COVID-19 疫苗名額。
 請直接往醫院官網報名。如果顯示「No Data」，表示本網不提供醫院顯示名額狀況的訊息。
 請跟隨連接，跟醫院直接查詢名額。
 
 ### 本網站是由誰開發的？
-本網站由[g0v](https://g0v.tw)公民科技社群內的Civic Hacker開發的。非官方頁面。如需要
+本網站由 [g0v](https://g0v.tw) 公民科技社群內的 Civic Hacker 開發的。非官方頁面。如需要
 官方諮詢，請查看[衛生福利部疾病管理署官網](https://cdc.gov.tw).
 
 ### 你能夠怎麼協助本網？
-本網透過扒醫院官網的方式提供現時的名額資訊。總共有31個網站。小編無法一個人寫那麼多！
-如果您有興趣幫忙的話，請加入g0v的Slack並且Fork我們在
-[GitHub](https://github.com/g0v/vaccinate)上的Code!
+本網透過扒醫院官網的方式提供現時的名額資訊。總共有 31 個網站。小編無法一個人寫那麼多！
+如果您有興趣幫忙的話，請加入 g0v 的 Slack 並且 Fork 我們在
+[GitHub](https://github.com/g0v/vaccinate)上的 Code!
 
 Please help me translate this text. Contribute by adding to
-[this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+[this file](https://github.com/g0v/vaccinate/blob/master/frontend/Components/Content.jsx)
 `;
 
 const bahasa = `
@@ -120,8 +128,23 @@ const ja = `
 `;
 
 const ph = `
-Tagalog translation is a work in progress. Please contribute by
-adding to [this file](https://github.com/g0v/vaccinate/blob/master/frontend/Content.jsx)
+### Sino ang pwedeng magpabakuna laban sa COVID-19?
+Maari kang makatanggap ng libreng bakuna laban sa COVID-19 kung ikaw ay nabibilang sa eligible na grupo na itinalaga ng gobyerno ng Taiwan. Kung ikaw ay may balak bumiyahe sa labas ng Taiwan, ikaw ay maaaring magbayad para sa sariling bakuna.
+
+### Ano-ano ang mga bakunang mayroon sa Taiwan?
+Sa ngayon, ang gobyerno ng Taiwan ay gumagamit ng bakunang AstraZeneca.
+
+### Paano gamitin ang website na ito?
+Hanapin ang mga ospital sa inyong lugar. Kung may nakalahad na "Available" sa itaas ng pangalan ng ospital, maari kayong magpaiskedyul ng appointment para sa bakuna na sarili mong babayaran. Kung "Unavailable", sa ngayon, wala pa pong makukuhang bakuna sa ospital na iyon. Kung "No Data" ang nakalahad, wala pa kaming mahahanap na impormasyon para sa ospital na iyon. Sa ganitong kaso, i-click ang "Visit Hospital Website" upang maicheck at makipagiskedyul ng appointment sa ospital na iyon.
+
+### Saan ako pwedeng makakuha ng karagdagang impormasyon tungkol sa bakuna laban sa COVID-19? 
+* [FAQs sa Ingles galing sa Taiwan CDC](https://www.cdc.gov.tw/File/Get/rJJ09nktKU7btX_ZTEo_4w)
+
+### Sino ang gumawa ng website na ito?
+Itong website ay gawa ng mga boluntaryo ng [g0v](https://g0v.tw) civic hacker network. Hindi ito konektado sa gobyerno ng Taiwan. Hindi rin ito isang opisyal na pahayag ng gobyerno. Para sa opisyal na impormasyon tungkol dito, maari kayong pumunta sa [website ng Taiwan CDC](https://cdc.gov.tw).
+
+### Paano ako makakatulong?
+Ang impormasyon na nakikita mo sa website na ito ay galing sa mga web crawlers na naghahanap ng real-time na impormasyon galing sa mga website ng mga ospital sa Taiwan. Kailangan namin ang tulong ninyo para mapalago ang impormasyon na ito. Kung interesado kayo, pwede kayong sumali sa aming slack channel o i-fork ang aming code sa [GitHub](https://github.com/g0v/vaccinate).
 `;
 
 function getContent(language: string): string {
@@ -142,25 +165,11 @@ function getContent(language: string): string {
 }
 
 export default function Content(props: {
-  setLocale: ((Locale => Locale) | Locale) => void,
+  language: Language
 }): React.Node {
-  const [language, setLanguage] = React.useState('zhTW');
-  const { setLocale } = props;
+  const { language } = props;
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
-        <div
-          className="btn-group"
-          role="group"
-          aria-label="Basic outlined example"
-        >
-          <button type="button" onClick={() => { setLanguage('enUS'); setLocale('en'); }} className="btn btn-outline-primary">English</button>
-          <button type="button" onClick={() => { setLanguage('zhTW'); setLocale('zh'); }} className="btn btn-outline-primary">華語</button>
-          <button type="button" onClick={() => { setLanguage('id'); setLocale('en'); }} className="btn btn-outline-primary">Bahasa</button>
-          <button type="button" onClick={() => { setLanguage('ja'); setLocale('en'); }} className="btn btn-outline-primary">日本語</button>
-          <button type="button" onClick={() => { setLanguage('ph'); setLocale('en'); }} className="btn btn-outline-primary">Tagalog</button>
-        </div>
-      </div>
       <div style={{ marginTop: 10 }}>
         <ReactMarkdown>{getContent(language)}</ReactMarkdown>
       </div>

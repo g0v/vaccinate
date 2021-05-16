@@ -1,17 +1,20 @@
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, wrappers
+import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
-from hospital_types import Hospital, HospitalID, AppointmentAvailability, ScrapedData
 
-# Parsers
-from Parsers.ntu_taipei import *
-from Parsers.ntu_hsinchu import *
-from Parsers.ntu_yunlin import *
-from Parsers.tzuchi_taipei import *
-from Parsers.mohw import *
+# Project imports
+import local_scraper
+from hospital_types import (
+    Hospital,
+    HospitalID,
+    AppointmentAvailability,
+    ScrapedData,
+    HospitalAvailabilitySchema,
+)
 
 
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
@@ -28,19 +31,7 @@ app = Flask(
 )
 
 
-def errorBoundary(
-    f: Callable[[], Tuple[int, AppointmentAvailability]]
-) -> Callable[[], Optional[Tuple[int, AppointmentAvailability]]]:
-    def boundariedFunction() -> Optional[Tuple[int, AppointmentAvailability]]:
-        try:
-            return f()
-        except:
-            return None
-
-    return boundariedFunction
-
-
-def hospitalData() -> List[Hospital]:
+def get_availability_from_server() -> List[ScrapedData]:
     # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
     # using the default encoding utf-8.  This is client specific.
     r: redis.StrictRedis = redis.StrictRedis(
@@ -51,37 +42,63 @@ def hospitalData() -> List[Hospital]:
         username=redis_username,
         ssl=True,
     )
+
     hospital_ids = list(range(1, 32))
 
     def get_availability(
         hospital_id: int,
-    ) -> Optional[ScrapedData]:
-        availability = r.get("hospital:" + str(hospital_id))
-        if availability == "AppointmentAvailability.AVAILABLE":
-            availability = AppointmentAvailability.AVAILABLE
-        elif availability == "AppointmentAvailability.UNAVAILABLE":
-            availability = AppointmentAvailability.UNAVAILABLE
-        else:
-            return None
+    ) -> ScrapedData:
+        raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
+
+        if raw_availability == {}:
+            return (
+                hospital_id,
+                {
+                    "self_paid": AppointmentAvailability.NO_DATA,
+                    "government_paid": AppointmentAvailability.NO_DATA,
+                },
+            )
+
+        def read_availability(raw: str) -> AppointmentAvailability:
+            if raw == "AppointmentAvailability.AVAILABLE":
+                return AppointmentAvailability.AVAILABLE
+            elif raw == "AppointmentAvailability.UNAVAILABLE":
+                return AppointmentAvailability.UNAVAILABLE
+            else:
+                return AppointmentAvailability.NO_DATA
+
+        availability: HospitalAvailabilitySchema = {
+            "self_paid": read_availability(raw_availability["self_paid"]),
+            "government_paid": read_availability(raw_availability["government_paid"]),
+        }
         return (hospital_id, availability)
 
-    availability = [get_availability(hospital_id) for hospital_id in hospital_ids]
-    availability = dict(list(filter(None, availability)))
+    availability: List[ScrapedData] = [
+        get_availability(hospital_id) for hospital_id in hospital_ids
+    ]
+    return availability
+
+
+async def hospitalData() -> List[Hospital]:
+    should_scrape = app.config["scrape"]
+    if should_scrape:
+        availability = dict(await local_scraper.get_hospital_availability())
+    else:
+        availability = dict(get_availability_from_server())
+
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:
             hospital_id = int(row["編號"])
-            hospital_availability = (
-                availability[hospital_id].value
-                if hospital_id in availability
-                else AppointmentAvailability.NO_DATA.value
-            )
             hospital: Hospital = {
                 "address": row["地址"],
-                "availability": hospital_availability,
+                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
                 "department": row["科別"],
+                "governmentPaidAvailability": availability[hospital_id][
+                    "government_paid"
+                ],
                 "hospitalId": int(row["編號"]),
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
@@ -92,9 +109,10 @@ def hospitalData() -> List[Hospital]:
         return rows
 
 
+# pyre-fixme[56]: Decorator async types are not type-checked.
 @app.route("/hospitals")
-def hospitals() -> Any:
-    data = hospitalData()
+async def hospitals() -> wrappers.Response:
+    data = await hospitalData()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
@@ -103,10 +121,28 @@ def hospitals() -> Any:
     return response
 
 
+@app.route("/criteria")
+def criteria() -> str:
+    return render_template("./index.html")
+
+
 @app.route("/")
 def index() -> str:
     return render_template("./index.html")
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Server to serve scraped vaccine availability data."
+    )
+    parser.add_argument(
+        "--scrape",
+        action="store_true",
+        default=False,
+        help="""Usually the Flask app will read from a Redis database.
+        This flag will scrape the data locally on machine. It's useful for testing.
+        """,
+    )
+    flag_values: argparse.Namespace = parser.parse_args()
+    app.config["scrape"] = flag_values.scrape
     app.run(debug=True, host="0.0.0.0")

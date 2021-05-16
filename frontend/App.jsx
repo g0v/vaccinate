@@ -1,32 +1,42 @@
 // @flow
 import * as React from 'react';
-import Content from './Content';
-import Map from './Map';
-import Table from './Table';
-import Spinner from './Spinner';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-import type { Locale } from './Locale';
+import G0vbar from './Components/G0vbar';
+import Criteria from './Components/Criteria';
+import Navbar from './Components/Navbar';
+import LanguageSelector from './Components/LanguageSelector';
+import Home from './Pages/Home';
+// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
+import strings from './Strings/App.yaml';
+
+import type { Locale, Language } from './Types/Locale';
 
 export default function App(): React.Node {
-  const [rows, setRows] = React.useState([]);
   const [locale: Locale, setLocale] = React.useState('zh');
-  const url = './hospitals';
-  fetch(url).then((data) => data.json()).then((res) => setRows(res));
+  const [language: Language, setLanguage] = React.useState('zhTW');
+
   return (
-    <div>
-      <h1 style={{ textAlign: 'center', marginTop: 30 }}>全民新冠肺炎疫苗資訊 COVID-19 Vaccination Information</h1>
-      <div className="row" style={{ marginTop: 50 }}>
-        <div className="col">
-          <Content setLocale={setLocale} />
-        </div>
-        <div className="col">
-          <Map />
-        </div>
+    <Router>
+      <G0vbar locale={locale} />
+      <Navbar locale={locale} />
+      <div className="container">
+        <LanguageSelector setLocale={setLocale} setLanguage={setLanguage} />
+        <h1 style={{ textAlign: 'center', marginTop: 30 }}>{strings.websiteTitle[locale]}</h1>
+        <Switch>
+          <Route path="/criteria">
+            <Criteria language={language} />
+          </Route>
+          <Route path="/">
+            <Home language={language} locale={locale} />
+          </Route>
+        </Switch>
+        <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
       </div>
-      <h2 style={{ textAlign: 'center' }}>Vaccination Availability</h2>
-      {rows.length === 0 ? <Spinner />
-        : <Table rows={rows} locale={locale} />}
-      <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
-    </div>
+    </Router>
   );
 }

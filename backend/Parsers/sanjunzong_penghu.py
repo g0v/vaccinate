@@ -9,29 +9,30 @@ from hospital_types import (
 import aiohttp, asyncio
 
 
-URL: str = "https://register.cgmh.org.tw/Department/6/60990E"
+URL: str = "http://netreg.afph.tsgh.ndmctsgh.edu.tw/webreg/calendar_type/5xn1z9fPG5H4JDJEV98dHQ%3D%3D"
 
 
-async def scrape_changgung_chiayi() -> ScrapedData:
+async def scrape_sanjunzong_penghu() -> ScrapedData:
     timeout = aiohttp.ClientTimeout(total=5)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(URL) as r:
-            return parse_changgung_chiayi(await r.text())
+            return parse_sanjunzong_penghu(await r.text())
 
 
-def parse_changgung_chiayi(html: str) -> ScrapedData:
+def parse_sanjunzong_penghu(html: str) -> ScrapedData:
     soup = BeautifulSoup(html, "html.parser")
-    table = soup.find("table", {"class": "department-table"})
-    links = table.find_all("a")
-    full_links = table.find_all("a", {"class": "state-full"})
+    weekly_tables = soup.find("table", {"id": "timeTable"}).find_all("tbody")
+    available_links = []
+    for table in weekly_tables:
+        links = table.find_all("a")
+        available_links = available_links + links
     availability: HospitalAvailabilitySchema = {
         "self_paid": AppointmentAvailability.AVAILABLE
-        if len(links) > len(full_links)
+        if available_links
         else AppointmentAvailability.UNAVAILABLE,
         "government_paid": AppointmentAvailability.NO_DATA,
     }
-    # PEP8 Style: if list is not empty, then there are appointments
     return (
-        21,
+        31,
         availability,
     )
