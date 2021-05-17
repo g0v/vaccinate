@@ -6,7 +6,7 @@ import type { Language } from '../Types/Locale';
 
 const zh = `
 ## 公費疫苗對象
-資料來源：[衛生福利部疾病管理署](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)
+資料來源：[衛生福利部疾病管制署](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)
 ### 維持醫療量能
 1. 醫療院所之執業醫事人員
 2. 醫療院所之非醫事人員(含集中檢疫所之非醫事人員)
@@ -60,7 +60,7 @@ const zh = `
 
 const en = `
 ## Who can get the COVID-19 Vaccine? 
-Information source: [Taiwan Center for Disease Control](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)
+Information source: [Taiwan Centers for Disease Control](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)
 
 You can get the COVID-19 Vaccine if you meet any of the following criteria:
 
