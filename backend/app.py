@@ -21,6 +21,7 @@ redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
+redis_ssl: Optional[bool] = (os.environ.get("REDIS_SSL") != "no") # default is true means to use SSL
 
 
 app = Flask(
@@ -40,7 +41,7 @@ def get_availability_from_server() -> List[ScrapedData]:
         password=redis_password,
         decode_responses=True,
         username=redis_username,
-        ssl=True,
+        ssl=redis_ssl,
     )
 
     hospital_ids = list(range(1, 32))

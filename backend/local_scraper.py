@@ -35,7 +35,7 @@ redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
-
+redis_ssl: Optional[bool] = (os.environ.get("REDIS_SSL") != "no") # default is true means to use SSL
 
 def error_boundary(
     f: Callable[[], Coroutine[Any, Any, ScrapedData]]
@@ -108,7 +108,7 @@ async def scrape() -> None:
             decode_responses=True,
             username=redis_username,
             socket_timeout=10,
-            ssl=True,
+            ssl=redis_ssl,
         )
 
         def set_availability(
