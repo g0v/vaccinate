@@ -87,7 +87,6 @@ async def hospitalData() -> List[Hospital]:
     else:
         availability = dict(get_availability_from_server())
 
-    app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
