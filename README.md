@@ -3,7 +3,7 @@
 Collecting all the information about self-paid vaccines in Taiwan. 
 
 ## Set up project
-Make sure you have [pipenv](https://pypi.org/project/pipenv/) installed. 
+Make sure you have [pipenv](https://pypi.org/project/pipenv/) and [yarn](https://yarnpkg.com/getting-started/install) installed.
 1. git clone the repository
 2. run `pipenv install`.
 3. run `yarn`
@@ -55,6 +55,14 @@ When you are developing locally, instead of reading from the Redis server, it ma
 6. Make a Pull Request and tag @kevinjcliao to take a look. 
 
 See [here](https://github.com/g0v/vaccinate/pull/1) for an example of a Pull Request. 
+
+## Run Locally
+
+You may use Docker to run web server and scraper locally in production mode.
+
+```
+docker compose up
+```
 
 ## Known Issues
 * After adding a new Python dependency, pipenv gets pretty unhappy. Run `pipenv lock --pre --clear` to fix. I've aliased this to `yarn fixpipenv`.

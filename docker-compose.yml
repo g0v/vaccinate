@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      dockerfile: ./docker/web/Dockerfile
+      context: .
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_USERNAME: ""
+      REDIS_PASSWORD: ""
+      REDIS_SSL: "no"
+    ports:
+      - 5000:5000
+
+  scraper:
+    build:
+      dockerfile: ./docker/scraper/Dockerfile
+      context: .
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_USERNAME: ""
+      REDIS_PASSWORD: ""
+      REDIS_SSL: "no"
+
+  redis:
+    image: redis:6
+    ports:
+      - 6379:6379
