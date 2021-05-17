@@ -45,7 +45,7 @@ g0v slack and fork our code on [GitHub](https://github.com/g0v/vaccinate)
 const zhTW = `
 ### 誰能夠接種 COVID-19 疫苗？
 COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參考
-[衛生福利部疾病管理署官網](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)。
+[衛生福利部疾病管制署官網](https://www.cdc.gov.tw/Category/Page/9mcqWyq51P_aYADuh3rTBA)。
 此外，COVID-19 自費疫苗也開放給任何有出國需求在台的人。接種對象不限國籍。
 
 ### 有 COVID-19 自費疫苗嗎？
@@ -53,7 +53,7 @@ COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參�
 可直接聯絡醫院預約接種第二劑疫苗。
 
 ### 現在能夠打哪一種疫苗？
-疾病管理署正在供應 AstraZeneca 的疫苗。
+疾病管制署正在供應 AstraZeneca 的疫苗。
 
 ### 該怎麼使用本網站？
 如果在您附近的醫院旁邊看到「Available」的話，表示醫院有自費 COVID-19 疫苗名額。
@@ -62,7 +62,7 @@ COVID-19 公費疫苗已開放給公費疫苗接種對象。詳細資料請參�
 
 ### 本網站是由誰開發的？
 本網站由 [g0v](https://g0v.tw) 公民科技社群內的 Civic Hacker 開發的。非官方頁面。如需要
-官方諮詢，請查看[衛生福利部疾病管理署官網](https://cdc.gov.tw).
+官方諮詢，請查看[衛生福利部疾病管制署官網](https://cdc.gov.tw).
 
 ### 你能夠怎麼協助本網？
 本網透過扒醫院官網的方式提供現時的名額資訊。總共有 31 個網站。小編無法一個人寫那麼多！
