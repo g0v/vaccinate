@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useTranslation } from 'react-i18next';
 
-import { useLocaleContext } from '../Context/Locale';
 import type { Locale } from '../Types/Locale';
 
 const zh = `
@@ -174,7 +174,6 @@ and are willing to pay out-of-pocket. Examples of eligible groups include:
 `;
 
 export default function Criteria(): React.Node {
-  const { locale } = useLocaleContext();
   const getContent: (Locale) => string = (localeCode) => {
     switch (localeCode) {
       case 'en':
@@ -185,6 +184,10 @@ export default function Criteria(): React.Node {
         return en;
     }
   };
+
+  const [, i18n] = useTranslation();
+  const locale = i18n.language;
+
   return (
     <div style={{ marginTop: 10, maxWidth: 800 }}>
       {locale !== 'en' && locale !== 'zh' ? (
