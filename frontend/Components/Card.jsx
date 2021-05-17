@@ -1,10 +1,8 @@
 // @flow
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Availability } from '../Types/Availability';
-import type { Locale } from '../Types/Locale';
 import type { Location } from '../Types/Location';
-// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
-import strings from '../Strings/Card.yaml';
 
 function getBadgeClassname(availability: Availability): string {
   switch (availability) {
@@ -17,63 +15,62 @@ function getBadgeClassname(availability: Availability): string {
   }
 }
 
-function getBadgeText(availability: Availability, locale: Locale): string {
+function getBadgeText(availability: Availability, t): string {
   switch (availability) {
     case 'Available':
-      return strings.availability.available[locale];
+      return t('txt-available');
     case 'Unavailable':
-      return strings.availability.unavailable[locale];
+      return t('txt-unavailable');
     case 'No Data':
-      return strings.availability.noData[locale];
     default:
-      return strings.availability.noData[locale];
+      return t('txt-noData');
   }
 }
 
-function getLocationName(location: Location, locale: Locale): string {
+function getLocationName(location: Location, t): string {
   switch (location) {
     case '基隆市':
-      return strings.locations.keelung[locale];
+      return t('txt-keelung');
     case '臺北市':
-      return strings.locations.taipei[locale];
+      return t('txt-taipei');
     case '新北市':
-      return strings.locations.newTaipeiCity[locale];
+      return t('txt-newTaipeiCity');
     case '新竹縣':
-      return strings.locations.hsinchuCounty[locale];
+      return t('txt-hsinchuCounty');
     case '新竹市':
-      return strings.locations.hsinchuCity[locale];
+      return t('txt-hsinchuCity');
     case '彰化縣':
-      return strings.locations.changhua[locale];
+      return t('txt-changhua');
     case '苗栗縣':
-      return strings.locations.miaoli[locale];
+      return t('txt-miaoli');
     case '桃園市':
-      return strings.locations.taoyuan[locale];
+      return t('txt-taoyuan');
     case '宜蘭縣':
-      return strings.locations.yilan[locale];
+      return t('txt-yilan');
     case '臺中市':
-      return strings.locations.taichung[locale];
+      return t('txt-taichung');
     case '雲林縣':
-      return strings.locations.yunlin[locale];
+      return t('txt-yunlin');
     case '南投縣':
-      return strings.locations.nantou[locale];
+      return t('txt-nantou');
     case '嘉義縣':
-      return strings.locations.chiayi[locale];
+      return t('txt-chiayi');
     case '台南市':
-      return strings.locations.tainan[locale];
+      return t('txt-tainan');
     case '高雄市':
-      return strings.locations.kaohsiung[locale];
+      return t('txt-kaohsiung');
     case '屏東縣':
-      return strings.locations.pingtung[locale];
+      return t('txt-pingtung');
     case '花蓮縣':
-      return strings.locations.hualien[locale];
+      return t('txt-hualien');
     case '連江縣':
-      return strings.locations.lienjiang[locale];
+      return t('txt-lienjiang');
     case '澎湖縣':
-      return strings.locations.penghu[locale];
+      return t('txt-penghu');
     case '臺東縣':
-      return strings.locations.taitung[locale];
+      return t('txt-taitung');
     case '金門縣':
-      return strings.locations.kinmen[locale];
+      return t('txt-kinmen');
     default:
       return location;
   }
@@ -84,7 +81,6 @@ export default function Card(props: {
   availability: Availability,
   buttonText: string,
   department: string,
-  locale: Locale,
   location: Location,
   name: string,
   phone: string,
@@ -95,21 +91,24 @@ export default function Card(props: {
     availability,
     buttonText,
     department,
-    locale,
     location,
     name,
     phone,
     website,
   } = props;
+
+  const [cardT] = useTranslation('card');
+  const [cityT] = useTranslation('city');
+
   return (
     <div className="card">
       <div className="card-body">
         <p className="card-text">
           <span className={getBadgeClassname(availability)}>
-            {getBadgeText(availability, locale)}
+            {getBadgeText(availability, cardT)}
           </span>
           <span className="badge bg-light text-dark">
-            {getLocationName(location, locale)}
+            {getLocationName(location, cityT)}
           </span>
         </p>
         <h4 className="card-title">{name}</h4>

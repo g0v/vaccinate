@@ -1,10 +1,12 @@
 // @flow
 
 import React from 'react';
-import { useLocaleContext, locales } from '../Context/Locale';
+import { useTranslation } from 'react-i18next';
+
+import locales from '../Constants/Locales';
 
 export default function LanguageSelector(): React.Node {
-  const { locale: localeCode, changeLocale } = useLocaleContext();
+  const { i18n } = useTranslation();
 
   return (
     <div style={{ textAlign: 'center', marginTop: 20 }}>
@@ -13,27 +15,25 @@ export default function LanguageSelector(): React.Node {
         role="group"
         aria-label="Select type of vaccination."
       >
-        <button
-          className="btn btn-primary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+        <div
+          className="btn-group"
+          role="group"
         >
-          { locales[localeCode].text }
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           {
             Object.keys(locales).map((key) => (
-              <li
+              <button
                 key={`lang_${key}`}
-                className="dropdown-item"
-                onClick={changeLocale.bind(this, locales[key].locale)}
+                type="button"
+                onClick={() => {
+                  i18n.changeLanguage(locales[key].locale);
+                }}
+                className="btn btn-outline-primary"
               >
                 { locales[key].text }
-              </li>
+              </button>
             ))
           }
-        </ul>
+        </div>
       </form>
     </div>
   );

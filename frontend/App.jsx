@@ -5,29 +5,27 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-
-import LocaleContext from './Context/Locale';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 
 import G0vbar from './Components/G0vbar';
 import Criteria from './Components/Criteria';
 import Navbar from './Components/Navbar';
 import LanguageSelector from './Components/LanguageSelector';
 import Home from './Pages/Home';
-// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
-import strings from './Strings/App.yaml';
+
+import i18n from './i18n';
 
 export default function App(): React.Node {
-  const userLanguage = navigator.language.split('-')[0];
-  const [locale: Locale, setLocale] = React.useState(userLanguage);
+  const [gt] = useTranslation('app');
 
   return (
-    <Router>
-      <LocaleContext.Provider value={{ locale, changeLocale: setLocale }}>
+    <I18nextProvider i18n={i18n}>
+      <Router>
         <G0vbar />
         <Navbar />
         <div className="container">
           <LanguageSelector />
-          <h1 style={{ textAlign: 'center', marginTop: 30 }}>{strings.websiteTitle[locale]}</h1>
+          <h1 style={{ textAlign: 'center', marginTop: 30 }}>{gt('tlt-app')}</h1>
           <Switch>
             <Route path="/criteria">
               <Criteria />
@@ -36,9 +34,9 @@ export default function App(): React.Node {
               <Home />
             </Route>
           </Switch>
-          <p><i>Created with love by a member of g0v, Taiwans civic tech community.</i></p>
+          <p><i>Created with love by a member of g0v, Taiwan civic tech community.</i></p>
         </div>
-      </LocaleContext.Provider>
-    </Router>
+      </Router>
+    </I18nextProvider>
   );
 }

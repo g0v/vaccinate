@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 // $FlowIgnore[cannot-resolve-module] This is how ParcelJS imports assets
 import favicon from 'url:../../assets/g0v.png'; // eslint-disable-line
 
-import { useLocaleContext } from '../Context/Locale';
 import type { Locale } from '../Types/Locale';
 
 const g0vbar = {
@@ -20,7 +20,8 @@ const g0vbarImg = {
 };
 
 function G0vbar(): React.Node {
-  const { locale } = useLocaleContext();
+  const [, i18n] = useTranslation();
+  const locale = i18n.language;
 
   const g0vbarContent = {
     color: 'white',
@@ -52,7 +53,14 @@ function G0vbar(): React.Node {
         .
       </>
     ),
-    ph: (
+    id: (
+      <>
+        This is a website by&nbsp;
+        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+        .
+      </>
+    ),
+    tl: (
       <>
         Ang website na ito ay gawa ng&nbsp;
         <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>

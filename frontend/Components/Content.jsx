@@ -1,8 +1,7 @@
 // @flow
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-
-import { useLocaleContext } from '../Context/Locale';
+import { useTranslation } from 'react-i18next';
 
 const enUS = `
 ### Who can get the COVID-19 vaccine?
@@ -168,11 +167,11 @@ function getContent(locale: string): string {
 }
 
 export default function Content(): React.Node {
-  const { locale } = useLocaleContext();
+  const [, i18n] = useTranslation();
   return (
     <>
       <div style={{ marginTop: 10 }}>
-        <ReactMarkdown>{getContent(locale)}</ReactMarkdown>
+        <ReactMarkdown>{getContent(i18n.language)}</ReactMarkdown>
       </div>
     </>
   );
