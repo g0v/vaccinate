@@ -74,3 +74,6 @@ selfPaidVaccineClosure:
     zh: 如果您已經接種第一劑疫苗的話可直接聯絡醫院預約接種第二劑疫苗。
     ja: Those who received a first dose are eligible for second appointments and should contact hospitals to schedule their second dose directly. Stay home and save lives. 天佑台灣！
     ph: Para sa mga indibidwal na nakatanggap na ng unang dose ng bakuna at ay eligible para sa pangalawang dose, maaari silang makipag-ugnay sa ospital para maiskyedul ang pangalawang dose.
+govPaidVaccineDataIncomplete:
+  en: There are additional hospitals that offer government-paid COVID-19 vaccines that are not listed here. We are working on getting this data on this website. Please visit https://antiflu.cdc.gov.tw/Covid19 for more info.
+  zh: 除了這些醫院有提供 COVID-19 公費疫苗接種之外，還有其他所。詳細資料請參考疾病管理署網站： https://antiflu.cdc.gov.tw/Covid19
