@@ -1,8 +1,8 @@
-const app = require('./app.json');
-const nav = require('./nav.json');
-const card = require('./card.json');
-const city = require('./city.json');
-const dataGrid = require('./dataGrid.json');
+import app from './app.json';
+import nav from './nav.json';
+import card from './card.json';
+import city from './city.json';
+import dataGrid from './dataGrid.json';
 
 export default {
   app,

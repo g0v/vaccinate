@@ -8,7 +8,7 @@ export default {
     text: '華文',
   },
   id: {
-    locale: 'en',
+    locale: 'id',
     text: 'Bahasa Indonesia',
   },
   ja: {
