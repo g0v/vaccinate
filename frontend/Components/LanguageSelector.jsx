@@ -20,18 +20,22 @@ export default function LanguageSelector(): React.Node {
           role="group"
         >
           {
-            Object.keys(locales).map((key) => (
-              <button
-                key={`lang_${key}`}
-                type="button"
-                onClick={() => {
-                  i18n.changeLanguage(locales[key].locale);
-                }}
-                className="btn btn-outline-primary"
-              >
-                { locales[key].text }
-              </button>
-            ))
+            Object.keys(locales).map((key) => {
+              const buttonClassName = key === i18n.language ? 'btn btn-primary' : 'btn btn-outline-primary';
+
+              return (
+                <button
+                  key={`lang_${key}`}
+                  type="button"
+                  onClick={() => {
+                    i18n.changeLanguage(locales[key].locale);
+                  }}
+                  className={buttonClassName}
+                >
+                  {locales[key].text}
+                </button>
+              );
+            })
           }
         </div>
       </form>
