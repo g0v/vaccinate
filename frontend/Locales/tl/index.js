@@ -1,8 +1,8 @@
-import app from './app.json';
-import nav from './nav.json';
-import card from './card.json';
-import city from './city.json';
-import dataGrid from './dataGrid.json';
+import app from './app.yaml';
+import nav from './nav.yaml';
+import card from './card.yaml';
+import city from './city.yaml';
+import dataGrid from './dataGrid.yaml';
 
 export default {
   app,

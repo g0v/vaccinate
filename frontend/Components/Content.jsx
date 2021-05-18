@@ -159,7 +159,7 @@ function getContent(locale: string): string {
       return bahasa;
     case 'ja':
       return ja;
-    case 'ph':
+    case 'tl':
       return ph;
     default:
       return enUS;
