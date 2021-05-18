@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 // $FlowIgnore[cannot-resolve-module] This is how ParcelJS imports assets
 import favicon from 'url:../../assets/g0v.png'; // eslint-disable-line
