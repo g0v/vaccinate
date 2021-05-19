@@ -1,0 +1,54 @@
+# Builds static site and push to GitHub Pages
+name: Build
+
+on:
+  push:
+    branches:
+      - "master"
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: main
+
+      - uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install Dependencies
+        working-directory: ./main
+        run: yarn
+
+      - name: Build Site
+        working-directory: ./main
+        run: yarn run build
+
+      - name: Commit into gh-pages branch
+        working-directory: ./gh-pages
+        run: |
+          git config --local user.name "Builder by ${{ github.actor	 }}"
+          git config --local user.email "noreply@g0v.tw"
+
+          cp -R ../main/dist/* .
+          git add .
+          git commit -m "Rebuild at $(date)"
+          git push
