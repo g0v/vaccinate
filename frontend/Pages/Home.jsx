@@ -15,7 +15,11 @@ export default function Home(props: { language: Language, locale: Locale }): Rea
   const [rows, setRows] = React.useState([]);
   const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
   const url = './hospitals';
-  fetch(url).then((data) => data.json()).then((res) => setRows(res));
+
+  React.useEffect(() => {
+    console.log("Fetching.");
+    fetch(url).then((data) => data.json()).then((res) => setRows(res));
+  }, []); // Empty list makes this useEffect similar to componentDidMount();
 
   return (
     <>
