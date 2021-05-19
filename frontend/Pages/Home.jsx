@@ -11,7 +11,10 @@ export default function Home(): React.Node {
   const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
   const [gt] = useTranslation('app');
   const url = './hospitals';
-  fetch(url).then((data) => data.json()).then((res) => setRows(res));
+
+  React.useEffect(() => {
+    fetch(url).then((data) => data.json()).then((res) => setRows(res));
+  }, []); // Empty list makes this useEffect similar to componentDidMount();
 
   return (
     <>
