@@ -24,6 +24,11 @@ export default function App(): React.Node {
         <G0vbar />
         <Navbar />
         <div className="container">
+          <div className="alert alert-danger" role="alert">
+            This site is currently under heavy development in preparation for the next wave of
+            COVID-19 Vaccinations. We're keeping it online in-case it detects any appointments
+            that are cancelled, but expect things to break until we remove this message.
+          </div>
           <LanguageSelector />
           <h1 style={{ textAlign: 'center', marginTop: 30 }}>{gt('tlt-app')}</h1>
           <Switch>

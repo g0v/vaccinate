@@ -42,7 +42,7 @@ export default function Home(): React.Node {
                   name="btnradio"
                   id="btnradio1"
                   autoComplete="off"
-                  onClick={() => setVaccineType('SelfPaid')}
+                  onClick={() => { setRows([]); setVaccineType('SelfPaid'); }}
                   checked={vaccineType === 'SelfPaid'}
                 />
                 <label
@@ -57,7 +57,7 @@ export default function Home(): React.Node {
                   name="btnradio"
                   id="btnradio2"
                   autoComplete="off"
-                  onClick={() => setVaccineType('GovernmentPaid')}
+                  onClick={() => { setRows([]); setVaccineType('GovernmentPaid'); }}
                   checked={vaccineType === 'GovernmentPaid'}
                 />
                 <label
