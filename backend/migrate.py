@@ -7,7 +7,7 @@ import csv,json
 # Code for combining data from the `hospitals.csv` with the
 # `hospitals.json` file that was taken from the MOHW website.
 
-def main():
+def main() -> None:
     csvfile = open("../data/hospitals.csv")
     reader = csv.DictReader(csvfile)
     rows = []
