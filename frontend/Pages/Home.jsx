@@ -10,11 +10,10 @@ export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
   const [vaccineType, setVaccineType] = React.useState('GovernmentPaid');
   const [gt] = useTranslation('app');
-  const url = './hospitals';
-
   React.useEffect(() => {
+    const url = vaccineType === 'SelfPaid' ? './self_paid_hospitals' : './government_paid_hospitals';
     fetch(url).then((data) => data.json()).then((res) => setRows(res));
-  }, []); // Empty list makes this useEffect similar to componentDidMount();
+  }, [vaccineType]); // Empty list makes this useEffect similar to componentDidMount();
 
   return (
     <>

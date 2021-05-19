@@ -12,8 +12,10 @@ class TestSanjunzongPenghu(unittest.TestCase):
                 "self_paid": AppointmentAvailability.UNAVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_sanjunzong_penghu(html_file.read())
-            self.assertEqual(availability, (31, expected_availability))
+            availability = SanjunzongPenghu().parse_sanjunzong_penghu(html_file.read())
+            self.assertEqual(
+                availability, (SanjunzongPenghu().hospital_id, expected_availability)
+            )
 
     def test_available(self) -> None:
         with open(
@@ -23,5 +25,7 @@ class TestSanjunzongPenghu(unittest.TestCase):
                 "self_paid": AppointmentAvailability.AVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_sanjunzong_penghu(html_file.read())
-            self.assertEqual(availability, (31, expected_availability))
+            availability = SanjunzongPenghu().parse_sanjunzong_penghu(html_file.read())
+            self.assertEqual(
+                availability, (SanjunzongPenghu().hospital_id, expected_availability)
+            )
