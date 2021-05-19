@@ -62,13 +62,15 @@ export default function VaccineDataGrid(
               </p>
             </div>
           </div>
-        ) : <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-            <p>
-              {strings.govPaidVaccineDataIncomplete[locale]}
-            </p>
+        ) : (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+            <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
+              <p>
+                {strings.govPaidVaccineDataIncomplete[locale]}
+              </p>
+            </div>
           </div>
-        </div>
+        )
       }
       <div style={{ marginTop: 20 }}>
         <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
