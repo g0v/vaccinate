@@ -87,23 +87,21 @@ async def hospitalData() -> List[Hospital]:
         availability = dict(get_availability_from_server())
 
     app.logger.warning(availability)
-    with open("../data/hospitals.csv") as csvfile:
-        reader = csv.DictReader(csvfile)
+    with open("../data/hospitals.json") as jsonfile:
+        blob = json.loads(jsonfile.read())
         rows = []
-        for row in reader:
-            hospital_id = int(row["編號"])
+        for row in blob:
+            hospital_id = int(row["Id"])
             hospital: Hospital = {
-                "address": row["地址"],
+                "address": row["Address"],
                 "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
-                "department": row["科別"],
-                "governmentPaidAvailability": availability[hospital_id][
-                    "government_paid"
-                ],
-                "hospitalId": int(row["編號"]),
-                "location": row["縣市"],
-                "name": row["醫院名稱"],
-                "phone": row["電話"],
-                "website": row["Website"],
+                "department": "department",
+                "governmentPaidAvailability": AppointmentAvailability.UNAVAILABLE,
+                "hospitalId": row["HospitalId"],
+                "location": row["City"],
+                "name": row["HospitalName"],
+                "phone": row["Phone"],
+                "website": "NO Website",
             }
             rows.append(hospital)
         return rows
