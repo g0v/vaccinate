@@ -79,7 +79,7 @@ def get_availability_from_server() -> List[ScrapedData]:
     return availability
 
 
-async def hospitalData() -> List[Hospital]:
+async def self_paid_hospital_data() -> List[Hospital]:
     should_scrape = app.config["scrape"]
     if should_scrape:
         availability = dict(await local_scraper.get_hospital_availability())
@@ -87,6 +87,29 @@ async def hospitalData() -> List[Hospital]:
         availability = dict(get_availability_from_server())
 
     app.logger.warning(availability)
+    with open("../data/hospitals.csv") as csvfile:
+        reader = csv.DictReader(csvfile)
+        rows = []
+        for row in reader:
+            hospital_id = int(row["編號"])
+            hospital: Hospital = {
+                "address": row["地址"],
+                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
+                "department": row["科別"],
+                "governmentPaidAvailability": availability[hospital_id][
+                    "government_paid"
+                ],
+                "hospitalId": int(row["編號"]),
+                "location": row["縣市"],
+                "name": row["醫院名稱"],
+                "phone": row["電話"],
+                "website": row["Website"],
+            }
+            rows.append(hospital)
+        return rows
+
+
+async def government_paid_hospital_data() -> List[Hospital]:
     with open("../data/hospitals.json") as jsonfile:
         blob = json.loads(jsonfile.read())
         rows = []
@@ -108,9 +131,21 @@ async def hospitalData() -> List[Hospital]:
 
 
 # pyre-fixme[56]: Decorator async types are not type-checked.
-@app.route("/hospitals")
-async def hospitals() -> wrappers.Response:
-    data = await hospitalData()
+@app.route("/self_paid_hospitals")
+async def self_paid_hospitals() -> wrappers.Response:
+    data = await self_paid_hospital_data()
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype="application/json",
+    )
+    return response
+
+
+# pyre-fixme[56]: Decorator async types are not type-checked.
+@app.route("/government_paid_hospitals")
+async def government_paid_hospitals() -> wrappers.Response:
+    data = await government_paid_hospital_data()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
