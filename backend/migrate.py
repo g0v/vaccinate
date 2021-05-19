@@ -2,10 +2,11 @@ from hospital_types import (
     Hospital,
     AppointmentAvailability,
 )
-import csv,json
+import csv, json
 
 # Code for combining data from the `hospitals.csv` with the
 # `hospitals.json` file that was taken from the MOHW website.
+
 
 def main() -> None:
     csvfile = open("../data/hospitals.csv")
@@ -29,8 +30,8 @@ def main() -> None:
     json_blob = json.loads(jsonfile.read())
     print(json_blob)
 
-main()    
 
-if __name__ == 'main':
+main()
+
+if __name__ == "main":
     main()
-
