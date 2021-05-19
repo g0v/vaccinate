@@ -24,13 +24,17 @@
     "fixpipenv": "pipenv lock --pre --clear",
     "frontend": "parcel serve ./frontend/index.html",
     "lint": "pipenv run black backend/*; yarn eslint frontend --ext .js,.jsx --fix",
+    "lint:fix": "yarn eslint frontend --ext .js,.jsx --fix",
     "scrape": "cd backend; pipenv run python local_scraper.py",
     "tc": "pipenv run pyre; yarn flow",
     "test": "pipenv run python -m unittest discover -s backend/tests/integration -t backend"
   },
   "dependencies": {
+    "i18next": "^20.2.4",
+    "i18next-browser-languagedetector": "^6.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-i18next": "^11.8.15",
     "react-markdown": "^6.0.1",
     "react-router-dom": "^5.2.0"
   }

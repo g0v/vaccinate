@@ -1,18 +1,17 @@
 // @flow
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import Card from './Card';
-// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
-import strings from '../Strings/VaccineDataGrid.yaml';
 
-import type { Locale } from '../Types/Locale';
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
 import type { Availability } from '../Types/Availability';
 
 export default function VaccineDataGrid(
-  props: { rows: Array<Hospital>, locale: Locale, vaccineType: VaccineType },
+  props: { rows: Array<Hospital>, vaccineType: VaccineType },
 ): React.Node {
-  const { rows, locale, vaccineType } = props;
+  const { rows, vaccineType } = props;
+  const { t } = useTranslation('dataGrid');
 
   const getAvailability: (Hospital) => Availability = (hospital) => (vaccineType === 'SelfPaid'
     ? hospital.selfPaidAvailability : hospital.governmentPaidAvailability);
@@ -32,7 +31,6 @@ export default function VaccineDataGrid(
               buttonText={buttonText}
               department={hospital.department}
               hospitalId={hospital.hospitalId}
-              locale={locale}
               location={hospital.location}
               name={hospital.name}
               phone={hospital.phone}
@@ -43,7 +41,7 @@ export default function VaccineDataGrid(
       </div>
     ) : (
       <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>{strings.noHospitals[locale]}</i></p>
+        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
       </div>
     ));
   return (
@@ -54,54 +52,56 @@ export default function VaccineDataGrid(
             <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
               <p>
                 <b>
-                  {strings.selfPaidVaccineClosure.notice[locale]}
+                  {t('dataGrid:selfPaidVaccineClosure:txt-notice')}
                 </b>
               </p>
               <p>
-                {strings.selfPaidVaccineClosure.selfPaid2ndShot[locale]}
+                {t('dataGrid:selfPaidVaccineClosure:txt-selfPaid2ndShot')}
               </p>
             </div>
           </div>
-        ) : <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-            <p>
-              {strings.govPaidVaccineDataIncomplete[locale]}
-            </p>
+        ) : (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+            <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
+              <p>
+                {t('txt-govPaidVaccineDataIncomplete')}
+              </p>
+            </div>
           </div>
-        </div>
+        )
       }
       <div style={{ marginTop: 20 }}>
-        <h3>{strings.hospitalsWithAppointmentsTitle[locale]}</h3>
+        <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
         <p>
           <i>
             {vaccineType === 'SelfPaid'
-              ? strings.hospitalsWithAppointmentsSubtitle.selfPaid[locale]
-              : strings.hospitalsWithAppointmentsSubtitle.governmentPaid[locale]}
+              ? t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-selfPaid')
+              : t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(availableHospitals, strings.buttons.getAppointment[locale])}
+        {makeCardGrid(availableHospitals, t('btn-getAppointment'))}
       </div>
       <div style={{ marginTop: 20 }}>
-        <h3>{strings.hospitalsWithNoDataTitle[locale]}</h3>
+        <h3>{t('txt-hospitalsWithNoDataTitle')}</h3>
         <p>
           <i>
             {vaccineType === 'SelfPaid'
-              ? strings.hospitalsWithNoDataSubtitle.selfPaid[locale]
-              : strings.hospitalsWithNoDataSubtitle.governmentPaid[locale]}
+              ? t('dataGrid:hospitalsWithNoDataSubtitle:txt-selfPaid')
+              : t('dataGrid:hospitalsWithNoDataSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(noDataHospitals, strings.buttons.visitWebsite[locale])}
+        {makeCardGrid(noDataHospitals, t('btn-visitWebsite'))}
       </div>
       <div style={{ marginTop: 20 }}>
-        <h3>{strings.hospitalsWithNoAppointmentsTitle[locale]}</h3>
+        <h3>{t('txt-hospitalsWithNoAppointmentsTitle')}</h3>
         <p>
           <i>
             {vaccineType === 'SelfPaid'
-              ? strings.hospitalsWithNoAppointmentsSubtitle.selfPaid[locale]
-              : strings.hospitalsWithNoAppointmentsSubtitle.governmentPaid[locale]}
+              ? t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-selfPaid')
+              : t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(unavailableHospitals, strings.buttons.visitWebsite[locale])}
+        {makeCardGrid(unavailableHospitals, t('btn-visitWebsite'))}
       </div>
     </div>
   );

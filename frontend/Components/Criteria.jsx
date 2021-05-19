@@ -1,8 +1,9 @@
 // @flow
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useTranslation } from 'react-i18next';
 
-import type { Language } from '../Types/Locale';
+import type { Locale } from '../Types/Locale';
 
 const zh = `
 ## 公費疫苗對象
@@ -172,21 +173,24 @@ and are willing to pay out-of-pocket. Examples of eligible groups include:
 - Those with the need to travel abroad to work, study, or seek medical care.
 `;
 
-export default function Criteria(props: { language: Language }): React.Node {
-  const { language } = props;
-  const getContent: (Language) => string = (lang) => {
-    switch (lang) {
-      case 'enUS':
+export default function Criteria(): React.Node {
+  const getContent: (Locale) => string = (localeCode) => {
+    switch (localeCode) {
+      case 'en':
         return en;
-      case 'zhTW':
+      case 'zh':
         return zh;
       default:
         return en;
     }
   };
+
+  const [, i18n] = useTranslation();
+  const locale = i18n.language;
+
   return (
     <div style={{ marginTop: 10, maxWidth: 800 }}>
-      {language !== 'enUS' && language !== 'zhTW' ? (
+      {locale !== 'en' && locale !== 'zh' ? (
         <p>
           <i>
             Translation of the CECC Vaccine Guidelines is a work in-progress. Please help out
@@ -195,7 +199,7 @@ export default function Criteria(props: { language: Language }): React.Node {
           </i>
         </p>
       ) : null}
-      <ReactMarkdown>{getContent(language)}</ReactMarkdown>
+      <ReactMarkdown>{getContent(locale)}</ReactMarkdown>
     </div>
   );
 }

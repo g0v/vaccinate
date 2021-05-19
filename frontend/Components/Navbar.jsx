@@ -1,16 +1,14 @@
 // @flow
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Link,
   NavLink,
 } from 'react-router-dom';
-// $FlowFixMe: Flow doesn't like importing Yaml but Parcel can.
-import strings from '../Strings/Navbar.yaml';
 
-import type { Locale } from '../Types/Locale';
+export default function Navbar(): React.Node {
+  const [t] = useTranslation('nav');
 
-export default function Navbar(props: { locale: Locale }): React.Node {
-  const { locale } = props;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
@@ -30,11 +28,11 @@ export default function Navbar(props: { locale: Locale }): React.Node {
           <div className="navbar-nav">
             <NavLink
               exact
-              activeClassname="active"
+              activeClassName="active"
               className="nav-link"
               to="/"
             >
-              {strings.appointments[locale]}
+              {t('txt-appointments')}
             </NavLink>
             <NavLink
               exact
@@ -42,7 +40,7 @@ export default function Navbar(props: { locale: Locale }): React.Node {
               className="nav-link"
               aria-current="page"
             >
-              {strings.vaccineCriteria[locale]}
+              {t('txt-vaccineCriteria')}
             </NavLink>
           </div>
         </div>
