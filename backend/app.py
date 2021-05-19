@@ -122,14 +122,14 @@ async def government_paid_hospital_data() -> List[Hospital]:
         rows = []
         for row in blob:
             hospital_id = row["HospitalId"]
-            print(availability)
+            default_schema: HospitalAvailabilitySchema = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
             hospital_availability: HospitalAvailabilitySchema = (
                 availability[hospital_id]
                 if hospital_id in availability
-                else {
-                    "self_paid": AppointmentAvailability.NO_DATA,
-                    "government_paid": AppointmentAvailability.NO_DATA,
-                }
+                else default_schema
             )
             hospital: Hospital = {
                 "address": row["Address"],
