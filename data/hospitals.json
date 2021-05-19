@@ -2811,7 +2811,7 @@
     "Lat": 25.055508,
     "Long": 121.549618,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>·åºé«çè²¡åæ³äººèºåé·åºç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.055508,121.549618)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸æ¾å±±åæ¦ååè·¯199è</a><br /><a href='tel:02-27135211' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27135211</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101010012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/1/10990D' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ½æç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-27135211#3333</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>長庚醫療財團法人臺北長庚紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.055508,121.549618)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市松山區敦化北路199號</a><br /><a href='tel:02-27135211' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27135211</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101010012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/1/10990D' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗施打特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-27135211#3333</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2822,7 +2822,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ½æç¹å¥éè¨º",
+        "Department": "COVID-19疫苗施打特別門診",
         "AppointmentPhone": "02-27135211#3333",
         "Day1": 2,
         "Day2": 2,
@@ -2837,16 +2837,16 @@
   {
     "Id": 82,
     "HospitalId": "1101010021",
-    "HospitalName": "åºç£å¾©è¨å®æ¯æ¥æé«çè²¡åæ³äººèºå®é«é¢",
-    "City": "èºåå¸",
-    "Dist": "æ¾å±±å",
+    "HospitalName": "基督復臨安息日會醫療財團法人臺安醫院",
+    "City": "臺北市",
+    "Dist": "松山區",
     "ZipCode": null,
-    "Address": "èºåå¸æ¾å±±åå«å¾·è·¯2æ®µ424ã426è",
+    "Address": "臺北市松山區八德路2段424、426號",
     "Phone": "02-27718151",
     "Lat": 25.047713,
     "Long": 121.547826,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åºç£å¾©è¨å®æ¯æ¥æé«çè²¡åæ³äººèºå®é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.047713,121.547826)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸æ¾å±±åå«å¾·è·¯2æ®µ424ã426è</a><br /><a href='tel:02-27718151' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27718151</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101010021' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.tahsda.org.tw/Register/add_sub.php?sub=00E' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ³¨å°)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-27718151#2838 </td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>基督復臨安息日會醫療財團法人臺安醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.047713,121.547826)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市松山區八德路2段424、426號</a><br /><a href='tel:02-27718151' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27718151</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101010021' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.tahsda.org.tw/Register/add_sub.php?sub=00E' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗注射)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-27718151#2838 </td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2857,7 +2857,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ³¨å°",
+        "Department": "COVID-19疫苗注射",
         "AppointmentPhone": "02-27718151#2838 ",
         "Day1": 2,
         "Day2": 2,
@@ -2872,16 +2872,16 @@
   {
     "Id": 83,
     "HospitalId": "1101020018",
-    "HospitalName": "åæ³°é«çè²¡åæ³äººåæ³°ç¶åé«é¢",
-    "City": "èºåå¸",
-    "Dist": "å¤§å®å",
+    "HospitalName": "國泰醫療財團法人國泰綜合醫院",
+    "City": "臺北市",
+    "Dist": "大安區",
     "ZipCode": null,
-    "Address": "èºåå¸å¤§å®åä»æè·¯4æ®µ280èï¼266å··6è",
+    "Address": "臺北市大安區仁愛路4段280號，266巷6號",
     "Phone": "02-27082121",
     "Lat": 25.0372074153938,
     "Long": 121.553893078239,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åæ³°é«çè²¡åæ³äººåæ³°ç¶åé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.0372074153938,121.553893078239)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸å¤§å®åä»æè·¯4æ®µ280èï¼266å··6è</a><br /><a href='tel:02-27082121' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27082121</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101020018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reg.cgh.org.tw/tw/reg/main.jsp?source=V' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å§ç§ãå®¶é«ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-27082121#1286</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>國泰醫療財團法人國泰綜合醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.0372074153938,121.553893078239)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市大安區仁愛路4段280號，266巷6號</a><br /><a href='tel:02-27082121' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-27082121</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101020018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reg.cgh.org.tw/tw/reg/main.jsp?source=V' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(內科、家醫科)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-27082121#1286</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2892,7 +2892,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å§ç§ãå®¶é«ç§",
+        "Department": "內科、家醫科",
         "AppointmentPhone": "02-27082121#1286",
         "Day1": 4,
         "Day2": 2,
@@ -2907,16 +2907,16 @@
   {
     "Id": 84,
     "HospitalId": "1101100011",
-    "HospitalName": "èºç£åºç£é·èææé¦¬åé«çè²¡åæ³äººé¦¬åç´å¿µé«é¢",
-    "City": "èºåå¸",
-    "Dist": "ä¸­å±±å",
+    "HospitalName": "臺灣基督長老教會馬偕醫療財團法人馬偕紀念醫院",
+    "City": "臺北市",
+    "Dist": "中山區",
     "ZipCode": null,
-    "Address": "èºåå¸ä¸­å±±åä¸­å±±åè·¯2æ®µ92è",
+    "Address": "臺北市中山區中山北路2段92號",
     "Phone": "02-25433535",
     "Lat": 25.058883,
     "Long": 121.522558,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>èºç£åºç£é·èææé¦¬åé«çè²¡åæ³äººé¦¬åç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.058883,121.522558)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸ä¸­å±±åä¸­å±±åè·¯2æ®µ92è</a><br /><a href='tel:02-25433535' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-25433535</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101100011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.mmh.org.tw/register_divide.php?depid=234' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(ç¹è²éè¨ºCOVID-19ç«èè¨ºé ç´)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-25215291 </td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>臺灣基督長老教會馬偕醫療財團法人馬偕紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.058883,121.522558)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市中山區中山北路2段92號</a><br /><a href='tel:02-25433535' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-25433535</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101100011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.mmh.org.tw/register_divide.php?depid=234' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(特色門診COVID-19疫苗診預約)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-25215291 </td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2927,7 +2927,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "ç¹è²éè¨ºCOVID-19ç«èè¨ºé ç´",
+        "Department": "特色門診COVID-19疫苗診預約",
         "AppointmentPhone": "02-25215291 ",
         "Day1": 2,
         "Day2": 2,
@@ -2942,16 +2942,16 @@
   {
     "Id": 85,
     "HospitalId": "1101150011",
-    "HospitalName": "æ°åé«çè²¡åæ³äººæ°åå³ç«çç´å¿µé«é¢",
-    "City": "èºåå¸",
-    "Dist": "å£«æå",
+    "HospitalName": "新光醫療財團法人新光吳火獅紀念醫院",
+    "City": "臺北市",
+    "Dist": "士林區",
     "ZipCode": null,
-    "Address": "èºåå¸å£«æåææè·¯95èåå£«åè·¯51è1è³7æ¨53ã55è",
+    "Address": "臺北市士林區文昌路95號及士商路51號1至7樓53、55號",
     "Phone": "02-28332211",
     "Lat": 25.09624,
     "Long": 121.520289,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>æ°åé«çè²¡åæ³äººæ°åå³ç«çç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.09624,121.520289)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸å£«æåææè·¯95èåå£«åè·¯51è1è³7æ¨53ã55è</a><br /><a href='tel:02-28332211' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28332211</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101150011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.skh.org.tw/skh_regis/#/register/step' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å§ç§COVID-19ç«èæ¥ç¨®éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼(02)28333000</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>新光醫療財團法人新光吳火獅紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.09624,121.520289)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市士林區文昌路95號及士商路51號1至7樓53、55號</a><br /><a href='tel:02-28332211' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28332211</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101150011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.skh.org.tw/skh_regis/#/register/step' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(內科COVID-19疫苗接種門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：(02)28333000</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2962,7 +2962,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å§ç§COVID-19ç«èæ¥ç¨®éè¨º",
+        "Department": "內科COVID-19疫苗接種門診",
         "AppointmentPhone": "(02)28333000",
         "Day1": 2,
         "Day2": 2,
@@ -2977,16 +2977,16 @@
   {
     "Id": 86,
     "HospitalId": "1101160017",
-    "HospitalName": "æ¯èé«çè²¡åæ³äººæ¯èé«é¢",
-    "City": "èºåå¸",
-    "Dist": "åæå",
+    "HospitalName": "振興醫療財團法人振興醫院",
+    "City": "臺北市",
+    "Dist": "北投區",
     "ZipCode": null,
-    "Address": "èºåå¸åæåæ¯èè¡45è",
+    "Address": "臺北市北投區振興街45號",
     "Phone": "02-28264400",
     "Lat": 25.117543,
     "Long": 121.5224,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>æ¯èé«çè²¡åæ³äººæ¯èé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.117543,121.5224)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸åæåæ¯èè¡45è</a><br /><a href='tel:02-28264400' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28264400</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101160017' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www2.chgh.org.tw/CovidMain.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ½æç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-28264558ã02-28264400#2570</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>振興醫療財團法人振興醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.117543,121.5224)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市北投區振興街45號</a><br /><a href='tel:02-28264400' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28264400</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101160017' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www2.chgh.org.tw/CovidMain.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗施打特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-28264558、02-28264400#2570</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -2997,8 +2997,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ½æç¹å¥éè¨º",
-        "AppointmentPhone": "02-28264558ã02-28264400#2570",
+        "Department": "COVID-19疫苗施打特別門診",
+        "AppointmentPhone": "02-28264558、02-28264400#2570",
         "Day1": 2,
         "Day2": 2,
         "Day3": 2,
@@ -3012,16 +3012,16 @@
   {
     "Id": 87,
     "HospitalId": "1101160026",
-    "HospitalName": "é«çè²¡åæ³äººè¾å¬äº®åºéæåä¿¡æ²»çä¸­å¿é«é¢",
-    "City": "èºåå¸",
-    "Dist": "åæå",
+    "HospitalName": "醫療財團法人辜公亮基金會和信治癌中心醫院",
+    "City": "臺北市",
+    "Dist": "北投區",
     "ZipCode": null,
-    "Address": "èºåå¸åæåç«å¾·è·¯125è",
+    "Address": "臺北市北投區立德路125號",
     "Phone": "02-28970011",
     "Lat": 25.12834,
     "Long": 121.47201,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é«çè²¡åæ³äººè¾å¬äº®åºéæåä¿¡æ²»çä¸­å¿é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.12834,121.47201)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸åæåç«å¾·è·¯125è</a><br /><a href='tel:02-28970011' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28970011</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101160026' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.kfsyscc.org/m/archives/11688' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ¥ç¨®ç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-66031177 æ 02-28971177</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>醫療財團法人辜公亮基金會和信治癌中心醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.12834,121.47201)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺北市北投區立德路125號</a><br /><a href='tel:02-28970011' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28970011</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1101160026' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.kfsyscc.org/m/archives/11688' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗接種特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-66031177 或 02-28971177</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3032,8 +3032,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ¥ç¨®ç¹å¥éè¨º",
-        "AppointmentPhone": "02-66031177 æ 02-28971177",
+        "Department": "COVID-19疫苗接種特別門診",
+        "AppointmentPhone": "02-66031177 或 02-28971177",
         "Day1": 4,
         "Day2": 2,
         "Day3": 0,
@@ -3047,16 +3047,16 @@
   {
     "Id": 88,
     "HospitalId": "1102110011",
-    "HospitalName": "é«éå¸ç«å°æ¸¯é«é¢(å§è¨è²¡åæ³äººç§ç«é«éé«å­¸å¤§å­¸ç¶ç)",
-    "City": "é«éå¸",
-    "Dist": "å°æ¸¯å",
+    "HospitalName": "高雄市立小港醫院(委託財團法人私立高雄醫學大學經營)",
+    "City": "高雄市",
+    "Dist": "小港區",
     "ZipCode": null,
-    "Address": "é«éå¸å°æ¸¯åå±±æéå±±æè·¯482èï¼¢1ï¼10æ¨",
+    "Address": "高雄市小港區山明里山明路482號Ｂ1－10樓",
     "Phone": "07-8036783",
     "Lat": 22.567467,
     "Long": 120.363369,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é«éå¸ç«å°æ¸¯é«é¢(å§è¨è²¡åæ³äººç§ç«é«éé«å­¸å¤§å­¸ç¶ç)</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.567467,120.363369)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> é«éå¸å°æ¸¯åå±±æéå±±æè·¯482èï¼¢1ï¼10æ¨</a><br /><a href='tel:07-8036783' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-8036783</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1102110011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.kmsh.org.tw/web/BookVaccineSysInter' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼07-8036783</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>高雄市立小港醫院(委託財團法人私立高雄醫學大學經營)</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.567467,120.363369)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 高雄市小港區山明里山明路482號Ｂ1－10樓</a><br /><a href='tel:07-8036783' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-8036783</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1102110011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.kmsh.org.tw/web/BookVaccineSysInter' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：07-8036783</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3067,7 +3067,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èç¹å¥éè¨º",
+        "Department": "COVID-19疫苗特別門診",
         "AppointmentPhone": "07-8036783",
         "Day1": 6,
         "Day2": 6,
@@ -3082,16 +3082,16 @@
   {
     "Id": 89,
     "HospitalId": "1105040016",
-    "HospitalName": "å°ç£åºç£é·èæææ°æ¨é«çè²¡åæ³äººéº»è±æ°æ¨é«é¢",
-    "City": "èºåå¸",
-    "Dist": "éº»è±å",
+    "HospitalName": "台灣基督長老教會新樓醫療財團法人麻豆新樓醫院",
+    "City": "臺南市",
+    "Dist": "麻豆區",
     "ZipCode": null,
-    "Address": "èºåå¸éº»è±åå°å¤éèå­æ20è",
+    "Address": "臺南市麻豆區小埤里苓子林20號",
     "Phone": "06-5702228",
     "Lat": 23.179874,
     "Long": 120.233033,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å°ç£åºç£é·èæææ°æ¨é«çè²¡åæ³äººéº»è±æ°æ¨é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.179874,120.233033)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸éº»è±åå°å¤éèå­æ20è</a><br /><a href='tel:06-5702228' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-5702228</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1105040016' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://class.sinlau.org.tw/mode02.asp?m=202104100907442&t=s&da=2' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(ææç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼06-5702228#5475</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>台灣基督長老教會新樓醫療財團法人麻豆新樓醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.179874,120.233033)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺南市麻豆區小埤里苓子林20號</a><br /><a href='tel:06-5702228' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-5702228</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1105040016' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://class.sinlau.org.tw/mode02.asp?m=202104100907442&t=s&da=2' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(感染科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：06-5702228#5475</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3102,7 +3102,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "ææç§",
+        "Department": "感染科",
         "AppointmentPhone": "06-5702228#5475",
         "Day1": 2,
         "Day2": 2,
@@ -3117,16 +3117,16 @@
   {
     "Id": 90,
     "HospitalId": "1105050012",
-    "HospitalName": "å¥ç¾é«çè²¡åæ³äººä½³éå¥ç¾é«é¢",
-    "City": "èºåå¸",
-    "Dist": "ä½³éå",
+    "HospitalName": "奇美醫療財團法人佳里奇美醫院",
+    "City": "臺南市",
+    "Dist": "佳里區",
     "ZipCode": null,
-    "Address": "èºåå¸ä½³éåä½³èéä½³éè606è",
+    "Address": "臺南市佳里區佳興里佳里興606號",
     "Phone": "06-7263333",
     "Lat": 23.181698,
     "Long": 120.183662,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å¥ç¾é«çè²¡åæ³äººä½³éå¥ç¾é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.181698,120.183662)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸ä½³éåä½³èéä½³éè606è</a><br /><a href='tel:06-7263333' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-7263333</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1105050012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://www.chimei.org.tw/opdschedule/index.aspx?ihosp=14&lang=CH' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(ç«èæ³¨å°ç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼06-7263333</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>奇美醫療財團法人佳里奇美醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.181698,120.183662)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺南市佳里區佳興里佳里興606號</a><br /><a href='tel:06-7263333' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-7263333</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1105050012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://www.chimei.org.tw/opdschedule/index.aspx?ihosp=14&lang=CH' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(疫苗注射特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：06-7263333</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3137,7 +3137,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "ç«èæ³¨å°ç¹å¥éè¨º",
+        "Department": "疫苗注射特別門診",
         "AppointmentPhone": "06-7263333",
         "Day1": 2,
         "Day2": 2,
@@ -3152,16 +3152,16 @@
   {
     "Id": 91,
     "HospitalId": "1107320017",
-    "HospitalName": "ç¾©å¤§é«çè²¡åæ³äººç¾©å¤§å¤§æé«é¢",
-    "City": "é«éå¸",
-    "Dist": "ä¸æ°å",
+    "HospitalName": "義大醫療財團法人義大大昌醫院",
+    "City": "高雄市",
+    "Dist": "三民區",
     "ZipCode": null,
-    "Address": "é«éå¸ä¸æ°åå¤§æä¸è·¯305èå°ä¸3æ¨è³7æ¨",
+    "Address": "高雄市三民區大昌一路305號地下3樓至7樓",
     "Phone": "07-5599123",
     "Lat": 22.657575,
     "Long": 120.319936,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>ç¾©å¤§é«çè²¡åæ³äººç¾©å¤§å¤§æé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.657575,120.319936)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> é«éå¸ä¸æ°åå¤§æä¸è·¯305èå°ä¸3æ¨è³7æ¨</a><br /><a href='tel:07-5599123' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-5599123</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1107320017' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/Xebmxg' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼07-6150011#1718ã1714</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>義大醫療財團法人義大大昌醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.657575,120.319936)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 高雄市三民區大昌一路305號地下3樓至7樓</a><br /><a href='tel:07-5599123' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-5599123</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1107320017' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/Xebmxg' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：07-6150011#1718、1714</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3172,8 +3172,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èç¹å¥éè¨º",
-        "AppointmentPhone": "07-6150011#1718ã1714",
+        "Department": "COVID-19疫苗特別門診",
+        "AppointmentPhone": "07-6150011#1718、1714",
         "Day1": 2,
         "Day2": 2,
         "Day3": 2,
@@ -3187,16 +3187,16 @@
   {
     "Id": 92,
     "HospitalId": "1107350015",
-    "HospitalName": "å¤©ä¸»æèåé«çè²¡åæ³äººèåé«é¢",
-    "City": "é«éå¸",
-    "Dist": "èéå",
+    "HospitalName": "天主教聖功醫療財團法人聖功醫院",
+    "City": "高雄市",
+    "Dist": "苓雅區",
     "ZipCode": null,
-    "Address": "é«éå¸èéåå»ºåä¸è·¯352è",
+    "Address": "高雄市苓雅區建國一路352號",
     "Phone": "07-2238153",
     "Lat": 22.633118,
     "Long": 120.323927,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å¤©ä¸»æèåé«çè²¡åæ³äººèåé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.633118,120.323927)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> é«éå¸èéåå»ºåä¸è·¯352è</a><br /><a href='tel:07-2238153' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-2238153</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1107350015' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://newweb.joseph.org.tw/' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼07-2238153#2163</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>天主教聖功醫療財團法人聖功醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.633118,120.323927)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 高雄市苓雅區建國一路352號</a><br /><a href='tel:07-2238153' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 07-2238153</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1107350015' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://newweb.joseph.org.tw/' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：07-2238153#2163</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3207,7 +3207,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èç¹å¥éè¨º",
+        "Department": "COVID-19疫苗特別門診",
         "AppointmentPhone": "07-2238153#2163",
         "Day1": 2,
         "Day2": 2,
@@ -3222,16 +3222,16 @@
   {
     "Id": 93,
     "HospitalId": "1111060015",
-    "HospitalName": "é·åºé«çè²¡åæ³äººåºéé·åºç´å¿µé«é¢",
-    "City": "åºéå¸",
-    "Dist": "å®æ¨å",
+    "HospitalName": "長庚醫療財團法人基隆長庚紀念醫院",
+    "City": "基隆市",
+    "Dist": "安樂區",
     "ZipCode": null,
-    "Address": "åºéå¸å®æ¨åéº¥éè·¯222èãåºéå¸éº¥éè·¯201è",
+    "Address": "基隆市安樂區麥金路222號、基隆市麥金路201號",
     "Phone": "02-24313131",
     "Lat": 25.120882,
     "Long": 121.722368,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é·åºé«çè²¡åæ³äººåºéé·åºç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.120882,121.722368)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> åºéå¸å®æ¨åéº¥éè·¯222èãåºéå¸éº¥éè·¯201è</a><br /><a href='tel:02-24313131' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-24313131</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1111060015' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/2/20990B' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(æ°å ç«èæ¥ç¨®)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-24313131#6119</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>長庚醫療財團法人基隆長庚紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.120882,121.722368)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 基隆市安樂區麥金路222號、基隆市麥金路201號</a><br /><a href='tel:02-24313131' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-24313131</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1111060015' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/2/20990B' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(新冠疫苗接種)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-24313131#6119</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3242,7 +3242,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "æ°å ç«èæ¥ç¨®",
+        "Department": "新冠疫苗接種",
         "AppointmentPhone": "02-24313131#6119",
         "Day1": 0,
         "Day2": 4,
@@ -3257,16 +3257,16 @@
   {
     "Id": 94,
     "HospitalId": "1112010519",
-    "HospitalName": "å°ç£åºç£é·èææé¦¬åé«çè²¡åæ³äººæ°ç«¹é¦¬åç´å¿µé«é¢",
-    "City": "æ°ç«¹å¸",
-    "Dist": "æ±å",
+    "HospitalName": "台灣基督長老教會馬偕醫療財團法人新竹馬偕紀念醫院",
+    "City": "新竹市",
+    "Dist": "東區",
     "ZipCode": null,
-    "Address": "æ°ç«¹å¸æ±ååå¾©è·¯äºæ®µ690è",
+    "Address": "新竹市東區光復路二段690號",
     "Phone": "03-6119595",
     "Lat": 24.800087,
     "Long": 120.990781,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å°ç£åºç£é·èææé¦¬åé«çè²¡åæ³äººæ°ç«¹é¦¬åç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.800087,120.990781)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°ç«¹å¸æ±ååå¾©è·¯äºæ®µ690è</a><br /><a href='tel:03-6119595' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-6119595</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1112010519' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://bit.ly/32ey9Ts' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å®¶é«ç§ )</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-6119595</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>台灣基督長老教會馬偕醫療財團法人新竹馬偕紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.800087,120.990781)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新竹市東區光復路二段690號</a><br /><a href='tel:03-6119595' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-6119595</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1112010519' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://bit.ly/32ey9Ts' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(家醫科 )</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-6119595</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3277,7 +3277,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å®¶é«ç§ ",
+        "Department": "家醫科 ",
         "AppointmentPhone": "03-6119595",
         "Day1": 2,
         "Day2": 2,
@@ -3292,16 +3292,16 @@
   {
     "Id": 95,
     "HospitalId": "1112010528",
-    "HospitalName": "åæ³°é«çè²¡åæ³äººæ°ç«¹åæ³°ç¶åé«é¢",
-    "City": "æ°ç«¹å¸",
-    "Dist": "æ±å",
+    "HospitalName": "國泰醫療財團法人新竹國泰綜合醫院",
+    "City": "新竹市",
+    "Dist": "東區",
     "ZipCode": null,
-    "Address": "æ°ç«¹å¸æ±åç¦å¾·éä¸­è¯è·¯äºæ®µ678èå678èä¹1",
+    "Address": "新竹市東區福德里中華路二段678號及678號之1",
     "Phone": "03-5278999",
     "Lat": 24.798739,
     "Long": 120.964932,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åæ³°é«çè²¡åæ³äººæ°ç«¹åæ³°ç¶åé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.798739,120.964932)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°ç«¹å¸æ±åç¦å¾·éä¸­è¯è·¯äºæ®µ678èå678èä¹1</a><br /><a href='tel:03-5278999' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-5278999</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1112010528' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reg.cgh.org.tw/tw/reg/main_01.jsp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVIDå°è²¬éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-5278999</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>國泰醫療財團法人新竹國泰綜合醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.798739,120.964932)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新竹市東區福德里中華路二段678號及678號之1</a><br /><a href='tel:03-5278999' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-5278999</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1112010528' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reg.cgh.org.tw/tw/reg/main_01.jsp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID專責門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-5278999</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3312,7 +3312,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVIDå°è²¬éè¨º",
+        "Department": "COVID專責門診",
         "AppointmentPhone": "03-5278999",
         "Day1": 2,
         "Day2": 0,
@@ -3327,16 +3327,16 @@
   {
     "Id": 96,
     "HospitalId": "1121010018",
-    "HospitalName": "å°ç£åºç£é·èæææ°æ¨é«çè²¡åæ³äººå°åæ°æ¨é«é¢",
-    "City": "èºåå¸",
-    "Dist": "æ±å",
+    "HospitalName": "台灣基督長老教會新樓醫療財團法人台南新樓醫院",
+    "City": "臺南市",
+    "Dist": "東區",
     "ZipCode": null,
-    "Address": "èºåå¸æ±åæ³åéæ±éè·¯1æ®µ57è",
+    "Address": "臺南市東區泉北里東門路1段57號",
     "Phone": "06-2748316",
     "Lat": 22.989158,
     "Long": 120.212807,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å°ç£åºç£é·èæææ°æ¨é«çè²¡åæ³äººå°åæ°æ¨é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.989158,120.212807)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> èºåå¸æ±åæ³åéæ±éè·¯1æ®µ57è</a><br /><a href='tel:06-2748316' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-2748316</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1121010018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://class.sinlau.org.tw/mode02.asp?m=202104100907442&t=sub&da=1' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(Covid-19ç«èæ½æéè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼06-2748316#6501</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>台灣基督長老教會新樓醫療財團法人台南新樓醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.989158,120.212807)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 臺南市東區泉北里東門路1段57號</a><br /><a href='tel:06-2748316' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 06-2748316</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1121010018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://class.sinlau.org.tw/mode02.asp?m=202104100907442&t=sub&da=1' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(Covid-19疫苗施打門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：06-2748316#6501</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3347,7 +3347,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "Covid-19ç«èæ½æéè¨º",
+        "Department": "Covid-19疫苗施打門診",
         "AppointmentPhone": "06-2748316#6501",
         "Day1": 4,
         "Day2": 2,
@@ -3362,16 +3362,16 @@
   {
     "Id": 97,
     "HospitalId": "1122010012",
-    "HospitalName": "æ´å¾·æ£®é«çè²¡åæ³äººåç¾©åºç£æé«é¢",
-    "City": "åç¾©å¸",
-    "Dist": "æ±å",
+    "HospitalName": "戴德森醫療財團法人嘉義基督教醫院",
+    "City": "嘉義市",
+    "Dist": "東區",
     "ZipCode": null,
-    "Address": "åç¾©å¸æ±åä¸­åºéå¿ å­è·¯539èã642èãä¿å¥è¡100è",
+    "Address": "嘉義市東區中庄里忠孝路539號、642號、保健街100號",
     "Phone": "05-2765041",
     "Lat": 23.4994,
     "Long": 120.45005,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>æ´å¾·æ£®é«çè²¡åæ³äººåç¾©åºç£æé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.4994,120.45005)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> åç¾©å¸æ±åä¸­åºéå¿ å­è·¯539èã642èãä¿å¥è¡100è</a><br /><a href='tel:05-2765041' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 05-2765041</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1122010012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www2.cych.org.tw/WebToNewRegister/opdregister2.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å®¶åº­é«å­¸ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼05-5871111#5115</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>戴德森醫療財團法人嘉義基督教醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.4994,120.45005)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 嘉義市東區中庄里忠孝路539號、642號、保健街100號</a><br /><a href='tel:05-2765041' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 05-2765041</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1122010012' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www2.cych.org.tw/WebToNewRegister/opdregister2.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(家庭醫學科)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：05-5871111#5115</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3382,7 +3382,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å®¶åº­é«å­¸ç§",
+        "Department": "家庭醫學科",
         "AppointmentPhone": "05-5871111#5115",
         "Day1": 2,
         "Day2": 2,
@@ -3397,16 +3397,16 @@
   {
     "Id": 98,
     "HospitalId": "1122010021",
-    "HospitalName": "å¤©ä¸»æä¸­è¯èæ¯ä¿®å¥³æé«çè²¡åæ³äººå¤©ä¸»æèé¦¬ç¾å®é«é¢",
-    "City": "åç¾©å¸",
-    "Dist": "æ±å",
+    "HospitalName": "天主教中華聖母修女會醫療財團法人天主教聖馬爾定醫院",
+    "City": "嘉義市",
+    "Dist": "東區",
     "ZipCode": null,
-    "Address": "åç¾©å¸æ±åå¤§éè·¯äºæ®µ565è",
+    "Address": "嘉義市東區大雅路二段565號",
     "Phone": "05-2756000",
     "Lat": 23.47568,
     "Long": 120.4671,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å¤©ä¸»æä¸­è¯èæ¯ä¿®å¥³æé«çè²¡åæ³äººå¤©ä¸»æèé¦¬ç¾å®é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.47568,120.4671)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> åç¾©å¸æ±åå¤§éè·¯äºæ®µ565è</a><br /><a href='tel:05-2756000' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 05-2756000</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1122010021' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://flw.stm.org.tw/reg/Home/DrChoose?deptGrouptID=CO&ran=f' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å®¶é«ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼05-2756000#3312</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>天主教中華聖母修女會醫療財團法人天主教聖馬爾定醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.47568,120.4671)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 嘉義市東區大雅路二段565號</a><br /><a href='tel:05-2756000' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 05-2756000</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1122010021' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://flw.stm.org.tw/reg/Home/DrChoose?deptGrouptID=CO&ran=f' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(家醫科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：05-2756000#3312</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3417,7 +3417,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å®¶é«ç§",
+        "Department": "家醫科",
         "AppointmentPhone": "05-2756000#3312",
         "Day1": 2,
         "Day2": 2,
@@ -3432,16 +3432,16 @@
   {
     "Id": 99,
     "HospitalId": "1131010011",
-    "HospitalName": "é«çè²¡åæ³äººå¾åæºåçé«è¥åºéæäºæ±ç´å¿µé«é¢",
-    "City": "æ°åå¸",
-    "Dist": "æ¿æ©å",
+    "HospitalName": "醫療財團法人徐元智先生醫藥基金會亞東紀念醫院",
+    "City": "新北市",
+    "Dist": "板橋區",
     "ZipCode": null,
-    "Address": "æ°åå¸æ¿æ©ååéåè·¯2æ®µ21èåé«ç¾å¯è·¯300è",
+    "Address": "新北市板橋區南雅南路2段21號及高爾富路300號",
     "Phone": "02-89667000",
     "Lat": 24.997312,
     "Long": 121.452312,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é«çè²¡åæ³äººå¾åæºåçé«è¥åºéæäºæ±ç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.997312,121.452312)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸æ¿æ©ååéåè·¯2æ®µ21èåé«ç¾å¯è·¯300è</a><br /><a href='tel:02-89667000' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-89667000</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131010011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/bzg9zM' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19é ç´ç«èè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-77382525 </td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>醫療財團法人徐元智先生醫藥基金會亞東紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.997312,121.452312)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市板橋區南雅南路2段21號及高爾富路300號</a><br /><a href='tel:02-89667000' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-89667000</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131010011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/bzg9zM' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19預約疫苗診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-77382525 </td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3452,7 +3452,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19é ç´ç«èè¨º",
+        "Department": "COVID-19預約疫苗診",
         "AppointmentPhone": "02-77382525 ",
         "Day1": 6,
         "Day2": 6,
@@ -3467,16 +3467,16 @@
   {
     "Id": 100,
     "HospitalId": "1131050515",
-    "HospitalName": "ä½æææ¿é«çè²¡åæ³äººå°åææ¿é«é¢",
-    "City": "æ°åå¸",
-    "Dist": "æ°åºå",
+    "HospitalName": "佛教慈濟醫療財團法人台北慈濟醫院",
+    "City": "新北市",
+    "Dist": "新店區",
     "ZipCode": null,
-    "Address": "æ°åå¸æ°åºåå»ºåè·¯289è",
+    "Address": "新北市新店區建國路289號",
     "Phone": "02-66289779",
     "Lat": 24.98578,
     "Long": 121.535808,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>ä½æææ¿é«çè²¡åæ³äººå°åææ¿é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.98578,121.535808)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸æ°åºåå»ºåè·¯289è</a><br /><a href='tel:02-66289779' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-66289779</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131050515' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/qm39Dp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(ç¹æ®ç§è­·éè¨ºCOVID-19ç«èæ¥ç¨®ç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-66289800</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>佛教慈濟醫療財團法人台北慈濟醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.98578,121.535808)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市新店區建國路289號</a><br /><a href='tel:02-66289779' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-66289779</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131050515' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/qm39Dp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(特殊照護門診COVID-19疫苗接種特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-66289800</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3487,7 +3487,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "ç¹æ®ç§è­·éè¨ºCOVID-19ç«èæ¥ç¨®ç¹å¥éè¨º",
+        "Department": "特殊照護門診COVID-19疫苗接種特別門診",
         "AppointmentPhone": "02-66289800",
         "Day1": 4,
         "Day2": 4,
@@ -3502,16 +3502,16 @@
   {
     "Id": 101,
     "HospitalId": "1131090019",
-    "HospitalName": "è¡å¤©å®®é«çå¿æ¥­é«çè²¡åæ³äººæ©ä¸»å¬é«é¢",
-    "City": "æ°åå¸",
-    "Dist": "ä¸å³½å",
+    "HospitalName": "行天宮醫療志業醫療財團法人恩主公醫院",
+    "City": "新北市",
+    "Dist": "三峽區",
     "ZipCode": null,
-    "Address": "æ°åå¸ä¸å³½åå¾©èè·¯399èãä¸­å±±è·¯198ã258è",
+    "Address": "新北市三峽區復興路399號、中山路198、258號",
     "Phone": "02-26723456",
     "Lat": 24.938385,
     "Long": 121.363007,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>è¡å¤©å®®é«çå¿æ¥­é«çè²¡åæ³äººæ©ä¸»å¬é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.938385,121.363007)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸ä¸å³½åå¾©èè·¯399èãä¸­å±±è·¯198ã258è</a><br /><a href='tel:02-26723456' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-26723456</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131090019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/yn4orD' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å®¶é«ç§ãéª¨ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-26723456#7129(é»è©±é ç´)ã02-26723456#7056ã7058(è¥ç©è«®è©¢)</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>行天宮醫療志業醫療財團法人恩主公醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.938385,121.363007)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市三峽區復興路399號、中山路198、258號</a><br /><a href='tel:02-26723456' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-26723456</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131090019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/yn4orD' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(家醫科、骨科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-26723456#7129(電話預約)、02-26723456#7056、7058(藥物諮詢)</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3522,8 +3522,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å®¶é«ç§ãéª¨ç§",
-        "AppointmentPhone": "02-26723456#7129(é»è©±é ç´)ã02-26723456#7056ã7058(è¥ç©è«®è©¢)",
+        "Department": "家醫科、骨科",
+        "AppointmentPhone": "02-26723456#7129(電話預約)、02-26723456#7056、7058(藥物諮詢)",
         "Day1": 4,
         "Day2": 4,
         "Day3": 2,
@@ -3537,16 +3537,16 @@
   {
     "Id": 102,
     "HospitalId": "1131100010",
-    "HospitalName": "å°ç£åºç£é·èææé¦¬åé«çè²¡åæ³äººæ·¡æ°´é¦¬åç´å¿µé«é¢",
-    "City": "æ°åå¸",
-    "Dist": "æ·¡æ°´å",
+    "HospitalName": "台灣基督長老教會馬偕醫療財團法人淡水馬偕紀念醫院",
+    "City": "新北市",
+    "Dist": "淡水區",
     "ZipCode": null,
-    "Address": "æ°åå¸æ·¡æ°´åæ°çè·¯45èãæ°æ¬è·¯47èB1è³10æ¨",
+    "Address": "新北市淡水區民生路45號、民權路47號B1至10樓",
     "Phone": "02-28094661",
     "Lat": 25.139534,
     "Long": 121.460499,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å°ç£åºç£é·èææé¦¬åé«çè²¡åæ³äººæ·¡æ°´é¦¬åç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.139534,121.460499)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸æ·¡æ°´åæ°çè·¯45èãæ°æ¬è·¯47èB1è³10æ¨</a><br /><a href='tel:02-28094661' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28094661</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131100010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/jq2D5n' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(ç¹è²éè¨ºCOVID-19ç«èè¨ºé ç´)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-28094661</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>台灣基督長老教會馬偕醫療財團法人淡水馬偕紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.139534,121.460499)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市淡水區民生路45號、民權路47號B1至10樓</a><br /><a href='tel:02-28094661' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-28094661</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131100010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://reurl.cc/jq2D5n' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(特色門診COVID-19疫苗診預約)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-28094661</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3557,7 +3557,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "ç¹è²éè¨ºCOVID-19ç«èè¨ºé ç´",
+        "Department": "特色門診COVID-19疫苗診預約",
         "AppointmentPhone": "02-28094661",
         "Day1": 2,
         "Day2": 2,
@@ -3572,16 +3572,16 @@
   {
     "Id": 103,
     "HospitalId": "1131110516",
-    "HospitalName": "åæ³°é«çè²¡åæ³äººæ±æ­¢åæ³°ç¶åé«é¢",
-    "City": "æ°åå¸",
-    "Dist": "æ±æ­¢å",
+    "HospitalName": "國泰醫療財團法人汐止國泰綜合醫院",
+    "City": "新北市",
+    "Dist": "汐止區",
     "ZipCode": null,
-    "Address": "æ°åå¸æ±æ­¢åå»ºæè·¯59å··2èå°ä¸4æ¨è³å°ä¸12æ¨",
+    "Address": "新北市汐止區建成路59巷2號地下4樓至地上12樓",
     "Phone": "02-26482121",
     "Lat": 25.072872,
     "Long": 121.661084,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åæ³°é«çè²¡åæ³äººæ±æ­¢åæ³°ç¶åé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.072872,121.661084)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸æ±æ­¢åå»ºæè·¯59å··2èå°ä¸4æ¨è³å°ä¸12æ¨</a><br /><a href='tel:02-26482121' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-26482121</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131110516' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å°è²¬éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-26482121#7056</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>國泰醫療財團法人汐止國泰綜合醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.072872,121.661084)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市汐止區建成路59巷2號地下4樓至地上12樓</a><br /><a href='tel:02-26482121' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-26482121</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131110516' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(專責門診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-26482121#7056</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3592,7 +3592,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å°è²¬éè¨º",
+        "Department": "專責門診",
         "AppointmentPhone": "02-26482121#7056",
         "Day1": 2,
         "Day2": 4,
@@ -3607,16 +3607,16 @@
   {
     "Id": 104,
     "HospitalId": "1131130018",
-    "HospitalName": "æ°åå¸ç«ååé«é¢ï¼å§è¨é·åºé«çè²¡åæ³äººèå»ºç¶çï¼",
-    "City": "æ°åå¸",
-    "Dist": "ååå",
+    "HospitalName": "新北市立土城醫院（委託長庚醫療財團法人興建經營）",
+    "City": "新北市",
+    "Dist": "土城區",
     "ZipCode": null,
-    "Address": "æ°åå¸åååéåè·¯2æ®µ6è",
+    "Address": "新北市土城區金城路2段6號",
     "Phone": "02-22630588",
     "Lat": 24.976437,
     "Long": 121.44873,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>æ°åå¸ç«ååé«é¢ï¼å§è¨é·åºé«çè²¡åæ³äººèå»ºç¶çï¼</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.976437,121.44873)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°åå¸åååéåè·¯2æ®µ6è</a><br /><a href='tel:02-22630588' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-22630588</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131130018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://is.gd/OJZpi6' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èç¹å¥éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼02-22630588</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>新北市立土城醫院（委託長庚醫療財團法人興建經營）</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.976437,121.44873)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新北市土城區金城路2段6號</a><br /><a href='tel:02-22630588' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 02-22630588</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1131130018' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://is.gd/OJZpi6' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗特別門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：02-22630588</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3627,7 +3627,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èç¹å¥éè¨º",
+        "Department": "COVID-19疫苗特別門診",
         "AppointmentPhone": "02-22630588",
         "Day1": 2,
         "Day2": 2,
@@ -3642,16 +3642,16 @@
   {
     "Id": 105,
     "HospitalId": "1132010024",
-    "HospitalName": "æ²ç¾å¾·èä¿ç¥¿ä¿®å¥³æé«çè²¡åæ³äººèä¿ç¥¿é«é¢",
-    "City": "æ¡åå¸",
-    "Dist": "æ¡åå",
+    "HospitalName": "沙爾德聖保祿修女會醫療財團法人聖保祿醫院",
+    "City": "桃園市",
+    "Dist": "桃園區",
     "ZipCode": null,
-    "Address": "æ¡åå¸æ¡ååå»ºæ°è¡123è",
+    "Address": "桃園市桃園區建新街123號",
     "Phone": "03-3613141",
     "Lat": 24.982115,
     "Long": 121.312507,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>æ²ç¾å¾·èä¿ç¥¿ä¿®å¥³æé«çè²¡åæ³äººèä¿ç¥¿é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.982115,121.312507)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ¡åå¸æ¡ååå»ºæ°è¡123è</a><br /><a href='tel:03-3613141' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-3613141</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1132010024' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://rms.sph.org.tw/RMSTimeTable.aspx?dpt=S1100F' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ¥ç¨®ç¹è¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-3613141</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>沙爾德聖保祿修女會醫療財團法人聖保祿醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.982115,121.312507)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 桃園市桃園區建新街123號</a><br /><a href='tel:03-3613141' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-3613141</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1132010024' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://rms.sph.org.tw/RMSTimeTable.aspx?dpt=S1100F' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗接種特診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-3613141</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3662,7 +3662,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ¥ç¨®ç¹è¨º",
+        "Department": "COVID-19疫苗接種特診",
         "AppointmentPhone": "03-3613141",
         "Day1": 4,
         "Day2": 4,
@@ -3677,16 +3677,16 @@
   {
     "Id": 106,
     "HospitalId": "1132070011",
-    "HospitalName": "é·åºé«çè²¡åæ³äººæå£é·åºç´å¿µé«é¢",
-    "City": "æ¡åå¸",
-    "Dist": "é¾å±±å",
+    "HospitalName": "長庚醫療財團法人林口長庚紀念醫院",
+    "City": "桃園市",
+    "Dist": "龜山區",
     "ZipCode": null,
-    "Address": "æ¡åå¸é¾å±±åå¬è¥¿éå¾©èè¡5èã5ä¹7èãæåä¸è·¯15è",
+    "Address": "桃園市龜山區公西里復興街5號、5之7號、文化一路15號",
     "Phone": "03-3281200",
     "Lat": 25.06039,
     "Long": 121.367627,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é·åºé«çè²¡åæ³äººæå£é·åºç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.06039,121.367627)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ¡åå¸é¾å±±åå¬è¥¿éå¾©èè¡5èã5ä¹7èãæåä¸è·¯15è</a><br /><a href='tel:03-3281200' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-3281200</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1132070011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/3/30990D' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å§ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-3281200#8175</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>長庚醫療財團法人林口長庚紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(25.06039,121.367627)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 桃園市龜山區公西里復興街5號、5之7號、文化一路15號</a><br /><a href='tel:03-3281200' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-3281200</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1132070011' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://register.cgmh.org.tw/Department/3/30990D' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(內科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-3281200#8175</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3697,7 +3697,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å§ç§",
+        "Department": "內科",
         "AppointmentPhone": "03-3281200#8175",
         "Day1": 2,
         "Day2": 2,
@@ -3712,16 +3712,16 @@
   {
     "Id": 107,
     "HospitalId": "1133060019",
-    "HospitalName": "å¤©ä¸»æä»æé«çè²¡åæ³äººä»æé«é¢",
-    "City": "æ°ç«¹ç¸£",
-    "Dist": "æ¹å£é",
+    "HospitalName": "天主教仁慈醫療財團法人仁慈醫院",
+    "City": "新竹縣",
+    "Dist": "湖口鄉",
     "ZipCode": null,
-    "Address": "æ°ç«¹ç¸£æ¹å£éå­å¢æå¿ å­è·¯29è",
+    "Address": "新竹縣湖口鄉孝勢村忠孝路29號",
     "Phone": "03-5993500",
     "Lat": 24.900558,
     "Long": 121.045458,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å¤©ä¸»æä»æé«çè²¡åæ³äººä»æé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.900558,121.045458)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> æ°ç«¹ç¸£æ¹å£éå­å¢æå¿ å­è·¯29è</a><br /><a href='tel:03-5993500' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-5993500</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1133060019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://bit.ly/3a6FicQ' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å®¶é«ç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-5993500</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>天主教仁慈醫療財團法人仁慈醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.900558,121.045458)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 新竹縣湖口鄉孝勢村忠孝路29號</a><br /><a href='tel:03-5993500' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-5993500</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1133060019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://bit.ly/3a6FicQ' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(家醫科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-5993500</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3732,7 +3732,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å®¶é«ç§",
+        "Department": "家醫科",
         "AppointmentPhone": "03-5993500",
         "Day1": 2,
         "Day2": 0,
@@ -3747,16 +3747,16 @@
   {
     "Id": 108,
     "HospitalId": "1134010022",
-    "HospitalName": "å®è­ä»æé«çè²¡åæ³äººå®è­ä»æé«é¢",
-    "City": "å®è­ç¸£",
-    "Dist": "å®è­å¸",
+    "HospitalName": "宜蘭仁愛醫療財團法人宜蘭仁愛醫院",
+    "City": "宜蘭縣",
+    "Dist": "宜蘭市",
     "ZipCode": null,
-    "Address": "å®è­ç¸£å®è­å¸ä¸­å±±è·¯2æ®µ260è",
+    "Address": "宜蘭縣宜蘭市中山路2段260號",
     "Phone": "03-9321888",
     "Lat": 24.74874,
     "Long": 121.754437,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å®è­ä»æé«çè²¡åæ³äººå®è­ä»æé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.74874,121.754437)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> å®è­ç¸£å®è­å¸ä¸­å±±è·¯2æ®µ260è</a><br /><a href='tel:03-9321888' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9321888</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134010022' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://www.jen-ai.org.tw/booking/Covid19Reg/Covid19Reg.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ¥ç¨®éè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-9321888 # 1003 æ 0912481328 æ 03- 9333946</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>宜蘭仁愛醫療財團法人宜蘭仁愛醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.74874,121.754437)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 宜蘭縣宜蘭市中山路2段260號</a><br /><a href='tel:03-9321888' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9321888</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134010022' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://www.jen-ai.org.tw/booking/Covid19Reg/Covid19Reg.aspx' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗接種門診)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-9321888 # 1003 或 0912481328 或 03- 9333946</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3767,8 +3767,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ¥ç¨®éè¨º",
-        "AppointmentPhone": "03-9321888 # 1003 æ 0912481328 æ 03- 9333946",
+        "Department": "COVID-19疫苗接種門診",
+        "AppointmentPhone": "03-9321888 # 1003 或 0912481328 或 03- 9333946",
         "Day1": 0,
         "Day2": 0,
         "Day3": 6,
@@ -3782,16 +3782,16 @@
   {
     "Id": 109,
     "HospitalId": "1134020019",
-    "HospitalName": "é«çè²¡åæ³äººç¾è¨±åºéæç¾æ±åæé«é¢",
-    "City": "å®è­ç¸£",
-    "Dist": "ç¾æ±é®",
+    "HospitalName": "醫療財團法人羅許基金會羅東博愛醫院",
+    "City": "宜蘭縣",
+    "Dist": "羅東鎮",
     "ZipCode": null,
-    "Address": "å®è­ç¸£ç¾æ±é®åæè¡81ã83èåç«ååè·¯61ã63è",
+    "Address": "宜蘭縣羅東鎮南昌街81、83號及站前南路61、63號",
     "Phone": "03-9543131",
     "Lat": 24.6719667222879,
     "Long": 121.772918839155,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>é«çè²¡åæ³äººç¾è¨±åºéæç¾æ±åæé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6719667222879,121.772918839155)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> å®è­ç¸£ç¾æ±é®åæè¡81ã83èåç«ååè·¯61ã63è</a><br /><a href='tel:03-9543131' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9543131</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134020019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.pohai.org.tw/register_detail.php?deptSysCode=A05&deptCode=A0501&deptChName=%E5%9A%B4%E9%87%8D%E7%89%B9%E6%AE%8A%E5%82%B3%E6%9F%93%E6%80%A7%E8%82%BA%E7%82%8E%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A8%AE' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å´éç¹æ®å³ææ§èºçç«èæ¥ç¨®)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-9543131</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>醫療財團法人羅許基金會羅東博愛醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6719667222879,121.772918839155)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 宜蘭縣羅東鎮南昌街81、83號及站前南路61、63號</a><br /><a href='tel:03-9543131' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9543131</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134020019' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.pohai.org.tw/register_detail.php?deptSysCode=A05&deptCode=A0501&deptChName=%E5%9A%B4%E9%87%8D%E7%89%B9%E6%AE%8A%E5%82%B3%E6%9F%93%E6%80%A7%E8%82%BA%E7%82%8E%E7%96%AB%E8%8B%97%E6%8E%A5%E7%A8%AE' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(嚴重特殊傳染性肺炎疫苗接種)</td></tr><tr><td>服務時間：上午 <span style='color: #FF9D2E;'>(看診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-9543131</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3802,7 +3802,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å´éç¹æ®å³ææ§èºçç«èæ¥ç¨®",
+        "Department": "嚴重特殊傳染性肺炎疫苗接種",
         "AppointmentPhone": "03-9543131",
         "Day1": 2,
         "Day2": 6,
@@ -3817,16 +3817,16 @@
   {
     "Id": 110,
     "HospitalId": "1134020028",
-    "HospitalName": "å¤©ä¸»æéé«æé«çè²¡åæ³äººç¾æ±èæ¯é«é¢",
-    "City": "å®è­ç¸£",
-    "Dist": "ç¾æ±é®",
+    "HospitalName": "天主教靈醫會醫療財團法人羅東聖母醫院",
+    "City": "宜蘭縣",
+    "Dist": "羅東鎮",
     "ZipCode": null,
-    "Address": "å®è­ç¸£ç¾æ±é®ä¸­æ­£åè·¯160è",
+    "Address": "宜蘭縣羅東鎮中正南路160號",
     "Phone": "03-9544106",
     "Lat": 24.6721404163397,
     "Long": 121.771530781483,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>å¤©ä¸»æéé«æé«çè²¡åæ³äººç¾æ±èæ¯é«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6721404163397,121.771530781483)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> å®è­ç¸£ç¾æ±é®ä¸­æ­£åè·¯160è</a><br /><a href='tel:03-9544106' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9544106</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134020028' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://netreg.smh.org.tw/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?HID=F&Way=Dept&DivDr=FJ&Date=&Noon=' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(å¶ä»ç§COVID-19é é²æ¥ç¨®é ç´ãææç§)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #FF9D2E;'>(çè¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼03-9544106#5040ï½5042</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>天主教靈醫會醫療財團法人羅東聖母醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6721404163397,121.771530781483)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 宜蘭縣羅東鎮中正南路160號</a><br /><a href='tel:03-9544106' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 03-9544106</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1134020028' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='http://netreg.smh.org.tw/OINetReg/OINetReg.Reg/Reg_RegTable.aspx?HID=F&Way=Dept&DivDr=FJ&Date=&Noon=' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(其他科COVID-19預防接種預約、感染科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：03-9544106#5040～5042</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -3837,8 +3837,8 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "å¶ä»ç§COVID-19é é²æ¥ç¨®é ç´ãææç§",
-        "AppointmentPhone": "03-9544106#5040ï½5042",
+        "Department": "其他科COVID-19預防接種預約、感染科",
+        "AppointmentPhone": "03-9544106#5040～5042",
         "Day1": 2,
         "Day2": 4,
         "Day3": 2,
@@ -3852,16 +3852,16 @@
   {
     "Id": 111,
     "HospitalId": "1135050020",
-    "HospitalName": "çºæ­é«çè²¡åæ³äººçºæ­ç´å¿µé«é¢",
-    "City": "èæ ç¸£",
-    "Dist": "é ­ä»½å¸",
+    "HospitalName": "為恭醫療財團法人為恭紀念醫院",
+    "City": "苗栗縣",
+    "Dist": "頭份市",
     "ZipCode": null,
-    "Address": "351èæ ç¸£é ­ä»½å¸ä¿¡ç¾©è·¯128è",
+    "Address": "351苗栗縣頭份市信義路128號",
     "Phone": "037-676811",
     "Lat": 24.687740211354079,
     "Long": 120.9083424216,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>çºæ­é«çè²¡åæ³äººçºæ­ç´å¿µé«é¢</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6877402113541,120.9083424216)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 351èæ ç¸£é ­ä»½å¸ä¿¡ç¾©è·¯128è</a><br /><a href='tel:037-676811' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 037-676811</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1135050020' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://app2.weigong.org.tw/WebReg/ym/reg/DoctorList.jsp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(感染科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #FF9D2E;'>(看診)</span></td></tr> <tr><td>預約諮詢電話：037-676811</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>為恭醫療財團法人為恭紀念醫院</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(24.6877402113541,120.9083424216)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 351苗栗縣頭份市信義路128號</a><br /><a href='tel:037-676811' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 037-676811</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=1135050020' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://app2.weigong.org.tw/WebReg/ym/reg/DoctorList.jsp' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(感染科)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #FF9D2E;'>(看診)</span></td></tr> <tr><td>預約諮詢電話：037-676811</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -10327,16 +10327,16 @@
   {
     "Id": 296,
     "HospitalId": "2338070010",
-    "HospitalName": "南投縣鹿谷鄉衛生所",
-    "City": "南投縣",
-    "Dist": "鹿谷鄉",
+    "HospitalName": "åæç¸£é¹¿è°·éè¡çæ",
+    "City": "åæç¸£",
+    "Dist": "é¹¿è°·é",
     "ZipCode": null,
-    "Address": "南投縣鹿谷鄉中正路二段20號",
+    "Address": "åæç¸£é¹¿è°·éä¸­æ­£è·¯äºæ®µ20è",
     "Phone": "049-2752002",
     "Lat": 23.744882,
     "Long": 120.754245,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>南投縣鹿谷鄉衛生所</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.744882,120.754245)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 南投縣鹿谷鄉中正路二段20號</a><br /><a href='tel:049-2752002' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 049-2752002</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2338070010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://docs.google.com/forms/d/e/1FAIpQLScdHBdFx2-ftwo8H9HvdtYlVJFBqwiNgi9DGQNsdClcfBsFAA/viewform' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗接種服務門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：049-2752002</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åæç¸£é¹¿è°·éè¡çæ</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.744882,120.754245)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> åæç¸£é¹¿è°·éä¸­æ­£è·¯äºæ®µ20è</a><br /><a href='tel:049-2752002' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 049-2752002</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2338070010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://docs.google.com/forms/d/e/1FAIpQLScdHBdFx2-ftwo8H9HvdtYlVJFBqwiNgi9DGQNsdClcfBsFAA/viewform' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ¥ç¨®æåéè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼049-2752002</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -10347,7 +10347,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19疫苗接種服務門診",
+        "Department": "COVID-19ç«èæ¥ç¨®æåéè¨º",
         "AppointmentPhone": "049-2752002",
         "Day1": 0,
         "Day2": 0,
@@ -12077,8 +12077,8 @@
   {
     "Id": 346,
     "HospitalId": "2343220013",
-    "HospitalName": "屏東縣琉球鄉衛生所",
-    "City": "屏東縣",
+    "HospitalName": "å±æ±ç¸£ççéè¡çæ",
+    "City": "å±æ±ç¸£",
     "Dist": "琉球鄉",
     "ZipCode": null,
     "Address": "屏東縣琉球鄉本福村中山路51號",
