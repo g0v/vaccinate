@@ -12,8 +12,10 @@ class TestChanggungChiayi(unittest.TestCase):
                 "self_paid": AppointmentAvailability.UNAVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_pch_nantou(html_file.read())
-            self.assertEqual(availability, (17, expected_availability))
+            availability = PchNantou().parse_pch_nantou(html_file.read())
+            self.assertEqual(
+                availability, (PchNantou().hospital_id, expected_availability)
+            )
 
     def test_available(self) -> None:
         with open("backend/tests/saved_pages/pch_nantou_available.html") as html_file:
@@ -21,5 +23,7 @@ class TestChanggungChiayi(unittest.TestCase):
                 "self_paid": AppointmentAvailability.AVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_pch_nantou(html_file.read())
-            self.assertEqual(availability, (17, expected_availability))
+            availability = PchNantou().parse_pch_nantou(html_file.read())
+            self.assertEqual(
+                availability, (PchNantou().hospital_id, expected_availability)
+            )

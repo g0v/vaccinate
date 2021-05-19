@@ -7,6 +7,7 @@ from hospital_types import (
     HospitalAvailabilitySchema,
     ScrapedData,
 )
+from Parsers.Scraper import Scraper
 import aiohttp, ssl
 
 CERT: str = "../data/ntuh-gov-tw-chain.pem"
@@ -66,8 +67,11 @@ GOV_PAID_YUNLIN: str = (
 )
 
 
-async def parse_ntu_yunlin() -> ScrapedData:
-    return await parse_ntu("0439010518a", SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
+class NtuYunlin(Scraper):
+    hospital_id = "0439010518a"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_ntu(self.hospital_id, SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
 
 
 SELF_PAID_HSINCHU: str = "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode="
@@ -76,8 +80,11 @@ GOV_PAID_HSINCHU: str = (
 )
 
 
-async def parse_ntu_hsinchu() -> ScrapedData:
-    return await parse_ntu("412040012", SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
+class NtuHsinchu(Scraper):
+    hospital_id = "412040012"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_ntu(self.hospital_id, SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
 
 
 SELF_PAID_TAIPEI: str = (
@@ -88,5 +95,8 @@ GOV_PAID_TAIPEI: str = (
 )
 
 
-async def parse_ntu_taipei() -> ScrapedData:
-    return await parse_ntu("401180014", SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)
+class NtuTaipei(Scraper):
+    hospital_id = "401180014"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_ntu(self.hospital_id, SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)

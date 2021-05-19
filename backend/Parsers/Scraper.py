@@ -1,12 +1,9 @@
 import abc
 
-from hospital_types import (
-    ScrapedData
-)
+from hospital_types import ScrapedData
 
 
 class Scraper(metaclass=abc.ABCMeta):
-
     @property
     @abc.abstractmethod
     def hospital_id(self) -> str:
