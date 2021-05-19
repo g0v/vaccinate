@@ -93,15 +93,22 @@ async def self_paid_hospital_data() -> List[Hospital]:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:
-            hospital_id = row["編號"]
+            hospital_id = row["公費疫苗醫院編號"]
+            default_schema: HospitalAvailabilitySchema = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
+            hospital_availability: HospitalAvailabilitySchema = (
+                availability[hospital_id]
+                if hospital_id in availability
+                else default_schema
+            )
             hospital: Hospital = {
                 "address": row["地址"],
-                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
+                "selfPaidAvailability": hospital_availability["self_paid"],
                 "department": row["科別"],
-                "governmentPaidAvailability": availability[hospital_id][
-                    "government_paid"
-                ],
-                "hospitalId": row["編號"],
+                "governmentPaidAvailability": hospital_availability["government_paid"],
+                "hospitalId": hospital_id,
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
                 "phone": row["電話"],
