@@ -25,7 +25,7 @@ async def parse_kmuh_kaohsiung() -> ScrapedData:
         else AppointmentAvailability.UNAVAILABLE,
     }
     return (
-        24,
+        "102020011",
         availability,
     )
 

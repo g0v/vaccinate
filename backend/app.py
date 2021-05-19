@@ -31,7 +31,7 @@ app = Flask(
 )
 
 
-def get_availability_from_server() -> List[ScrapedData]:
+def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
     # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
     # using the default encoding utf-8.  This is client specific.
     r: redis.StrictRedis = redis.StrictRedis(
@@ -43,13 +43,14 @@ def get_availability_from_server() -> List[ScrapedData]:
         ssl=True,
     )
 
-    hospital_ids = list(range(1, 32))
+    hospital_availabilities = {}
+
 
     def get_availability(
-        hospital_id: int,
+        hospital_id: HospitalID,
     ) -> ScrapedData:
         raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
-
+        
         if raw_availability == {}:
             return (
                 hospital_id,
@@ -82,9 +83,9 @@ def get_availability_from_server() -> List[ScrapedData]:
 async def self_paid_hospital_data() -> List[Hospital]:
     should_scrape = app.config["scrape"]
     if should_scrape:
-        availability = dict(await local_scraper.get_hospital_availability())
+        availability = await local_scraper.get_hospital_availability()
     else:
-        availability = dict(get_availability_from_server())
+        availability = get_availability_from_server()
 
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:

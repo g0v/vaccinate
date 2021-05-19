@@ -32,6 +32,6 @@ def parse_changgung_chiayi(html: str) -> ScrapedData:
     }
     # PEP8 Style: if list is not empty, then there are appointments
     return (
-        21,
+        "1140010510",
         availability,
     )

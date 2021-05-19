@@ -19,7 +19,7 @@ def main() -> None:
             "selfPaidAvailability": AppointmentAvailability.NO_DATA,
             "department": row["科別"],
             "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
-            "hospitalId": int(row["編號"]),
+            "hospitalId": row["編號"],
             "location": row["縣市"],
             "name": row["醫院名稱"],
             "phone": row["電話"],

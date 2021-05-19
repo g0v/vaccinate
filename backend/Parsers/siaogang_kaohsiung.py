@@ -38,6 +38,6 @@ def parse_siaogang_kaohsiung(raw_html: str) -> ScrapedData:
 
     # PEP8 Style: if list is not empty, then there are appointments
     return (
-        23,
+        "1102110011",
         availability,
     )

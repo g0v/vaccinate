@@ -11,15 +11,15 @@ import aiohttp
 
 
 async def parse_mohw_keelung() -> ScrapedData:
-    return await parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196", "0499")
+    return await parse_mohw("111070010", "netreg.kln.mohw.gov.tw", "0196", "0499")
 
 
 async def parse_mohw_taoyuan() -> ScrapedData:
-    return await parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
+    return await parse_mohw("132010014", "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
 
 
 async def parse_mohw_miaoli() -> ScrapedData:
-    index = 13
+    index = "135010016"
     self_paid_available = (
         await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
         or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
@@ -47,23 +47,23 @@ async def parse_mohw_miaoli() -> ScrapedData:
 
 
 async def parse_mohw_taichung() -> ScrapedData:
-    return await parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD", "01CC")
+    return await parse_mohw("117030010", "www03.taic.mohw.gov.tw", "01CD", "01CC")
 
 
 async def parse_mohw_nantou() -> ScrapedData:
-    return await parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220", "0219")
+    return await parse_mohw("1138020015", "netreg01.nant.mohw.gov.tw", "0220", "0219")
 
 
 async def parse_mohw_taitung() -> ScrapedData:
-    return await parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119", "0519")
+    return await parse_mohw("146010013", "netreg01.tait.mohw.gov.tw", "0119", "0519")
 
 
 async def parse_mohw_kinmen() -> ScrapedData:
-    return await parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A", "1047")
+    return await parse_mohw("190030516", "netreg.kmhp.mohw.gov.tw", "104A", "1047")
 
 
 async def parse_mohw(
-    index: int, hostname: str, self_paid_id: str, gov_paid_id: str
+    hospital_id: str, hostname: str, self_paid_id: str, gov_paid_id: str
 ) -> ScrapedData:
     self_paid_available = await parse_mohw_page(hostname, self_paid_id)
     gov_paid_available = await parse_mohw_page(hostname, gov_paid_id)
@@ -76,7 +76,7 @@ async def parse_mohw(
         else AppointmentAvailability.UNAVAILABLE,
     }
     return (
-        index,
+        hospital_id,
         availability,
     )
 

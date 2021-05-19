@@ -67,7 +67,7 @@ GOV_PAID_YUNLIN: str = (
 
 
 async def parse_ntu_yunlin() -> ScrapedData:
-    return await parse_ntu(19, SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
+    return await parse_ntu("0439010518a", SELF_PAID_YUNLIN, GOV_PAID_YUNLIN)
 
 
 SELF_PAID_HSINCHU: str = "https://reg.ntuh.gov.tw/WebAdministration/VaccineRegPublic.aspx?Hosp=T4&RegionCode="
@@ -77,7 +77,7 @@ GOV_PAID_HSINCHU: str = (
 
 
 async def parse_ntu_hsinchu() -> ScrapedData:
-    return await parse_ntu(11, SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
+    return await parse_ntu("412040012", SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
 
 
 SELF_PAID_TAIPEI: str = (
@@ -89,4 +89,4 @@ GOV_PAID_TAIPEI: str = (
 
 
 async def parse_ntu_taipei() -> ScrapedData:
-    return await parse_ntu(3, SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)
+    return await parse_ntu("401180014", SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)

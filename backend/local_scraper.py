@@ -53,30 +53,35 @@ def error_boundary(
     return boundaried_function
 
 
-PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
-    error_boundary(parse_ntu_taipei),
-    error_boundary(parse_ntu_hsinchu),
-    error_boundary(parse_ntu_yunlin),
-    error_boundary(parse_tzuchi_taipei),
-    error_boundary(parse_tzuchi_hualien),
-    error_boundary(scrape_changgung_chiayi),
-    error_boundary(scrape_pch_nantou),
-    error_boundary(parse_mohw_taoyuan),
-    error_boundary(parse_mohw_keelung),
-    error_boundary(parse_mohw_miaoli),
-    error_boundary(parse_mohw_taichung),
-    error_boundary(parse_mohw_taitung),
-    error_boundary(parse_mohw_kinmen),
-    error_boundary(parse_mohw_nantou),
-    error_boundary(scrape_tonyen_hsinchu),
-    error_boundary(scrape_siaogang_kaohsiung),
-    error_boundary(parse_ncku_tainan),
-    error_boundary(parse_kmuh_kaohsiung),
-    error_boundary(scrape_sanjunzong_penghu),
+# PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
+#     error_boundary(parse_ntu_taipei),
+#     error_boundary(parse_ntu_hsinchu),
+#     error_boundary(parse_ntu_yunlin),
+#     error_boundary(parse_tzuchi_taipei),
+#     error_boundary(parse_tzuchi_hualien),
+#     error_boundary(scrape_changgung_chiayi),
+#     error_boundary(scrape_pch_nantou),
+#     error_boundary(parse_mohw_taoyuan),
+#     error_boundary(parse_mohw_keelung),
+#     error_boundary(parse_mohw_miaoli),
+#     error_boundary(parse_mohw_taichung),
+#     error_boundary(parse_mohw_taitung),
+#     error_boundary(parse_mohw_kinmen),
+#     error_boundary(parse_mohw_nantou),
+#     error_boundary(scrape_tonyen_hsinchu),
+#     error_boundary(scrape_siaogang_kaohsiung),
+#     error_boundary(parse_ncku_tainan),
+#     error_boundary(parse_kmuh_kaohsiung),
+#     error_boundary(scrape_sanjunzong_penghu),
+# ]
+
+PARSERS2: List[Scraper] = [
+    TzuchiHualien(),
+    TonyenHsinchu(),
 ]
 
 
-async def get_hospital_availability() -> List[ScrapedData]:
+async def get_hospital_availability() -> Dict[HospitalID, HospitalAvailabilitySchema]:
     availability: List[ScrapedData] = list(
         filter(None, list(await asyncio.gather(*[f() for f in PARSERS])))
     )
@@ -89,8 +94,7 @@ async def get_hospital_availability() -> List[ScrapedData]:
                 "self_paid": AppointmentAvailability.NO_DATA,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-    print(list(as_dict.items()))
-    return list(as_dict.items())
+    return as_dict
 
 
 async def scrape() -> None:
@@ -119,7 +123,7 @@ async def scrape() -> None:
             # pyre-fixme[6]: Pyre cannot detect that the objects here are AppointmentAvailability
             primitive_availability = {k: f(v) for k, v in availability.items()}
             r.hset(
-                "hospital_schema_2:" + str(hospital_id),
+                "hospital_schema_3:" + str(hospital_id),
                 key=None,
                 value=None,
                 # pyre-fixme[6]: Pyre cannot make Dict[str, str] compatible with their HSet type.

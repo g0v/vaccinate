@@ -21,7 +21,7 @@ async def parse_ncku_tainan() -> ScrapedData:
         "government_paid": await parse_ncku_tainan_gov_paid(),
     }
     return (
-        22,
+        "421040011",
         availability,
     )
 

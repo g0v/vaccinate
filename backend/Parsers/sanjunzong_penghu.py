@@ -33,6 +33,6 @@ def parse_sanjunzong_penghu(html: str) -> ScrapedData:
         "government_paid": AppointmentAvailability.NO_DATA,
     }
     return (
-        31,
+        "544010031",
         availability,
     )
