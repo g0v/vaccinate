@@ -2,7 +2,7 @@ from typing import TypedDict, Tuple, Dict, NewType
 from enum import Enum
 
 
-HospitalID = int
+HospitalID = str
 
 
 class AppointmentAvailability(str, Enum):
@@ -28,4 +28,4 @@ class HospitalAvailabilitySchema(TypedDict):
     government_paid: AppointmentAvailability
 
 
-ScrapedData = Tuple[int, HospitalAvailabilitySchema]
+ScrapedData = Tuple[HospitalID, HospitalAvailabilitySchema]

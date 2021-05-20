@@ -12,8 +12,10 @@ class TestChanggungChiayi(unittest.TestCase):
                 "self_paid": AppointmentAvailability.UNAVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_changgung_chiayi(html_file.read())
-            self.assertEqual(availability, (21, expected_availability))
+            availability = ChanggungChiayi().parse_changgung_chiayi(html_file.read())
+            self.assertEqual(
+                availability, (ChanggungChiayi().hospital_id, expected_availability)
+            )
 
     def test_available(self) -> None:
         with open(
@@ -23,5 +25,7 @@ class TestChanggungChiayi(unittest.TestCase):
                 "self_paid": AppointmentAvailability.AVAILABLE,
                 "government_paid": AppointmentAvailability.NO_DATA,
             }
-            availability = parse_changgung_chiayi(html_file.read())
-            self.assertEqual(availability, (21, expected_availability))
+            availability = ChanggungChiayi().parse_changgung_chiayi(html_file.read())
+            self.assertEqual(
+                availability, (ChanggungChiayi().hospital_id, expected_availability)
+            )

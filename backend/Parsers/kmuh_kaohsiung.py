@@ -7,6 +7,7 @@ from hospital_types import (
     HospitalAvailabilitySchema,
     ScrapedData,
 )
+from Parsers.Scraper import Scraper
 import ssl, aiohttp
 
 
@@ -14,20 +15,23 @@ CERT: str = "../data/reg-kmuh-gov-tw-chain.pem"
 URL = "https://reg.kmuh.gov.tw/netReg/MainUI.aspx?DeptCodeId=1A&Lang=&RoomCnt=2&TimeRange=1&Name=%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E8%8B%97"
 
 
-async def parse_kmuh_kaohsiung() -> ScrapedData:
-    appointments = await check_available_kmuh_kaohsiung(URL)
-    availability: HospitalAvailabilitySchema = {
-        "self_paid": AppointmentAvailability.AVAILABLE
-        if appointments[0]
-        else AppointmentAvailability.UNAVAILABLE,
-        "government_paid": AppointmentAvailability.AVAILABLE
-        if appointments[1]
-        else AppointmentAvailability.UNAVAILABLE,
-    }
-    return (
-        24,
-        availability,
-    )
+class KmuhKaohsiung(Scraper):
+    hospital_id = "102020011"
+
+    async def scrape(self) -> ScrapedData:
+        appointments = await check_available_kmuh_kaohsiung(URL)
+        availability: HospitalAvailabilitySchema = {
+            "self_paid": AppointmentAvailability.AVAILABLE
+            if appointments[0]
+            else AppointmentAvailability.UNAVAILABLE,
+            "government_paid": AppointmentAvailability.AVAILABLE
+            if appointments[1]
+            else AppointmentAvailability.UNAVAILABLE,
+        }
+        return (
+            self.hospital_id,
+            availability,
+        )
 
 
 async def check_available_kmuh_kaohsiung(url: str) -> List[bool]:
