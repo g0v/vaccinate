@@ -7,63 +7,96 @@ from hospital_types import (
     ScrapedData,
     HospitalAvailabilitySchema,
 )
+from Parsers.Scraper import Scraper
 import aiohttp
 
 
-async def parse_mohw_keelung() -> ScrapedData:
-    return await parse_mohw(1, "netreg.kln.mohw.gov.tw", "0196", "0499")
+class MohwKeelung(Scraper):
+    hospital_id = "111070010"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "netreg.kln.mohw.gov.tw", "0196", "0499"
+        )
 
 
-async def parse_mohw_taoyuan() -> ScrapedData:
-    return await parse_mohw(10, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125")
+class MohwTaoyuan(Scraper):
+    hospital_id = "132010014"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "tyghnetreg.tygh.mohw.gov.tw", "0126", "0125"
+        )
 
 
-async def parse_mohw_miaoli() -> ScrapedData:
-    index = 13
-    self_paid_available = (
-        await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
-        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
-        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
-    )
-    gov_paid_available = (
-        await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO02")
-        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO04")
-        or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO01")
-    )
+class MohwMiaoli(Scraper):
+    hospital_id = "135010016"
 
-    availability: HospitalAvailabilitySchema = {
-        "self_paid": AppointmentAvailability.AVAILABLE
-        if bool(self_paid_available)
-        else AppointmentAvailability.UNAVAILABLE,
-        "government_paid": AppointmentAvailability.AVAILABLE
-        if bool(gov_paid_available)
-        else AppointmentAvailability.UNAVAILABLE,
-    }
+    async def scrape(self) -> ScrapedData:
+        self_paid_available = (
+            await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO23")
+            or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO11")
+            or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO41")
+        )
+        gov_paid_available = (
+            await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO02")
+            or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO04")
+            or await parse_mohw_page("reg2.mil.mohw.gov.tw", "CO01")
+        )
 
-    return (
-        index,
-        availability,
-    )
+        availability: HospitalAvailabilitySchema = {
+            "self_paid": AppointmentAvailability.AVAILABLE
+            if bool(self_paid_available)
+            else AppointmentAvailability.UNAVAILABLE,
+            "government_paid": AppointmentAvailability.AVAILABLE
+            if bool(gov_paid_available)
+            else AppointmentAvailability.UNAVAILABLE,
+        }
 
-
-async def parse_mohw_taichung() -> ScrapedData:
-    return await parse_mohw(14, "www03.taic.mohw.gov.tw", "01CD", "01CC")
+        return (
+            self.hospital_id,
+            availability,
+        )
 
 
-async def parse_mohw_nantou() -> ScrapedData:
-    return await parse_mohw(18, "netreg01.nant.mohw.gov.tw", "0220", "0219")
+class MohwTaichung(Scraper):
+    hospital_id = "117030010"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "www03.taic.mohw.gov.tw", "01CD", "01CC"
+        )
 
 
-async def parse_mohw_taitung() -> ScrapedData:
-    return await parse_mohw(28, "netreg01.tait.mohw.gov.tw", "0119", "0519")
+class MohwNantou(Scraper):
+    hospital_id = "1138020015"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "netreg01.nant.mohw.gov.tw", "0220", "0219"
+        )
 
 
-async def parse_mohw_kinmen() -> ScrapedData:
-    return await parse_mohw(29, "netreg.kmhp.mohw.gov.tw", "104A", "1047")
+class MohwTaitung(Scraper):
+    hospital_id = "146010013"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "netreg01.tait.mohw.gov.tw", "0119", "0519"
+        )
+
+
+class MohwKinmen(Scraper):
+    hospital_id = "190030516"
+
+    async def scrape(self) -> ScrapedData:
+        return await parse_mohw(
+            self.hospital_id, "netreg.kmhp.mohw.gov.tw", "104A", "1047"
+        )
 
 
 async def parse_mohw(
-    index: int, hostname: str, self_paid_id: str, gov_paid_id: str
+    hospital_id: str, hostname: str, self_paid_id: str, gov_paid_id: str
 ) -> ScrapedData:
     self_paid_available = await parse_mohw_page(hostname, self_paid_id)
     gov_paid_available = await parse_mohw_page(hostname, gov_paid_id)
@@ -76,7 +109,7 @@ async def parse_mohw(
         else AppointmentAvailability.UNAVAILABLE,
     }
     return (
-        index,
+        hospital_id,
         availability,
     )
 
