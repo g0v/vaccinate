@@ -118,6 +118,7 @@ async def self_paid_hospital_data() -> List[Hospital]:
         return rows
 
 
+# TODO: Migrate all data to new JSON file?
 def get_websites() -> Dict[HospitalID, str]:
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
