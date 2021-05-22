@@ -4,15 +4,15 @@ import ReactMarkdown from 'react-markdown';
 import { useTranslation } from 'react-i18next';
 import { readFileSync } from 'fs';
 
-const enUS = readFileSync(__dirname + '/../Locales/en/content.md', 'utf-8');
+const enUS = readFileSync(`${__dirname}/../Locales/en/content.md`, 'utf-8');
 
-const zhTW = readFileSync(__dirname + '/../Locales/zh/content.md', 'utf-8');
+const zhTW = readFileSync(`${__dirname}/../Locales/zh/content.md`, 'utf-8');
 
-const bahasa = readFileSync(__dirname + '/../Locales/id/content.md', 'utf-8')
+const bahasa = readFileSync(`${__dirname}/../Locales/id/content.md`, 'utf-8');
 
-const ja = readFileSync(__dirname + '/../Locales/ja/content.md', 'utf-8');
+const ja = readFileSync(`${__dirname}/../Locales/ja/content.md`, 'utf-8');
 
-const ph = readFileSync(__dirname + '/../Locales/tl/content.md', 'utf-8');
+const ph = readFileSync(`${__dirname}/../Locales/tl/content.md`, 'utf-8');
 
 function getContent(locale: string): string {
   switch (locale) {
