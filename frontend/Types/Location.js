@@ -1,5 +1,4 @@
 // @flow
-import i18n from '../i18n';
 
 export type Location =
   '基隆市'
@@ -27,6 +26,7 @@ export type Location =
   | '臺東縣'
   | '金門縣';
 
+// $FlowFixMe: Typing for translation hook.
 export function getLocationName(location: Location, t): string {
   switch (location) {
     case '基隆市':
