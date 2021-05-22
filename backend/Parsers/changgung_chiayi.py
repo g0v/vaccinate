@@ -14,7 +14,7 @@ URL: str = "https://register.cgmh.org.tw/Department/6/60990E"
 
 
 class ChanggungChiayi(Scraper):
-    hospital_id = "1140010510"
+    hospital_id = "01140010510"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=5)

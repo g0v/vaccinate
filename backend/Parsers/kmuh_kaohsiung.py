@@ -16,7 +16,7 @@ URL = "https://reg.kmuh.gov.tw/netReg/MainUI.aspx?DeptCodeId=1A&Lang=&RoomCnt=2&
 
 
 class KmuhKaohsiung(Scraper):
-    hospital_id = "102020011"
+    hospital_id = "0102020011"
 
     async def scrape(self) -> ScrapedData:
         appointments = await check_available_kmuh_kaohsiung(URL)

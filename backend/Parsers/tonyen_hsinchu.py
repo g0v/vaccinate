@@ -15,7 +15,7 @@ URL = "https://w3.tyh.com.tw/WebRegList_Dept.aspx?d=55"
 
 class TonyenHsinchu(Scraper):
 
-    hospital_id = "933050018"
+    hospital_id = "0933050018"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=10)

@@ -50,7 +50,7 @@ def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchem
     def get_availability(
         hospital_id: HospitalID,
     ) -> ScrapedData:
-        raw_availability = r.hgetall("hospital_schema_3:" + str(hospital_id))
+        raw_availability = r.hgetall("hospital_schema_4:" + str(hospital_id))
 
         if raw_availability == {}:
             return (

@@ -15,7 +15,7 @@ URL: str = "http://netreg.afph.tsgh.ndmctsgh.edu.tw/webreg/calendar_type/5xn1z9f
 
 class SanjunzongPenghu(Scraper):
 
-    hospital_id = "544010031"
+    hospital_id = "0544010031"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=5)

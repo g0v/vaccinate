@@ -14,7 +14,7 @@ URL = "https://app.tzuchi.com.tw/tchw/opdreg/OpdTimeShow.aspx?Depart=%E8%87%AA%E
 
 class TzuchiHualien(Scraper):
 
-    hospital_id = "1145010010"
+    hospital_id = "01145010010"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=2)

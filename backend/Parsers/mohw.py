@@ -12,7 +12,7 @@ import aiohttp
 
 
 class MohwKeelung(Scraper):
-    hospital_id = "111070010"
+    hospital_id = "0111070010"
 
     async def scrape(self) -> ScrapedData:
         return await parse_mohw(
@@ -21,7 +21,7 @@ class MohwKeelung(Scraper):
 
 
 class MohwTaoyuan(Scraper):
-    hospital_id = "132010014"
+    hospital_id = "0132010014"
 
     async def scrape(self) -> ScrapedData:
         return await parse_mohw(
@@ -30,7 +30,7 @@ class MohwTaoyuan(Scraper):
 
 
 class MohwMiaoli(Scraper):
-    hospital_id = "135010016"
+    hospital_id = "0135010016"
 
     async def scrape(self) -> ScrapedData:
         self_paid_available = (
@@ -60,7 +60,7 @@ class MohwMiaoli(Scraper):
 
 
 class MohwTaichung(Scraper):
-    hospital_id = "117030010"
+    hospital_id = "0117030010"
 
     async def scrape(self) -> ScrapedData:
         return await parse_mohw(
@@ -69,7 +69,7 @@ class MohwTaichung(Scraper):
 
 
 class MohwNantou(Scraper):
-    hospital_id = "1138020015"
+    hospital_id = "01138020015"
 
     async def scrape(self) -> ScrapedData:
         return await parse_mohw(
@@ -78,7 +78,7 @@ class MohwNantou(Scraper):
 
 
 class MohwTaitung(Scraper):
-    hospital_id = "146010013"
+    hospital_id = "0146010013"
 
     async def scrape(self) -> ScrapedData:
         return await parse_mohw(

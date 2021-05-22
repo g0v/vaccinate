@@ -81,7 +81,7 @@ GOV_PAID_HSINCHU: str = (
 
 
 class NtuHsinchu(Scraper):
-    hospital_id = "412040012"
+    hospital_id = "0412040012"
 
     async def scrape(self) -> ScrapedData:
         return await parse_ntu(self.hospital_id, SELF_PAID_HSINCHU, GOV_PAID_HSINCHU)
@@ -96,7 +96,7 @@ GOV_PAID_TAIPEI: str = (
 
 
 class NtuTaipei(Scraper):
-    hospital_id = "401180014"
+    hospital_id = "0401180014"
 
     async def scrape(self) -> ScrapedData:
         return await parse_ntu(self.hospital_id, SELF_PAID_TAIPEI, GOV_PAID_TAIPEI)
