@@ -2,6 +2,8 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import Card from './Card';
+import Accordion from './VaccineDataGrid/Accordion';
+import AccordionItem from './VaccineDataGrid/AccordionItem';
 
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
@@ -34,7 +36,7 @@ export default function VaccineDataGrid(
       );
     }
 
-    const hospitalsByCity = hospitals.reduce((byCity: {[Location]: Hospital[]}, hospital) => {
+    const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
       if (hospital.location in byCity) {
         byCity[hospital.location].push(hospital);
         return byCity;
@@ -47,57 +49,41 @@ export default function VaccineDataGrid(
 
     const makeAccordionID: (Availability) => string = (a) => `accordian-${a.split(' ').join('_')}`;
 
-    const makeCardGridForCity: ([string, Hospital[]], Availability) =>
-      React.Node = ([location, locationHospitals], locationAvailability) => {
+    const makeCardGridForCity: ([Location, Hospital[]], Availability) =>
+      React.Element<typeof AccordionItem> = ([location, lHospitals], locationAvailability) => {
         const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${locationAvailability
           .split(' ')
           .join('_')}`;
         return (
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="headingOne">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target={`#${makeCollapseID(location)}`}
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                {location}
-              </button>
-            </h2>
-            <div
-              id={makeCollapseID(location)}
-              className="accordion-collapse collapse"
-              aria-labelledby="headingOne"
-              data-bs-parent={`#${makeAccordionID(availability)}`}
-            >
-              <div className="accordion-body">
-                <div className="row row-cols-1 row-cols-md-4 g-3">
-                  {locationHospitals.map((hospital) => (
-                    <div className="col" key={hospital.hospitalId.toString()}>
-                      <Card
-                        address={hospital.address}
-                        availability={getAvailability(hospital)}
-                        buttonText={buttonText}
-                        department={hospital.department}
-                        hospitalId={hospital.hospitalId}
-                        location={hospital.location}
-                        name={hospital.name}
-                        phone={hospital.phone}
-                        website={hospital.website}
-                      />
-                    </div>
-                  ))}
+          <AccordionItem
+            id={makeCollapseID(location)}
+            title={location}
+            parentID={makeAccordionID(availability)}
+          >
+            <div className="row row-cols-1 row-cols-md-4 g-3">
+              {lHospitals.map((hospital) => (
+                <div className="col" key={hospital.hospitalId.toString()}>
+                  <Card
+                    address={hospital.address}
+                    availability={getAvailability(hospital)}
+                    buttonText={buttonText}
+                    department={hospital.department}
+                    hospitalId={hospital.hospitalId}
+                    location={hospital.location}
+                    name={hospital.name}
+                    phone={hospital.phone}
+                    website={hospital.website}
+                  />
                 </div>
-              </div>
+              ))}
             </div>
-          </div>
+          </AccordionItem>
+
         );
       };
 
     return (
-      <div className="accordion" id={makeAccordionID(availability)}>
+      <Accordion id={makeAccordionID(availability)}>
         {
         Object
           .entries(hospitalsByCity)
@@ -105,7 +91,7 @@ export default function VaccineDataGrid(
           .map((hospitalsByLocation) => makeCardGridForCity(hospitalsByLocation, availability))
 
       }
-      </div>
+      </Accordion>
     );
   };
   return (
