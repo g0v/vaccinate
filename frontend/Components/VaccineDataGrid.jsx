@@ -84,13 +84,10 @@ export default function VaccineDataGrid(
 
     return (
       <Accordion id={makeAccordionID(availability)}>
-        {
-        Object
+        {Object
           .entries(hospitalsByCity)
           // $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed.
-          .map((hospitalsByLocation) => makeCardGridForCity(hospitalsByLocation, availability))
-
-      }
+          .map((hospitalsByLocation) => makeCardGridForCity(hospitalsByLocation, availability))}
       </Accordion>
     );
   };
