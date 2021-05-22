@@ -20,56 +20,77 @@ export default function VaccineDataGrid(
   const unavailableHospitals = rows.filter((row) => getAvailability(row) === 'Unavailable');
   const noDataHospitals = rows.filter((row) => getAvailability(row) === 'No data');
 
-  const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => (hospitals.length !== 0
-    ? (
-      <div className="row row-cols-1 row-cols-md-4 g-3">
-        {hospitals.map((hospital) => (
-          <div className="col" key={hospital.hospitalId.toString()}>
-            <Card
-              address={hospital.address}
-              availability={getAvailability(hospital)}
-              buttonText={buttonText}
-              department={hospital.department}
-              hospitalId={hospital.hospitalId}
-              location={hospital.location}
-              name={hospital.name}
-              phone={hospital.phone}
-              website={hospital.website}
-            />
-          </div>
-        ))}
-      </div>
-    ) : (
-      <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
-      </div>
-    ));
+  const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => {
+    if (hospitals.length === 0) {
+      return (
+        <div style={{ textAlign: 'center' }}>
+          <p className="lead"><i>{t('txt-noHospitals')}</i></p>
+        </div>
+      );
+    }
+
+    const hospitalsByCity: { [string]: Hospital[] } = hospitals.reduce((byCity: { [string]: Hospital[]}, hospital: Hospital) => {
+      if (hospital.location in byCity) {
+        byCity[hospital.location].push(hospital);
+        return byCity;
+      }
+
+      byCity[hospital.location] = [hospital];
+      return byCity;
+    }, {});
+
+    const makeCardGridForCity: [string, Hospital[]] => React.Node = ([location, locationHospitals]) => (
+      <>
+        <h4>{location}</h4>
+        <div className="row row-cols-1 row-cols-md-4 g-3">
+          {locationHospitals.map((hospital) => (
+            <div className="col" key={hospital.hospitalId.toString()}>
+              <Card
+                address={hospital.address}
+                availability={getAvailability(hospital)}
+                buttonText={buttonText}
+                department={hospital.department}
+                hospitalId={hospital.hospitalId}
+                location={hospital.location}
+                name={hospital.name}
+                phone={hospital.phone}
+                website={hospital.website}
+              />
+            </div>
+          ))}
+        </div>
+      </>
+    );
+
+    // $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed.
+    return Object.entries(hospitalsByCity).map(makeCardGridForCity);
+  };
   return (
     <div>
       {
-        vaccineType === 'SelfPaid' ? (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-            <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-              <p>
-                <b>
-                  {t('dataGrid:selfPaidVaccineClosure:txt-notice')}
-                </b>
-              </p>
-              <p>
-                {t('dataGrid:selfPaidVaccineClosure:txt-selfPaid2ndShot')}
-              </p>
-            </div>
+      vaccineType === 'SelfPaid' ? (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
+            <p>
+              <b>
+                {t('dataGrid:selfPaidVaccineClosure:txt-notice')}
+              </b>
+            </p>
+            <p>
+              {t('dataGrid:selfPaidVaccineClosure:txt-selfPaid2ndShot')}
+            </p>
           </div>
-        ) : (
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-            <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-              <p>
-                {t('txt-govPaidVaccineDataIncomplete')}
-              </p>
-            </div>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
+            <p>
+              {t('txt-govPaidVaccineDataIncomplete')}
+            </p>
           </div>
-        )
-      }
+        </div>
+      )
+    }
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
         <p>
