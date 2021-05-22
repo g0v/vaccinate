@@ -118,6 +118,18 @@ async def self_paid_hospital_data() -> List[Hospital]:
         return rows
 
 
+# TODO: Migrate all data to new JSON file?
+def get_websites() -> Dict[HospitalID, str]:
+    with open("../data/hospitals.csv") as csvfile:
+        reader = csv.DictReader(csvfile)
+        websites = {}
+        for row in reader:
+            hospital_id = row["公費疫苗醫院編號"]
+            website = row["Website"]
+            websites[hospital_id] = website
+        return websites
+
+
 async def government_paid_hospital_data() -> List[Hospital]:
     should_scrape = app.config["scrape"]
     if should_scrape:
@@ -127,6 +139,7 @@ async def government_paid_hospital_data() -> List[Hospital]:
     with open("../data/hospitals.json") as jsonfile:
         blob = json.loads(jsonfile.read())
         rows = []
+        websites = get_websites()
         for row in blob:
             hospital_id = row["HospitalId"]
             default_schema: HospitalAvailabilitySchema = {
@@ -147,7 +160,7 @@ async def government_paid_hospital_data() -> List[Hospital]:
                 "location": row["City"],
                 "name": row["HospitalName"],
                 "phone": row["Phone"],
-                "website": "NO Website",
+                "website": (websites[hospital_id] if hospital_id in websites else ''),
             }
             rows.append(hospital)
         return rows

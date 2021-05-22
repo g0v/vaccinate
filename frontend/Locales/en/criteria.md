@@ -99,15 +99,6 @@ long-term care facility.
 
 You can get the vaccine if you're aged 65 and older
 
-### You have a condition that makes you high-risk if you get COVID-19
-
-1. You're in a high-risk category and you are aged between 19 and 64. 
-2. You have a rare disease or a major injury. 
-
-
-### You're between the ages of 50-64
-Adults between 50 to 64 years old are now eligible for the COVID-19 vaccine. 
-
 ### You're planning on traveling abroad
 Depending on vaccine availability, the Central Epidemic Command Center will
 release a limited number of vaccines for people who fit certain criteria
