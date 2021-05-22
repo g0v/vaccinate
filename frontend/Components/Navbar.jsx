@@ -9,7 +9,7 @@ import {
 export default function Navbar(): React.Node {
   const [t] = useTranslation('nav');
   const [isShown, setIsShown] = React.useState(false);
-  const navBarShown = isShown ? "collapse navbar-collapse show" : "collapse navbar-collapse";
+  const navBarShown = isShown ? 'collapse navbar-collapse show' : 'collapse navbar-collapse';
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">

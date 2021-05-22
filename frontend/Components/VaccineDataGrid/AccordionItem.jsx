@@ -2,10 +2,21 @@
 import * as React from 'react';
 
 export default function AccordionItem(
-  props: { id: string, title: string, parentID?: string, children: React.Node, collapsedByDefault?: boolean, setExpandedIndex?: number => void},
+  props: {
+    id: string,
+    title: string,
+    parentID?: string,
+    children: React.Node,
+    collapsedByDefault?: boolean,
+    setExpandedIndex?: number => void},
 ): React.Node {
   const {
-    id, title, parentID, children, collapsedByDefault, setExpandedIndex
+    id,
+    title,
+    parentID,
+    children,
+    collapsedByDefault,
+    setExpandedIndex,
   } = props;
   const accordianButtonClassnames = collapsedByDefault ? 'accordion-button collapsed' : 'accordion-button';
   const accordionCollapseClassnames = collapsedByDefault ? 'accordion-collapse collapse' : 'accordion-collapse';
@@ -41,5 +52,5 @@ export default function AccordionItem(
 AccordionItem.defaultProps = {
   collapsedByDefault: true,
   parentID: '',
-  setExpandedIndex: (_: number) => {},
+  setExpandedIndex: () => {},
 };

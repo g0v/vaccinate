@@ -61,7 +61,7 @@ export default function VaccineDataGrid(
         <Accordion id={makeAccordionID(availability)}>
           {Object
             .entries(hospitalsByCity)
-            .map(([location: Location, locHospitals: Hospital[]], index: number) => (
+            .map(([location: Location, locHospitals: Hospital[]]) => (
               <AccordionItem
                 id={makeCollapseID(location)}
                 title={location}
