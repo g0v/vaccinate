@@ -160,7 +160,7 @@ async def government_paid_hospital_data() -> List[Hospital]:
                 "location": row["City"],
                 "name": row["HospitalName"],
                 "phone": row["Phone"],
-                "website": (websites[hospital_id] if hospital_id in websites else ''),
+                "website": (websites[hospital_id] if hospital_id in websites else ""),
             }
             rows.append(hospital)
         return rows
