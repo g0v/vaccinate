@@ -1,15 +1,11 @@
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import Cards from './VaccineDataGrid/Cards';
-import Accordion from './VaccineDataGrid/Accordion';
-import AccordionItem from './VaccineDataGrid/AccordionItem';
+import DataGrid from './VaccineInfo/DataGrid';
 import { getAvailability } from '../Types/Hospital';
 
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
-import type { Availability } from '../Types/Availability';
-import type { Location } from '../Types/Location';
 
 export default function VaccineDataGrid(
   props: { rows: Array<Hospital>, vaccineType: VaccineType },
@@ -21,61 +17,6 @@ export default function VaccineDataGrid(
   const unavailableHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'Unavailable');
   const noDataHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'No data');
 
-  const gridForAvailability = (
-    hospitals: Array<Hospital>,
-    buttonText: string,
-    availability: Availability,
-  ) => {
-    if (hospitals.length === 0) {
-      return (
-        <div style={{ textAlign: 'center' }}>
-          <p className="lead"><i>{t('txt-noHospitals')}</i></p>
-        </div>
-      );
-    }
-
-    const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
-      if (hospital.location in byCity) {
-        byCity[hospital.location].push(hospital);
-        return byCity;
-      }
-
-      const newLocation = {};
-      newLocation[hospital.location] = [hospital];
-      return { ...byCity, ...newLocation };
-    }, {});
-
-    const makeAccordionID: (Availability) => string = (a) => `accordian-${a.split(' ').join('_')}`;
-    const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${availability
-      .split(' ')
-      .join('_')}`;
-    const makeCardGrid: (Hospital[]) =>
-      React.Node = (localHospitals) => (
-        <div className="row row-cols-1 row-cols-md-4 g-3">
-          <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
-        </div>
-      );
-
-    return (hospitals.length <= 20 ? makeCardGrid(hospitals)
-      : (
-        <Accordion id={makeAccordionID(availability)}>
-          {Object
-            .entries(hospitalsByCity)
-            .map(([location: Location, locHospitals: Hospital[]]) => (
-              <AccordionItem
-                id={makeCollapseID(location)}
-                title={location}
-                parentID={makeAccordionID(availability)}
-                key={location}
-              >
-                {/* $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed. */}
-                {makeCardGrid(locHospitals)}
-              </AccordionItem>
-            ))}
-        </Accordion>
-      )
-    );
-  };
   return (
     <div>
       {
@@ -111,7 +52,12 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {gridForAvailability(availableHospitals, t('btn-getAppointment'), 'Available')}
+        <DataGrid
+          hospitals={availableHospitals}
+          buttonText={t('btn-getAppointment')}
+          availability="Available"
+          vaccineType={vaccineType}
+        />
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithNoDataTitle')}</h3>
@@ -122,7 +68,12 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithNoDataSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {gridForAvailability(noDataHospitals, t('btn-visitWebsite'), 'No Data')}
+        <DataGrid
+          hospitals={noDataHospitals}
+          buttonText={t('btn-visitWebsite')}
+          availability="No Data"
+          vaccineType={vaccineType}
+        />
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithNoAppointmentsTitle')}</h3>
@@ -133,7 +84,12 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {gridForAvailability(unavailableHospitals, t('btn-visitWebsite'), 'Unavailable')}
+        <DataGrid
+          hospitals={unavailableHospitals}
+          buttonText={t('btn-visitWebsite')}
+          availability="Unavailable"
+          vaccineType={vaccineType}
+        />
       </div>
     </div>
   );

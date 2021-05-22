@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import Content from '../Components/Content';
 import Map from '../Components/Map';
-import VaccineDataGrid from '../Components/VaccineDataGrid';
+import VaccineInfo from '../Components/VaccineInfo';
 import Spinner from '../Components/Spinner';
 
 export default function Home(): React.Node {
@@ -68,7 +68,7 @@ export default function Home(): React.Node {
                 </label>
               </form>
             </div>
-            <VaccineDataGrid
+            <VaccineInfo
               vaccineType={vaccineType}
               rows={rows}
             />
