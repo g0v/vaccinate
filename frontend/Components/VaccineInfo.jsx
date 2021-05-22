@@ -33,15 +33,8 @@ export default function VaccineDataGrid(
             </p>
           </div>
         </div>
-      ) : (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-            <p>
-              {t('txt-govPaidVaccineDataIncomplete')}
-            </p>
-          </div>
-        </div>
       )
+      : null
     }
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
