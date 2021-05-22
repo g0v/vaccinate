@@ -34,7 +34,7 @@ export default function VaccineDataGrid(
           </div>
         </div>
       )
-      : null
+        : null
     }
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
