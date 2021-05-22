@@ -55,7 +55,6 @@ export default function VaccineDataGrid(
         <DataGrid
           hospitals={availableHospitals}
           buttonText={t('btn-getAppointment')}
-          availability="Available"
           vaccineType={vaccineType}
         />
       </div>
@@ -71,7 +70,6 @@ export default function VaccineDataGrid(
         <DataGrid
           hospitals={noDataHospitals}
           buttonText={t('btn-visitWebsite')}
-          availability="No Data"
           vaccineType={vaccineType}
         />
       </div>
@@ -87,7 +85,6 @@ export default function VaccineDataGrid(
         <DataGrid
           hospitals={unavailableHospitals}
           buttonText={t('btn-visitWebsite')}
-          availability="Unavailable"
           vaccineType={vaccineType}
         />
       </div>
