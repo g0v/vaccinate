@@ -12,6 +12,7 @@ export default function VaccineDataGrid(
 ): React.Node {
   const { rows, vaccineType } = props;
   const { t } = useTranslation('dataGrid');
+  const { cityT } = useTranslation('city');
 
   const availableHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'Available');
   const unavailableHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'Unavailable');

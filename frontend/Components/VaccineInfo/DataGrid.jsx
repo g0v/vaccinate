@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import Cards from './Cards';
+import i18n from '../../i18n';
+import { getLocationName } from '../../Types/Location';
 
 import type { Availability } from '../../Types/Availability';
 import type { Hospital } from '../../Types/Hospital';
@@ -17,6 +19,7 @@ export default function DataGrid(props: {
   vaccineType: VaccineType,
 }): React.Node {
   const { t } = useTranslation('dataGrid');
+  const [cityT] = useTranslation('city');
   const {
     hospitals, buttonText, availability, vaccineType,
   } = props;
@@ -39,34 +42,52 @@ export default function DataGrid(props: {
     return { ...byCity, ...newLocation };
   }, {});
 
+  const locations: string[] = Object.keys(hospitalsByCity);
+  const [selectedLocation, setLocation] = React.useState(locations[0]);
+
   const makeAccordionID: (Availability) => string = (a) => `accordian-${a.split(' ').join('_')}`;
   const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${availability
     .split(' ')
     .join('_')}`;
   const makeCardGrid: (Hospital[]) =>
-      React.Node = (localHospitals) => (
-        <div className="row row-cols-1 row-cols-md-4 g-3">
-          <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
-        </div>
-      );
+  React.Node = (localHospitals) => (
+    <div className="row row-cols-1 row-cols-md-4 g-3">
+      <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
+    </div>
+  );
 
   return (hospitals.length <= 20 ? makeCardGrid(hospitals)
     : (
-      <Accordion id={makeAccordionID(availability)}>
-        {Object
-          .entries(hospitalsByCity)
-          .map(([location: Location, locHospitals: Hospital[]]) => (
-            <AccordionItem
-              id={makeCollapseID(location)}
-              title={location}
-              parentID={makeAccordionID(availability)}
+      <>
+        {
+        locations.map(
+          (location) => (
+            <button
               key={location}
+              className={
+                location === selectedLocation
+                  ? 'badge rounded-pill bg-light text-dark'
+                  : 'badge rounded-pill bg-dark'
+              }
+              onClick={() => setLocation(location)}
+              style={{
+                fontSize: '1em',
+                marginRight: 10,
+                marginBottom: 10,
+                border: 'none',
+              }}
             >
-              {/* $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed. */}
-              {makeCardGrid(locHospitals)}
-            </AccordionItem>
-          ))}
-      </Accordion>
+              {/* $FlowFixMe: Casting from enum to string. */}
+              {getLocationName(location, cityT)}
+            </button>
+          ),
+        )
+      }
+        {/* $FlowFixMe: Casting from enum to string. */}
+        <h4 style={{marginTop: '2em', marginBottom: '0.5em', textAlign: 'center'}}>{getLocationName(selectedLocation, cityT)}</h4>
+        {/* $FlowFixMe: Casting from a string to an Enum. */}
+        {makeCardGrid(hospitalsByCity[selectedLocation])}
+      </>
     )
   );
 }
