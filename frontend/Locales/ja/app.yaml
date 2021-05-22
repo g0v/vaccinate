@@ -1,4 +1,4 @@
 tlt-app: "COVID-19 ワクチン情報"
-txt-vaccineAvailability: "ワクチン接種の予約可能情報"
-txt-governmentPaidVaccine: "公費負担の予防接種"
-txt-selfPaidVaccine: "自費負担の予防接種"
+txt-vaccineAvailability: "接種予約に関する情報"
+txt-governmentPaidVaccine: "公費負担の接種"
+txt-selfPaidVaccine: "自費負担の接種"
