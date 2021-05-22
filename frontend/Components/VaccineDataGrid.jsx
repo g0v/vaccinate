@@ -48,12 +48,11 @@ export default function VaccineDataGrid(
     }, {});
 
     const makeAccordionID: (Availability) => string = (a) => `accordian-${a.split(' ').join('_')}`;
-
+    const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${availability
+      .split(' ')
+      .join('_')}`;
     const makeCardGridForCity: ([Location, Hospital[]], Availability) =>
-      React.Element<typeof AccordionItem> = ([location, lHospitals], locationAvailability) => {
-        const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${locationAvailability
-          .split(' ')
-          .join('_')}`;
+      React.Element<typeof AccordionItem> = ([location, lHospitals]) => {
         return (
           <AccordionItem
             id={makeCollapseID(location)}
