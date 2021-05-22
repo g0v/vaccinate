@@ -6,6 +6,7 @@ import Card from './Card';
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
 import type { Availability } from '../Types/Availability';
+import type { Location } from '../Types/Location';
 
 export default function VaccineDataGrid(
   props: { rows: Array<Hospital>, vaccineType: VaccineType },
@@ -20,7 +21,11 @@ export default function VaccineDataGrid(
   const unavailableHospitals = rows.filter((row) => getAvailability(row) === 'Unavailable');
   const noDataHospitals = rows.filter((row) => getAvailability(row) === 'No data');
 
-  const makeCardGrid = (hospitals: Array<Hospital>, buttonText: string) => {
+  const makeCardGrid = (
+    hospitals: Array<Hospital>,
+    buttonText: string,
+    availability: Availability,
+  ) => {
     if (hospitals.length === 0) {
       return (
         <div style={{ textAlign: 'center' }}>
@@ -29,41 +34,79 @@ export default function VaccineDataGrid(
       );
     }
 
-    const hospitalsByCity: { [string]: Hospital[] } = hospitals.reduce((byCity: { [string]: Hospital[]}, hospital: Hospital) => {
+    const hospitalsByCity = hospitals.reduce((byCity: {[Location]: Hospital[]}, hospital) => {
       if (hospital.location in byCity) {
         byCity[hospital.location].push(hospital);
         return byCity;
       }
 
-      byCity[hospital.location] = [hospital];
-      return byCity;
+      const newLocation = {};
+      newLocation[hospital.location] = [hospital];
+      return { ...byCity, ...newLocation };
     }, {});
 
-    const makeCardGridForCity: [string, Hospital[]] => React.Node = ([location, locationHospitals]) => (
-      <>
-        <h4>{location}</h4>
-        <div className="row row-cols-1 row-cols-md-4 g-3">
-          {locationHospitals.map((hospital) => (
-            <div className="col" key={hospital.hospitalId.toString()}>
-              <Card
-                address={hospital.address}
-                availability={getAvailability(hospital)}
-                buttonText={buttonText}
-                department={hospital.department}
-                hospitalId={hospital.hospitalId}
-                location={hospital.location}
-                name={hospital.name}
-                phone={hospital.phone}
-                website={hospital.website}
-              />
-            </div>
-          ))}
-        </div>
-      </>
-    );
+    const makeAccordionID: (Availability) => string = (a) => `accordian-${a.split(' ').join('_')}`;
 
-    // $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed.
-    return Object.entries(hospitalsByCity).map(makeCardGridForCity);
+    const makeCardGridForCity: ([string, Hospital[]], Availability) =>
+      React.Node = ([location, locationHospitals], locationAvailability) => {
+        const makeCollapseID: (string) => string = (l) => `accordian-collapse-${l}-${locationAvailability
+          .split(' ')
+          .join('_')}`;
+        return (
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="headingOne">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target={`#${makeCollapseID(location)}`}
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                {location}
+              </button>
+            </h2>
+            <div
+              id={makeCollapseID(location)}
+              className="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent={`#${makeAccordionID(availability)}`}
+            >
+              <div className="accordion-body">
+                <div className="row row-cols-1 row-cols-md-4 g-3">
+                  {locationHospitals.map((hospital) => (
+                    <div className="col" key={hospital.hospitalId.toString()}>
+                      <Card
+                        address={hospital.address}
+                        availability={getAvailability(hospital)}
+                        buttonText={buttonText}
+                        department={hospital.department}
+                        hospitalId={hospital.hospitalId}
+                        location={hospital.location}
+                        name={hospital.name}
+                        phone={hospital.phone}
+                        website={hospital.website}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      };
+
+    return (
+      <div className="accordion" id={makeAccordionID(availability)}>
+        {
+        Object
+          .entries(hospitalsByCity)
+          // $FlowFixMe[incompatible-call]: Object.entries is unsound and returns mixed.
+          .map((hospitalsByLocation) => makeCardGridForCity(hospitalsByLocation, availability))
+
+      }
+      </div>
+    );
   };
   return (
     <div>
@@ -100,7 +143,7 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(availableHospitals, t('btn-getAppointment'))}
+        {makeCardGrid(availableHospitals, t('btn-getAppointment'), 'Available')}
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithNoDataTitle')}</h3>
@@ -111,7 +154,7 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithNoDataSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(noDataHospitals, t('btn-visitWebsite'))}
+        {makeCardGrid(noDataHospitals, t('btn-visitWebsite'), 'No Data')}
       </div>
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithNoAppointmentsTitle')}</h3>
@@ -122,7 +165,7 @@ export default function VaccineDataGrid(
               : t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-governmentPaid')}
           </i>
         </p>
-        {makeCardGrid(unavailableHospitals, t('btn-visitWebsite'))}
+        {makeCardGrid(unavailableHospitals, t('btn-visitWebsite'), 'Unavailable')}
       </div>
     </div>
   );
