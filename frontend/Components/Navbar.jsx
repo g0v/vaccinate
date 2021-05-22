@@ -6,13 +6,17 @@ import {
   NavLink,
 } from 'react-router-dom';
 
+import LanguageSelector from './LanguageSelector';
+
 export default function Navbar(): React.Node {
   const [t] = useTranslation('nav');
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
-        <Link className="navbar-brand" to="/">Vaxx.tw</Link>
+        <Link className="navbar-brand" to="/">
+          Vaxx.tw
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -28,7 +32,13 @@ export default function Navbar(): React.Node {
           <div className="navbar-nav">
             <NavLink
               exact
-              activeClassName="active"
+              className="nav-link"
+              to="/about"
+            >
+              {t('txt-about')}
+            </NavLink>
+            <NavLink
+              exact
               className="nav-link"
               to="/"
             >
@@ -44,6 +54,7 @@ export default function Navbar(): React.Node {
             </NavLink>
           </div>
         </div>
+        <LanguageSelector />
       </div>
     </nav>
   );

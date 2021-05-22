@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import detector from 'i18next-browser-languagedetector';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import zh from './Locales/zh';
@@ -16,15 +16,15 @@ const resources = {
   id,
 };
 
+const defaultLanguage = navigator.language.split('-')[0];
+
 i18n
-  .use(detector)
+  .use(LanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: 'zh',
-
+    lng: defaultLanguage,
     keySeparator: false, // we do not use keys in form messages.welcome
-
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
