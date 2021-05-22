@@ -10327,16 +10327,16 @@
   {
     "Id": 296,
     "HospitalId": "2338070010",
-    "HospitalName": "åæç¸£é¹¿è°·éè¡çæ",
-    "City": "åæç¸£",
-    "Dist": "é¹¿è°·é",
+    "HospitalName": "南投縣鹿谷鄉衛生所",
+    "City": "南投縣",
+    "Dist": "鹿谷鄉",
     "ZipCode": null,
-    "Address": "åæç¸£é¹¿è°·éä¸­æ­£è·¯äºæ®µ20è",
+    "Address": "南投縣鹿谷鄉中正路二段20號",
     "Phone": "049-2752002",
     "Lat": 23.744882,
     "Long": 120.754245,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>åæç¸£é¹¿è°·éè¡çæ</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.744882,120.754245)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> åæç¸£é¹¿è°·éä¸­æ­£è·¯äºæ®µ20è</a><br /><a href='tel:049-2752002' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 049-2752002</a>(å»ºè­°é»æ´½é¢æç¢ºèªå¾ååå¾æ¥ç¨®)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2338070010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é¢ææç´°</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://docs.google.com/forms/d/e/1FAIpQLScdHBdFx2-ftwo8H9HvdtYlVJFBqwiNgi9DGQNsdClcfBsFAA/viewform' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>é ç´ç¶²å</a></td></tr></tr></table><table><tr><td>AstraZenecaï¼<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(å¬è²»)(COVID-19ç«èæ¥ç¨®æåéè¨º)</td></tr><tr><td>æåæéï¼ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> ä¸å <span style='color: #6D758D;'>(ä¼è¨º)</span> æä¸ <span style='color: #6D758D;'>(ä¼è¨º)</span></td></tr> <tr><td>é ç´è«®è©¢é»è©±ï¼049-2752002</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>南投縣鹿谷鄉衛生所</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(23.744882,120.754245)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 南投縣鹿谷鄉中正路二段20號</a><br /><a href='tel:049-2752002' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 049-2752002</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2338070010' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://docs.google.com/forms/d/e/1FAIpQLScdHBdFx2-ftwo8H9HvdtYlVJFBqwiNgi9DGQNsdClcfBsFAA/viewform' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>預約網址</a></td></tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(COVID-19疫苗接種服務門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：049-2752002</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
@@ -10347,7 +10347,7 @@
         "IsActiveNum": false,
         "ControlVaccInventory": null,
         "Expense": 0,
-        "Department": "COVID-19ç«èæ¥ç¨®æåéè¨º",
+        "Department": "COVID-19疫苗接種服務門診",
         "AppointmentPhone": "049-2752002",
         "Day1": 0,
         "Day2": 0,
@@ -12077,8 +12077,8 @@
   {
     "Id": 346,
     "HospitalId": "2343220013",
-    "HospitalName": "å±æ±ç¸£ççéè¡çæ",
-    "City": "å±æ±ç¸£",
+    "HospitalName": "屏東縣琉球鄉衛生所",
+    "City": "屏東縣",
     "Dist": "琉球鄉",
     "ZipCode": null,
     "Address": "屏東縣琉球鄉本福村中山路51號",
@@ -12086,7 +12086,7 @@
     "Lat": 22.348526,
     "Long": 120.378547,
     "Note": null,
-    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>屏東縣琉球鄉衛生所</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.348526,120.378547)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 屏東縣琉球鄉本福村中山路51號</a><br /><a href='tel:08-8612513' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 08-8612513</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2343220013' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(新冠疫苗門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #FF9D2E;'>(看診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：08-8612513</td></tr> </table>",
+    "InfoWindowMessage": "<h4 style='word-break: break-all;'><b>屏東縣琉球鄉衛生所</b></h4><hr style='margin:0px;' /><table width='100%' border='0'><tr><td colspan='2' rowspan='2' class='vertical-align:middle;margin:7px 0px 7px 0px;padding:7px 0px 7px 0px;'><a href='#' onclick='routeDirection(22.348526,120.378547)' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-send'></span> 屏東縣琉球鄉本福村中山路51號</a><br /><a href='tel:08-8612513' style='display:inline;white-space:nowrap;line-height:28px;'><span class='glyphicon glyphicon-earphone'></span> 08-8612513</a>(建議電洽院所確認後再前往接種)</td><td style='vertical-align:middle;margin:2px 0px 2px 0px;padding:2px 0px 2px 0px;'><a href='https://www.nhi.gov.tw/QueryN/Query3_Detail.aspx?HospID=2343220013' target = '_blank' style='border:1px #aaa solid;border-radius:4px; line-height:24px; margin:5px 10px 5px 10px;padding:5px 10px 5px 10px;white-space:nowrap;'>院所明細</a></td><tr></tr></table><table><tr><td>AstraZeneca：<span class='glyphicon glyphicon-ok-sign' style='color:green;'></span>(公費)(新冠疫苗門診)</td></tr><tr><td>服務時間：上午 <span style='color: #6D758D;'>(休診)</span> 下午 <span style='color: #6D758D;'>(休診)</span> 晚上 <span style='color: #6D758D;'>(休診)</span></td></tr> <tr><td>預約諮詢電話：08-8612513</td></tr> </table>",
     "Vaccines": [
       {
         "VaccID": "AstraZeneca",
