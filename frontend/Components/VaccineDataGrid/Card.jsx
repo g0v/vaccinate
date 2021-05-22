@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Availability } from '../Types/Availability';
-import type { Location } from '../Types/Location';
+import type { Availability } from '../../Types/Availability';
+import type { Location } from '../../Types/Location';
 
 function getBadgeClassname(availability: Availability): string {
   switch (availability) {

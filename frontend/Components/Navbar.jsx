@@ -8,6 +8,8 @@ import {
 
 export default function Navbar(): React.Node {
   const [t] = useTranslation('nav');
+  const [isShown, setIsShown] = React.useState(false);
+  const navBarShown = isShown ? "collapse navbar-collapse show" : "collapse navbar-collapse";
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -21,10 +23,11 @@ export default function Navbar(): React.Node {
           aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          onClick={() => setIsShown(!isShown)}
         >
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div className={navBarShown} id="navbarNavAltMarkup">
           <div className="navbar-nav">
             <NavLink
               exact
