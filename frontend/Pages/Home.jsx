@@ -1,8 +1,6 @@
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import Content from '../Components/Content';
-import Map from '../Components/Map';
 import VaccineInfo from '../Components/VaccineInfo';
 import Spinner from '../Components/Spinner';
 
@@ -17,15 +15,6 @@ export default function Home(): React.Node {
 
   return (
     <>
-      <div className="row" style={{ marginTop: 50 }}>
-        <div className="col">
-          <Content />
-        </div>
-        <div className="col d-none d-md-block">
-          <Map />
-        </div>
-      </div>
-      <h2 style={{ textAlign: 'center' }}>{ gt('txt-vaccineAvailability') }</h2>
       {rows.length === 0 ? <Spinner />
         : (
           <>
