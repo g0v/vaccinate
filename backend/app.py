@@ -195,6 +195,7 @@ def criteria() -> str:
     return render_template("./index.html")
 
 
+@app.route("/credits")
 @app.route("/")
 def index() -> str:
     return render_template("./index.html")
