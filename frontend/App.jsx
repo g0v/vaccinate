@@ -35,11 +35,11 @@ export default function App(): React.Node {
             <Route path="/criteria">
               <Criteria />
             </Route>
-            <Route path="/">
-              <Home />
-            </Route>
             <Route path="/credits">
               <Credits />
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
           <p><i>Created with love by a member of g0v, Taiwan civic tech community.</i></p>
