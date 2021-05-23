@@ -15,7 +15,7 @@ URL: str = "http://web2.pch.org.tw/booking/Covid19Reg/Covid19Reg.aspx?InsType=1"
 
 class PchNantou(Scraper):
 
-    hospital_id = "1138020015"
+    hospital_id = "01138020015"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=5)

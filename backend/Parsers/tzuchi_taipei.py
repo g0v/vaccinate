@@ -16,7 +16,7 @@ URL: str = (
 
 class TzuchiTaipei(Scraper):
 
-    hospital_id = "1131050515"
+    hospital_id = "01131050515"
 
     async def scrape(self) -> ScrapedData:
         sslcontext = ssl.create_default_context(

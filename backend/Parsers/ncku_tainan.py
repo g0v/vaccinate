@@ -18,7 +18,7 @@ URL_GOV_PAID = "https://service.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=Ez
 
 class NckuTainan(Scraper):
 
-    hospital_id = "421040011"
+    hospital_id = "0421040011"
 
     async def scrape(self) -> ScrapedData:
         availability: HospitalAvailabilitySchema = {

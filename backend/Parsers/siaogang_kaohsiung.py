@@ -16,7 +16,7 @@ URL: str = "https://www.kmsh.org.tw/web/BookVaccineSysInter"
 
 class SiaogangKaohsiung(Scraper):
 
-    hospital_id = "1102110011"
+    hospital_id = "01102110011"
 
     async def scrape(self) -> ScrapedData:
         timeout = aiohttp.ClientTimeout(total=5)

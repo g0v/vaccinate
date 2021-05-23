@@ -77,7 +77,7 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
 
         print(primitive_availability)
         r.hset(
-            "hospital_schema_3:" + str(hospital_id),
+            "hospital_schema_4:" + str(hospital_id),
             key=None,
             value=None,
             # pyre-fixme[6]: Pyre cannot make Dict[str, str] compatible with their HSet type.
