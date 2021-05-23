@@ -194,6 +194,7 @@ async def government_paid_hospitals() -> wrappers.Response:
 def criteria() -> str:
     return render_template("./index.html")
 
+
 @app.route("/credits")
 @app.route("/")
 def index() -> str:
