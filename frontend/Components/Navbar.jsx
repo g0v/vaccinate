@@ -55,6 +55,14 @@ export default function Navbar(): React.Node {
             >
               {t('txt-vaccineCriteria')}
             </NavLink>
+            <NavLink
+              exact
+              to="/credits"
+              className="nav-link"
+              aria-current="page"
+            >
+              {t('txt-credits')}
+            </NavLink>
           </div>
         </div>
         <LanguageSelector />

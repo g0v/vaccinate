@@ -9,6 +9,7 @@ import { I18nextProvider } from 'react-i18next';
 
 import G0vbar from './Components/G0vbar';
 import Criteria from './Components/Criteria';
+import Credits from './Pages/Credits';
 import Navbar from './Components/Navbar';
 import About from './Components/About';
 import Home from './Pages/Home';
@@ -28,14 +29,17 @@ export default function App(): React.Node {
             that are cancelled, but expect things to break until we remove this message.
           </div>
           <Switch>
-            <Route path="/criteria">
-              <Criteria />
-            </Route>
             <Route path="/about">
               <About />
             </Route>
+            <Route path="/criteria">
+              <Criteria />
+            </Route>
             <Route path="/">
               <Home />
+            </Route>
+            <Route path="/credits">
+              <Credits />
             </Route>
           </Switch>
           <p><i>Created with love by a member of g0v, Taiwan civic tech community.</i></p>
