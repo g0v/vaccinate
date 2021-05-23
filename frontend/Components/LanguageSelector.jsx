@@ -17,7 +17,7 @@ export default function LanguageSelector(): React.Node {
         aria-expanded="false"
         aria-label="Select a language"
       >
-        { locales[i18n.language].text }
+        <i className="bi bi-globe" />
       </button>
       <ul
         className="dropdown-menu dropdown-menu-end"

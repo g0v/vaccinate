@@ -5,7 +5,7 @@ export default {
   },
   zh: {
     locale: 'zh',
-    text: '華文',
+    text: '繁體中文',
   },
   id: {
     locale: 'id',
