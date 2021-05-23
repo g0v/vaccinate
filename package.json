@@ -15,6 +15,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "flow-bin": "^0.149.0",
+    "husky": "^6.0.0",
     "parcel": "^2.0.0-beta.2",
     "sharp": "^0.28.1"
   },
@@ -27,7 +28,8 @@
     "lint:fix": "yarn eslint frontend --ext .js,.jsx --fix",
     "scrape": "cd backend; pipenv run python local_scraper.py",
     "tc": "pipenv run pyre; yarn flow",
-    "test": "pipenv run python -m unittest discover -s backend/tests/integration -t backend"
+    "test": "pipenv run python -m unittest discover -s backend/tests/integration -t backend",
+    "prepare": "husky install"
   },
   "dependencies": {
     "i18next": "^20.2.4",
