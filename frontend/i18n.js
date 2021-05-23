@@ -22,6 +22,7 @@ i18n
   .init({
     resources,
     lng: 'zh',
+    fallbackLng: 'en',
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

@@ -9,6 +9,7 @@ import { I18nextProvider, useTranslation } from 'react-i18next';
 
 import G0vbar from './Components/G0vbar';
 import Criteria from './Components/Criteria';
+import Credits from './Pages/Credits';
 import Navbar from './Components/Navbar';
 import LanguageSelector from './Components/LanguageSelector';
 import Home from './Pages/Home';
@@ -34,6 +35,9 @@ export default function App(): React.Node {
           <Switch>
             <Route path="/criteria">
               <Criteria />
+            </Route>
+            <Route path="/credits">
+              <Credits />
             </Route>
             <Route path="/">
               <Home />
