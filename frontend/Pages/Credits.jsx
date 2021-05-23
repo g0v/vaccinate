@@ -3,7 +3,6 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { readFileSync } from 'fs';
 
-
 const en = readFileSync(`${__dirname}/../../Credits.md`, 'utf-8');
 
 export default function Credits(): React.Node {
