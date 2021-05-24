@@ -63,4 +63,4 @@ It is important that we serve everyone who lives in Taiwan. These are people who
 
 ## Inspiration
 * [Turbovax](http://turbovax.info): A civic hacker project to source vaccine appointments in New York City. 
-* [gov.uk Vaccination Guidelines](): Inspired us to translate Taiwan's vaccination guidelines to plain-language. 
+* [gov.uk Vaccination Guidelines](https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/): Inspired us to translate Taiwan's vaccination guidelines to plain-language. 
