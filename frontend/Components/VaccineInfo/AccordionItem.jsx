@@ -2,13 +2,13 @@
 import * as React from 'react';
 
 export default function AccordionItem(
-  props: {
+  props: {|
     id: string,
     title: string,
     parentID?: string,
     children: React.Node,
     collapsedByDefault?: boolean,
-    setExpandedIndex?: number => void},
+    setExpandedIndex?: number => void|},
 ): React.Node {
   const {
     id,

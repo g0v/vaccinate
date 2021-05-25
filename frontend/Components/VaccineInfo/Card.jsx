@@ -28,7 +28,7 @@ function getBadgeText(availability: Availability, t): string {
   }
 }
 
-export default function Card(props: {
+export default function Card(props: {|
   address: string,
   availability: Availability,
   buttonText: string,
@@ -37,7 +37,7 @@ export default function Card(props: {
   name: string,
   phone: string,
   website: string,
-}): React.Node {
+|}): React.Node {
   const {
     address,
     availability,

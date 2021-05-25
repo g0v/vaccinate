@@ -8,7 +8,7 @@ import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
 
 export default function VaccineDataGrid(
-  props: { rows: Array<Hospital>, vaccineType: VaccineType },
+  props: {| rows: Array<Hospital>, vaccineType: VaccineType |},
 ): React.Node {
   const { rows, vaccineType } = props;
   const { t } = useTranslation('dataGrid');

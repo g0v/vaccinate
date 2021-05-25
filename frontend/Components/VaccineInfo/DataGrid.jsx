@@ -8,11 +8,11 @@ import type { Hospital } from '../../Types/Hospital';
 import type { Location } from '../../Types/Location';
 import type { VaccineType } from '../../Types/VaccineType';
 
-export default function DataGrid(props: {
+export default function DataGrid(props: {|
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
-}): React.Node {
+|}): React.Node {
   const { t } = useTranslation('dataGrid');
   const [cityT] = useTranslation('city');
   const {

@@ -7,7 +7,7 @@ import type { Hospital } from '../../Types/Hospital';
 import type { VaccineType } from '../../Types/VaccineType';
 
 export default function Cards(
-  props: { hospitals: Hospital[], vaccineType: VaccineType, buttonText: string},
+  props: {| hospitals: Hospital[], vaccineType: VaccineType, buttonText: string|},
 ): React.Node {
   const { hospitals, buttonText, vaccineType } = props;
 
