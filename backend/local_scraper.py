@@ -79,6 +79,7 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
 
         timeout = aiohttp.ClientTimeout(total=5)
         async with aiohttp.ClientSession(timeout=timeout) as session:
+            global API_URL
             if API_URL is None:
                 raise NameError("API URL not specified.")
             API_URL = cast(str, API_URL)
