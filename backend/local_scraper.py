@@ -1,5 +1,16 @@
 import redis, os
-from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType, cast
+from typing import (
+    TypedDict,
+    Tuple,
+    Dict,
+    Callable,
+    List,
+    Any,
+    Optional,
+    NewType,
+    cast,
+    Coroutine,
+)
 from enum import Enum
 from hospital_types import (
     AppointmentAvailability,
@@ -54,7 +65,7 @@ r: redis.StrictRedis = redis.StrictRedis(
 
 def error_boundary(
     s: Scraper,
-) -> Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]:
+) -> Callable[[], Coroutine[None, None, Optional[ScrapedData]]]:
     async def boundaried_function() -> Optional[ScrapedData]:
         try:
             f_start: float = time.time()
@@ -68,7 +79,7 @@ def error_boundary(
     return boundaried_function
 
 
-def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
+def make_uploader(s: Scraper) -> Callable[[], Coroutine[None, None, HospitalID]]:
     async def scrape_and_upload() -> HospitalID:
         scraper = error_boundary(s)
         result = await scraper()
