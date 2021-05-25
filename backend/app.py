@@ -1,4 +1,12 @@
-from flask import Flask, render_template, json, wrappers
+from flask import (
+    Flask,
+    render_template,
+    json,
+    wrappers,
+    request,
+    jsonify,
+    make_response,
+)
 import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
@@ -21,6 +29,8 @@ redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
+# TODO: Implement better system for handling API Keys
+API_KEY: Optional[str] = os.environ.get("API_KEY")
 
 # The decode_responses flag here directs the client to convert the responses from Redis into Python strings
 # using the default encoding utf-8.  This is client specific.
@@ -193,6 +203,23 @@ async def government_paid_hospitals() -> wrappers.Response:
 @app.route("/criteria")
 def criteria() -> str:
     return render_template("./index.html")
+
+
+@app.route("/hospital", methods=["POST"])
+def update_hospital() -> wrappers.Response:
+    data = request.get_json()
+    api_key_from_request = data["api_key"]
+    if api_key_from_request != API_KEY:
+        return make_response(jsonify({"success": False}), 401)
+
+    hospital_id = data["hospital_id"]
+    availability = data["availability"]
+    # TODO: Request validation
+    r.hset(
+        "hospital_schema_4:" + hospital_id, key=None, value=None, mapping=availability
+    )
+    print(availability)
+    return make_response(jsonify({"success": True}), 200)
 
 
 @app.route("/credits")
