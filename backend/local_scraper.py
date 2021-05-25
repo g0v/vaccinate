@@ -91,7 +91,6 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
                     "availability": primitive_availability,
                 },
             )
-            print(response.status)
             if response.status != 200:
                 raise aiohttp.ClientError("Updating hospitals failed.")
         return hospital_id
