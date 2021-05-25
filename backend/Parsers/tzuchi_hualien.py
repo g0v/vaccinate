@@ -1,5 +1,3 @@
-from typing import Tuple
-import requests
 from bs4 import BeautifulSoup
 from hospital_types import (
     AppointmentAvailability,

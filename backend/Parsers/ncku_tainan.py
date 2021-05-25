@@ -1,14 +1,12 @@
-from typing import Tuple
-import requests
 import bs4
 from hospital_types import (
-    HospitalID,
     AppointmentAvailability,
     HospitalAvailabilitySchema,
     ScrapedData,
 )
 from Parsers.Scraper import Scraper
-import ssl, aiohttp
+import aiohttp
+import ssl
 
 
 CERT: str = "../data/hosp-ncku-edu-tw-chain.pem"
@@ -64,7 +62,7 @@ class NckuTainan(Scraper):
         timeout = aiohttp.ClientTimeout(total=5)
         async with aiohttp.ClientSession(timeout=timeout) as session:
             # First request is GET.
-            r = await session.get(url, timeout=5)
+            r = await session.get(url, timeout=5, ssl=sslcontext)
             raw_html = await r.text()
             soup = bs4.BeautifulSoup(raw_html, "html.parser")
 
