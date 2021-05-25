@@ -7,7 +7,7 @@ export type Hospital = {|
     address: string,
     department: string,
     governmentPaidAvailability: Availability,
-    hospitalId: Number,
+    hospitalId: number,
     location: Location,
     name: string,
     phone: string,
