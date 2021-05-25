@@ -1,5 +1,5 @@
 import redis, os
-from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType
+from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType, cast
 from enum import Enum
 from hospital_types import (
     AppointmentAvailability,
@@ -79,6 +79,9 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
 
         timeout = aiohttp.ClientTimeout(total=5)
         async with aiohttp.ClientSession(timeout=timeout) as session:
+            if API_URL is None:
+                raise NameError("API URL not specified.")
+            API_URL = cast(str, API_URL)
             response = await session.post(
                 API_URL + "/hospital",
                 json={

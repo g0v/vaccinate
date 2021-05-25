@@ -1,4 +1,12 @@
-from flask import Flask, render_template, json, wrappers, request, jsonify, make_response
+from flask import (
+    Flask,
+    render_template,
+    json,
+    wrappers,
+    request,
+    jsonify,
+    make_response,
+)
 import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
@@ -198,11 +206,11 @@ def criteria() -> str:
 
 
 @app.route("/hospital", methods=["POST"])
-async def update_hospital():
+def update_hospital() -> wrappers.Response:
     data = request.get_json()
-    api_key_from_request = data['api_key']
-    if (api_key_from_request != API_KEY):
-        return make_response(jsonify({'success': False}), 401)
+    api_key_from_request = data["api_key"]
+    if api_key_from_request != API_KEY:
+        return make_response(jsonify({"success": False}), 401)
 
     hospital_id = data["hospital_id"]
     availability = data["availability"]
@@ -211,7 +219,7 @@ async def update_hospital():
         "hospital_schema_4:" + hospital_id, key=None, value=None, mapping=availability
     )
     print(availability)
-    return make_response(jsonify({'success': True}), 200)
+    return make_response(jsonify({"success": True}), 200)
 
 
 @app.route("/credits")
