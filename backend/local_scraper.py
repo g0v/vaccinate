@@ -42,25 +42,8 @@ from Parsers.sanjunzong_penghu import *
 
 load_dotenv()
 
-redis_host: Optional[str] = os.environ.get("REDIS_HOST")
-redis_port: Optional[str] = os.environ.get("REDIS_PORT")
-redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
-redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 API_URL: Optional[str] = os.environ.get("API_URL")
 API_KEY: Optional[str] = os.environ.get("API_KEY")
-
-
-# The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
-# using the default encoding utf-8.  This is client specific.
-r: redis.StrictRedis = redis.StrictRedis(
-    host=redis_host,
-    port=redis_port,
-    password=redis_password,
-    decode_responses=True,
-    username=redis_username,
-    socket_timeout=10,
-    ssl=True,
-)
 
 
 def error_boundary(
