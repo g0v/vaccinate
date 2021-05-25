@@ -59,6 +59,7 @@ app = Flask(
 # Currently limited to semanticly read-only verbs.
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS"]}})
 
+
 def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
 
     scraper_hospital_ids = list(map(lambda x: x.hospital_id, local_scraper.PARSERS))
