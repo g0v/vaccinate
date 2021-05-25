@@ -1,5 +1,5 @@
 import redis, os
-from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType
+from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType, cast
 from enum import Enum
 from hospital_types import (
     AppointmentAvailability,
@@ -35,6 +35,8 @@ redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
+API_URL: Optional[str] = os.environ.get("API_URL")
+API_KEY: Optional[str] = os.environ.get("API_KEY")
 
 
 # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
@@ -75,15 +77,23 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
         (hospital_id, availability) = result
         primitive_availability = {k: v.__str__() for k, v in availability.items()}
 
-        print(primitive_availability)
-        r.hset(
-            "hospital_schema_4:" + str(hospital_id),
-            key=None,
-            value=None,
-            # pyre-fixme[6]: Pyre cannot make Dict[str, str] compatible with their HSet type.
-            mapping=primitive_availability,
-        )
-        return s.hospital_id
+        timeout = aiohttp.ClientTimeout(total=5)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            if API_URL is None:
+                raise NameError("API URL not specified.")
+            API_URL = cast(str, API_URL)
+            response = await session.post(
+                API_URL + "/hospital",
+                json={
+                    "api_key": API_KEY,
+                    "hospital_id": hospital_id,
+                    "availability": primitive_availability,
+                },
+            )
+            print(response.status)
+            if response.status != 200:
+                raise aiohttp.ClientError("Updating hospitals failed.")
+        return hospital_id
 
     return scrape_and_upload
 
