@@ -19,6 +19,7 @@ pylint = "*"
 pyre-check = "*"
 gunicorn = "*"
 pre-commit = "*"
+pyflakes = "*"
 
 [requires]
 python_version = "3.8"
