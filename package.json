@@ -21,7 +21,7 @@
   },
   "scripts": {
     "backend": "parcel build ./frontend/index.html; cd backend; pipenv run python app.py --scrape",
-    "build": "parcel build ./frontend/index.html",
+    "build": "parcel build ./frontend/index.html --public-url ./",
     "fixpipenv": "pipenv lock --pre --clear",
     "frontend": "parcel serve ./frontend/index.html",
     "lint": "pipenv run black backend/*; yarn eslint frontend --ext .js,.jsx --fix",
