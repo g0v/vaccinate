@@ -40,6 +40,8 @@ jobs:
 
       - name: Build Site
         working-directory: ./main
+        env:
+          API_URL: https://vaxx.tw
         run: yarn run build
 
       - name: Commit into gh-pages branch
