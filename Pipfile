@@ -12,6 +12,7 @@ python-dotenv = "*"
 types-redis = "*"
 aiohttp = "*"
 flask = {extras = ["async"], version = "*"}
+flask-cors = "*"
 
 [dev-packages]
 black = "*"

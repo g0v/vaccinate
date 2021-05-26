@@ -7,6 +7,9 @@ from flask import (
     jsonify,
     make_response,
 )
+
+from flask_cors import CORS
+
 import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
@@ -50,6 +53,11 @@ app = Flask(
     static_folder="../dist",
     template_folder="../dist",
 )
+
+# XXX: Allowing CORS for all endpoints from any origins may introduce problems
+# in the future. Consider limiting endpoints to API resouces only.
+# Currently limited to semanticly read-only verbs.
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS"]}})
 
 
 def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
