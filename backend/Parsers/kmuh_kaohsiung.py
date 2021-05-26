@@ -1,8 +1,6 @@
-from typing import Tuple, List
-import requests
+from typing import List
 import bs4
 from hospital_types import (
-    HospitalID,
     AppointmentAvailability,
     HospitalAvailabilitySchema,
     ScrapedData,
@@ -52,7 +50,7 @@ async def check_available_kmuh_kaohsiung(url: str) -> List[bool]:
     async with aiohttp.ClientSession(timeout=timeout) as session:
 
         # First request is GET.
-        r = await session.get(url, timeout=5)
+        r = await session.get(url, timeout=5, ssl=sslcontext)
         raw_html = await r.text()
         soup = bs4.BeautifulSoup(raw_html, "html.parser")
 

@@ -1,4 +1,3 @@
-from typing import Tuple, List, Any, Coroutine
 from bs4 import BeautifulSoup
 from hospital_types import (
     AppointmentAvailability,
@@ -6,7 +5,7 @@ from hospital_types import (
     HospitalAvailabilitySchema,
 )
 from Parsers.Scraper import Scraper
-import asyncio, aiohttp
+import aiohttp
 import ssl
 
 URL: str = (

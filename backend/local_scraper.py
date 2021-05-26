@@ -1,5 +1,16 @@
 import redis, os
-from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional, NewType, cast
+from typing import (
+    TypedDict,
+    Tuple,
+    Dict,
+    Callable,
+    List,
+    Any,
+    Optional,
+    NewType,
+    cast,
+    Coroutine,
+)
 from enum import Enum
 from hospital_types import (
     AppointmentAvailability,
@@ -31,30 +42,13 @@ from Parsers.sanjunzong_penghu import *
 
 load_dotenv()
 
-redis_host: Optional[str] = os.environ.get("REDIS_HOST")
-redis_port: Optional[str] = os.environ.get("REDIS_PORT")
-redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
-redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 API_URL: Optional[str] = os.environ.get("API_URL")
 API_KEY: Optional[str] = os.environ.get("API_KEY")
 
 
-# The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
-# using the default encoding utf-8.  This is client specific.
-r: redis.StrictRedis = redis.StrictRedis(
-    host=redis_host,
-    port=redis_port,
-    password=redis_password,
-    decode_responses=True,
-    username=redis_username,
-    socket_timeout=10,
-    ssl=True,
-)
-
-
 def error_boundary(
     s: Scraper,
-) -> Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]:
+) -> Callable[[], Coroutine[None, None, Optional[ScrapedData]]]:
     async def boundaried_function() -> Optional[ScrapedData]:
         try:
             f_start: float = time.time()
@@ -68,7 +62,7 @@ def error_boundary(
     return boundaried_function
 
 
-def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
+def make_uploader(s: Scraper) -> Callable[[], Coroutine[None, None, HospitalID]]:
     async def scrape_and_upload() -> HospitalID:
         scraper = error_boundary(s)
         result = await scraper()
@@ -79,18 +73,18 @@ def make_uploader(s: Scraper) -> Callable[[], Coroutine[Any, Any, HospitalID]]:
 
         timeout = aiohttp.ClientTimeout(total=5)
         async with aiohttp.ClientSession(timeout=timeout) as session:
-            if API_URL is None:
+            global API_URL
+            url_root = API_URL
+            if url_root is None:
                 raise NameError("API URL not specified.")
-            API_URL = cast(str, API_URL)
             response = await session.post(
-                API_URL + "/hospital",
+                url_root + "/hospital",
                 json={
                     "api_key": API_KEY,
                     "hospital_id": hospital_id,
                     "availability": primitive_availability,
                 },
             )
-            print(response.status)
             if response.status != 200:
                 raise aiohttp.ClientError("Updating hospitals failed.")
         return hospital_id

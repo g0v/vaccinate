@@ -1,5 +1,3 @@
-from typing import Tuple
-import requests
 from bs4 import BeautifulSoup
 from hospital_types import (
     ScrapedData,
@@ -7,7 +5,7 @@ from hospital_types import (
     HospitalAvailabilitySchema,
 )
 from Parsers.Scraper import Scraper
-import aiohttp, asyncio
+import aiohttp
 
 
 URL: str = "http://netreg.afph.tsgh.ndmctsgh.edu.tw/webreg/calendar_type/5xn1z9fPG5H4JDJEV98dHQ%3D%3D"
