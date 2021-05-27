@@ -4,6 +4,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/code-frame": "^7.12.13",
+    "@babel/core": "^7.14.3",
     "@parcel/transformer-image": "2.0.0-beta.2",
     "@parcel/transformer-yaml": "2.0.0-beta.2",
     "babel-eslint": "^10.1.0",
@@ -17,7 +18,9 @@
     "flow-bin": "^0.149.0",
     "husky": "^6.0.0",
     "parcel": "^2.0.0-beta.2",
-    "sharp": "^0.28.1"
+    "postcss": "^8.3.0",
+    "sharp": "^0.28.1",
+    "yarn-deduplicate": "^3.1.0"
   },
   "scripts": {
     "backend": "parcel build ./frontend/index.html; cd backend; pipenv run python app.py --scrape",
@@ -31,6 +34,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@types/react": "^17.0.7",
     "i18next": "^20.2.4",
     "i18next-browser-languagedetector": "^6.1.1",
     "react": "^17.0.2",

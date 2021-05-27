@@ -18,7 +18,6 @@ export default function Cards(
         availability={getAvailability(hospital, vaccineType)}
         buttonText={buttonText}
         department={hospital.department}
-        hospitalId={hospital.hospitalId}
         location={hospital.location}
         name={hospital.name}
         phone={hospital.phone}

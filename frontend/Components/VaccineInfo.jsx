@@ -7,7 +7,7 @@ import { getAvailability } from '../Types/Hospital';
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
 
-export default function VaccineDataGrid(
+export default function VaccineInfo(
   props: { rows: Array<Hospital>, vaccineType: VaccineType },
 ): React.Node {
   const { rows, vaccineType } = props;
