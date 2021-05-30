@@ -1,4 +1,6 @@
-# Vaccinate
+# Vaxx.tw
+![image](https://user-images.githubusercontent.com/8745371/119945854-94751e80-bfc8-11eb-8aff-504b36f7fb99.png)
+
 整理台灣所有自費接種疫苗的資料
 Collecting all the information about self-paid vaccines in Taiwan. 
 
@@ -7,8 +9,9 @@ Make sure you have [pipenv](https://pypi.org/project/pipenv/) installed.
 1. git clone the repository
 2. run `pipenv install`.
 3. run `yarn`
-4. In one terminal, run `yarn backend`. This starts the Python Flask server. 
-5. In another terminal, run `yarn frontend`. This starts Parcel, our JS bundler. 
+4. run `yarn prepare`. This is for pre-commit command setup.
+5. In one terminal, run `yarn backend`. This starts the Python Flask server. 
+6. In another terminal, run `yarn frontend`. This starts Parcel, our JS bundler. 
 
 ## Translations
 To make sure we're serving all of Taiwan it's imperative we translate to all the languages spoken here. I haven't settled on an i18n approach I'm happy with yet, but for now, to localize into a new language:

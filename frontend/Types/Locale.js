@@ -1,3 +1,3 @@
 // @flow
 
-export type Locale = "en" | "zh" | "id";
+export type Locale = "en" | "zh" | "id" | "tl" | "ja";

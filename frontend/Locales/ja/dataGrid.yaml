@@ -1,0 +1,25 @@
+txt-hospitalsWithAppointmentsTitle: "予約ができる病院"
+hospitalsWithAppointmentsSubtitle:
+  txt-governmentPaid: "これらの病院で予約が可能であることが確認されています。"
+  txt-selfPaid: "これらの病院で予約が可能であることが確認されています。"
+
+txt-hospitalsWithNoDataTitle: "データのない病院"
+hospitalsWithNoDataSubtitle:
+  txt-governmentPaid: "これらの病院で予約ができるかわかりません。各病院のウェブサイトでご確認ください。"
+  txt-selfPaid: "これらの病院で予約ができるかわかりません。各病院のウェブサイトでご確認ください。"
+
+txt-hospitalsWithNoAppointmentsTitle: "予約ができない病院"
+hospitalsWithNoAppointmentsSubtitle:
+  txt-governmentPaid: "これらの病院では現在予約ができません。時間をおいて、再度ご確認ください。"
+  txt-selfPaid: "これらの病院では現在予約ができません。時間をおいて、再度ご確認ください。"
+
+txt-noHospitals: "このカテゴリの病院はありません。"
+
+btn-getAppointment: "ご予約はこちら"
+btn-visitWebsite: "病院のウェブサイトを見る"
+
+selfPaidVaccineClosure:
+  txt-notice: "CECCの指令により、5月15日(土)をもちまして自己負担による予防接種プログラムを終了しました。"
+  txt-selfPaid2ndShot: "1回目の接種を受けた方は、２回目の予約を取ることができますので、病院に連絡して直接２回目の接種予約をしてください。ステイホームで命を守りましょう。天佑台灣！"
+
+txt-govPaidVaccineDataIncomplete: "ここに掲載されていない、政府支給のコロナワクチン提供病院もあります。このデータを本サイトに掲載するために活動中です。詳細はhttps://antiflu.cdc.gov.tw/Covid19をご覧ください。"

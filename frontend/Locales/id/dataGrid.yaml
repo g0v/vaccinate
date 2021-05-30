@@ -1,0 +1,25 @@
+txt-hospitalsWithAppointmentsTitle: "Hospitals with Appointments"
+hospitalsWithAppointmentsSubtitle:
+  txt-governmentPaid: "We have confirmed that these hospitals have appointments available."
+  txt-selfPaid: "We have confirmed that these hospitals have appointments available."
+
+txt-hospitalsWithNoDataTitle: "Hospitals with No Data"
+hospitalsWithNoDataSubtitle:
+  txt-governmentPaid: "We don't know if these hospitals have appointments. Please check their website."
+  txt-selfPaid: "We don't know if these hospitals have appointments. Please check their website."
+
+txt-hospitalsWithNoAppointmentsTitle: "Hospitals with No Appointments"
+hospitalsWithNoAppointmentsSubtitle:
+  txt-governmentPaid: "These hospitals have no appointments. Please check again later."
+  txt-selfPaid: "These hospitals have no appointments. Please check again later."
+
+txt-noHospitals: "No hospitals in this category."
+
+btn-getAppointment: "Get Appointment"
+btn-visitWebsite: "Visit Hospital Website"
+
+selfPaidVaccineClosure:
+  txt-notice: "As of Saturday, May 15, under new CECC directives, the self-paid vaccination program is now closed."
+  txt-selfPaid2ndShot: "Those who received a first dose are eligible for second appointments and should contact hospitals to schedule their second dose directly. Stay home and save lives. 天佑台灣！"
+
+txt-govPaidVaccineDataIncomplete: "There are additional hospitals that offer government-paid COVID-19 vaccines that are not listed here. We are working on getting this data on this website. Please visit https://antiflu.cdc.gov.tw/Covid19 for more info."

@@ -12,6 +12,7 @@ python-dotenv = "*"
 types-redis = "*"
 aiohttp = "*"
 flask = {extras = ["async"], version = "*"}
+flask-cors = "*"
 
 [dev-packages]
 black = "*"
@@ -19,6 +20,7 @@ pylint = "*"
 pyre-check = "*"
 gunicorn = "*"
 pre-commit = "*"
+pyflakes = "*"
 
 [requires]
 python_version = "3.8"

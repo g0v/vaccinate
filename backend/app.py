@@ -1,4 +1,15 @@
-from flask import Flask, render_template, json, wrappers
+from flask import (
+    Flask,
+    render_template,
+    json,
+    wrappers,
+    request,
+    jsonify,
+    make_response,
+)
+
+from flask_cors import CORS
+
 import argparse
 import redis, csv, sys, os
 from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
@@ -21,6 +32,19 @@ redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
+# TODO: Implement better system for handling API Keys
+API_KEY: Optional[str] = os.environ.get("API_KEY")
+
+# The decode_responses flag here directs the client to convert the responses from Redis into Python strings
+# using the default encoding utf-8.  This is client specific.
+r: redis.StrictRedis = redis.StrictRedis(
+    host=redis_host,
+    port=redis_port,
+    password=redis_password,
+    decode_responses=True,
+    username=redis_username,
+    ssl=True,
+)
 
 
 app = Flask(
@@ -30,25 +54,21 @@ app = Flask(
     template_folder="../dist",
 )
 
+# XXX: Allowing CORS for all endpoints from any origins may introduce problems
+# in the future. Consider limiting endpoints to API resouces only.
+# Currently limited to semanticly read-only verbs.
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS"]}})
 
-def get_availability_from_server() -> List[ScrapedData]:
-    # The decode_repsonses flag here directs the client to convert the responses from Redis into Python strings
-    # using the default encoding utf-8.  This is client specific.
-    r: redis.StrictRedis = redis.StrictRedis(
-        host=redis_host,
-        port=redis_port,
-        password=redis_password,
-        decode_responses=True,
-        username=redis_username,
-        ssl=True,
-    )
 
-    hospital_ids = list(range(1, 32))
+def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
+
+    scraper_hospital_ids = list(map(lambda x: x.hospital_id, local_scraper.PARSERS))
+    print(scraper_hospital_ids)
 
     def get_availability(
-        hospital_id: int,
+        hospital_id: HospitalID,
     ) -> ScrapedData:
-        raw_availability = r.hgetall("hospital_schema_2:" + str(hospital_id))
+        raw_availability = r.hgetall("hospital_schema_4:" + str(hospital_id))
 
         if raw_availability == {}:
             return (
@@ -74,32 +94,39 @@ def get_availability_from_server() -> List[ScrapedData]:
         return (hospital_id, availability)
 
     availability: List[ScrapedData] = [
-        get_availability(hospital_id) for hospital_id in hospital_ids
+        get_availability(hospital_id) for hospital_id in scraper_hospital_ids
     ]
-    return availability
+    return dict(availability)
 
 
-async def hospitalData() -> List[Hospital]:
+async def self_paid_hospital_data() -> List[Hospital]:
     should_scrape = app.config["scrape"]
     if should_scrape:
-        availability = dict(await local_scraper.get_hospital_availability())
+        availability = await local_scraper.get_hospital_availability()
     else:
-        availability = dict(get_availability_from_server())
+        availability = get_availability_from_server()
 
     app.logger.warning(availability)
     with open("../data/hospitals.csv") as csvfile:
         reader = csv.DictReader(csvfile)
         rows = []
         for row in reader:
-            hospital_id = int(row["編號"])
+            hospital_id = row["公費疫苗醫院編號"]
+            default_schema: HospitalAvailabilitySchema = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
+            hospital_availability: HospitalAvailabilitySchema = (
+                availability[hospital_id]
+                if hospital_id in availability
+                else default_schema
+            )
             hospital: Hospital = {
                 "address": row["地址"],
-                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
+                "selfPaidAvailability": hospital_availability["self_paid"],
                 "department": row["科別"],
-                "governmentPaidAvailability": availability[hospital_id][
-                    "government_paid"
-                ],
-                "hospitalId": int(row["編號"]),
+                "governmentPaidAvailability": hospital_availability["government_paid"],
+                "hospitalId": hospital_id,
                 "location": row["縣市"],
                 "name": row["醫院名稱"],
                 "phone": row["電話"],
@@ -109,10 +136,58 @@ async def hospitalData() -> List[Hospital]:
         return rows
 
 
+# TODO: Migrate all data to new JSON file?
+def get_websites() -> Dict[HospitalID, str]:
+    with open("../data/hospitals.csv") as csvfile:
+        reader = csv.DictReader(csvfile)
+        websites = {}
+        for row in reader:
+            hospital_id = row["公費疫苗醫院編號"]
+            website = row["Website"]
+            websites[hospital_id] = website
+        return websites
+
+
+async def government_paid_hospital_data() -> List[Hospital]:
+    should_scrape = app.config["scrape"]
+    if should_scrape:
+        availability = await local_scraper.get_hospital_availability()
+    else:
+        availability = get_availability_from_server()
+    with open("../data/hospitals.json") as jsonfile:
+        blob = json.loads(jsonfile.read())
+        rows = []
+        websites = get_websites()
+        for row in blob:
+            hospital_id = row["HospitalId"]
+            default_schema: HospitalAvailabilitySchema = {
+                "self_paid": AppointmentAvailability.NO_DATA,
+                "government_paid": AppointmentAvailability.NO_DATA,
+            }
+            hospital_availability: HospitalAvailabilitySchema = (
+                availability[hospital_id]
+                if hospital_id in availability
+                else default_schema
+            )
+            hospital: Hospital = {
+                "address": row["Address"],
+                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
+                "department": "department",
+                "governmentPaidAvailability": hospital_availability["government_paid"],
+                "hospitalId": row["HospitalId"],
+                "location": row["City"],
+                "name": row["HospitalName"],
+                "phone": row["Phone"],
+                "website": (websites[hospital_id] if hospital_id in websites else ""),
+            }
+            rows.append(hospital)
+        return rows
+
+
 # pyre-fixme[56]: Decorator async types are not type-checked.
-@app.route("/hospitals")
-async def hospitals() -> wrappers.Response:
-    data = await hospitalData()
+@app.route("/self_paid_hospitals")
+async def self_paid_hospitals() -> wrappers.Response:
+    data = await self_paid_hospital_data()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
@@ -121,6 +196,41 @@ async def hospitals() -> wrappers.Response:
     return response
 
 
+# pyre-fixme[56]: Decorator async types are not type-checked.
+@app.route("/government_paid_hospitals")
+async def government_paid_hospitals() -> wrappers.Response:
+    data = await government_paid_hospital_data()
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype="application/json",
+    )
+    return response
+
+
+@app.route("/criteria")
+def criteria() -> str:
+    return render_template("./index.html")
+
+
+@app.route("/hospital", methods=["POST"])
+def update_hospital() -> wrappers.Response:
+    data = request.get_json()
+    api_key_from_request = data["api_key"]
+    if api_key_from_request != API_KEY:
+        return make_response(jsonify({"success": False}), 401)
+
+    hospital_id = data["hospital_id"]
+    availability = data["availability"]
+    # TODO: Request validation
+    r.hset(
+        "hospital_schema_4:" + hospital_id, key=None, value=None, mapping=availability
+    )
+    print(availability)
+    return make_response(jsonify({"success": True}), 200)
+
+
+@app.route("/credits")
 @app.route("/")
 def index() -> str:
     return render_template("./index.html")
