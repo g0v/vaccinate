@@ -70,7 +70,7 @@ PARSERS: List[Callable[[], Coroutine[Any, Any, Optional[ScrapedData]]]] = [
     error_boundary(parse_mohw_nantou),
     error_boundary(scrape_tonyen_hsinchu),
     error_boundary(scrape_siaogang_kaohsiung),
-    error_boundary(parse_ncku_tainan),
+    error_boundary(scrape_ncku_tainan),
     error_boundary(parse_kmuh_kaohsiung),
     error_boundary(scrape_sanjunzong_penghu),
 ]

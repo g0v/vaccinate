@@ -15,10 +15,21 @@ URL_SELF_PAID = "https://service.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=E
 URL_GOV_PAID = "https://service.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=EzNec8%2bb3ObBGuEQakq0QawPuiWkTewUO9FjEuW3Njo%3d"
 
 
-async def parse_ncku_tainan() -> ScrapedData:
+async def scrape_ncku_tainan() -> ScrapedData:
+    sslcontext = ssl.create_default_context(cafile=CERT)
+    timeout = aiohttp.ClientTimeout(total=5)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(URL_SELF_PAID, timeout=5) as r:
+            html_self_paid = await r.text()
+        async with session.get(URL_GOV_PAID, timeout=5) as r:
+            html_gov_paid = await r.text()
+    return parse_ncku_tainan(html_self_paid, html_gov_paid)
+
+
+def parse_ncku_tainan(html_self_paid: str, html_gov_paid: str) -> ScrapedData:
     availability: HospitalAvailabilitySchema = {
-        "self_paid": await parse_ncku_tainan_self_paid(),
-        "government_paid": await parse_ncku_tainan_gov_paid(),
+        "self_paid": check_available_ncku_tainan(URL_SELF_PAID, html_self_paid),
+        "government_paid": check_available_ncku_tainan(URL_GOV_PAID, html_gov_paid),
     }
     return (
         22,
@@ -26,23 +37,7 @@ async def parse_ncku_tainan() -> ScrapedData:
     )
 
 
-async def parse_ncku_tainan_self_paid() -> AppointmentAvailability:
-    return (
-        AppointmentAvailability.AVAILABLE
-        if await check_available_ncku_tainan(URL_SELF_PAID)
-        else AppointmentAvailability.UNAVAILABLE
-    )
-
-
-async def parse_ncku_tainan_gov_paid() -> AppointmentAvailability:
-    return (
-        AppointmentAvailability.AVAILABLE
-        if await check_available_ncku_tainan(URL_GOV_PAID)
-        else AppointmentAvailability.UNAVAILABLE
-    )
-
-
-async def check_available_ncku_tainan(url: str) -> bool:
+def check_available_ncku_tainan(url: str, html: str) -> AppointmentAvailability:
     # Initial data_dict for POST method later.
     post_data = {
         "__EVENTTARGET": "ctl00$MainContent$ddlWeeks",
@@ -58,58 +53,39 @@ async def check_available_ncku_tainan(url: str) -> bool:
         "ctl00$MainContent$ddlWeeks_02": "",
     }
 
-    sslcontext = ssl.create_default_context(cafile=CERT)
-    timeout = aiohttp.ClientTimeout(total=5)
-    async with aiohttp.ClientSession(timeout=timeout) as session:
-        # First request is GET.
-        r = await session.get(url, timeout=5)
-        raw_html = await r.text()
-        soup = bs4.BeautifulSoup(raw_html, "html.parser")
+    # Get first day of each weekly appointments list.
+    soup = bs4.BeautifulSoup(html, "html.parser")
+    selectTag = soup.find("select", {"id": "ctl00_MainContent_ddlWeeks"})
+    optionValues = list(map(lambda x: x.get("value"), selectTag.find_all("option")))
 
-        # Get first day of each weekly appointments list.
-        selectTag = soup.find("select", {"id": "ctl00_MainContent_ddlWeeks"})
-        optionValues = list(map(lambda x: x.get("value"), selectTag.find_all("option")))
+    for i, date in enumerate(optionValues):
+        # Check if there is an available appointment.
+        table = soup.find("table", {"id": "tRegSchedule"})
+        tds = table.find_all("td", {"class": "p-0"})
+        appointments = list(
+            filter(lambda td: bool(td.find("a")) and "轉掛" not in td.text, tds)
+        )
 
-        for i, date in enumerate(optionValues):
-            # Check if there is an available appointment.
-            table = soup.find("table", {"id": "tRegSchedule"})
-            appointments = list(
-                map(
-                    lambda x: x.text,
-                    filter(
-                        filter_appointments_ncku_tainan,
-                        table.find_all("td", {"class": "p-0"}),
-                    ),
-                )
+        if bool(appointments):
+            return AppointmentAvailability.AVAILABLE
+
+        if i != len(optionValues) - 1:
+            # Prepare data_dict for the next POST request
+            post_data["__VIEWSTATE"] = soup.find("input", {"id": "__VIEWSTATE"}).get(
+                "value"
             )
+            post_data["__VIEWSTATEGENERATOR"] = soup.find(
+                "input", {"id": "__VIEWSTATEGENERATOR"}
+            ).get("value")
+            post_data["__EVENTVALIDATION"] = soup.find(
+                "input", {"id": "__EVENTVALIDATION"}
+            ).get("value")
+            post_data["ctl00$MainContent$ddlWeeks"] = optionValues[i + 1]
+            post_data["ctl00$MainContent$ddlWeeks_02"] = date
 
-            if bool(appointments):
-                return True
+            # Launch POST request
+            # Using sync since each data_dict in POST request depends on previous html text.
+            r = requests.post(url, verify=CERT, data=post_data, timeout=5)
+            soup = bs4.BeautifulSoup(r.text, "html.parser")
 
-            if i != len(optionValues) - 1:
-                # Prepare data_dict next POST request
-                post_data["__VIEWSTATE"] = soup.find(
-                    "input", {"id": "__VIEWSTATE"}
-                ).get("value")
-                post_data["__VIEWSTATEGENERATOR"] = soup.find(
-                    "input", {"id": "__VIEWSTATEGENERATOR"}
-                ).get("value")
-                post_data["__EVENTVALIDATION"] = soup.find(
-                    "input", {"id": "__EVENTVALIDATION"}
-                ).get("value")
-                post_data["ctl00$MainContent$ddlWeeks"] = optionValues[i + 1]
-                post_data["ctl00$MainContent$ddlWeeks_02"] = date
-
-                # Launch POST request
-                r = await session.post(url, data=post_data)
-                raw_html = await r.text()
-                soup = bs4.BeautifulSoup(raw_html, "html.parser")
-
-    return False
-
-
-def filter_appointments_ncku_tainan(element: bs4.element.Tag) -> bool:
-    sub_strs = ["預約", "轉掛", "停診"]
-    return (
-        all(sub_str not in element.text for sub_str in sub_strs) and element.text != ""
-    )
+    return AppointmentAvailability.UNAVAILABLE
