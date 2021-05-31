@@ -1,6 +1,27 @@
 # Vaxx.tw
 ![image](https://user-images.githubusercontent.com/8745371/119945854-94751e80-bfc8-11eb-8aff-504b36f7fb99.png)
 
+**UPDATE: As of May 31, 2021, this project is currently on hiatus. We await seeing what is necessary as the Taiwanese government's central vaccination system comes online**
+
+## Hiatus Message
+大家好！
+根據上個禮拜跟政府官員以及立委的討論，我認為我們應該暫時停工 vaxx.tw 的開發。政府現在正在開發中央統一預約系統。我們先等統一疫苗預約系統上線之後，再討論我們可以在那些方面繼續協助。政府的 1922 網站成功上線後，我將把 vaxx.tw 的名額查詢功能關掉，留下公費疫苗對象的翻譯。
+這幾個禮拜，真的太感恩大家的共同合作。我們透過彼此的努力：
+* 把網站內容翻譯成超過5個不同的語言。
+* 支援國內過半的醫院的現時自費疫苗資訊。
+* 整理了國內公費疫苗接種地點的資料。
+希望大家在家好好休息，照顧自己。我們將關注 1922 上線，看我們到時候可以在怎麼協助。關於疫苗類的問題歡迎繼續在這個頻道裡！
+
+Hi everyone,
+After reflecting on our meeting between government officials on Saturday, I believe we should pause development on vaxx.tw. The government is currently developing a centralized reservation system. Let's wait on that going online before strategizing on our next steps. After 1922.gov.tw comes online, I will turn off the reservation component of vaxx.tw, leaving up the translations of the vaccine target groups.
+I am so grateful for everyone's work over the past few weeks. Through your hard work, we:
+* Translated the site into 5 different languages.
+* Supported over half of the self-paid hospitals in Taiwan.
+* Cleaned up the data for government-paid vaccine locations.
+I hope everyone gets some rest, takes care of ourselves. We'll talk again after 1922 goes online and see how we can help. Other vaccine discussions are of course, always welcome in this channel!
+
+## Mission
+
 整理台灣所有自費接種疫苗的資料
 Collecting all the information about self-paid vaccines in Taiwan. 
 
