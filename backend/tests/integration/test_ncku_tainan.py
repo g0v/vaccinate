@@ -14,7 +14,9 @@ class TestNckuTainan(unittest.TestCase):
             }
             html = html_file.read()
             availability = NckuTainan().parse_ncku_tainan(html, html)
-            self.assertEqual(availability, (NckuTainan().hospital_id, expected_availability))
+            self.assertEqual(
+                availability, (NckuTainan().hospital_id, expected_availability)
+            )
 
     def test_both_available(self) -> None:
         with open("backend/tests/saved_pages/ncku_tainan_available.html") as html_file:
@@ -24,11 +26,13 @@ class TestNckuTainan(unittest.TestCase):
             }
             html = html_file.read()
             availability = NckuTainan().parse_ncku_tainan(html, html)
-            self.assertEqual(availability, (NckuTainan().hospital_id, expected_availability))
+            self.assertEqual(
+                availability, (NckuTainan().hospital_id, expected_availability)
+            )
 
     def test_one_available(self) -> None:
-        html_available = open("backend/tests/saved_pages/ncku_tainan_available.html") 
-        html_full = open("backend/tests/saved_pages/ncku_tainan_full.html") 
+        html_available = open("backend/tests/saved_pages/ncku_tainan_available.html")
+        html_full = open("backend/tests/saved_pages/ncku_tainan_full.html")
         expected_availability: HospitalAvailabilitySchema = {
             "self_paid": AppointmentAvailability.AVAILABLE,
             "government_paid": AppointmentAvailability.UNAVAILABLE,
@@ -38,4 +42,6 @@ class TestNckuTainan(unittest.TestCase):
         html_available.close()
         html_full.close()
         availability = NckuTainan().parse_ncku_tainan(html_self_paid, html_gov_paid)
-        self.assertEqual(availability, (NckuTainan().hospital_id, expected_availability))
+        self.assertEqual(
+            availability, (NckuTainan().hospital_id, expected_availability)
+        )

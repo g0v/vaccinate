@@ -1,4 +1,4 @@
-import bs4
+import bs4, requests
 from hospital_types import (
     AppointmentAvailability,
     HospitalAvailabilitySchema,
@@ -28,17 +28,23 @@ class NckuTainan(Scraper):
                 html_gov_paid = await r.text()
         return self.parse_ncku_tainan(html_self_paid, html_gov_paid)
 
-    def parse_ncku_tainan(self, html_self_paid, html_gov_paid: str) -> ScrapedData:
+    def parse_ncku_tainan(self, html_self_paid: str, html_gov_paid: str) -> ScrapedData:
         availability: HospitalAvailabilitySchema = {
-            "self_paid": self.check_available_ncku_tainan(URL_SELF_PAID, html_self_paid),
-            "government_paid": self.check_available_ncku_tainan(URL_GOV_PAID, html_gov_paid),
+            "self_paid": self.check_available_ncku_tainan(
+                URL_SELF_PAID, html_self_paid
+            ),
+            "government_paid": self.check_available_ncku_tainan(
+                URL_GOV_PAID, html_gov_paid
+            ),
         }
         return (
             self.hospital_id,
             availability,
         )
 
-    def check_available_ncku_tainan(self, url: str, html: str) -> AppointmentAvailability:
+    def check_available_ncku_tainan(
+        self, url: str, html: str
+    ) -> AppointmentAvailability:
         # Initial data_dict for POST method later.
         post_data = {
             "__EVENTTARGET": "ctl00$MainContent$ddlWeeks",
@@ -72,9 +78,9 @@ class NckuTainan(Scraper):
 
             if i != len(optionValues) - 1:
                 # Prepare data_dict for the next POST request
-                post_data["__VIEWSTATE"] = soup.find("input", {"id": "__VIEWSTATE"}).get(
-                    "value"
-                )
+                post_data["__VIEWSTATE"] = soup.find(
+                    "input", {"id": "__VIEWSTATE"}
+                ).get("value")
                 post_data["__VIEWSTATEGENERATOR"] = soup.find(
                     "input", {"id": "__VIEWSTATEGENERATOR"}
                 ).get("value")
