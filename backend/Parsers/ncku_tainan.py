@@ -20,11 +20,11 @@ class NckuTainan(Scraper):
 
     async def scrape(self) -> ScrapedData:
         sslcontext = ssl.create_default_context(cafile=CERT)
-        timeout = aiohttp.ClientTimeout(total=5)
+        timeout = aiohttp.ClientTimeout(total=10)
         async with aiohttp.ClientSession(timeout=timeout) as session:
-            async with session.get(URL_SELF_PAID, timeout=5) as r:
+            async with session.get(URL_SELF_PAID, timeout=timeout) as r:
                 html_self_paid = await r.text()
-            async with session.get(URL_GOV_PAID, timeout=5) as r:
+            async with session.get(URL_GOV_PAID, timeout=timeout) as r:
                 html_gov_paid = await r.text()
         return self.parse_ncku_tainan(html_self_paid, html_gov_paid)
 
@@ -62,10 +62,12 @@ class NckuTainan(Scraper):
 
         # Get first day of each weekly appointments list.
         soup = bs4.BeautifulSoup(html, "html.parser")
-        selectTag = soup.find("select", {"id": "ctl00_MainContent_ddlWeeks"})
-        optionValues = list(map(lambda x: x.get("value"), selectTag.find_all("option")))
+        select_tag = soup.find("select", {"id": "ctl00_MainContent_ddlWeeks"})
+        option_values = list(
+            map(lambda x: x.get("value"), select_tag.find_all("option"))
+        )
 
-        for i, date in enumerate(optionValues):
+        for i, date in enumerate(option_values):
             # Check if there is an available appointment.
             table = soup.find("table", {"id": "tRegSchedule"})
             tds = table.find_all("td", {"class": "p-0"})
@@ -76,23 +78,25 @@ class NckuTainan(Scraper):
             if bool(appointments):
                 return AppointmentAvailability.AVAILABLE
 
-            if i != len(optionValues) - 1:
-                # Prepare data_dict for the next POST request
-                post_data["__VIEWSTATE"] = soup.find(
-                    "input", {"id": "__VIEWSTATE"}
-                ).get("value")
-                post_data["__VIEWSTATEGENERATOR"] = soup.find(
-                    "input", {"id": "__VIEWSTATEGENERATOR"}
-                ).get("value")
-                post_data["__EVENTVALIDATION"] = soup.find(
-                    "input", {"id": "__EVENTVALIDATION"}
-                ).get("value")
-                post_data["ctl00$MainContent$ddlWeeks"] = optionValues[i + 1]
-                post_data["ctl00$MainContent$ddlWeeks_02"] = date
+            if i == len(option_values) - 1:
+                break
 
-                # Launch POST request
-                # Using sync since each data_dict in POST request depends on previous html text.
-                r = requests.post(url, verify=CERT, data=post_data, timeout=5)
-                soup = bs4.BeautifulSoup(r.text, "html.parser")
+            # Prepare data_dict for the next POST request
+            post_data["__VIEWSTATE"] = soup.find("input", {"id": "__VIEWSTATE"}).get(
+                "value"
+            )
+            post_data["__VIEWSTATEGENERATOR"] = soup.find(
+                "input", {"id": "__VIEWSTATEGENERATOR"}
+            ).get("value")
+            post_data["__EVENTVALIDATION"] = soup.find(
+                "input", {"id": "__EVENTVALIDATION"}
+            ).get("value")
+            post_data["ctl00$MainContent$ddlWeeks"] = option_values[i + 1]
+            post_data["ctl00$MainContent$ddlWeeks_02"] = date
+
+            # Launch POST request
+            # Using sync since each data_dict in POST request depends on previous html text.
+            r = requests.post(url, verify=CERT, data=post_data, timeout=5)
+            soup = bs4.BeautifulSoup(r.text, "html.parser")
 
         return AppointmentAvailability.UNAVAILABLE
