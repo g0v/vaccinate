@@ -96,7 +96,7 @@ class NckuTainan(Scraper):
 
             # Launch POST request
             # Using sync since each data_dict in POST request depends on previous html text.
-            r = requests.post(url, verify=CERT, data=post_data, timeout=5)
+            r = requests.post(url, verify=CERT, data=post_data, timeout=10)
             soup = bs4.BeautifulSoup(r.text, "html.parser")
 
         return AppointmentAvailability.UNAVAILABLE
