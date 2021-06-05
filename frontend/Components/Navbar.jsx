@@ -42,13 +42,6 @@ export default function Navbar(): React.Node {
             </NavLink>
             <NavLink
               exact
-              className="nav-link"
-              to="/"
-            >
-              {t('txt-appointments')}
-            </NavLink>
-            <NavLink
-              exact
               to="/criteria"
               className="nav-link"
               aria-current="page"
