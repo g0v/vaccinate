@@ -1,4 +1,10 @@
-# Credits
+# 謝謝
+Vaxx.tw 是一個為了協助尋找自費疫苗名額的網站。因為政府即將開發官方統一名額預約系統，我們暫停了本網站的服務。
+
+# Thank You
+Vaxx.tw was created to help people look for self-paid vaccination appointments. The government has now rolled out their own vaccination appointment system, so this project is currently on hiatus.
+
+## Credits
 
 This project is run by volunteers in the [g0v.tw civic hacker network](https://g0v.tw). Don't ask why nobody is doing this. Become that nobody. 
 

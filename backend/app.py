@@ -208,11 +208,6 @@ async def government_paid_hospitals() -> wrappers.Response:
     return response
 
 
-@app.route("/criteria")
-def criteria() -> str:
-    return render_template("./index.html")
-
-
 @app.route("/hospital", methods=["POST"])
 def update_hospital() -> wrappers.Response:
     data = request.get_json()
@@ -230,6 +225,7 @@ def update_hospital() -> wrappers.Response:
     return make_response(jsonify({"success": True}), 200)
 
 
+@app.route("/criteria")
 @app.route("/credits")
 @app.route("/")
 def index() -> str:
