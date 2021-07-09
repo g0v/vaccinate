@@ -18,13 +18,6 @@ export default function DataGrid(props: {
   const {
     hospitals, buttonText, vaccineType,
   } = props;
-  if (hospitals.length === 0) {
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
-      </div>
-    );
-  }
 
   const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
     if (hospital.location in byCity) {
@@ -38,7 +31,15 @@ export default function DataGrid(props: {
   }, {});
 
   const locations: string[] = Object.keys(hospitalsByCity);
-  const [selectedLocation, setLocation] = React.useState(locations[0]);
+  const [selectedLocation, setLocation] = React.useState('臺北市');
+
+  if (hospitals.length === 0) {
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
+      </div>
+    );
+  }
 
   const makeCardGrid: (Hospital[]) =>
   React.Node = (localHospitals) => (
