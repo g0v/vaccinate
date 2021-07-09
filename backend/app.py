@@ -16,6 +16,7 @@ from typing import TypedDict, Tuple, Dict, Callable, List, Any, Optional
 from enum import Enum
 import requests
 from bs4 import BeautifulSoup
+import aiohttp, asyncio
 
 # Project imports
 import local_scraper
@@ -34,6 +35,7 @@ redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
 redis_password: Optional[str] = os.environ.get("REDIS_PASSWORD")
 # TODO: Implement better system for handling API Keys
 API_KEY: Optional[str] = os.environ.get("API_KEY")
+AIRTABLE_API_KEY: Optional[str] = os.environ.get("AIRTABLE_API_KEY")
 
 # The decode_responses flag here directs the client to convert the responses from Redis into Python strings
 # using the default encoding utf-8.  This is client specific.
@@ -45,6 +47,44 @@ r: redis.StrictRedis = redis.StrictRedis(
     username=redis_username,
     ssl=True,
 )
+
+
+async def get_hospitals_from_airtable() -> List[Hospital]:
+    # Must make global constant locally scoped to support typechecking for
+    # ternary operators for optionals
+    api_key: Optional[str] = AIRTABLE_API_KEY
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E6%96%BD%E6%89%93%E9%BB%9E%E6%B8%85%E5%96%AE%EF%BC%88%E4%BE%86%E6%BA%90%EF%BC%9ACDC%EF%BC%89?maxRecords=1000&view=raw%20data"
+    HEADERS: Dict[str, str] = (
+        {"Authorization": "Bearer " + api_key} if api_key is not None else {}
+    )
+    timeout = aiohttp.ClientTimeout(total=10)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(REQUEST_URL, headers=HEADERS) as r:
+            hospital_json_objects: Dict[str, Any] = await r.json()
+            return list(
+                map(
+                    lambda raw_data: parse_airtable_json_for_hospital(
+                        raw_data["fields"]
+                    ),
+                    hospital_json_objects["records"],
+                )
+            )
+
+
+def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
+    print(raw_data)
+    hospital: Hospital = {
+        "address": raw_data["施打站地址（自動）"],
+        "selfPaidAvailability": AppointmentAvailability.NO_DATA,
+        "department": "",
+        "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
+        "hospitalId": "0",
+        "location": raw_data["施打站縣市（自動）"],
+        "name": raw_data["施打站全稱（自動）"],
+        "phone": raw_data["預約電話（自動）"],
+        "website": raw_data["官方提供網址（自動）"],
+    }
+    return hospital
 
 
 app = Flask(
@@ -100,88 +140,11 @@ def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchem
 
 
 async def self_paid_hospital_data() -> List[Hospital]:
-    should_scrape = app.config["scrape"]
-    if should_scrape:
-        availability = await local_scraper.get_hospital_availability()
-    else:
-        availability = get_availability_from_server()
-
-    app.logger.warning(availability)
-    with open("../data/hospitals.csv") as csvfile:
-        reader = csv.DictReader(csvfile)
-        rows = []
-        for row in reader:
-            hospital_id = row["公費疫苗醫院編號"]
-            default_schema: HospitalAvailabilitySchema = {
-                "self_paid": AppointmentAvailability.NO_DATA,
-                "government_paid": AppointmentAvailability.NO_DATA,
-            }
-            hospital_availability: HospitalAvailabilitySchema = (
-                availability[hospital_id]
-                if hospital_id in availability
-                else default_schema
-            )
-            hospital: Hospital = {
-                "address": row["地址"],
-                "selfPaidAvailability": hospital_availability["self_paid"],
-                "department": row["科別"],
-                "governmentPaidAvailability": hospital_availability["government_paid"],
-                "hospitalId": hospital_id,
-                "location": row["縣市"],
-                "name": row["醫院名稱"],
-                "phone": row["電話"],
-                "website": row["Website"],
-            }
-            rows.append(hospital)
-        return rows
-
-
-# TODO: Migrate all data to new JSON file?
-def get_websites() -> Dict[HospitalID, str]:
-    with open("../data/hospitals.csv") as csvfile:
-        reader = csv.DictReader(csvfile)
-        websites = {}
-        for row in reader:
-            hospital_id = row["公費疫苗醫院編號"]
-            website = row["Website"]
-            websites[hospital_id] = website
-        return websites
+    return await get_hospitals_from_airtable()
 
 
 async def government_paid_hospital_data() -> List[Hospital]:
-    should_scrape = app.config["scrape"]
-    if should_scrape:
-        availability = await local_scraper.get_hospital_availability()
-    else:
-        availability = get_availability_from_server()
-    with open("../data/hospitals.json") as jsonfile:
-        blob = json.loads(jsonfile.read())
-        rows = []
-        websites = get_websites()
-        for row in blob:
-            hospital_id = row["HospitalId"]
-            default_schema: HospitalAvailabilitySchema = {
-                "self_paid": AppointmentAvailability.NO_DATA,
-                "government_paid": AppointmentAvailability.NO_DATA,
-            }
-            hospital_availability: HospitalAvailabilitySchema = (
-                availability[hospital_id]
-                if hospital_id in availability
-                else default_schema
-            )
-            hospital: Hospital = {
-                "address": row["Address"],
-                "selfPaidAvailability": AppointmentAvailability.UNAVAILABLE,
-                "department": "department",
-                "governmentPaidAvailability": hospital_availability["government_paid"],
-                "hospitalId": row["HospitalId"],
-                "location": row["City"],
-                "name": row["HospitalName"],
-                "phone": row["Phone"],
-                "website": (websites[hospital_id] if hospital_id in websites else ""),
-            }
-            rows.append(hospital)
-        return rows
+    return await get_hospitals_from_airtable()
 
 
 # pyre-fixme[56]: Decorator async types are not type-checked.
