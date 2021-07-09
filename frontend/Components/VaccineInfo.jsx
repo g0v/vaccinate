@@ -19,23 +19,6 @@ export default function VaccineInfo(
 
   return (
     <div>
-      {
-      vaccineType === 'SelfPaid' ? (
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
-          <div className="alert alert-warning" role="alert" style={{ textAlign: 'center', maxWidth: 800 }}>
-            <p>
-              <b>
-                {t('dataGrid:selfPaidVaccineClosure:txt-notice')}
-              </b>
-            </p>
-            <p>
-              {t('dataGrid:selfPaidVaccineClosure:txt-selfPaid2ndShot')}
-            </p>
-          </div>
-        </div>
-      )
-        : null
-    }
       <div style={{ marginTop: 20 }}>
         <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
         <p>
