@@ -48,18 +48,19 @@ r: redis.StrictRedis = redis.StrictRedis(
     ssl=True,
 )
 
-async def get_hospitals_from_airtable(offset: str = None) -> List[Hospital]:
+
+async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
     # Must make global constant locally scoped to support typechecking for
     # ternary operators for optionals
     api_key: Optional[str] = AIRTABLE_API_KEY
     REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E6%96%BD%E6%89%93%E9%BB%9E%E6%B8%85%E5%96%AE?maxRecords=1000&view=raw%20data"
-    if offset is not None:
+    if len(offset) > 0:
         REQUEST_URL += f"&offset={offset}"
     HEADERS: Dict[str, str] = (
         {"Authorization": "Bearer " + api_key} if api_key is not None else {}
     )
     timeout = aiohttp.ClientTimeout(total=10)
-    return_list: list = []
+    return_list: list[Hospital] = []
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(REQUEST_URL, headers=HEADERS) as r:
             hospital_json_objects: Dict[str, Any] = await r.json()
@@ -71,9 +72,10 @@ async def get_hospitals_from_airtable(offset: str = None) -> List[Hospital]:
                     hospital_json_objects["records"],
                 )
             )
-            print(return_list)
-            if "offset" in hospital_json_objects:                
-                return return_list + await get_hospitals_from_airtable(hospital_json_objects["offset"])
+            if "offset" in hospital_json_objects:
+                return return_list + await get_hospitals_from_airtable(
+                    hospital_json_objects["offset"]
+                )
             else:
                 return return_list
 

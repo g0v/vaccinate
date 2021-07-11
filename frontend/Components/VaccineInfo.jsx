@@ -3,9 +3,8 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import DataGrid from './VaccineInfo/DataGrid';
 import { getAvailability } from '../Types/Hospital';
-import { getCityList } from '../Types/Location';
+import { CITY_LIST } from '../Types/Location';
 
-import type { Location } from '../Types/Location';
 import type { Hospital } from '../Types/Hospital';
 import type { VaccineType } from '../Types/VaccineType';
 
@@ -18,7 +17,6 @@ export default function VaccineInfo(
   const availableHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'Available');
   const unavailableHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'Unavailable');
   const noDataHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'No data');
-  const locations: Location[] = getCityList();
 
   const [selectedLocation, setLocation] = React.useState('新北市');
 
@@ -28,17 +26,18 @@ export default function VaccineInfo(
 
   return (
     <div>
-      <div style={{ height: '85vh' }} className="d-flex justify-content-center align-items-center text-center">
+      <div style={{ height: '80vh' }} className="d-flex justify-content-center align-items-center text-center">
         <div className="flex-fill">
-          <h1 className="mb-4">💉</h1>
-          <h3>在台灣找到離你最近的疫苗</h3>
-          <p>Find the vaccine closest to you in Taiwan.</p>
+          <h3 className="mb-4">💉</h3>
+          <h1>找疫苗</h1>
+          <p>1922 以外的預約方式整理</p>
+          <p>Vaccination sites & where to make reservations</p>
           <div className="mt-5">
             <h3>選擇施打點所在縣市</h3>
             <p>請問您想搜尋哪一個縣市的施打點？</p>
             <select name="locations" className="form-select" onChange={changeLocations} value={selectedLocation}>
               {
-                locations.map((location) => (
+                Object.keys(CITY_LIST).map((location) => (
                   <option value={location}>{location}</option>
                 ))
               }

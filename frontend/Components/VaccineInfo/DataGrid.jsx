@@ -36,20 +36,18 @@ export default function DataGrid(props: {
   }
 
   const makeCardGrid: (Hospital[]) =>
-  React.Node = (localHospitals) => ((localHospitals === undefined) ? (<></>)
-    : (
-      <div className="row row-cols-1 row-cols-md-3 g-3">
-        <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
-      </div>
-    ));
+  React.Node = (localHospitals) => (
+    <div className="row row-cols-1 row-cols-md-3 g-3">
+      <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
+    </div>
+  );
 
   return (hospitals.length <= 20 ? makeCardGrid(hospitals)
     : (
       <>
         {/* $FlowFixMe: Casting from enum to string. */}
-        {/* <h4 className="mt-4 mb-1 text-center">{getLocationName(selectedLocation, cityT)}</h4> */}
         {/* $FlowFixMe: Casting from a string to an Enum. */}
-        {makeCardGrid(hospitalsByCity[selectedLocation])}
+        {makeCardGrid(hospitalsByCity[selectedLocation].filter((hospital) => hospital !== undefined))}
       </>
     )
   );

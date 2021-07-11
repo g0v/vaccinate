@@ -13,6 +13,8 @@ types-redis = "*"
 aiohttp = "*"
 flask = {extras = ["async"], version = "*"}
 flask-cors = "*"
+black = "*"
+pyre-check = "*"
 
 [dev-packages]
 black = "*"
