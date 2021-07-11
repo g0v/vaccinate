@@ -33,7 +33,7 @@ export default function Navbar(): React.Node {
           <span className="navbar-toggler-icon" />
         </button>
         <div className={navBarShown} id="navbarNavAltMarkup">
-          <div className="navbar-nav ml-auto me-4">
+          <div className="navbar-nav ms-auto me-4">
             <NavLink
               exact
               className="nav-link"
