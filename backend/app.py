@@ -188,6 +188,7 @@ def update_hospital() -> wrappers.Response:
     return make_response(jsonify({"success": True}), 200)
 
 
+@app.route("/about")
 @app.route("/criteria")
 @app.route("/credits")
 @app.route("/")
