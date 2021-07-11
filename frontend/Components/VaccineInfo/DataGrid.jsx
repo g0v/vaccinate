@@ -35,8 +35,8 @@ export default function DataGrid(props: {
 
   if (hospitals.length === 0) {
     return (
-      <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
+      <div>
+        <p className="lead">{t('txt-noHospitals')}</p>
       </div>
     );
   }
@@ -77,7 +77,7 @@ export default function DataGrid(props: {
         )
       }
         {/* $FlowFixMe: Casting from enum to string. */}
-        <h4 style={{ marginTop: '2em', marginBottom: '0.5em', textAlign: 'center' }}>{getLocationName(selectedLocation, cityT)}</h4>
+        <h4 className="mt-4 mb-1 text-center">{getLocationName(selectedLocation, cityT)}</h4>
         {/* $FlowFixMe: Casting from a string to an Enum. */}
         {makeCardGrid(hospitalsByCity[selectedLocation])}
       </>

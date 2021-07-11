@@ -19,14 +19,19 @@ export default function VaccineInfo(
 
   return (
     <div>
-      <div style={{ marginTop: 20 }}>
+      <div style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center text-center">
+        <div className="flex-fill">
+          <h1 className="mb-4">💉</h1>
+          <h2>在台灣找到離你最近的疫苗</h2>
+          <p>Find the vaccine closest to you in Taiwan.</p>
+        </div>
+      </div>
+      <div className="mb-4">
         <h3>{t('txt-hospitalsWithAppointmentsTitle')}</h3>
         <p>
-          <i>
-            {vaccineType === 'SelfPaid'
-              ? t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-selfPaid')
-              : t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-governmentPaid')}
-          </i>
+          {vaccineType === 'SelfPaid'
+            ? t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-selfPaid')
+            : t('dataGrid:hospitalsWithAppointmentsSubtitle:txt-governmentPaid')}
         </p>
         <DataGrid
           hospitals={availableHospitals}
@@ -34,14 +39,12 @@ export default function VaccineInfo(
           vaccineType={vaccineType}
         />
       </div>
-      <div style={{ marginTop: 20 }}>
+      <div className="mb-4">
         <h3>{t('txt-hospitalsWithNoDataTitle')}</h3>
         <p>
-          <i>
-            {vaccineType === 'SelfPaid'
-              ? t('dataGrid:hospitalsWithNoDataSubtitle:txt-selfPaid')
-              : t('dataGrid:hospitalsWithNoDataSubtitle:txt-governmentPaid')}
-          </i>
+          {vaccineType === 'SelfPaid'
+            ? t('dataGrid:hospitalsWithNoDataSubtitle:txt-selfPaid')
+            : t('dataGrid:hospitalsWithNoDataSubtitle:txt-governmentPaid')}
         </p>
         <DataGrid
           hospitals={noDataHospitals}
@@ -49,14 +52,12 @@ export default function VaccineInfo(
           vaccineType={vaccineType}
         />
       </div>
-      <div style={{ marginTop: 20 }}>
+      <div className="mb-4">
         <h3>{t('txt-hospitalsWithNoAppointmentsTitle')}</h3>
         <p>
-          <i>
-            {vaccineType === 'SelfPaid'
-              ? t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-selfPaid')
-              : t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-governmentPaid')}
-          </i>
+          {vaccineType === 'SelfPaid'
+            ? t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-selfPaid')
+            : t('dataGrid:hospitalsWithNoAppointmentsSubtitle:txt-governmentPaid')}
         </p>
         <DataGrid
           hospitals={unavailableHospitals}

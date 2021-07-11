@@ -35,35 +35,35 @@ function G0vbar(): React.Node {
     en: (
       <>
         This is a website by&nbsp;
-        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+        <a style={g0vbarLinkStyle} href="https://g0v.tw" target="_blank" rel="noreferrer">g0v, Taiwan&apos;s Civic Tech Network</a>
         .
       </>
     ),
     zh: (
       <>
         這是一個
-        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">台灣g0v公民科技社群</a>
+        <a style={g0vbarLinkStyle} href="https://g0v.tw" target="_blank" rel="noreferrer">台灣g0v公民科技社群</a>
         開發的網站。
       </>
     ),
     ja: (
       <>
         This is a website by&nbsp;
-        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+        <a style={g0vbarLinkStyle} href="https://g0v.tw" target="_blank" rel="noreferrer">g0v, Taiwan&apos;s Civic Tech Network</a>
         .
       </>
     ),
     id: (
       <>
         This is a website by&nbsp;
-        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+        <a style={g0vbarLinkStyle} href="https://g0v.tw" target="_blank" rel="noreferrer">g0v, Taiwan&apos;s Civic Tech Network</a>
         .
       </>
     ),
     tl: (
       <>
         Ang website na ito ay gawa ng&nbsp;
-        <a style={g0vbarLinkStyle} href="https://hack.g0v.tw">g0v, Taiwan&apos;s Civic Tech Network</a>
+        <a style={g0vbarLinkStyle} href="https://g0v.tw" target="_blank" rel="noreferrer">g0v, Taiwan&apos;s Civic Tech Network</a>
       </>
     ),
   };

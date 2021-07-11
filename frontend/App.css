@@ -1,0 +1,13 @@
+body {
+    background-color: #EEE;
+}
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+}
+.card {
+    border: 0;
+}
+
+.badge {
+    font-size: 1rem;
+}

@@ -73,6 +73,8 @@ async def get_hospitals_from_airtable() -> List[Hospital]:
 
 def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
     print(raw_data)
+    if raw_data.get("實際預約網址（手動）", None) is not None:
+        raw_data["官方提供網址（自動）"] = raw_data["實際預約網址（手動）"]
     hospital: Hospital = {
         "address": raw_data["施打站地址（自動）"],
         "selfPaidAvailability": AppointmentAvailability.NO_DATA,

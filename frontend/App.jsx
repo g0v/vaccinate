@@ -22,12 +22,7 @@ export default function App(): React.Node {
       <Router>
         <G0vbar />
         <Navbar />
-        <div className="container">
-          <div className="alert alert-danger mt-4" role="alert">
-            This site is currently under heavy development in preparation for the next wave of
-            COVID-19 Vaccinations. We&apos;re keeping it online in-case it detects any appointments
-            that are cancelled, but expect things to break until we remove this message.
-          </div>
+        <div className="container px-4 mt-2">
           <Switch>
             <Route path="/about">
               <About />
@@ -42,7 +37,7 @@ export default function App(): React.Node {
               <Home />
             </Route>
           </Switch>
-          <p><i>Created with love by a member of g0v, Taiwan civic tech community.</i></p>
+          <p className="text-center">This tool is created by the contributors in g0v.tw with love in CC0.</p>
         </div>
       </Router>
     </I18nextProvider>
