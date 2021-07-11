@@ -6,7 +6,7 @@ import { getAvailability } from '../Types/Hospital';
 import { CITY_LIST } from '../Types/Location';
 
 import type { Hospital } from '../Types/Hospital';
-import type { Location } from '../../Types/Location';
+import type { Location } from '../Types/Location';
 import type { VaccineType } from '../Types/VaccineType';
 
 export default function VaccineInfo(

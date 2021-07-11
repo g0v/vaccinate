@@ -8,11 +8,11 @@ import type { Location } from '../../Types/Location';
 function getBadgeClassname(availability: Availability): string {
   switch (availability) {
     case 'Available':
-      return 'badge bg-success';
+      return 'badge bg-success me-1 d-none';
     case 'Unavailable':
-      return 'badge bg-danger';
+      return 'badge bg-danger me-1 d-none';
     default:
-      return 'badge bg-light text-dark';
+      return 'badge bg-light text-dark me-1 d-none';
   }
 }
 
@@ -60,10 +60,10 @@ export default function Card(props: {
           <span className={getBadgeClassname(availability)}>
             {getBadgeText(availability, cardT)}
           </span>
-          <span className="badge bg-light text-dark">
+          <span className="badge bg-dark text-light me-1">
             {getLocationName(location, cityT)}
           </span>
-          <span className="badge bg-light text-dark">
+          <span className="badge bg-dark text-light me-1">
             {county}
           </span>
         </p>
