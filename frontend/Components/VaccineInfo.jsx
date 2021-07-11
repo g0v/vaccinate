@@ -32,6 +32,7 @@ export default function VaccineInfo(
           <h1>找疫苗</h1>
           <p>1922 以外的預約方式整理</p>
           <p>Vaccination sites & where to make reservations</p>
+          <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#InfoModal">資訊陸續更新中！</button>
           <div className="mt-5">
             <h3>選擇施打點所在縣市</h3>
             <p>請問您想搜尋哪一個縣市的施打點？</p>
