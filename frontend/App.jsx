@@ -22,7 +22,7 @@ export default function App(): React.Node {
       <Router>
         <G0vbar />
         <Navbar />
-        <div className="container px-4 mt-2">
+        <div className="container px-4 my-2">
           <Switch>
             <Route path="/about">
               <About />

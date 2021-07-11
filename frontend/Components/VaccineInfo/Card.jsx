@@ -65,9 +65,9 @@ export default function Card(props: {
         <h4 className="card-title">{name}</h4>
         <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
         <p className="card-text">{department}</p>
-        <p className="card-text d-none d-md-block">{phone}</p>
+        <p className="card-text">{phone}</p>
         <div className="row">
-          <div className="col-6 col-md-12 d-grid"><a href={website} className="btn btn-primary">{buttonText}</a></div>
+          <div className="col-6 col-md-12 d-grid"><a href={website} className="btn btn-primary" target="_blank" rel="noreferrer">{buttonText}</a></div>
           <div className="col-6 d-grid d-md-none"><a href={`tel:${phone}`} className="btn btn-primary">電話預約</a></div>
         </div>
       </div>

@@ -1,8 +1,8 @@
+/* eslint-disable max-len */
 // @flow
+
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import Cards from './Cards';
-import { getLocationName } from '../../Types/Location';
 
 import type { Hospital } from '../../Types/Hospital';
 import type { Location } from '../../Types/Location';
@@ -12,11 +12,10 @@ export default function DataGrid(props: {
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
+  selectedLocation: string
 }): React.Node {
-  const { t } = useTranslation('dataGrid');
-  const [cityT] = useTranslation('city');
   const {
-    hospitals, buttonText, vaccineType,
+    hospitals, buttonText, vaccineType, selectedLocation,
   } = props;
 
   const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
@@ -30,54 +29,25 @@ export default function DataGrid(props: {
     return { ...byCity, ...newLocation };
   }, {});
 
-  const locations: string[] = Object.keys(hospitalsByCity);
-  const [selectedLocation, setLocation] = React.useState('臺北市');
-
   if (hospitals.length === 0) {
     return (
-      <div>
-        <p className="lead">{t('txt-noHospitals')}</p>
-      </div>
+      <div> </div>
     );
   }
 
   const makeCardGrid: (Hospital[]) =>
-  React.Node = (localHospitals) => (
-    <div className="row row-cols-1 row-cols-md-4 g-3">
-      <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
-    </div>
-  );
+  React.Node = (localHospitals) => ((localHospitals === undefined) ? (<></>)
+    : (
+      <div className="row row-cols-1 row-cols-md-4 g-3">
+        <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
+      </div>
+    ));
 
   return (hospitals.length <= 20 ? makeCardGrid(hospitals)
     : (
       <>
-        {
-        locations.map(
-          (location) => (
-            <button
-              key={location}
-              className={
-                location === selectedLocation
-                  ? 'badge rounded-pill bg-light text-dark'
-                  : 'badge rounded-pill bg-dark'
-              }
-              onClick={() => setLocation(location)}
-              style={{
-                fontSize: '1em',
-                marginRight: 10,
-                marginBottom: 10,
-                border: 'none',
-              }}
-              type="button"
-            >
-              {/* $FlowFixMe: Casting from enum to string. */}
-              {getLocationName(location, cityT)}
-            </button>
-          ),
-        )
-      }
         {/* $FlowFixMe: Casting from enum to string. */}
-        <h4 className="mt-4 mb-1 text-center">{getLocationName(selectedLocation, cityT)}</h4>
+        {/* <h4 className="mt-4 mb-1 text-center">{getLocationName(selectedLocation, cityT)}</h4> */}
         {/* $FlowFixMe: Casting from a string to an Enum. */}
         {makeCardGrid(hospitalsByCity[selectedLocation])}
       </>

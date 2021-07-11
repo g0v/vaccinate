@@ -26,6 +26,10 @@ export type Location =
   | '臺東縣'
   | '金門縣';
 
+export function getCityList(): Location[] {
+  return ['基隆市', '臺北市', '新北市', '桃園市', '新竹縣', '新竹市', '彰化縣', '雲林縣', '苗栗縣', '宜蘭縣', '臺中市', '彰化縣', '南投縣', '嘉義縣', '嘉義市', '臺南市', '高雄市', '屏東縣', '花蓮縣', '連江縣', '澎湖縣', '臺東縣', '金門縣'];
+}
+
 // $FlowFixMe: Typing for translation hook.
 export function getLocationName(location: Location, t): string {
   switch (location) {
