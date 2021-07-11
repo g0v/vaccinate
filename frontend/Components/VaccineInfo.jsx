@@ -28,13 +28,13 @@ export default function VaccineInfo(
 
   return (
     <div>
-      <div style={{ height: '90vh' }} className="d-flex justify-content-center align-items-center text-center">
+      <div style={{ height: '85vh' }} className="d-flex justify-content-center align-items-center text-center">
         <div className="flex-fill">
           <h1 className="mb-4">💉</h1>
-          <h2>在台灣找到離你最近的疫苗</h2>
+          <h3>在台灣找到離你最近的疫苗</h3>
           <p>Find the vaccine closest to you in Taiwan.</p>
           <div className="mt-5">
-            <h2>選擇施打點所在縣市</h2>
+            <h3>選擇施打點所在縣市</h3>
             <p>請問您想搜尋哪一個縣市的施打點？</p>
             <select name="locations" className="form-select" onChange={changeLocations} value={selectedLocation}>
               {
@@ -66,8 +66,7 @@ export default function VaccineInfo(
           vaccineType={vaccineType}
         />
       </div>
-      <hr />
-      <div className="text-center">
+      <div className="text-center my-5 pt-5">
         <h1>😷</h1>
         <p>
           以上就是所有您所要求的疫苗預約資訊，

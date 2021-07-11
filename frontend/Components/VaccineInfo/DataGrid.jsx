@@ -38,7 +38,7 @@ export default function DataGrid(props: {
   const makeCardGrid: (Hospital[]) =>
   React.Node = (localHospitals) => ((localHospitals === undefined) ? (<></>)
     : (
-      <div className="row row-cols-1 row-cols-md-4 g-3">
+      <div className="row row-cols-1 row-cols-md-3 g-3">
         <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
       </div>
     ));

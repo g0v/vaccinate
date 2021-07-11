@@ -37,7 +37,7 @@ export default function App(): React.Node {
               <Home />
             </Route>
           </Switch>
-          <p className="text-center">This tool is created by the contributors in g0v.tw with love in CC0.</p>
+          <p className="text-center my-5">This tool is created by the contributors in g0v.tw with love in CC0.</p>
         </div>
       </Router>
     </I18nextProvider>
