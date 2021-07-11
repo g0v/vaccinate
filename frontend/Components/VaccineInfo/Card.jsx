@@ -34,6 +34,7 @@ export default function Card(props: {
   buttonText: string,
   department: string,
   location: Location,
+  county: string,
   name: string,
   phone: string,
   website: string,
@@ -44,6 +45,7 @@ export default function Card(props: {
     buttonText,
     department,
     location,
+    county,
     name,
     phone,
     website,
@@ -60,6 +62,9 @@ export default function Card(props: {
           </span>
           <span className="badge bg-light text-dark">
             {getLocationName(location, cityT)}
+          </span>
+          <span className="badge bg-light text-dark">
+            {county}
           </span>
         </p>
         <h4 className="card-title">{name}</h4>

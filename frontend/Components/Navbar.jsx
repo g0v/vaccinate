@@ -17,8 +17,9 @@ export default function Navbar(): React.Node {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          {`💉 ${t('txt-title')}`}
+          💉 找疫苗 Find your vaxx
         </Link>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -32,7 +33,7 @@ export default function Navbar(): React.Node {
           <span className="navbar-toggler-icon" />
         </button>
         <div className={navBarShown} id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+          <div className="navbar-nav ml-auto me-4">
             <NavLink
               exact
               className="nav-link"
@@ -42,20 +43,13 @@ export default function Navbar(): React.Node {
             </NavLink>
             <NavLink
               exact
-              to="/criteria"
-              className="nav-link"
-              aria-current="page"
-            >
-              {t('txt-vaccineCriteria')}
-            </NavLink>
-            <NavLink
-              exact
               to="/credits"
               className="nav-link"
               aria-current="page"
             >
               {t('txt-credits')}
             </NavLink>
+            <a href="https://www.readr.tw/project/3/covid19-vaccines-tracker" target="_blank" rel="noreferrer" className="nav-link">查詢自己是否符合施打資格</a>
           </div>
         </div>
         <LanguageSelector />

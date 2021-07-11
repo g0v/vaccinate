@@ -19,6 +19,7 @@ export default function Cards(
         buttonText={buttonText}
         department={hospital.department}
         location={hospital.location}
+        county={hospital.county}
         name={hospital.name}
         phone={hospital.phone}
         website={hospital.website}

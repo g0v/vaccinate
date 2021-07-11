@@ -12,10 +12,11 @@ export default function DataGrid(props: {
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
-  selectedLocation: string
+  selectedLocation: string,
+  selectedCounty: string
 }): React.Node {
   const {
-    hospitals, buttonText, vaccineType, selectedLocation,
+    hospitals, buttonText, vaccineType, selectedLocation, selectedCounty,
   } = props;
 
   const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
@@ -47,7 +48,7 @@ export default function DataGrid(props: {
       <>
         {/* $FlowFixMe: Casting from enum to string. */}
         {/* $FlowFixMe: Casting from a string to an Enum. */}
-        {makeCardGrid(hospitalsByCity[selectedLocation].filter((hospital) => hospital !== undefined))}
+        {makeCardGrid(hospitalsByCity[selectedLocation].filter((hospital) => hospital !== undefined).filter((hospital) => (selectedCounty === '全部地區') || (hospital.county === selectedCounty)))}
       </>
     )
   );
