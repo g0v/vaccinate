@@ -53,7 +53,7 @@ async def get_hospitals_from_airtable() -> List[Hospital]:
     # Must make global constant locally scoped to support typechecking for
     # ternary operators for optionals
     api_key: Optional[str] = AIRTABLE_API_KEY
-    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E6%96%BD%E6%89%93%E9%BB%9E%E6%B8%85%E5%96%AE%EF%BC%88%E4%BE%86%E6%BA%90%EF%BC%9ACDC%EF%BC%89?maxRecords=1000&view=raw%20data"
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E6%96%BD%E6%89%93%E9%BB%9E%E6%B8%85%E5%96%AE?maxRecords=1000&view=raw%20data"
     HEADERS: Dict[str, str] = (
         {"Authorization": "Bearer " + api_key} if api_key is not None else {}
     )
