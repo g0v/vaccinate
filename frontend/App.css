@@ -1,0 +1,16 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #EEE;
+}
+h1, h2, h3, h4, h5 {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.card {
+    border: 0;
+    height: 100%;
+}
+
+.badge {
+    font-size: 1rem;
+}

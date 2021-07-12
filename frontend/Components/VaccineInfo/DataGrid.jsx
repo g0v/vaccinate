@@ -1,8 +1,8 @@
+/* eslint-disable max-len */
 // @flow
+
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import Cards from './Cards';
-import { getLocationName } from '../../Types/Location';
 
 import type { Hospital } from '../../Types/Hospital';
 import type { Location } from '../../Types/Location';
@@ -12,11 +12,11 @@ export default function DataGrid(props: {
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
+  selectedLocation: string,
+  selectedCounty: string
 }): React.Node {
-  const { t } = useTranslation('dataGrid');
-  const [cityT] = useTranslation('city');
   const {
-    hospitals, buttonText, vaccineType,
+    hospitals, buttonText, vaccineType, selectedLocation, selectedCounty,
   } = props;
 
   const hospitalsByCity = hospitals.reduce((byCity: { [Location]: Hospital[] }, hospital) => {
@@ -30,20 +30,15 @@ export default function DataGrid(props: {
     return { ...byCity, ...newLocation };
   }, {});
 
-  const locations: string[] = Object.keys(hospitalsByCity);
-  const [selectedLocation, setLocation] = React.useState('臺北市');
-
   if (hospitals.length === 0) {
     return (
-      <div style={{ textAlign: 'center' }}>
-        <p className="lead"><i>{t('txt-noHospitals')}</i></p>
-      </div>
+      <div> </div>
     );
   }
 
   const makeCardGrid: (Hospital[]) =>
   React.Node = (localHospitals) => (
-    <div className="row row-cols-1 row-cols-md-4 g-3">
+    <div className="row row-cols-1 row-cols-md-3 g-3">
       <Cards hospitals={localHospitals} buttonText={buttonText} vaccineType={vaccineType} />
     </div>
   );
@@ -51,35 +46,9 @@ export default function DataGrid(props: {
   return (hospitals.length <= 20 ? makeCardGrid(hospitals)
     : (
       <>
-        {
-        locations.map(
-          (location) => (
-            <button
-              key={location}
-              className={
-                location === selectedLocation
-                  ? 'badge rounded-pill bg-light text-dark'
-                  : 'badge rounded-pill bg-dark'
-              }
-              onClick={() => setLocation(location)}
-              style={{
-                fontSize: '1em',
-                marginRight: 10,
-                marginBottom: 10,
-                border: 'none',
-              }}
-              type="button"
-            >
-              {/* $FlowFixMe: Casting from enum to string. */}
-              {getLocationName(location, cityT)}
-            </button>
-          ),
-        )
-      }
         {/* $FlowFixMe: Casting from enum to string. */}
-        <h4 style={{ marginTop: '2em', marginBottom: '0.5em', textAlign: 'center' }}>{getLocationName(selectedLocation, cityT)}</h4>
         {/* $FlowFixMe: Casting from a string to an Enum. */}
-        {makeCardGrid(hospitalsByCity[selectedLocation])}
+        {makeCardGrid(hospitalsByCity[selectedLocation].filter((hospital) => hospital !== undefined).filter((hospital) => (selectedCounty === '全部地區') || (hospital.county === selectedCounty)))}
       </>
     )
   );

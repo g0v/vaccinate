@@ -49,19 +49,22 @@ r: redis.StrictRedis = redis.StrictRedis(
 )
 
 
-async def get_hospitals_from_airtable() -> List[Hospital]:
+async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
     # Must make global constant locally scoped to support typechecking for
     # ternary operators for optionals
     api_key: Optional[str] = AIRTABLE_API_KEY
-    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E6%96%BD%E6%89%93%E9%BB%9E%E6%B8%85%E5%96%AE%EF%BC%88%E4%BE%86%E6%BA%90%EF%BC%9ACDC%EF%BC%89?maxRecords=1000&view=raw%20data"
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblJCPWEMpMg86dI8?maxRecords=9999&view=%E7%B5%A6%E5%89%8D%E7%AB%AF%E9%A1%AF%E7%A4%BA%E7%94%A8%E7%9A%84%E8%B3%87%E6%96%99"
+    if len(offset) > 0:
+        REQUEST_URL += f"&offset={offset}"
     HEADERS: Dict[str, str] = (
         {"Authorization": "Bearer " + api_key} if api_key is not None else {}
     )
     timeout = aiohttp.ClientTimeout(total=10)
+    return_list: list[Hospital] = []
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(REQUEST_URL, headers=HEADERS) as r:
             hospital_json_objects: Dict[str, Any] = await r.json()
-            return list(
+            return_list = list(
                 map(
                     lambda raw_data: parse_airtable_json_for_hospital(
                         raw_data["fields"]
@@ -69,20 +72,26 @@ async def get_hospitals_from_airtable() -> List[Hospital]:
                     hospital_json_objects["records"],
                 )
             )
+            if "offset" in hospital_json_objects:
+                return return_list + await get_hospitals_from_airtable(
+                    hospital_json_objects["offset"]
+                )
+            else:
+                return return_list
 
 
 def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
-    print(raw_data)
     hospital: Hospital = {
-        "address": raw_data["施打站地址（自動）"],
+        "address": raw_data.get("施打站地址（自動）", "無資料"),
         "selfPaidAvailability": AppointmentAvailability.NO_DATA,
         "department": "",
         "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
         "hospitalId": "0",
         "location": raw_data["施打站縣市（自動）"],
+        "county": raw_data.get("施打站行政區（自動）", "無資料"),
         "name": raw_data["施打站全稱（自動）"],
-        "phone": raw_data["預約電話（自動）"],
-        "website": raw_data["官方提供網址（自動）"],
+        "phone": raw_data.get("預約電話（自動）", "無資料"),
+        "website": raw_data.get("實際預約網址（手動）", raw_data.get("官方提供網址（自動）", None)),
     }
     return hospital
 
@@ -188,6 +197,7 @@ def update_hospital() -> wrappers.Response:
     return make_response(jsonify({"success": True}), 200)
 
 
+@app.route("/about")
 @app.route("/criteria")
 @app.route("/credits")
 @app.route("/")

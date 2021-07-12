@@ -17,6 +17,7 @@ class Hospital(TypedDict):
     governmentPaidAvailability: AppointmentAvailability
     hospitalId: HospitalID
     location: str
+    county: str
     name: str
     phone: str
     selfPaidAvailability: AppointmentAvailability

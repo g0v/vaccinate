@@ -16,7 +16,7 @@ hospitalsWithNoAppointmentsSubtitle:
 txt-noHospitals: "該種類無醫院"
 
 btn-getAppointment: "前往醫院官網掛號"
-btn-visitWebsite: "前往醫院官網查詢"
+btn-visitWebsite: "前往預約網址"
 
 selfPaidVaccineClosure:
   txt-notice: "根據指揮中心2021年5月15日的記者會，現在無法註冊自費疫苗名額。"

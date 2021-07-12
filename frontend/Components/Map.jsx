@@ -3,7 +3,7 @@ import * as React from 'react';
 
 export default function Map(): React.Node {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div className="text-center">
       <iframe
         src="https://www.google.com/maps/d/embed?mid=1LUqWZfmEBZFCAl8ThcE1cakLsb9k-Pkr"
         title="Map"

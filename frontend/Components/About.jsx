@@ -5,7 +5,7 @@ import Map from './Map';
 
 export default function Home(): React.Node {
   return (
-    <div className="row" style={{ marginTop: 50 }}>
+    <div className="row">
       <div className="col">
         <Content />
       </div>

@@ -35,7 +35,7 @@ export default function Content(): React.Node {
   const [, i18n] = useTranslation();
   return (
     <>
-      <div style={{ marginTop: 10 }}>
+      <div>
         <ReactMarkdown>{getContent(i18n.language)}</ReactMarkdown>
       </div>
     </>
