@@ -31,7 +31,7 @@ export default function VaccineInfo(
 
   const countyByCity = rows.reduce((byCity: { [Location]: string[] }, hospital) => {
     if (hospital.location in byCity) {
-      if (!(hospital.county in byCity[hospital.location])) {
+      if (byCity[hospital.location].indexOf(hospital.county) === -1) {
         byCity[hospital.location].push(hospital.county);
       }
       return byCity;
@@ -40,9 +40,9 @@ export default function VaccineInfo(
     newLocation[hospital.location] = [hospital.county];
     return { ...byCity, ...newLocation };
   }, {});
-
   function changeLocations(event) {
     setLocation(event.target.value);
+    setCounty('全部地區');
   }
   function changeCounty(event) {
     setCounty(event.target.value);
