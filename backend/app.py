@@ -29,6 +29,11 @@ from hospital_types import (
 )
 
 
+class PopupVaccineNews(TypedDict):
+    text: str
+    buttons: List[Dict[str, str]]
+
+
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
@@ -49,9 +54,9 @@ r: redis.StrictRedis = redis.StrictRedis(
 )
 
 
-async def get_popup_news(offset: str = "") -> Dict[str, Any]:
+async def get_popup_news(offset: str = "") -> PopupVaccineNews:
     api_key: Optional[str] = AIRTABLE_API_KEY
-    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblTplX7CRnNvFdoQ?maxRecords=10&filterByFormula=%7B%E6%98%AF%E5%90%A6%E9%A1%AF%E7%A4%BA%7D"
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblTplX7CRnNvFdoQ?maxRecords=5&filterByFormula=%7B%E6%98%AF%E5%90%A6%E9%A1%AF%E7%A4%BA%7D"
     if len(offset) > 0:
         REQUEST_URL += f"&offset={offset}"
     HEADERS: Dict[str, str] = (
@@ -61,7 +66,7 @@ async def get_popup_news(offset: str = "") -> Dict[str, Any]:
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(REQUEST_URL, headers=HEADERS) as r:
             popup_news_data: Dict[str, Any] = await r.json()
-            result: Dict[str, Any] = {"text": "", "buttons": []}
+            result: PopupVaccineNews = {"text": "", "buttons": []}
             for record in popup_news_data["records"]:
                 if record["fields"]["title"] == "text":
                     result["text"] += record["fields"]["words"]
