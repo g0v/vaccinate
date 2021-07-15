@@ -72,7 +72,9 @@ export default function Card(props: {
         <p className="card-text">{department}</p>
         <p className="card-text">{phone}</p>
         <div className="d-grid mt-auto">
-          <a href={website} className="btn btn-primary mb-1" target="_blank" rel="noreferrer">{buttonText}</a>
+          {
+            website != null ? <a href={website} className="btn btn-primary mb-1" target="_blank" rel="noreferrer">{buttonText}</a> : null
+          }
           <a href={`tel:${phone}`} className="btn btn-primary mb-1 d-md-none">電話預約</a>
         </div>
       </div>
