@@ -21,7 +21,7 @@ export default function VaccineInfo(
   const noDataHospitals = rows.filter((row) => getAvailability(row, vaccineType) === 'No data');
 
   const [selectedLocation, setLocation] = React.useState('臺北市');
-  const [selectedCounty, setCounty] = React.useState('全部地區');
+  const [selectedCounty, setCounty] = React.useState('null');
 
   if (rows.length === 0) {
     return (
@@ -29,7 +29,7 @@ export default function VaccineInfo(
     );
   }
 
-  const countyByCity = rows.reduce((byCity: { [Location]: string[] }, hospital) => {
+  const countiesGroupByCity = rows.reduce((byCity: { [Location]: string[] }, hospital) => {
     if (hospital.location in byCity) {
       if (byCity[hospital.location].indexOf(hospital.county) === -1) {
         byCity[hospital.location].push(hospital.county);
@@ -42,7 +42,7 @@ export default function VaccineInfo(
   }, {});
   function changeLocations(event) {
     setLocation(event.target.value);
-    setCounty('全部地區');
+    setCounty('null');
   }
   function changeCounty(event) {
     setCounty(event.target.value);
@@ -72,9 +72,9 @@ export default function VaccineInfo(
               </div>
               <div className="col-md-4 mb-2">
                 <select name="county" className="form-select" onChange={changeCounty} value={selectedCounty}>
-                  <option value="全部地區">全部地區</option>
+                  <option value="null">全部地區</option>
                   {
-                    countyByCity[selectedLocation].map(
+                    countiesGroupByCity[selectedLocation].map(
                       (county) => (
                         <option value={county}>{county}</option>
                       ),
