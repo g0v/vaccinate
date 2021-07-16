@@ -29,6 +29,11 @@ from hospital_types import (
 )
 
 
+class PopupVaccineNews(TypedDict):
+    text: str
+    buttons: List[Dict[str, str]]
+
+
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
@@ -47,6 +52,27 @@ r: redis.StrictRedis = redis.StrictRedis(
     username=redis_username,
     ssl=True,
 )
+
+
+async def get_popup_news(offset: str = "") -> PopupVaccineNews:
+    api_key: Optional[str] = AIRTABLE_API_KEY
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblTplX7CRnNvFdoQ?maxRecords=5&filterByFormula=%7B%E6%98%AF%E5%90%A6%E9%A1%AF%E7%A4%BA%7D"
+    if len(offset) > 0:
+        REQUEST_URL += f"&offset={offset}"
+    HEADERS: Dict[str, str] = (
+        {"Authorization": "Bearer " + api_key} if api_key is not None else {}
+    )
+    timeout = aiohttp.ClientTimeout(total=10)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(REQUEST_URL, headers=HEADERS) as r:
+            popup_news_data: Dict[str, Any] = await r.json()
+            result: PopupVaccineNews = {"text": "", "buttons": []}
+            for record in popup_news_data["records"]:
+                if record["fields"]["title"] == "text":
+                    result["text"] += record["fields"]["words"]
+                else:
+                    result["buttons"].append(record["fields"])
+            return result
 
 
 async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
@@ -172,6 +198,18 @@ async def self_paid_hospitals() -> wrappers.Response:
 @app.route("/government_paid_hospitals")
 async def government_paid_hospitals() -> wrappers.Response:
     data = await government_paid_hospital_data()
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype="application/json",
+    )
+    return response
+
+
+# pyre-fixme[56]: Decorator async types are not type-checked.
+@app.route("/popup_news")
+async def popup_news() -> wrappers.Response:
+    data = await get_popup_news()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
