@@ -34,6 +34,13 @@ class PopupVaccineNews(TypedDict):
     buttons: List[Dict[str, str]]
 
 
+class AirTableRequestParams(TypedDict):
+    filterByFormula: Optional[str]
+    offset: Optional[str]
+    maxRecords: Optional[int]
+    view: Optional[str]
+
+
 redis_host: Optional[str] = os.environ.get("REDIS_HOST")
 redis_port: Optional[str] = os.environ.get("REDIS_PORT")
 redis_username: Optional[str] = os.environ.get("REDIS_USERNAME")
@@ -55,16 +62,26 @@ r: redis.StrictRedis = redis.StrictRedis(
 
 
 async def get_popup_news(offset: str = "") -> PopupVaccineNews:
+    url_params: AirTableRequestParams = {
+        "filterByFormula": "{是否顯示}",
+        "maxRecords": 5,
+        "offset": offset,
+        "view": None,
+    }
     api_key: Optional[str] = AIRTABLE_API_KEY
-    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblTplX7CRnNvFdoQ?maxRecords=5&filterByFormula=%7B%E6%98%AF%E5%90%A6%E9%A1%AF%E7%A4%BA%7D"
-    if len(offset) > 0:
-        REQUEST_URL += f"&offset={offset}"
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblTplX7CRnNvFdoQ"
+    authorization: Optional[str] = "Bearer " + api_key if api_key is not None else None
     HEADERS: Dict[str, str] = (
         {"Authorization": "Bearer " + api_key} if api_key is not None else {}
     )
+
+    remove_nones = lambda params: {k: v for k, v in params.items() if v is not None}
+
     timeout = aiohttp.ClientTimeout(total=10)
     async with aiohttp.ClientSession(timeout=timeout) as session:
-        async with session.get(REQUEST_URL, headers=HEADERS) as r:
+        async with session.get(
+            REQUEST_URL, headers=remove_nones(HEADERS), params=remove_nones(url_params)
+        ) as r:
             popup_news_data: Dict[str, Any] = await r.json()
             result: PopupVaccineNews = {"text": "", "buttons": []}
             for record in popup_news_data["records"]:
@@ -76,19 +93,27 @@ async def get_popup_news(offset: str = "") -> PopupVaccineNews:
 
 
 async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
+    url_params: AirTableRequestParams = {
+        "filterByFormula": None,
+        "offset": offset,
+        "maxRecords": 9999,
+        "view": "給前端顯示用的資料",
+    }
     # Must make global constant locally scoped to support typechecking for
     # ternary operators for optionals
     api_key: Optional[str] = AIRTABLE_API_KEY
-    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblJCPWEMpMg86dI8?maxRecords=9999&view=%E7%B5%A6%E5%89%8D%E7%AB%AF%E9%A1%AF%E7%A4%BA%E7%94%A8%E7%9A%84%E8%B3%87%E6%96%99"
-    if len(offset) > 0:
-        REQUEST_URL += f"&offset={offset}"
-    HEADERS: Dict[str, str] = (
-        {"Authorization": "Bearer " + api_key} if api_key is not None else {}
-    )
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/tblJCPWEMpMg86dI8"
+    authorization: Optional[str] = "Bearer " + api_key if api_key is not None else None
+    HEADERS: Dict[str, Optional[str]] = {"Authorization": authorization}
     timeout = aiohttp.ClientTimeout(total=10)
     return_list: list[Hospital] = []
+
+    remove_nones = lambda params: {k: v for k, v in params.items() if v is not None}
+
     async with aiohttp.ClientSession(timeout=timeout) as session:
-        async with session.get(REQUEST_URL, headers=HEADERS) as r:
+        async with session.get(
+            REQUEST_URL, headers=remove_nones(HEADERS), params=remove_nones(url_params)
+        ) as r:
             hospital_json_objects: Dict[str, Any] = await r.json()
             return_list = list(
                 map(
