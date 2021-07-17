@@ -23,3 +23,9 @@ selfPaidVaccineClosure:
   txt-selfPaid2ndShot: "如果您已經接種第一劑疫苗的話可直接聯絡醫院預約接種第二劑疫苗。"
 
 txt-govPaidVaccineDataIncomplete: "除了這些醫院有提供 COVID-19 公費疫苗接種之外，還有其他所。詳細資料請參考疾病管理署網站： https://antiflu.cdc.gov.tw/Covid19"
+
+txt-loading: "獲取資料中..."
+
+txt-selectCity: "選擇施打點所在縣市"
+
+txt-selectCityQuestion: "請問您想搜尋哪一個縣市的施打點？"
