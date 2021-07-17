@@ -5,17 +5,28 @@ import VaccineInfo from '../Components/VaccineInfo';
 export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
   const apiURL = process.env.API_URL || '';
+  const [selectedLocation, setLocation] = React.useState('臺北市');
   React.useEffect(() => {
-    const url = '/government_paid_hospitals';
-    fetch(apiURL + url).then((data) => data.json()).then((res) => setRows(res));
-  }, []); // Empty list makes this useEffect similar to componentDidMount();
+    setRows([]);
+    const url = new URL(`${apiURL}/government_paid_hospitals`);
+    url.searchParams.set('city', selectedLocation);
+    fetch(url)
+      .then((data) => data.json())
+      .then((res) => setRows(res));
+  }, [selectedLocation]); // Run effect when city is changed
 
   return (
     <>
-      <VaccineInfo
-        vaccineType="GovernmentPaid"
-        rows={rows}
-      />
+      {rows.length === 0 ? (
+        <div>Loading</div>
+      ) : (
+        <VaccineInfo
+          vaccineType="GovernmentPaid"
+          rows={rows}
+          selectedLocation={selectedLocation}
+          setLocation={setLocation}
+        />
+      )}
     </>
   );
 }

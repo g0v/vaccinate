@@ -92,9 +92,12 @@ async def get_popup_news(offset: str = "") -> PopupVaccineNews:
             return result
 
 
-async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
+async def get_hospitals_from_airtable(
+    offset: str = "", city: str = "臺北市"
+) -> List[Hospital]:
+    formula: str = f"{{施打站縣市（自動）}}='{city}'"
     url_params: AirTableRequestParams = {
-        "filterByFormula": None,
+        "filterByFormula": formula,
         "offset": offset,
         "maxRecords": 9999,
         "view": "給前端顯示用的資料",
@@ -167,7 +170,8 @@ async def government_paid_hospital_data() -> List[Hospital]:
 # pyre-fixme[56]: Decorator async types are not type-checked.
 @app.route("/government_paid_hospitals")
 async def government_paid_hospitals() -> wrappers.Response:
-    data = await government_paid_hospital_data()
+    print(request.args, file=sys.stdout)
+    data = await get_hospitals_from_airtable()
     response = app.response_class(
         response=json.dumps(data),
         status=200,
