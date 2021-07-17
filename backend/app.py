@@ -160,63 +160,8 @@ app = Flask(
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS"]}})
 
 
-def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
-
-    scraper_hospital_ids = list(map(lambda x: x.hospital_id, local_scraper.PARSERS))
-    print(scraper_hospital_ids)
-
-    def get_availability(
-        hospital_id: HospitalID,
-    ) -> ScrapedData:
-        raw_availability = r.hgetall("hospital_schema_4:" + str(hospital_id))
-
-        if raw_availability == {}:
-            return (
-                hospital_id,
-                {
-                    "self_paid": AppointmentAvailability.NO_DATA,
-                    "government_paid": AppointmentAvailability.NO_DATA,
-                },
-            )
-
-        def read_availability(raw: str) -> AppointmentAvailability:
-            if raw == "AppointmentAvailability.AVAILABLE":
-                return AppointmentAvailability.AVAILABLE
-            elif raw == "AppointmentAvailability.UNAVAILABLE":
-                return AppointmentAvailability.UNAVAILABLE
-            else:
-                return AppointmentAvailability.NO_DATA
-
-        availability: HospitalAvailabilitySchema = {
-            "self_paid": read_availability(raw_availability["self_paid"]),
-            "government_paid": read_availability(raw_availability["government_paid"]),
-        }
-        return (hospital_id, availability)
-
-    availability: List[ScrapedData] = [
-        get_availability(hospital_id) for hospital_id in scraper_hospital_ids
-    ]
-    return dict(availability)
-
-
-async def self_paid_hospital_data() -> List[Hospital]:
-    return await get_hospitals_from_airtable()
-
-
 async def government_paid_hospital_data() -> List[Hospital]:
     return await get_hospitals_from_airtable()
-
-
-# pyre-fixme[56]: Decorator async types are not type-checked.
-@app.route("/self_paid_hospitals")
-async def self_paid_hospitals() -> wrappers.Response:
-    data = await self_paid_hospital_data()
-    response = app.response_class(
-        response=json.dumps(data),
-        status=200,
-        mimetype="application/json",
-    )
-    return response
 
 
 # pyre-fixme[56]: Decorator async types are not type-checked.
