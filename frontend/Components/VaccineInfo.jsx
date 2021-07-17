@@ -14,9 +14,16 @@ export default function VaccineInfo(props: {
   vaccineType: VaccineType,
   selectedLocation: Location,
   setLocation: (Location) => void,
+  selectedDistrict: ?string,
+  setDistrict: (?string) => void,
 }): React.Node {
   const {
-    rows, vaccineType, selectedLocation, setLocation,
+    rows,
+    vaccineType,
+    selectedLocation,
+    setLocation,
+    selectedDistrict,
+    setDistrict,
   } = props;
   const { t } = useTranslation('dataGrid');
   const [tNav] = useTranslation('nav');
@@ -31,19 +38,17 @@ export default function VaccineInfo(props: {
     (row) => getAvailability(row, vaccineType) === 'No data',
   );
 
-  const [selectedCounty, setCounty] = React.useState('null');
-
   if (rows.length === 0) {
     return <div>獲取資料中...</div>;
   }
 
-  const counties = new Set(rows.map((hospital) => hospital.county));
+  const districts = new Set(rows.map((hospital) => hospital.district));
   function changeLocations(event) {
     setLocation(event.target.value);
-    setCounty('null');
+    setDistrict(null);
   }
-  function changeCounty(event) {
-    setCounty(event.target.value);
+  function changeDistrict(event) {
+    setDistrict(event.target.value);
   }
 
   return (
@@ -85,12 +90,12 @@ export default function VaccineInfo(props: {
                 <select
                   name="county"
                   className="form-select"
-                  onChange={changeCounty}
-                  value={selectedCounty}
+                  onChange={changeDistrict}
+                  value={selectedDistrict}
                 >
                   <option value="null">全部地區</option>
-                  {[...counties].map((county) => (
-                    <option value={county}>{county}</option>
+                  {[...districts].map((district) => (
+                    <option value={district}>{district}</option>
                   ))}
                 </select>
               </div>
@@ -100,19 +105,19 @@ export default function VaccineInfo(props: {
       </div>
       <div className="mb-4">
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={availableHospitals}
           buttonText={t('btn-getAppointment')}
           vaccineType={vaccineType}
         />
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={noDataHospitals}
           buttonText={t('btn-visitWebsite')}
           vaccineType={vaccineType}
         />
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={unavailableHospitals}
           buttonText={t('btn-visitWebsite')}
           vaccineType={vaccineType}

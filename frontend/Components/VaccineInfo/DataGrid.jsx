@@ -11,10 +11,10 @@ export default function DataGrid(props: {
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
-  selectedCounty: string,
+  selectedDistrict: ?string,
 }): React.Node {
   const {
-    hospitals, buttonText, vaccineType, selectedCounty,
+    hospitals, buttonText, vaccineType, selectedDistrict,
   } = props;
 
   if (hospitals.length === 0) {
@@ -41,7 +41,8 @@ export default function DataGrid(props: {
         hospitals
           .filter((hospital) => hospital !== undefined)
           .filter(
-            (hospital) => selectedCounty === 'null' || hospital.county === selectedCounty,
+            (hospital) => selectedDistrict === null
+              || hospital.district === selectedDistrict,
           ),
       )}
     </>
