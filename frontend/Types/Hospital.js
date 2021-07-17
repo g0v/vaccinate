@@ -1,7 +1,7 @@
 // @flow
-import type { Availability } from "./Availability";
-import type { Location } from "./Location";
-import type { VaccineType } from "./VaccineType";
+import type { Availability } from './Availability';
+import type { Location } from './Location';
+import type { VaccineType } from './VaccineType';
 
 export type Hospital = {|
   address: string,
@@ -18,9 +18,9 @@ export type Hospital = {|
 
 export function getAvailability(
   hospital: Hospital,
-  vaccineType: VaccineType
+  vaccineType: VaccineType,
 ): Availability {
-  return vaccineType === "SelfPaid"
+  return vaccineType === 'SelfPaid'
     ? hospital.selfPaidAvailability
     : hospital.governmentPaidAvailability;
 }

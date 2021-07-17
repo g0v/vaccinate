@@ -1,13 +1,13 @@
 // @flow
-import * as React from "react";
-import { useTranslation } from "react-i18next";
-import DataGrid from "./VaccineInfo/DataGrid";
-import { getAvailability } from "../Types/Hospital";
-import { CITY_LIST } from "../Types/Location";
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
+import DataGrid from './VaccineInfo/DataGrid';
+import { getAvailability } from '../Types/Hospital';
+import { CITY_LIST } from '../Types/Location';
 
-import type { Hospital } from "../Types/Hospital";
-import type { Location } from "../Types/Location";
-import type { VaccineType } from "../Types/VaccineType";
+import type { Hospital } from '../Types/Hospital';
+import type { Location } from '../Types/Location';
+import type { VaccineType } from '../Types/VaccineType';
 
 export default function VaccineInfo(props: {
   rows: Array<Hospital>,
@@ -25,17 +25,17 @@ export default function VaccineInfo(props: {
     selectedDistrict,
     setDistrict,
   } = props;
-  const { t } = useTranslation("dataGrid");
-  const [tNav] = useTranslation("nav");
+  const { t } = useTranslation('dataGrid');
+  const [tNav] = useTranslation('nav');
 
   const availableHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === "Available"
+    (row) => getAvailability(row, vaccineType) === 'Available',
   );
   const unavailableHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === "Unavailable"
+    (row) => getAvailability(row, vaccineType) === 'Unavailable',
   );
   const noDataHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === "No data"
+    (row) => getAvailability(row, vaccineType) === 'No data',
   );
 
   if (rows.length === 0) {
@@ -54,12 +54,12 @@ export default function VaccineInfo(props: {
   return (
     <div>
       <div
-        style={{ height: "80vh" }}
+        style={{ height: '80vh' }}
         className="d-flex justify-content-center align-items-center text-center"
       >
         <div className="flex-fill">
           <h3 className="mb-4">💉</h3>
-          <h1>{tNav("txt-title")}</h1>
+          <h1>{tNav('txt-title')}</h1>
           <p>1922 以外的預約方式整理</p>
           <p>Vaccination sites & where to make reservations</p>
           <button
@@ -107,19 +107,19 @@ export default function VaccineInfo(props: {
         <DataGrid
           selectedDistrict={selectedDistrict}
           hospitals={availableHospitals}
-          buttonText={t("btn-getAppointment")}
+          buttonText={t('btn-getAppointment')}
           vaccineType={vaccineType}
         />
         <DataGrid
           selectedDistrict={selectedDistrict}
           hospitals={noDataHospitals}
-          buttonText={t("btn-visitWebsite")}
+          buttonText={t('btn-visitWebsite')}
           vaccineType={vaccineType}
         />
         <DataGrid
           selectedDistrict={selectedDistrict}
           hospitals={unavailableHospitals}
-          buttonText={t("btn-visitWebsite")}
+          buttonText={t('btn-visitWebsite')}
           vaccineType={vaccineType}
         />
       </div>

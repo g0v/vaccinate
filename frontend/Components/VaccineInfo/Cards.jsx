@@ -1,10 +1,10 @@
 // @flow
-import * as React from "react";
-import Card from "./Card";
-import { getAvailability } from "../../Types/Hospital";
+import * as React from 'react';
+import Card from './Card';
+import { getAvailability } from '../../Types/Hospital';
 
-import type { Hospital } from "../../Types/Hospital";
-import type { VaccineType } from "../../Types/VaccineType";
+import type { Hospital } from '../../Types/Hospital';
+import type { VaccineType } from '../../Types/VaccineType';
 
 export default function Cards(props: {
   hospitals: Hospital[],
