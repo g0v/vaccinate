@@ -142,7 +142,7 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
         "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
         "hospitalId": "0",
         "location": raw_data["施打站縣市（自動）"],
-        "county": raw_data.get("施打站行政區（自動）", "無資料"),
+        "district": raw_data.get("施打站行政區（自動）", "無資料"),
         "name": raw_data["施打站全稱（自動）"],
         "phone": raw_data.get("預約電話（自動）", "無資料"),
         "website": raw_data.get("實際預約網址（手動）", raw_data.get("官方提供網址（自動）", None)),

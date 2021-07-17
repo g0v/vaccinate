@@ -1,60 +1,65 @@
 // @flow
-import * as React from 'react';
-import { useTranslation } from 'react-i18next';
-import DataGrid from './VaccineInfo/DataGrid';
-import { getAvailability } from '../Types/Hospital';
-import { CITY_LIST } from '../Types/Location';
+import * as React from "react";
+import { useTranslation } from "react-i18next";
+import DataGrid from "./VaccineInfo/DataGrid";
+import { getAvailability } from "../Types/Hospital";
+import { CITY_LIST } from "../Types/Location";
 
-import type { Hospital } from '../Types/Hospital';
-import type { Location } from '../Types/Location';
-import type { VaccineType } from '../Types/VaccineType';
+import type { Hospital } from "../Types/Hospital";
+import type { Location } from "../Types/Location";
+import type { VaccineType } from "../Types/VaccineType";
 
 export default function VaccineInfo(props: {
   rows: Array<Hospital>,
   vaccineType: VaccineType,
   selectedLocation: Location,
   setLocation: (Location) => void,
+  selectedDistrict: ?string,
+  setDistrict: (?string) => void,
 }): React.Node {
   const {
-    rows, vaccineType, selectedLocation, setLocation,
+    rows,
+    vaccineType,
+    selectedLocation,
+    setLocation,
+    selectedDistrict,
+    setDistrict,
   } = props;
-  const { t } = useTranslation('dataGrid');
-  const [tNav] = useTranslation('nav');
+  const { t } = useTranslation("dataGrid");
+  const [tNav] = useTranslation("nav");
 
   const availableHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === 'Available',
+    (row) => getAvailability(row, vaccineType) === "Available"
   );
   const unavailableHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === 'Unavailable',
+    (row) => getAvailability(row, vaccineType) === "Unavailable"
   );
   const noDataHospitals = rows.filter(
-    (row) => getAvailability(row, vaccineType) === 'No data',
+    (row) => getAvailability(row, vaccineType) === "No data"
   );
-
-  const [selectedCounty, setCounty] = React.useState('null');
 
   if (rows.length === 0) {
     return <div>獲取資料中...</div>;
   }
 
-  const counties = new Set(rows.map((hospital) => hospital.county));
+  const districts = new Set(rows.map((hospital) => hospital.district));
   function changeLocations(event) {
     setLocation(event.target.value);
-    setCounty('null');
+    setDistrict(null);
   }
-  function changeCounty(event) {
-    setCounty(event.target.value);
+  function changeDistrict(event) {
+    setDistrict(event.target.value);
   }
 
   return (
     <div>
       <div
-        style={{ height: '80vh' }}
+        style={{ height: "80vh" }}
         className="d-flex justify-content-center align-items-center text-center"
       >
         <div className="flex-fill">
           <h3 className="mb-4">💉</h3>
-          <h1>{tNav('txt-title')}</h1>
+          <h1>{tNav("txt-title")}</h1>
           <p>1922 以外的預約方式整理</p>
           <p>Vaccination sites & where to make reservations</p>
           <button
@@ -85,12 +90,12 @@ export default function VaccineInfo(props: {
                 <select
                   name="county"
                   className="form-select"
-                  onChange={changeCounty}
-                  value={selectedCounty}
+                  onChange={changeDistrict}
+                  value={selectedDistrict}
                 >
                   <option value="null">全部地區</option>
-                  {[...counties].map((county) => (
-                    <option value={county}>{county}</option>
+                  {[...districts].map((district) => (
+                    <option value={district}>{district}</option>
                   ))}
                 </select>
               </div>
@@ -100,21 +105,21 @@ export default function VaccineInfo(props: {
       </div>
       <div className="mb-4">
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={availableHospitals}
-          buttonText={t('btn-getAppointment')}
+          buttonText={t("btn-getAppointment")}
           vaccineType={vaccineType}
         />
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={noDataHospitals}
-          buttonText={t('btn-visitWebsite')}
+          buttonText={t("btn-visitWebsite")}
           vaccineType={vaccineType}
         />
         <DataGrid
-          selectedCounty={selectedCounty}
+          selectedDistrict={selectedDistrict}
           hospitals={unavailableHospitals}
-          buttonText={t('btn-visitWebsite')}
+          buttonText={t("btn-visitWebsite")}
           vaccineType={vaccineType}
         />
       </div>

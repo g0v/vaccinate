@@ -1,21 +1,19 @@
 /* eslint-disable max-len */
 // @flow
 
-import * as React from 'react';
-import Cards from './Cards';
+import * as React from "react";
+import Cards from "./Cards";
 
-import type { Hospital } from '../../Types/Hospital';
-import type { VaccineType } from '../../Types/VaccineType';
+import type { Hospital } from "../../Types/Hospital";
+import type { VaccineType } from "../../Types/VaccineType";
 
 export default function DataGrid(props: {
   hospitals: Hospital[],
   buttonText: string,
   vaccineType: VaccineType,
-  selectedCounty: string,
+  selectedDistrict: ?string,
 }): React.Node {
-  const {
-    hospitals, buttonText, vaccineType, selectedCounty,
-  } = props;
+  const { hospitals, buttonText, vaccineType, selectedDistrict } = props;
 
   if (hospitals.length === 0) {
     return <div> </div>;
@@ -41,8 +39,10 @@ export default function DataGrid(props: {
         hospitals
           .filter((hospital) => hospital !== undefined)
           .filter(
-            (hospital) => selectedCounty === 'null' || hospital.county === selectedCounty,
-          ),
+            (hospital) =>
+              selectedDistrict === null ||
+              hospital.district === selectedDistrict
+          )
       )}
     </>
   );
