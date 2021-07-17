@@ -92,9 +92,12 @@ async def get_popup_news(offset: str = "") -> PopupVaccineNews:
             return result
 
 
-async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
+async def get_hospitals_from_airtable(
+    offset: str = "", city: str = "臺北市"
+) -> List[Hospital]:
+    formula: str = f"{{施打站縣市（自動）}}='{city}'"
     url_params: AirTableRequestParams = {
-        "filterByFormula": None,
+        "filterByFormula": formula,
         "offset": offset,
         "maxRecords": 9999,
         "view": "給前端顯示用的資料",
@@ -139,7 +142,7 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
         "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
         "hospitalId": "0",
         "location": raw_data["施打站縣市（自動）"],
-        "county": raw_data.get("施打站行政區（自動）", "無資料"),
+        "district": raw_data.get("施打站行政區（自動）", "無資料"),
         "name": raw_data["施打站全稱（自動）"],
         "phone": raw_data.get("預約電話（自動）", "無資料"),
         "website": raw_data.get("實際預約網址（手動）", raw_data.get("官方提供網址（自動）", None)),
@@ -167,7 +170,8 @@ async def government_paid_hospital_data() -> List[Hospital]:
 # pyre-fixme[56]: Decorator async types are not type-checked.
 @app.route("/government_paid_hospitals")
 async def government_paid_hospitals() -> wrappers.Response:
-    data = await government_paid_hospital_data()
+    city: str = request.args.get("city")
+    data = await get_hospitals_from_airtable("", city)
     response = app.response_class(
         response=json.dumps(data),
         status=200,
