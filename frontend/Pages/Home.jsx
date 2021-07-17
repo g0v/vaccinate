@@ -1,8 +1,8 @@
 // @flow
-import * as React from "react";
-import VaccineInfo from "../Components/VaccineInfo";
+import * as React from 'react';
+import VaccineInfo from '../Components/VaccineInfo';
 
-import type { Hospital } from "../Types/Hospital";
+import type { Hospital } from '../Types/Hospital';
 
 /**
  * Parses untyped data from our server and ensures it fits the
@@ -25,13 +25,13 @@ function refineUntypedHospital(rawData: any): Hospital {
 
 export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
-  const apiURL = process.env.API_URL || "";
-  const [selectedLocation, setLocation] = React.useState("臺北市");
+  const apiURL = process.env.API_URL || '';
+  const [selectedLocation, setLocation] = React.useState('臺北市');
   const [selectedDistrict, setDistrict] = React.useState(null);
   React.useEffect(() => {
     setRows([]);
     const url = new URL(`${apiURL}/government_paid_hospitals`);
-    url.searchParams.set("city", selectedLocation);
+    url.searchParams.set('city', selectedLocation);
     fetch(url)
       .then((data) => data.json())
       .then((res) => {
