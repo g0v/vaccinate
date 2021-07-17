@@ -188,23 +188,6 @@ async def popup_news() -> wrappers.Response:
     return response
 
 
-@app.route("/hospital", methods=["POST"])
-def update_hospital() -> wrappers.Response:
-    data = request.get_json()
-    api_key_from_request = data["api_key"]
-    if api_key_from_request != API_KEY:
-        return make_response(jsonify({"success": False}), 401)
-
-    hospital_id = data["hospital_id"]
-    availability = data["availability"]
-    # TODO: Request validation
-    r.hset(
-        "hospital_schema_4:" + hospital_id, key=None, value=None, mapping=availability
-    )
-    print(availability)
-    return make_response(jsonify({"success": True}), 200)
-
-
 @app.route("/about")
 @app.route("/criteria")
 @app.route("/credits")
