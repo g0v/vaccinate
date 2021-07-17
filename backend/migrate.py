@@ -21,7 +21,7 @@ def main() -> None:
             "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
             "hospitalId": row["編號"],
             "location": row["縣市"],
-            "county": "",
+            "district": "",
             "name": row["醫院名稱"],
             "phone": row["電話"],
             "website": row["Website"],

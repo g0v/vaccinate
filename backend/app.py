@@ -92,9 +92,12 @@ async def get_popup_news(offset: str = "") -> PopupVaccineNews:
             return result
 
 
-async def get_hospitals_from_airtable(offset: str = "") -> List[Hospital]:
+async def get_hospitals_from_airtable(
+    offset: str = "", city: str = "臺北市"
+) -> List[Hospital]:
+    formula: str = f"{{施打站縣市（自動）}}='{city}'"
     url_params: AirTableRequestParams = {
-        "filterByFormula": None,
+        "filterByFormula": formula,
         "offset": offset,
         "maxRecords": 9999,
         "view": "給前端顯示用的資料",
@@ -139,7 +142,7 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
         "governmentPaidAvailability": AppointmentAvailability.NO_DATA,
         "hospitalId": "0",
         "location": raw_data["施打站縣市（自動）"],
-        "county": raw_data.get("施打站行政區（自動）", "無資料"),
+        "district": raw_data.get("施打站行政區（自動）", "無資料"),
         "name": raw_data["施打站全稱（自動）"],
         "phone": raw_data.get("預約電話（自動）", "無資料"),
         "website": raw_data.get("實際預約網址（手動）", raw_data.get("官方提供網址（自動）", None)),
@@ -160,69 +163,15 @@ app = Flask(
 CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS"]}})
 
 
-def get_availability_from_server() -> Dict[HospitalID, HospitalAvailabilitySchema]:
-
-    scraper_hospital_ids = list(map(lambda x: x.hospital_id, local_scraper.PARSERS))
-    print(scraper_hospital_ids)
-
-    def get_availability(
-        hospital_id: HospitalID,
-    ) -> ScrapedData:
-        raw_availability = r.hgetall("hospital_schema_4:" + str(hospital_id))
-
-        if raw_availability == {}:
-            return (
-                hospital_id,
-                {
-                    "self_paid": AppointmentAvailability.NO_DATA,
-                    "government_paid": AppointmentAvailability.NO_DATA,
-                },
-            )
-
-        def read_availability(raw: str) -> AppointmentAvailability:
-            if raw == "AppointmentAvailability.AVAILABLE":
-                return AppointmentAvailability.AVAILABLE
-            elif raw == "AppointmentAvailability.UNAVAILABLE":
-                return AppointmentAvailability.UNAVAILABLE
-            else:
-                return AppointmentAvailability.NO_DATA
-
-        availability: HospitalAvailabilitySchema = {
-            "self_paid": read_availability(raw_availability["self_paid"]),
-            "government_paid": read_availability(raw_availability["government_paid"]),
-        }
-        return (hospital_id, availability)
-
-    availability: List[ScrapedData] = [
-        get_availability(hospital_id) for hospital_id in scraper_hospital_ids
-    ]
-    return dict(availability)
-
-
-async def self_paid_hospital_data() -> List[Hospital]:
-    return await get_hospitals_from_airtable()
-
-
 async def government_paid_hospital_data() -> List[Hospital]:
     return await get_hospitals_from_airtable()
 
 
 # pyre-fixme[56]: Decorator async types are not type-checked.
-@app.route("/self_paid_hospitals")
-async def self_paid_hospitals() -> wrappers.Response:
-    data = await self_paid_hospital_data()
-    response = app.response_class(
-        response=json.dumps(data),
-        status=200,
-        mimetype="application/json",
-    )
-    return response
-
-
-# pyre-fixme[56]: Decorator async types are not type-checked.
 @app.route("/government_paid_hospitals")
 async def government_paid_hospitals() -> wrappers.Response:
-    data = await government_paid_hospital_data()
+    city: str = request.args.get("city")
+    data = await get_hospitals_from_airtable("", city)
     response = app.response_class(
         response=json.dumps(data),
         status=200,
@@ -241,23 +190,6 @@ async def popup_news() -> wrappers.Response:
         mimetype="application/json",
     )
     return response
-
-
-@app.route("/hospital", methods=["POST"])
-def update_hospital() -> wrappers.Response:
-    data = request.get_json()
-    api_key_from_request = data["api_key"]
-    if api_key_from_request != API_KEY:
-        return make_response(jsonify({"success": False}), 401)
-
-    hospital_id = data["hospital_id"]
-    availability = data["availability"]
-    # TODO: Request validation
-    r.hset(
-        "hospital_schema_4:" + hospital_id, key=None, value=None, mapping=availability
-    )
-    print(availability)
-    return make_response(jsonify({"success": True}), 200)
 
 
 @app.route("/about")
