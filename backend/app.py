@@ -146,6 +146,7 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
         "name": raw_data["施打站全稱（自動）"],
         "phone": raw_data.get("預約電話（自動）", "無資料"),
         "website": raw_data.get("實際預約網址（手動）", raw_data.get("官方提供網址（自動）", None)),
+        "lastModified": raw_data.get("Last Modified"),
     }
     return hospital
 

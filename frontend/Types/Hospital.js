@@ -14,6 +14,7 @@ export type Hospital = {|
   phone: string,
   selfPaidAvailability: Availability,
   website: string,
+  lastModified: string,
 |};
 
 export function getAvailability(

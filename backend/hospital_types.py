@@ -22,6 +22,7 @@ class Hospital(TypedDict):
     phone: str
     selfPaidAvailability: AppointmentAvailability
     website: str
+    lastModified: str
 
 
 class HospitalAvailabilitySchema(TypedDict):
