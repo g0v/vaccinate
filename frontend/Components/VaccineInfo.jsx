@@ -48,7 +48,11 @@ export default function VaccineInfo(props: {
     setDistrict(null);
   }
   function changeDistrict(event) {
-    setDistrict(event.target.value);
+    if (event.target.value === 'null') {
+      setDistrict(null);
+    } else {
+      setDistrict(event.target.value);
+    }
   }
 
   return (
