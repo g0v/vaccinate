@@ -23,3 +23,9 @@ selfPaidVaccineClosure:
   txt-selfPaid2ndShot: "Those who received a first dose are eligible for second appointments and should contact hospitals to schedule their second dose directly. Stay home and save lives. 天佑台灣！"
 
 txt-govPaidVaccineDataIncomplete: "There are additional hospitals that offer government-paid COVID-19 vaccines that are not listed here. We are working on getting this data on this website. Please visit https://antiflu.cdc.gov.tw/Covid19 for more info."
+
+txt-loading: "Loading..."
+
+txt-selectCity: "Search Vaccination Sites by Location"
+
+txt-selectCityQuestion: "In what city or county are you looking for vaccinations?"

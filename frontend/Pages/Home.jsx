@@ -41,18 +41,14 @@ export default function Home(): React.Node {
 
   return (
     <>
-      {rows.length === 0 ? (
-        <div>Loading</div>
-      ) : (
-        <VaccineInfo
-          vaccineType="GovernmentPaid"
-          rows={rows}
-          selectedLocation={selectedLocation}
-          setLocation={setLocation}
-          selectedDistrict={selectedDistrict}
-          setDistrict={setDistrict}
-        />
-      )}
+      <VaccineInfo
+        vaccineType="GovernmentPaid"
+        rows={rows}
+        selectedLocation={selectedLocation}
+        setLocation={setLocation}
+        selectedDistrict={selectedDistrict}
+        setDistrict={setDistrict}
+      />
     </>
   );
 }
