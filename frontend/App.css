@@ -14,3 +14,11 @@ h1, h2, h3, h4, h5 {
 .badge {
     font-size: 1rem;
 }
+
+.btn-link {
+    color: black;
+}
+
+.btn-link:hover {
+    color: #666;
+}

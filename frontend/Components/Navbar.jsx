@@ -51,8 +51,8 @@ export default function Navbar(): React.Node {
             </NavLink>
             <a href="https://www.readr.tw/project/3/covid19-vaccines-tracker" target="_blank" rel="noreferrer" className="nav-link">查詢自己是否符合施打資格</a>
           </div>
+          <LanguageSelector />
         </div>
-        <LanguageSelector />
       </div>
     </nav>
   );
