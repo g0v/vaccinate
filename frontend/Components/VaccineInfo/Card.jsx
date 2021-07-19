@@ -53,9 +53,9 @@ export default function Card(props: {
     lastModified,
   } = props;
   const lastModifiedObject = new Date(lastModified);
-  const lastModifiedString = `更新時間: ${lastModifiedObject.toLocaleDateString()} ${lastModifiedObject.toLocaleTimeString()}`;
   const [cardT] = useTranslation('card');
   const [cityT] = useTranslation('city');
+  const lastModifiedString = `${cardT('txt-updateTime')}: ${lastModifiedObject.toLocaleDateString()} ${lastModifiedObject.toLocaleTimeString()}`;
   return (
     <div className="card">
       <div className="card-body d-flex flex-column">
@@ -69,7 +69,7 @@ export default function Card(props: {
             </span>
             <span className="badge bg-dark text-light me-1 mb-1">{district}</span>
           </div>
-          <div className="col-md-auto ms-auto mb-1 text-sm" style={{ 'font-size': '0.8rem' }}>
+          <div className="col-md-auto mb-1 text-sm" style={{ fontSize: '0.8rem' }}>
             <span>{lastModifiedString}</span>
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function Card(props: {
             </a>
           ) : null}
           <a href={`tel:${phone}`} className="btn btn-primary mb-1 d-md-none">
-            電話預約
+            {cardT('txt-telephone')}
           </a>
         </div>
       </div>

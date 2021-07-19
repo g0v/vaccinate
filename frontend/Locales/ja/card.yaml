@@ -1,3 +1,5 @@
 txt-available: "予約可能"
 txt-unavailable: "予約不可"
 txt-noData: "データなし"
+txt-updateTime: "Updated"
+txt-telephone: "Telephone Reservation"
