@@ -6,6 +6,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
+import querystring from 'query-string';
 
 import bootstrap from 'bootstrap/dist/js/bootstrap.bundle';
 import G0vbar from './Components/G0vbar';
@@ -20,12 +21,19 @@ import i18n from './i18n';
 import 'bootstrap/dist/css/bootstrap.css';
 
 export default function App(): React.Node {
+  const [bypassInfoModal, setBypassInfoModal] = React.useState(true);
+
+  React.useEffect(() => {
+    const { bypass_info } = querystring.parse(window.location.search);
+    setBypassInfoModal(bypass_info ? true : false);
+  }, []);
+
   return (
     <I18nextProvider i18n={i18n}>
       <Router>
         <G0vbar />
         <Navbar />
-        <InfoModal />
+        {!bypassInfoModal && <InfoModal />}
         <div className="container px-4 my-2">
           <Switch>
             <Route path="/about">
