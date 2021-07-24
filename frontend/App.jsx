@@ -24,8 +24,8 @@ export default function App(): React.Node {
   const [bypassInfoModal, setBypassInfoModal] = React.useState(true);
 
   React.useEffect(() => {
-    const { bypass_info } = querystring.parse(window.location.search);
-    setBypassInfoModal(bypass_info ? true : false);
+    const { bypass_info: bypassInfo } = querystring.parse(window.location.search);
+    setBypassInfoModal(bypassInfo);
   }, []);
 
   return (
