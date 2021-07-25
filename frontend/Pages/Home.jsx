@@ -20,6 +20,7 @@ function refineUntypedHospital(rawData: any): Hospital {
     phone: rawData.phone,
     selfPaidAvailability: rawData.selfPaidAvailability,
     website: rawData.website,
+    lastModified: rawData.lastModified,
   };
 }
 
