@@ -8,7 +8,8 @@ import type { Hospital } from '../Types/Hospital';
  * Parses untyped data from our server and ensures it fits the
  * type declared in ../Types/Hospital.
  */
-function refineUntypedHospital(rawData: any): Hospital {
+function refineUntypedHospital(rawData: any, links: any): Hospital {
+  const primaryKey = rawData.location + rawData.name;
   return {
     address: rawData.address,
     department: rawData.department,
@@ -19,7 +20,7 @@ function refineUntypedHospital(rawData: any): Hospital {
     name: rawData.name,
     phone: rawData.phone,
     selfPaidAvailability: rawData.selfPaidAvailability,
-    website: rawData.website,
+    website: primaryKey in links ? links[primaryKey] : [{ title: null, link: rawData.website }],
     lastModified: rawData.lastModified,
   };
 }
@@ -31,12 +32,18 @@ export default function Home(): React.Node {
   const [selectedDistrict, setDistrict] = React.useState(null);
   React.useEffect(() => {
     setRows([]);
-    const url = new URL(`${apiURL}/government_paid_hospitals`);
-    url.searchParams.set('city', selectedLocation);
-    fetch(url)
+    const urlGetHospitals = new URL(`${apiURL}/government_paid_hospitals`);
+    urlGetHospitals.searchParams.set('city', selectedLocation);
+    fetch(urlGetHospitals)
       .then((data) => data.json())
       .then((res) => {
-        setRows(res.map((row) => refineUntypedHospital(row)));
+        const urlGetLinks = new URL(`${apiURL}/hospitals_links`);
+        urlGetLinks.searchParams.set('city', selectedLocation);
+        fetch(urlGetLinks)
+          .then((data) => data.json())
+          .then((links) => {
+            setRows(res.map((row) => refineUntypedHospital(row, links)));
+          });
       });
   }, [selectedLocation]); // Run effect when city is changed
 
