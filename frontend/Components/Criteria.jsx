@@ -10,6 +10,8 @@ const zh = readFileSync(`${__dirname}/../Locales/zh/criteria.md`, 'utf-8');
 
 const en = readFileSync(`${__dirname}/../Locales/en/criteria.md`, 'utf-8');
 
+const ja = readFileSync(`${__dirname}/../Locales/ja/criteria.md`, 'utf-8');
+
 export default function Criteria(): React.Node {
   const getContent: (Locale) => string = (localeCode) => {
     switch (localeCode) {
@@ -17,6 +19,8 @@ export default function Criteria(): React.Node {
         return en;
       case 'zh':
         return zh;
+      case 'ja':
+        return ja;
       default:
         return en;
     }
