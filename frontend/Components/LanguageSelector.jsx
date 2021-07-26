@@ -58,7 +58,7 @@ export default function LanguageSelector(): React.Node {
                   className="dropdown-item"
                   type="button"
                   aria-label={locales[key].text}
-                  onClick={() => { i18n.changeLanguage(locales[key].locale); }}
+                  onClick={() => { changeLang(locales[key].locale); }}
                 >
                   {locales[key].text}
                 </button>
