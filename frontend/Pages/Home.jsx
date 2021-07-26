@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import querystring from 'query-string';
 
 import VaccineInfo from '../Components/VaccineInfo';
-import { getCache, setCache, removeCache } from '../cache';
+import { getCache, setCache } from '../cache';
 import type { Hospital } from '../Types/Hospital';
 
 /**
