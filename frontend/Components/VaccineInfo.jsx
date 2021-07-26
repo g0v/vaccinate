@@ -26,7 +26,6 @@ export default function VaccineInfo(props: {
     setDistrict,
   } = props;
   const { t } = useTranslation('dataGrid');
-  const [tNav] = useTranslation('nav');
 
   const availableHospitals = rows.filter(
     (row) => getAvailability(row, vaccineType) === 'Available',
@@ -39,7 +38,7 @@ export default function VaccineInfo(props: {
   );
 
   if (rows.length === 0) {
-    return <div>獲取資料中...</div>;
+    return <div>{t('txt-loading')}</div>;
   }
 
   const districts = new Set(rows.map((hospital) => hospital.district));
@@ -55,25 +54,14 @@ export default function VaccineInfo(props: {
   return (
     <div>
       <div
-        style={{ height: '80vh' }}
+        style={{ height: '60vh' }}
         className="d-flex justify-content-center align-items-center text-center"
       >
         <div className="flex-fill">
           <h3 className="mb-4">💉</h3>
-          <h1>{tNav('txt-title')}</h1>
-          <p>1922 以外的預約方式整理</p>
-          <p>Vaccination sites & where to make reservations</p>
-          <button
-            type="button"
-            className="btn btn-secondary"
-            data-bs-toggle="modal"
-            data-bs-target="#InfoModal"
-          >
-            資訊陸續更新中！
-          </button>
           <div className="mt-5">
-            <h3>選擇施打點所在縣市</h3>
-            <p>請問您想搜尋哪一個縣市的施打點？</p>
+            <h1>{t('txt-selectCity')}</h1>
+            <p>{t('txt-selectCityQuestion')}</p>
             <div className="row justify-content-center">
               <div className="col-md-4 mb-2">
                 <select

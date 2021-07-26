@@ -1,17 +1,16 @@
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Link,
-  NavLink,
-} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import LanguageSelector from './LanguageSelector';
 
 export default function Navbar(): React.Node {
   const [t] = useTranslation('nav');
   const [isShown, setIsShown] = React.useState(false);
-  const navBarShown = isShown ? 'collapse navbar-collapse show' : 'collapse navbar-collapse';
+  const navBarShown = isShown
+    ? 'collapse navbar-collapse show'
+    : 'collapse navbar-collapse';
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -34,11 +33,7 @@ export default function Navbar(): React.Node {
         </button>
         <div className={navBarShown} id="navbarNavAltMarkup">
           <div className="navbar-nav ms-auto me-4">
-            <NavLink
-              exact
-              className="nav-link"
-              to="/about"
-            >
+            <NavLink exact className="nav-link" to="/about">
               {t('txt-about')}
             </NavLink>
             <NavLink
@@ -49,7 +44,14 @@ export default function Navbar(): React.Node {
             >
               {t('txt-credits')}
             </NavLink>
-            <a href="https://www.readr.tw/project/3/covid19-vaccines-tracker" target="_blank" rel="noreferrer" className="nav-link">查詢自己是否符合施打資格</a>
+            <a
+              href="https://www.readr.tw/project/3/covid19-vaccines-tracker"
+              target="_blank"
+              rel="noreferrer"
+              className="nav-link"
+            >
+              {t('txt-eligibility')}
+            </a>
           </div>
           <LanguageSelector />
         </div>
