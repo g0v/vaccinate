@@ -38,6 +38,7 @@ export default function Card(props: {
   name: string,
   phone: string,
   website: string,
+  lastModified: string,
 }): React.Node {
   const {
     address,
@@ -49,22 +50,29 @@ export default function Card(props: {
     name,
     phone,
     website,
+    lastModified,
   } = props;
-
+  const lastModifiedObject = new Date(lastModified);
   const [cardT] = useTranslation('card');
   const [cityT] = useTranslation('city');
+  const lastModifiedString = `${cardT('txt-updateTime')}: ${lastModifiedObject.toLocaleDateString()} ${lastModifiedObject.toLocaleTimeString()}`;
   return (
     <div className="card">
       <div className="card-body d-flex flex-column">
-        <p className="card-text">
-          <span className={getBadgeClassname(availability)}>
-            {getBadgeText(availability, cardT)}
-          </span>
-          <span className="badge bg-dark text-light me-1">
-            {getLocationName(location, cityT)}
-          </span>
-          <span className="badge bg-dark text-light me-1">{district}</span>
-        </p>
+        <div className="row">
+          <div className="col-md-auto">
+            <span className={getBadgeClassname(availability)}>
+              {getBadgeText(availability, cardT)}
+            </span>
+            <span className="badge bg-dark text-light me-1 mb-1">
+              {getLocationName(location, cityT)}
+            </span>
+            <span className="badge bg-dark text-light me-1 mb-1">{district}</span>
+          </div>
+          <div className="col-md-auto mb-1 text-sm" style={{ fontSize: '0.8rem' }}>
+            <span>{lastModifiedString}</span>
+          </div>
+        </div>
         <h4 className="card-title">{name}</h4>
         <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
         <p className="card-text">{department}</p>
@@ -81,7 +89,7 @@ export default function Card(props: {
             </a>
           ) : null}
           <a href={`tel:${phone}`} className="btn btn-primary mb-1 d-md-none">
-            電話預約
+            {cardT('txt-telephone')}
           </a>
         </div>
       </div>

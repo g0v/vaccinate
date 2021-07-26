@@ -25,6 +25,7 @@ def main() -> None:
             "name": row["醫院名稱"],
             "phone": row["電話"],
             "website": row["Website"],
+            "lastModified": "",
         }
         rows.append(hospital)
     jsonfile = open("../data/hospitals.json")

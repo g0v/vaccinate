@@ -53,8 +53,8 @@ export default function Navbar(): React.Node {
               {t('txt-eligibility')}
             </a>
           </div>
+          <LanguageSelector />
         </div>
-        <LanguageSelector />
       </div>
     </nav>
   );
