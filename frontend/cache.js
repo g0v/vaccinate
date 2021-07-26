@@ -13,3 +13,5 @@ export const setCache = (key, value) => {
   const data = typeof value === 'object' ? JSON.stringify(value) : value;
   return window.localStorage.setItem(`${PREFIX}_${key}`, data);
 };
+
+export const removeCache = (key) => window.localStorage.removeItem(`${PREFIX}_${key}`);
