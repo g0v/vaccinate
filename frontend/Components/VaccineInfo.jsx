@@ -47,8 +47,7 @@ export default function VaccineInfo(props: {
     setDistrict(null);
   }
   function changeDistrict(event) {
-    const newDistrict = event.target.value === 'null' ? null : event.target.value;
-    setDistrict(newDistrict);
+    setDistrict(event.target.value);
   }
 
   return (
@@ -82,7 +81,7 @@ export default function VaccineInfo(props: {
                   onChange={changeDistrict}
                   value={selectedDistrict}
                 >
-                  <option value="null">全部地區</option>
+                  <option value="">全部地區</option>
                   {[...districts].map((district) => (
                     <option value={district}>{district}</option>
                   ))}
