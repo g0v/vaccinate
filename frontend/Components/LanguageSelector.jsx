@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import querystring from 'query-string';
 
 import locales from '../Constants/Locales';
-import { getCache, setCache } from '../cache';
 
 export default function LanguageSelector(): React.Node {
   const { i18n } = useTranslation();
@@ -20,7 +19,6 @@ export default function LanguageSelector(): React.Node {
     });
 
     setTimeout(() => {
-      setCache('lang', lang);
       i18n.changeLanguage(lang);
     });
   };
@@ -28,7 +26,7 @@ export default function LanguageSelector(): React.Node {
   React.useEffect(() => {
     const searchParams = querystring.parse(window.location.search);
 
-    const lang = searchParams.lang || getCache('lang') || 'en';
+    const lang = searchParams.lang || 'en';
     changeLang(lang);
   }, [i18n]);
 

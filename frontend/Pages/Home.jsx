@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import querystring from 'query-string';
 
 import VaccineInfo from '../Components/VaccineInfo';
-import { getCache, setCache } from '../cache';
 import type { Hospital } from '../Types/Hospital';
 
 /**
@@ -37,7 +36,7 @@ export default function Home(): React.Node {
 
   React.useEffect(() => {
     const searchParams = querystring.parse(window.location.search);
-    const location = searchParams.location || getCache('location') || '臺北市';
+    const location = searchParams.location || '臺北市';
     setLocation(location);
   }, []); // Run effect when city is changed
 
@@ -58,7 +57,6 @@ export default function Home(): React.Node {
         history.push({
           search: `?${querystring.stringify(searchParams)}`,
         });
-        setCache('location', selectedLocation);
       });
   }, [selectedLocation]); // Run effect when city is changed
 
