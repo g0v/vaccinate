@@ -33,12 +33,15 @@ export default function Home(): React.Node {
   const apiURL = process.env.API_URL || '';
   const [selectedLocation, setLocation] = React.useState();
   const [selectedDistrict, setDistrict] = React.useState(null);
+  const [selectedVaccineType, setVaccineType] = React.useState(null);
 
   React.useEffect(() => {
     const searchParams = querystring.parse(window.location.search);
     const location = searchParams.location || '臺北市';
+    const vaccineType = searchParams.vaccine_type || 'GovernmentPaid'; // SelfPaid
     setLocation(location);
-  }, []); // Run effect when city is changed
+    setVaccineType(vaccineType);
+  }, []);
 
   React.useEffect(() => {
     if (!selectedLocation) return;
@@ -53,6 +56,7 @@ export default function Home(): React.Node {
 
         const searchParams = querystring.parse(window.location.search);
         searchParams.location = selectedLocation;
+        searchParams.vaccine_type = selectedVaccineType;
 
         history.push({
           search: `?${querystring.stringify(searchParams)}`,
@@ -60,12 +64,12 @@ export default function Home(): React.Node {
       });
   }, [selectedLocation]); // Run effect when city is changed
 
-  if (!selectedLocation) return null;
+  if (!selectedLocation || !selectedVaccineType) return null;
 
   return (
     <>
       <VaccineInfo
-        vaccineType="GovernmentPaid"
+        vaccineType={selectedVaccineType}
         rows={rows}
         selectedLocation={selectedLocation}
         setLocation={setLocation}
