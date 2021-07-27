@@ -41,7 +41,7 @@ export default function DataGrid(props: {
         hospitals
           .filter((hospital) => hospital !== undefined)
           .filter(
-            (hospital) => selectedDistrict === null || selectedDistrict === 'null'
+            (hospital) => selectedDistrict === null
               || hospital.district === selectedDistrict,
           ),
       )}
