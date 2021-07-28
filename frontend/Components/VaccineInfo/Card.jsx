@@ -37,7 +37,7 @@ export default function Card(props: {
   district: string,
   name: string,
   phone: string,
-  website: Array<{title: string | null, link: string | null}>,
+  website: Array<{ title: ?string, link: ?string }>,
   lastModified: string,
 }): React.Node {
   const {
@@ -78,18 +78,16 @@ export default function Card(props: {
         <p className="card-text">{department}</p>
         <p className="card-text">{phone}</p>
         <div className="d-grid mt-auto">
-          {website[0].title !== null
-            ? (website.map((site) => (
-              <a
-                href={site.link}
-                className="btn btn-primary mb-1"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {site.title != null ? site.title : buttonText}
-              </a>
-            ))
-            ) : null}
+          {website.map((site) => (
+            <a
+              href={site.link}
+              className="btn btn-primary mb-1"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {site.title != null ? site.title : buttonText}
+            </a>
+          ))}
           <a href={`tel:${phone}`} className="btn btn-primary mb-1 d-md-none">
             {cardT('txt-telephone')}
           </a>

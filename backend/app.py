@@ -17,6 +17,7 @@ from enum import Enum
 import requests
 from bs4 import BeautifulSoup
 import aiohttp, asyncio
+from functools import reduce
 
 # Project imports
 import local_scraper
@@ -141,7 +142,7 @@ async def get_hospitals_from_airtable(
 
 async def get_hospitals_links(
     offset: str = "", city: str = "臺北市"
-) -> Dict[str, List[hospitalsLinks]]:
+) -> List[Dict[str, List[hospitalsLinks]]]:
     formula: str = f"{{縣市（純文字）}}='{city}'"
     url_params: AirTableRequestParams = {
         "filterByFormula": formula,
@@ -154,42 +155,26 @@ async def get_hospitals_links(
     authorization: Optional[str] = "Bearer " + api_key if api_key is not None else None
     HEADERS: Dict[str, Optional[str]] = {"Authorization": authorization}
     timeout = aiohttp.ClientTimeout(total=10)
-    return_dict: Dict[str, List[hospitalsLinks]] = {}
-
     remove_nones = lambda params: {k: v for k, v in params.items() if v is not None}
-
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.get(
             REQUEST_URL, headers=remove_nones(HEADERS), params=remove_nones(url_params)
         ) as r:
             links_json_objects: Dict[str, Any] = await r.json()
-            for record in links_json_objects["records"]:
-                record = record["fields"]
-                primaryKey = record.get("縣市（純文字）") + record.get("施打站全稱（自動）")
-                if primaryKey in return_dict:
-                    return_dict[primaryKey].append(
-                        {
-                            "title": record.get("按鈕名稱"),
-                            "link": record.get("按鈕連結"),
-                        }
-                    )
-                else:
-                    return_dict[primaryKey] = [
-                        {
-                            "title": record.get("按鈕名稱"),
-                            "link": record.get("按鈕連結"),
-                        }
-                    ]
+            recordsWithPrimaryKey = list(
+                map(
+                    lambda record: parse_airtable_json_hospitals_links(
+                        record["fields"]
+                    ),
+                    links_json_objects["records"],
+                )
+            )
             if "offset" in links_json_objects:
-                next_page_datas = await get_hospitals_links(
+                return recordsWithPrimaryKey + await get_hospitals_links(
                     links_json_objects["offset"]
                 )
-                for primaryKey, data in next_page_datas.items():
-                    if primaryKey in return_dict:
-                        return_dict[primaryKey] += data
-                    else:
-                        return_dict[primaryKey] = data
-            return return_dict
+            else:
+                return recordsWithPrimaryKey
 
 
 def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
@@ -207,6 +192,29 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
         "lastModified": raw_data.get("Last Modified"),
     }
     return hospital
+
+
+def parse_airtable_json_hospitals_links(
+    record: Dict[str, Any]
+) -> Dict[str, List[hospitalsLinks]]:
+    return {
+        f'{record.get("縣市（純文字）", "")}{record.get("施打站全稱（自動）", "")}': [
+            {
+                "title": record.get("按鈕名稱"),
+                "link": record.get("按鈕連結"),
+            }
+        ]
+    }
+
+
+def hospitals_links_reduce(
+    accumulator: Dict[str, List[hospitalsLinks]],
+    currentValue: Dict[str, List[hospitalsLinks]],
+) -> Dict[str, List[hospitalsLinks]]:
+    primaryKey = list(currentValue.keys())[0]
+    accumulator[primaryKey] = accumulator.get(primaryKey, [])
+    accumulator[primaryKey] += currentValue[primaryKey]
+    return accumulator
 
 
 app = Flask(
@@ -231,8 +239,9 @@ async def government_paid_hospital_data() -> List[Hospital]:
 async def hospitals_links() -> wrappers.Response:
     city: str = request.args.get("city")
     data = await get_hospitals_links("", city)
+    reducedData = reduce(hospitals_links_reduce, data)
     response = app.response_class(
-        response=json.dumps(data),
+        response=json.dumps(reducedData),
         status=200,
         mimetype="application/json",
     )
