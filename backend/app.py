@@ -17,6 +17,7 @@ from enum import Enum
 import requests
 from bs4 import BeautifulSoup
 import aiohttp, asyncio
+from functools import reduce
 
 # Project imports
 import local_scraper
@@ -27,6 +28,11 @@ from hospital_types import (
     ScrapedData,
     HospitalAvailabilitySchema,
 )
+
+
+class hospitalsLinks(TypedDict):
+    title: str
+    link: str
 
 
 class PopupVaccineNews(TypedDict):
@@ -134,6 +140,43 @@ async def get_hospitals_from_airtable(
                 return return_list
 
 
+async def get_hospitals_links(
+    offset: str = "", city: str = "臺北市"
+) -> List[Dict[str, List[hospitalsLinks]]]:
+    formula: str = f"{{縣市（純文字）}}='{city}'"
+    url_params: AirTableRequestParams = {
+        "filterByFormula": formula,
+        "offset": offset,
+        "maxRecords": 9999,
+        "view": "前端顯示用",
+    }
+    api_key: Optional[str] = AIRTABLE_API_KEY
+    REQUEST_URL: str = "https://api.airtable.com/v0/appwPM9XFr1SSNjy4/%E9%A0%90%E7%B4%84%E9%80%A3%E7%B5%90%E6%B8%85%E5%96%AE"
+    authorization: Optional[str] = "Bearer " + api_key if api_key is not None else None
+    HEADERS: Dict[str, Optional[str]] = {"Authorization": authorization}
+    timeout = aiohttp.ClientTimeout(total=10)
+    remove_nones = lambda params: {k: v for k, v in params.items() if v is not None}
+    async with aiohttp.ClientSession(timeout=timeout) as session:
+        async with session.get(
+            REQUEST_URL, headers=remove_nones(HEADERS), params=remove_nones(url_params)
+        ) as r:
+            links_json_objects: Dict[str, Any] = await r.json()
+            recordsWithPrimaryKey = list(
+                map(
+                    lambda record: parse_airtable_json_hospitals_links(
+                        record["fields"]
+                    ),
+                    links_json_objects["records"],
+                )
+            )
+            if "offset" in links_json_objects:
+                return recordsWithPrimaryKey + await get_hospitals_links(
+                    links_json_objects["offset"]
+                )
+            else:
+                return recordsWithPrimaryKey
+
+
 def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
     hospital: Hospital = {
         "address": raw_data.get("施打站地址（自動）", "無資料"),
@@ -151,6 +194,29 @@ def parse_airtable_json_for_hospital(raw_data: Dict[str, Any]) -> Hospital:
     return hospital
 
 
+def parse_airtable_json_hospitals_links(
+    record: Dict[str, Any]
+) -> Dict[str, List[hospitalsLinks]]:
+    return {
+        f'{record.get("縣市（純文字）", "")}{record.get("施打站全稱（自動）", "")}': [
+            {
+                "title": record.get("按鈕名稱"),
+                "link": record.get("按鈕連結"),
+            }
+        ]
+    }
+
+
+def hospitals_links_reduce(
+    accumulator: Dict[str, List[hospitalsLinks]],
+    currentValue: Dict[str, List[hospitalsLinks]],
+) -> Dict[str, List[hospitalsLinks]]:
+    primaryKey = list(currentValue.keys())[0]
+    accumulator[primaryKey] = accumulator.get(primaryKey, [])
+    accumulator[primaryKey] += currentValue[primaryKey]
+    return accumulator
+
+
 app = Flask(
     __name__,
     static_url_path="",
@@ -166,6 +232,20 @@ CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "HEAD", "OPTIONS
 
 async def government_paid_hospital_data() -> List[Hospital]:
     return await get_hospitals_from_airtable()
+
+
+# pyre-fixme[56]: Decorator async types are not type-checked.
+@app.route("/hospitals_links")
+async def hospitals_links() -> wrappers.Response:
+    city: str = request.args.get("city")
+    data = await get_hospitals_links("", city)
+    reducedData = reduce(hospitals_links_reduce, data)
+    response = app.response_class(
+        response=json.dumps(reducedData),
+        status=200,
+        mimetype="application/json",
+    )
+    return response
 
 
 # pyre-fixme[56]: Decorator async types are not type-checked.

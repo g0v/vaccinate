@@ -26,7 +26,7 @@ export default function LanguageSelector(): React.Node {
   React.useEffect(() => {
     const searchParams = querystring.parse(window.location.search);
 
-    const lang = searchParams.lang || 'en';
+    const lang = searchParams.lang || 'zh';
     changeLang(lang);
   }, [i18n]);
 

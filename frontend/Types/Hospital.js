@@ -13,7 +13,7 @@ export type Hospital = {|
   name: string,
   phone: string,
   selfPaidAvailability: Availability,
-  website: string,
+  website: Array<{title: ?string, link: ?string}>,
   lastModified: string,
 |};
 

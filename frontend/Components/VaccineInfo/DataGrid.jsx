@@ -8,19 +8,19 @@ import type { Hospital } from '../../Types/Hospital';
 import type { VaccineType } from '../../Types/VaccineType';
 
 const objectPropsAlphabetSorting = (key, ascending) => (a, b) => {
-  if (a[key] === b[key]) {
+  if (a[key][0].link === b[key][0].link) {
     return 0;
   }
-  if (a[key] === null) {
+  if (a[key][0].link === null || a[key][0].link === undefined) {
     return 1;
   }
-  if (b[key] === null) {
+  if (b[key][0].link === null || b[key][0].link === undefined) {
     return -1;
   }
   if (ascending) {
-    return a[key] < b[key] ? -1 : 1;
+    return a[key][0].link < b[key][0].link ? -1 : 1;
   }
-  return a[key] < b[key] ? 1 : -1;
+  return a[key][0].link < b[key][0].link ? 1 : -1;
 };
 
 export default function DataGrid(props: {
