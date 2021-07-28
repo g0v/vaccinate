@@ -1,7 +1,9 @@
 // @flow
 import * as React from 'react';
-import VaccineInfo from '../Components/VaccineInfo';
+import { useHistory } from 'react-router-dom';
+import querystring from 'query-string';
 
+import VaccineInfo from '../Components/VaccineInfo';
 import type { Hospital } from '../Types/Hospital';
 
 /**
@@ -26,10 +28,24 @@ function refineUntypedHospital(rawData: any): Hospital {
 
 export default function Home(): React.Node {
   const [rows, setRows] = React.useState([]);
+  const history = useHistory();
+
   const apiURL = process.env.API_URL || '';
-  const [selectedLocation, setLocation] = React.useState('臺北市');
+  const [selectedLocation, setLocation] = React.useState();
   const [selectedDistrict, setDistrict] = React.useState(null);
+  const [selectedVaccineType, setVaccineType] = React.useState(null);
+
   React.useEffect(() => {
+    const searchParams = querystring.parse(window.location.search);
+    const location = searchParams.location || '臺北市';
+    const vaccineType = searchParams.vaccine_type || 'GovernmentPaid'; // SelfPaid
+    setLocation(location);
+    setVaccineType(vaccineType);
+  }, []);
+
+  React.useEffect(() => {
+    if (!selectedLocation) return;
+
     setRows([]);
     const url = new URL(`${apiURL}/government_paid_hospitals`);
     url.searchParams.set('city', selectedLocation);
@@ -37,13 +53,23 @@ export default function Home(): React.Node {
       .then((data) => data.json())
       .then((res) => {
         setRows(res.map((row) => refineUntypedHospital(row)));
+
+        const searchParams = querystring.parse(window.location.search);
+        searchParams.location = selectedLocation;
+        searchParams.vaccine_type = selectedVaccineType;
+
+        history.push({
+          search: `?${querystring.stringify(searchParams)}`,
+        });
       });
   }, [selectedLocation]); // Run effect when city is changed
+
+  if (!selectedLocation || !selectedVaccineType) return null;
 
   return (
     <>
       <VaccineInfo
-        vaccineType="GovernmentPaid"
+        vaccineType={selectedVaccineType}
         rows={rows}
         selectedLocation={selectedLocation}
         setLocation={setLocation}
