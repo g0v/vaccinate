@@ -1,11 +1,34 @@
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
+import querystring from 'query-string';
 
 import locales from '../Constants/Locales';
 
 export default function LanguageSelector(): React.Node {
   const { i18n } = useTranslation();
+  const history = useHistory();
+
+  const changeLang = (lang) => {
+    const searchParams = querystring.parse(window.location.search);
+    searchParams.lang = lang;
+
+    history.push({
+      search: `?${querystring.stringify(searchParams)}`,
+    });
+
+    setTimeout(() => {
+      i18n.changeLanguage(lang);
+    });
+  };
+
+  React.useEffect(() => {
+    const searchParams = querystring.parse(window.location.search);
+
+    const lang = searchParams.lang || 'zh';
+    changeLang(lang);
+  }, [i18n]);
 
   return (
     <div>
@@ -33,7 +56,7 @@ export default function LanguageSelector(): React.Node {
                   className="dropdown-item"
                   type="button"
                   aria-label={locales[key].text}
-                  onClick={() => { i18n.changeLanguage(locales[key].locale); }}
+                  onClick={() => { changeLang(locales[key].locale); }}
                 >
                   {locales[key].text}
                 </button>
