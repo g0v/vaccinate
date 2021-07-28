@@ -273,17 +273,4 @@ def index() -> str:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(
-        description="Server to serve scraped vaccine availability data."
-    )
-    parser.add_argument(
-        "--scrape",
-        action="store_true",
-        default=False,
-        help="""Usually the Flask app will read from a Redis database.
-        This flag will scrape the data locally on machine. It's useful for testing.
-        """,
-    )
-    flag_values: argparse.Namespace = parser.parse_args()
-    app.config["scrape"] = flag_values.scrape
     app.run(debug=True, host="0.0.0.0")
