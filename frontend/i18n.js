@@ -10,6 +10,8 @@ import id from './Locales/id';
 import th from './Locales/th';
 import vn from './Locales/vn';
 import fr from './Locales/fr';
+import de from './Locales/de';
+import es from './Locales/es';
 
 const resources = {
   zh,
@@ -20,8 +22,9 @@ const resources = {
   th,
   vn,
   fr,
+  de,
+  es,
 };
-
 const defaultLanguage = navigator.language.split('-')[0];
 
 i18n

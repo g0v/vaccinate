@@ -31,4 +31,12 @@ export default {
     locale: 'vn',
     text: 'Tiếng Việt',
   },
+  de: {
+    locale: 'de',
+    text: 'Deutsch',
+  },
+  es: {
+    locale: 'es',
+    text: 'Español',
+  },
 };

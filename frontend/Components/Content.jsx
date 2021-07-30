@@ -18,10 +18,18 @@ const fr = readFileSync(`${__dirname}/../Locales/fr/content.md`, 'utf-8');
 
 const vn = readFileSync(`${__dirname}/../Locales/vn/content.md`, 'utf-8');
 
+const de = readFileSync(`${__dirname}/../Locales/de/content.md`, 'utf-8');
+
+const es = readFileSync(`${__dirname}/../Locales/es/content.md`, 'utf-8');
+
 function getContent(locale: string): string {
   switch (locale) {
+    case 'de':
+      return de;
     case 'en':
       return enUS;
+    case 'es':
+      return es;
     case 'fr':
       return fr;
     case 'zh':
