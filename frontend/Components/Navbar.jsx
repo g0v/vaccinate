@@ -16,7 +16,7 @@ export default function Navbar(): React.Node {
     <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/">
-          💉 找疫苗 Find your vaxx
+          {`💉 ${t('txt-websiteTitle')}`}
         </Link>
 
         <button

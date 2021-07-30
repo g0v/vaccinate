@@ -23,3 +23,5 @@ selfPaidVaccineClosure:
   txt-selfPaid2ndShot: "1回目の接種を受けた方は、２回目の予約を取ることができますので、病院に連絡して直接２回目の接種予約をしてください。ステイホームで命を守りましょう。天佑台灣！"
 
 txt-govPaidVaccineDataIncomplete: "ここに掲載されていない、政府支給のコロナワクチン提供病院もあります。このデータを本サイトに掲載するために活動中です。詳細はhttps://antiflu.cdc.gov.tw/Covid19をご覧ください。"
+txt-selectCity: 接種場所を選ぶ
+txt-selectCityQuestion: どの地域の接種場所を検索したいですか？
