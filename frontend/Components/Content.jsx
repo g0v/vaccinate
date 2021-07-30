@@ -14,10 +14,16 @@ const ja = readFileSync(`${__dirname}/../Locales/ja/content.md`, 'utf-8');
 
 const ph = readFileSync(`${__dirname}/../Locales/tl/content.md`, 'utf-8');
 
+const fr = readFileSync(`${__dirname}/../Locales/fr/content.md`, 'utf-8');
+
+const vn = readFileSync(`${__dirname}/../Locales/vn/content.md`, 'utf-8');
+
 function getContent(locale: string): string {
   switch (locale) {
     case 'en':
       return enUS;
+    case 'fr':
+      return fr;
     case 'zh':
       return zhTW;
     case 'id':
@@ -26,6 +32,8 @@ function getContent(locale: string): string {
       return ja;
     case 'tl':
       return ph;
+    case 'vn':
+      return vn;
     default:
       return enUS;
   }
@@ -33,6 +41,7 @@ function getContent(locale: string): string {
 
 export default function Content(): React.Node {
   const [, i18n] = useTranslation();
+
   return (
     <>
       <div>

@@ -19,4 +19,16 @@ export default {
     locale: 'tl',
     text: 'Tagalog',
   },
+  th: {
+    locale: 'th',
+    text: 'ภาษาไทย',
+  },
+  fr: {
+    locale: 'fr',
+    text: 'français',
+  },
+  vn: {
+    locale: 'vn',
+    text: 'Tiếng Việt',
+  },
 };

@@ -1,0 +1,6 @@
+## À quoi sert "vitemadose" ? 
+Ce site vise à rassembler des informations sur les centres de vaccination COVID-19 à Taiwan. Bien que le gouvernement ait lancé la plateforme 1922 de prise de rendez-vous, il existe cependant d'autres systèmes en cours d'utilisation. Nous espérons pouvoir fournir plus facilement et plus rapidement des informations sur les lieux et les méthodes de prise de rendez-vous pour le vaccin.
+## Qui a créé ce site ?
+Ce site a été développé par des volontaires du réseau Civic Hacker de g0v. Ce n'est ni un site officiel, ni un site associé au gouvernement taiwanais. Pour obtenir des informations officielles, merci de vous tourner vers le site du CDC de Taiwan. 
+## Comment puis-je aider ?
+Les informations concernant les centres de vaccination ont été collectées automatiquement sur les sites officiels du gouvernement et les liens pour les prises de rendez-vous ont été nettoyés manuellement. Si vous souhaitez nous donner un coup de main, vous pouvez nous rejoindre sur le [Slack de g0v](https://join.g0v.tw) en rejoignant la conversation #vaxxtw
