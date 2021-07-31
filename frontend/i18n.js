@@ -25,14 +25,13 @@ const resources = {
   de,
   es,
 };
-const defaultLanguage = navigator.language.split('-')[0];
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: defaultLanguage,
+    lng: 'en',
     fallbackLng: 'en',
     keySeparator: false, // we do not use keys in form messages.welcome
     interpolation: {
