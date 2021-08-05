@@ -56,6 +56,7 @@ export default function Card(props: {
   const [cardT] = useTranslation('card');
   const [cityT] = useTranslation('city');
   const lastModifiedString = `${cardT('txt-updateTime')}: ${lastModifiedObject.toLocaleDateString()} ${lastModifiedObject.toLocaleTimeString()}`;
+  const reportLink = `https://airtable.com/shrytVXesuVlmfwcS?prefill_回報內容=回報錯誤連結&prefill_縣市=${location}&prefill_醫療院所名稱=${name}`;
   return (
     <div className="card">
       <div className="card-body d-flex flex-column">
@@ -77,19 +78,28 @@ export default function Card(props: {
         <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
         <p className="card-text">{department}</p>
         <p className="card-text">{phone}</p>
-        <div className="d-grid mt-auto">
+        <div className="d-grid mt-auto card-buttons">
           {website[0].link !== null ? website.map((site) => (
             <a
               href={site.link}
-              className="btn btn-primary mb-1"
+              className="btn btn-primary mb-2"
               target="_blank"
               rel="noreferrer"
             >
               {site.title != null ? site.title : buttonText}
             </a>
           )) : null}
-          <a href={`tel:${phone}`} className="btn btn-primary mb-1 d-md-none">
+          <a href={`tel:${phone}`} className="btn btn-primary mb-2 d-md-none">
             {cardT('txt-telephone')}
+          </a>
+          <a
+            href={reportLink}
+            className="my-2"
+            style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {cardT('txt-report')}
           </a>
         </div>
       </div>

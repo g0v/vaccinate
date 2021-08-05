@@ -112,11 +112,17 @@ export default function VaccineInfo(props: {
         />
       </div>
       <div className="text-center my-5 pt-5">
-        <h1>😷</h1>
+        <h2>😷</h2>
         <p>
           以上就是所有您所要求的疫苗預約資訊，
           <br />
           出去要記得配戴口罩喔！
+        </p>
+        <p>
+          還有其他有接受自主預約的醫療院所嗎？
+          <br />
+          <br />
+          <a href="https://airtable.com/shr3sBRtRraL5aehl" className="btn btn-primary px-5" target="_blank" rel="noreferrer">點此回報</a>
         </p>
       </div>
     </div>
