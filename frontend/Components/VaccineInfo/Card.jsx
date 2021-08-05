@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 // @flow
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -38,6 +39,7 @@ export default function Card(props: {
   name: string,
   phone: string,
   website: Array<{ title: ?string, link: ?string }>,
+  googleMap: string,
   lastModified: string,
 }): React.Node {
   const {
@@ -50,6 +52,7 @@ export default function Card(props: {
     name,
     phone,
     website,
+    googleMap,
     lastModified,
   } = props;
   const lastModifiedObject = new Date(lastModified);
@@ -75,7 +78,10 @@ export default function Card(props: {
           </div>
         </div>
         <h4 className="card-title">{name}</h4>
-        <h6 className="card-subtitle mb-2 text-muted">{address}</h6>
+        <h6 className="card-subtitle mb-2 text-muted">
+          {address}
+          {googleMap !== null ? <a href={googleMap} target="_blank" rel="noreferrer" className="ms-2"><i className="fas fa-map-marked-alt" /></a> : null}
+        </h6>
         <p className="card-text">{department}</p>
         <p className="card-text">{phone}</p>
         <div className="d-grid mt-auto card-buttons">

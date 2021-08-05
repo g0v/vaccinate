@@ -23,6 +23,7 @@ function refineUntypedHospital(rawData: any, links: any): Hospital {
     phone: rawData.phone,
     selfPaidAvailability: rawData.selfPaidAvailability,
     website: primaryKey in links ? links[primaryKey] : [{ title: null, link: null }],
+    googleMap: rawData.googleMap,
     lastModified: rawData.lastModified,
   };
 }

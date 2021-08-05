@@ -22,6 +22,7 @@ class Hospital(TypedDict):
     phone: str
     selfPaidAvailability: AppointmentAvailability
     website: str
+    googleMap: str
     lastModified: str
 
 
