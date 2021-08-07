@@ -25,6 +25,7 @@ def main() -> None:
             "name": row["醫院名稱"],
             "phone": row["電話"],
             "website": row["Website"],
+            "googleMap": "",
             "lastModified": "",
         }
         rows.append(hospital)

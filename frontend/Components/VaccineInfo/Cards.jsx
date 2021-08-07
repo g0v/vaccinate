@@ -25,6 +25,7 @@ export default function Cards(props: {
         name={hospital.name}
         phone={hospital.phone}
         website={hospital.website}
+        googleMap={hospital.googleMap}
         lastModified={hospital.lastModified}
       />
     </div>

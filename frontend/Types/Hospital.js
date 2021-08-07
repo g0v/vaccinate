@@ -14,6 +14,7 @@ export type Hospital = {|
   phone: string,
   selfPaidAvailability: Availability,
   website: Array<{title: ?string, link: ?string}>,
+  googleMap: string,
   lastModified: string,
 |};
 
