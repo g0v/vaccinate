@@ -29,3 +29,9 @@ txt-loading: "獲取資料中..."
 txt-selectCity: "選擇施打點所在縣市"
 
 txt-selectCityQuestion: "請問您想搜尋哪一個縣市的施打點？"
+
+txt-footerRemind1: "以上就是所有您所要求的疫苗預約資訊，"
+txt-footerRemind2: "出去要記得配戴口罩喔！"
+txt-footerRemind3: "還有其他有接受自主預約的醫療院所嗎？"
+
+txt-footerReport: "點此回報"

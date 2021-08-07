@@ -29,3 +29,9 @@ txt-loading: "Loading..."
 txt-selectCity: "Search Vaccination Sites by Location"
 
 txt-selectCityQuestion: "In what city or county are you looking for vaccinations?"
+
+txt-footerRemind1: "The above is all the vaccine appointment information you have requested."
+txt-footerRemind2: "Remember to wear a mask when you go out!"
+txt-footerRemind3: "Are there other medical institutions that accept self appointments?"
+
+txt-footerReport: "Report"

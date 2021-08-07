@@ -114,15 +114,15 @@ export default function VaccineInfo(props: {
       <div className="text-center my-5 pt-5">
         <h2>😷</h2>
         <p>
-          以上就是所有您所要求的疫苗預約資訊，
+          {t('txt-footerRemind1')}
           <br />
-          出去要記得配戴口罩喔！
+          {t('txt-footerRemind2')}
         </p>
         <p>
-          還有其他有接受自主預約的醫療院所嗎？
+          {t('txt-footerRemind3')}
           <br />
           <br />
-          <a href="https://airtable.com/shr3sBRtRraL5aehl" className="btn btn-primary px-5" target="_blank" rel="noreferrer">點此回報</a>
+          <a href="https://airtable.com/shr3sBRtRraL5aehl" className="btn btn-primary px-5" target="_blank" rel="noreferrer">{t('txt-footerReport')}</a>
         </p>
       </div>
     </div>
