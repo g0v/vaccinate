@@ -1,8 +1,8 @@
-# 謝謝
-Vaxx.tw 是一個為了協助尋找自費疫苗名額的網站。因為政府即將開發官方統一名額預約系統，我們暫停了本網站的服務。
+# 謝謝所有參與 vaxx 2.0 開發的貢獻者
+本專案的成功搭建於 vaxx.tw 1.0（前版本）的基礎之上。以下貢獻者名單以開頭英文字母排序。
 
-# Thank You
-Vaxx.tw was created to help people look for self-paid vaccination appointments. The government is rolling out their own vaccination appointment system soon, so this project is currently on hiatus.
+# Thank you to all vaxx.tw contributors.
+Contributors are listed in alphabetical order. 
 
 ## Credits
 
@@ -11,62 +11,99 @@ This project is run by volunteers in the [g0v.tw civic hacker network](https://g
 ### Get Involved
 Join the g0v Slack [here](https://join.g0v.tw) and join the conversation in #vaccine
 
+---
+
 ## Translations/Content-Design
 It is important that we serve everyone who lives in Taiwan. These are people who contributed to translations and designed site content
 
 ### English
-* Sam Robbins
 * [Kevin Liao](http://liaokev.in)
+* Sam Robbins
 
 ### Mandarin
+* [hyww](https://github.com/hyww)
 * [i-liszt](https://github.com/i-liszt)
+* [Kevin Liao](http://liaokev.in)
 * [Kuang-che Wu](https://github.com/kcwu)
 * [Li-heng Yu](https://github.com/seadog007)
-* [hyww](https://github.com/hyww)
-* [Kevin Liao](http://liaokev.in)
 
 ### Bahasa
 
+* Andre Maure
 * Dakota Pekerti
 * Jonathan Afendy
-* Andre Maure
 
 ### Japanese
 *In cooperation with [Code for Japan](https://www.code4japan.org/)*
 
-* [Kazuki Imamura](https://github.com/kaizumaki)
-* [Yu-Cheng Chuang](https://github.com/yorkxin)
-* [Miley](https://github.com/mamisada)
-* [Takafumi Kobayashi](https://github.com/takafumikobayashi)
-* [Naoki Inoue](https://github.com/Naokii-i)
 * [JQingLong](https://github.com/jqinglong) 
-
+* [Kazuki Imamura](https://github.com/kaizumaki)
+* [Miley](https://github.com/mamisada)
+* [Naoki Inoue](https://github.com/Naokii-i)
+* [Takafumi Kobayashi](https://github.com/takafumikobayashi)
+* [Yu-Cheng Chuang](https://github.com/yorkxin)
 
 ### Tagalog
 *  [Marge Consunji](https://github.com/msunji) 
+
+### Vietnamese
+* Flora Huang
+* Piano
+
+### Français
+* Julien Saint-Sevin
+
+### Deutsch
+* hkazami
+
+---
+
+## Information gathering
+* ggm
+* Lydia
+* piano
+* ronnywang
+* [Sean Gau](https://github.com/seangau)
+* SL
+
+---
 
 ## Engineering
 ### Frontend
 * [i-liszt](https://github.com/i-liszt)
 * [Kevin Liao](http://liaokev.in)
+* [Sean Gau](https://github.com/seangau)
 
 ### Backend/Data Processing
 
-* [Yao Wei](https://github.com/medicalwei)
 * [Felix Shai](https://github.com/felixshai)
 * [formosacowboy](https://github.com/formosacowboy)
 * [Kevin Liao](http://liaokev.in)
+* [Yao Wei](https://github.com/medicalwei)
 * [Yu-Cheng Chuang](https://github.com/yorkxin)
 
+---
+
 ## Project Management/Design
-* [Kevin Liao](http://liaokev.in)
 * ael
 * ichieh
+* [Kevin Liao](http://liaokev.in)
 * kiang
-* 陳霈歆 
+* Lydia
+* SL
+* Tofus (Terry)
 * yuting
 * zyan
+* 陳霈歆 
+
+---
+
+## Viability feedback
+* teemo
+* yoyoW
+
+---
 
 ## Inspiration
-* [Turbovax](http://turbovax.info): A civic hacker project to source vaccine appointments in New York City. 
 * [gov.uk Vaccination Guidelines](https://www.nhs.uk/conditions/coronavirus-covid-19/coronavirus-vaccination/coronavirus-vaccine/): Inspired us to translate Taiwan's vaccination guidelines to plain-language. 
+* [Turbovax](http://turbovax.info): A civic hacker project to source vaccine appointments in New York City. 
